@@ -1,0 +1,16 @@
+{
+  "name": "hack-roadmap-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trang web học lộ trình hack game — 12 tuần nền tảng + 16 tuần chính",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "serve": "node server.js",
+    "start": "node build.js && node server.js"
+  },
+  "dependencies": {
+    "highlight.js": "^11.12.0",
+    "marked": "^18.1.2"
+  }
+}

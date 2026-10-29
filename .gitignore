@@ -1,0 +1,9 @@
+web/node_modules/
+_shots/
+_cdp-profile*/
+__pycache__/
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
