@@ -1238,7 +1238,7 @@ Gặp mấy thứ này, chi phí vượt lợi ích cho người học. Chọn g
 | 15 | Project | Một feature end-to-end |
 | 16 | Hoàn thiện | 3 feature + README + video |
 
-**Trạng thái kiểm chứng:** các lệnh và code mẫu trong tài liệu này là khung tham chiếu, được viết theo API ổn định của Android/NDK/Frida/Ghidra tại thời điểm biên soạn. Chưa được build trong môi trường của mày. Trước khi dùng, kiểm tra phiên bản tool và log lỗi thực tế — đừng tin code mẫu hơn log.
+**Trạng thái kiểm chứng:** các lệnh và code mẫu trong tài liệu này là khung tham chiếu, viết theo API ổn định của Android/NDK/Frida/Ghidra tại thời điểm biên soạn. Đã kiểm tra cú pháp toàn bộ đoạn JavaScript Frida bằng `node --check`; **chưa build APK/`.so` và chưa chạy end-to-end trên thiết bị thật**. Máy lab, app mẫu và phiên bản tool khác nhau cho kết quả khác nhau — trước khi dùng, kiểm tra phiên bản tool và log lỗi thực tế. Đừng tin code mẫu hơn log.
 
 ---
 

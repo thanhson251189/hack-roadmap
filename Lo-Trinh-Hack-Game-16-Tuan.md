@@ -887,6 +887,7 @@ dealloc(newmem)
 #include <tlhelp32.h>
 #include <iostream>
 #include <cstddef>
+#include <cstdint>          // uint32_t/uintptr_t — không dựa vào include gián tiếp
 #pragma comment(lib, "user32.lib")   // chỉ cần khi build bằng cl; VS project có sẵn
 
 // player.h — xuất từ ReClass.NET ở tuần 3, đã đặt tên field. Nội dung thật
@@ -980,13 +981,17 @@ int main() {
     int ammo = 999;
 
     std::cout << "F1 = infinite ammo, F2 = exit\n";
-    // Bit 0 (0x0001) chỉ set khi phím được nhấn TRONG LÚC gọi hàm, nên dễ hụt
-    // vì loop Sleep(50). Bit 15 (0x8000) là "đang giữ phím" -> ổn định.
+    // Bit 15 (0x8000) = phím đang được giữ. Nhưng nếu dùng nó trực tiếp trong
+    // loop Sleep(50), GIỮ F1 sẽ ghi + in log 20 lần/giây. Latch lại để chỉ
+    // chạy đúng lúc phím chuyển từ nhả -> nhấn (edge trigger).
+    bool f1Held = false;
     while (true) {
-        if (GetAsyncKeyState(VK_F1) & 0x8000) {
+        bool f1Down = (GetAsyncKeyState(VK_F1) & 0x8000) != 0;
+        if (f1Down && !f1Held) {
             WriteProcessMemory(h, (LPVOID)ammoAddr, &ammo, sizeof(ammo), nullptr);
             std::cout << "ammo set to 999\n";
         }
+        f1Held = f1Down;
         if (GetAsyncKeyState(VK_F2) & 0x8000) break;
         Sleep(50);
     }
@@ -1103,8 +1108,9 @@ int main(int argc, char** argv) {
         std::cout << "thread ran, but DLL did NOT load — wrong bit? missing dependency? path?\n";
         return 1;
     }
-    // exitCode là HMODULE bị cắt còn 32 bit. Chỉ dùng làm cờ thành công;
-    // với target 64-bit, đừng dùng con số này làm địa chỉ.
+    // GetExitCodeThread trả DWORD (32 bit), còn HMODULE là con trỏ. Với target
+    // 32-bit, DWORD đó chính là HMODULE đầy đủ. Với target 64-bit, nó bị cắt —
+    // chỉ dùng làm cờ thành công (khác 0), tuyệt đối không dùng làm địa chỉ.
     std::cout << "injected, HMODULE = 0x" << std::hex << exitCode << "\n";
     return 0;
 }
@@ -1623,7 +1629,7 @@ Mỗi tuần, trước khi sang tuần sau, chạy bài này. Không qua đượ
 
 ### Trạng thái kiểm chứng của code mẫu
 
-Đã build bằng `cl` dòng lệnh (MSVC 14.51 / VS 2026), cả x64 lẫn x86, và chạy thử trên Windows (28/10/2026). Đây là kết quả trên máy mình — mày nên chạy lại trên máy mày, nhất là nếu dùng MinGW (hành vi linker khác MSVC):
+Đã build bằng `cl` dòng lệnh (MSVC 14.51 / VS 2026), cả x64 lẫn x86, và chạy thử trên Windows (lần cuối 29/10/2026). Đây là kết quả trên máy mình — mày nên chạy lại trên máy mày, nhất là nếu dùng MinGW (hành vi linker khác MSVC):
 
 | Mẫu | x64 | x86 | Chạy thử |
 |---|---|---|---|
