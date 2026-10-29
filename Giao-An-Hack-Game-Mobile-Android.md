@@ -76,7 +76,7 @@ Một APK mod cho **app/game do mày tự build hoặc game open-source**, có:
 
 **Về thời gian:** 16 tuần × 12–15h là **190–240 giờ**. Thực tế phần lớn người đi hết trong **5–7 tháng**, vì tuần 10–11 phụ thuộc vào việc mày có tìm được app mẫu phù hợp hay không.
 
-**Hai lộ trình song song:** tài liệu này là **nhánh Android**. Nhánh PC (trainer, ESP, overlay) nằm ở tài liệu 16 tuần chính. Tuần 1–5 của hai nhánh tương đương nhau — chọn một nhánh và đi hết, đừng học cả hai cùng lúc.
+**Hai lộ trình song song:** tài liệu này là **nhánh Android**. Nhánh PC (trainer, ESP, overlay) nằm ở tài liệu 16 tuần chính. **Tuần 1–5 của hai nhánh song song về độ khó nhưng khác nội dung** — nhánh PC dùng Cheat Engine/x64dbg/crackme, nhánh này dùng Android/GameGuardian/Ghidra ARM64. Chọn một nhánh và đi hết; đừng học cả hai cùng lúc, và đừng lấy bài nhánh này thay bài nhánh kia.
 
 ---
 
@@ -148,6 +148,8 @@ Chạy hết các lệnh sau trước khi học tuần 1:
 ---
 
 ## Giáo án chi tiết tuần 1
+
+> **Tuần 1 nặng hơn phần còn lại vì gom 3 mảng: C, Java, Android app.** Nếu mày chưa từng viết Java hoặc chưa từng build app Android, đừng cố nhồi đủ 5 buổi trong 7 ngày — kéo tuần 1 thành 10–14 ngày, hoặc dời buổi 5 (app Wallet) sang đầu tuần 2. Mốc thật của tuần 1 là **build và cài được app + đọc được log**, không phải "học xong C".
 
 ### Mục tiêu tuần
 
@@ -515,7 +517,8 @@ Patch `isPremium()` trả về luôn `true`:
 - Kiến trúc Frida: client trên PC, `frida-server` trên máy (cần root) hoặc gadget nhúng trong APK.
 - `frida-ps -U`, `frida -U -f <package> -l script.js`, attach vs spawn.
 - Java API: `Java.perform`, `Java.use`, `.overload()`, `.implementation`, `Java.choose`, `Java.enumerateLoadedClasses`.
-- Native API: `Module.findBaseAddress`, `Module.enumerateExports`, `Interceptor.attach`, `onEnter`/`onLeave`, `this.context.x0`, `retval.replace`.
+- Native API: `Process.getModuleByName('libx.so').base`, `.getExportByName('name')`, `.enumerateExports()`, `Interceptor.attach`, `onEnter`/`onLeave`, `this.context.x0`, `retval.replace`.
+- **Frida 17+ (5/2025) đã bỏ static API của `Module`**: `Module.findBaseAddress`, `Module.findExportByName`, `Module.enumerateExports` không còn. Script theo kiểu cũ chỉ chạy trên ≤ 16.x — đừng copy từ blog cũ mà không xem phiên bản.
 - `Memory.scan` tìm pattern; `Stalker` trace (nâng cao).
 
 **Thực hành:**
@@ -523,8 +526,9 @@ Patch `isPremium()` trả về luôn `true`:
 ```javascript
 Java.perform(() => {
   const Wallet = Java.use('com.example.wallet.Wallet');
-  Wallet.getGold.implementation = function () {
-    const real = this.getGold();
+  // .overload() bắt buộc khi hàm có overload; .call(this) là cách gọi bản gốc.
+  Wallet.getGold.overload().implementation = function () {
+    const real = Wallet.getGold.overload().call(this);
     console.log('[hook] gold thật =', real);
     return 999999;
   };
@@ -532,13 +536,14 @@ Java.perform(() => {
 ```
 
 ```javascript
-const base = Module.findBaseAddress('libwallet.so');
-const fn = base.add(0x1234); // offset lấy từ tuần 8
+// Frida 17+: lấy module qua Process, không dùng Module.findBaseAddress.
+const mod = Process.getModuleByName('libwallet.so');
+const fn = mod.base.add(0x1234); // offset lấy từ tuần 8
 Interceptor.attach(fn, {
   onEnter(args) { console.log('[native] enter'); },
   onLeave(retval) {
     console.log('[native] ret =', retval.toInt32());
-    retval.replace(ptr(999999));
+    retval.replace(ptr(999999));   // trả int64/pointer: luôn bọc ptr()
   },
 });
 ```
@@ -708,7 +713,7 @@ extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM*, void*) {
 
 | Hạng mục | Mẫu |
 |----------|-----|
-| Android | 10, 12, 14, 15 |
+| Android | 12, 14, 15, **16** (nếu có thiết bị/emulator; 16 bật kiểm tra 16 KB page size) |
 | ABI | arm64 thật, x86_64 emulator |
 | Cài đặt | clean install, upgrade, gỡ cài lại |
 | Định dạng | APK đơn, split, có OBB |
@@ -991,8 +996,8 @@ readelf -l libwallet.so | grep LOAD
 ```javascript
 Java.perform(() => {
   const Wallet = Java.use('com.example.wallet.Wallet');
-  Wallet.getGold.implementation = function () {
-    const real = this.getGold();
+  Wallet.getGold.overload().implementation = function () {
+    const real = Wallet.getGold.overload().call(this);
     console.log('[java] gold thật =', real);
     return 999999;
   };
@@ -1000,8 +1005,9 @@ Java.perform(() => {
 ```
 
 ```javascript
-const base = Module.findBaseAddress('libwallet.so');
-const fn = base.add(0x1234); // thay bằng offset thật
+// Frida 17+ — không còn Module.findBaseAddress / findExportByName.
+const mod = Process.getModuleByName('libwallet.so');
+const fn = mod.base.add(0x1234); // thay bằng offset thật
 
 Interceptor.attach(fn, {
   onEnter(args) {
@@ -1031,8 +1037,9 @@ public int get_Gold() { }
 Hook:
 
 ```javascript
-const base = Module.findBaseAddress('libil2cpp.so');
-Interceptor.attach(base.add(0x1A2B3C), {
+// Frida 17+; offset RVA lấy từ dump.cs
+const mod = Process.getModuleByName('libil2cpp.so');
+Interceptor.attach(mod.base.add(0x1A2B3C), {
   onLeave(retval) {
     retval.replace(ptr(999999));
   },

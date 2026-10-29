@@ -2,7 +2,7 @@
 
 > Dành cho người **chưa từng viết dòng code nào**.
 > File này không dạy hack game. Nó đưa mày từ zero tới **vạch xuất phát** của `Lo-Trinh-Hack-Game-16-Tuan.md`.
-> 12 tuần lõi + 2 tuần đệm, 10–12h/tuần. Xong thì mở file 16 tuần ở tuần 1 như bài ôn, rồi đi tiếp.
+> 12 tuần lõi + 3 tuần đệm (sau tuần 4, 8, 12), 10–12h/tuần. Xong thì mở file 16 tuần ở tuần 1 như bài ôn, rồi đi tiếp.
 
 Nếu mày đã viết được chương trình C có con trỏ, struct, `malloc` và đọc được lỗi compile một mình — đừng đọc file này. Vào thẳng file 16 tuần.
 
@@ -559,6 +559,15 @@ int main(void) {
 
 Khi thoát, nếu có leak, Visual Studio in report ở Output window. Đọc dòng `Detected memory leaks!` và địa chỉ cấp phát.
 
+- **ASan bắt lỗi ngay tại dòng gây lỗi**, không đợi tới lúc thoát: overflow, use-after-free, double free. MSVC 2019+ có `/fsanitize=address`; GCC/Clang dùng `-fsanitize=address -g`.
+
+```bash
+cl /Zi /fsanitize=address /W4 memory_demo.c
+gcc -g -fsanitize=address -Wall -Wextra memory_demo.c -o memory_demo
+```
+
+- Bật **`/W4`** (MSVC) hoặc **`-Wall -Wextra`** (GCC/Clang) từ tuần này. Đừng tắt cảnh báo cho sạch màn hình — mỗi cảnh báo là một giả thuyết về bug.
+
 ### Code mẫu
 
 ```c
@@ -839,7 +848,7 @@ Viết từ file trống:
 
 Khi qua bài kiểm tra bàn giao:
 
-1. Đọc hai chương cuối của file 16 tuần: **"32-bit và 64-bit"** và **"bẫy địa chỉ tĩnh/động"**. Chỉ đọc hiểu khái niệm, chưa cần làm gì.
+1. Đọc mục **"Đọc trước khi bắt đầu — hai cái bẫy"** của file 16 tuần: **Bẫy 1 (32-bit hay 64-bit)** và **Bẫy 2 (địa chỉ tĩnh và động)**. Muốn đọc kỹ hơn thì xem thêm mục **"Giải thích sâu: 32-bit và 64-bit"**. Chỉ đọc hiểu khái niệm, chưa cần làm gì.
 2. Mở file 16 tuần ở **tuần 1**. Với mày, tuần 1 bây giờ là **bài ôn một buổi**: đọc lại, làm bài tập, nếu giải thích được hết thì đi tiếp. Không cần học lại 5 buổi.
 3. Sang **tuần 2**, cài Cheat Engine. Từ đây mới bắt đầu phần hack game thật.
 4. Nhánh PC/Mobile chọn theo file 16 tuần. Với người mới, khuyến nghị **nhánh PC, target AssaultCube** — offline, 32-bit, tài liệu nhiều.
@@ -847,7 +856,7 @@ Khi qua bài kiểm tra bàn giao:
 
 **Lưu ý nhỏ:** file 16 tuần có câu `gcc memory_demo.c -o memory_demo`. Nếu mày dùng Visual Studio, tạo project và thêm file `.c` là tương đương. Nếu dùng MSYS2/gcc thì lệnh đó chạy đúng. Code C trong hai file là code C chuẩn, không phụ thuộc IDE.
 
-**Thời gian thực tế sau bàn giao:** 12 tuần lõi + 2–6 tuần đệm cho giai đoạn này, rồi 16 tuần của file kia thường kéo dài 5–7 tháng với người mới. Tổng cộng khoảng **8–12 tháng** ở 10–12h/tuần. Đó là con số thật, không phải con số marketing.
+**Thời gian thực tế sau bàn giao:** 12 tuần lõi + 3 tuần đệm cho giai đoạn này, rồi 16 tuần của file kia thường kéo dài 5–7 tháng với người mới. Tổng cộng khoảng **8–12 tháng** ở 10–12h/tuần. Đó là con số thật, không phải con số marketing.
 
 ---
 

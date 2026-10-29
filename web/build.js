@@ -306,7 +306,7 @@ function buildDoc(doc) {
       id: sectionId,
       title: sectionTitle,
       level: 2,
-      text: plainText(part.slice(match[0].length)).slice(0, 6000),
+      text: plainText(part.slice(match[0].length)).slice(0, 20000),
       html: sectionHtml,
     });
 
@@ -320,7 +320,7 @@ function buildDoc(doc) {
         title: subMeta ? subMeta.text : plainText(subMatch[2]),
         level: 3,
         parent: sectionId,
-        text: plainText(subParts[i].slice(subMatch[0].length)).slice(0, 4000),
+        text: plainText(subParts[i].slice(subMatch[0].length)).slice(0, 20000),
       });
     }
   }

@@ -47,25 +47,24 @@
 
 **Về thời gian:** 16 tuần × 12–15h là **190–240 giờ**. Đó là mức tối thiểu để đi hết lộ trình, không phải mức trung bình. Thực tế phần lớn người đi hết trong 5–6 tháng, và ba tuần 9, 10, 12 thường kéo dài gấp rưỡi. Con số 16 tuần để mày có mốc, không phải để tự trách khi trượt.
 
-**Về bảng trên:** tuần 11–13 chỉ bắt buộc với nhánh Mobile. Nhánh PC bỏ qua và quay lại sau như một khóa riêng — xem mục "Rẽ nhánh" ngay dưới.
+**Về bảng trên:** tuần 11–13 chỉ bắt buộc với nhánh Mobile. Nhánh PC bỏ qua và quay lại sau như một khóa riêng — xem mục "Rẽ nhánh" ngay dưới. Nếu chọn mobile, **dùng giáo án "Hack Game Mobile Android" làm nguồn chính**; tuần 11–13 ở đây chỉ là bản tóm tắt, không đủ để làm mod menu phát hành được.
 
 ## Rẽ nhánh: PC hay Mobile — quyết trước khi bắt đầu
 
-Tuần 1–5 là nền chung cho cả hai nhánh. Từ tuần 6 hai bên tách nhau, nên **đọc mục này trước khi bắt đầu** — đừng để đến tuần 10 mới phát hiện mình không cần làm tuần 6–10.
+Hai nhánh có tuần 1–5 **song song về độ khó nhưng khác nội dung**: nhánh PC dùng Cheat Engine, x64dbg, crackme; nhánh Mobile dùng Android, GameGuardian, Ghidra ARM64. Quyết nhánh trước rồi học tuần 1–5 theo đúng nhánh — đừng học cả hai, và đừng tưởng bài của nhánh này thay được bài của nhánh kia.
 
 **Nhánh A — PC (trainer, ESP, game PC):**
-- Đi đủ tuần 1–10.
+- Đi đủ tuần 1–10 của tài liệu này.
 - Bỏ tuần 11–13. Sang thẳng **tuần 14, hướng A** (Unity IL2CPP / Unreal) → **tuần 15–16**.
 - Đọc lướt phần "Native lib căn bản" của tuần 12 để hiểu module/hook native là gì — không cần làm bài Android.
 - Tuần 11–13 để sau, khi thật sự cần mobile.
 
 **Nhánh B — Mobile (mod game Android):**
-- Tuần 1–5 **vẫn bắt buộc** — bộ nhớ, con trỏ, asm, debug là kiến thức chung, không có bản mobile riêng.
-- Tuần 6–8 (WinAPI, trainer, DLL): đọc để hiểu khái niệm, **không cần làm bài** — mobile không dùng Win32.
-- Tuần 9: hiểu cơ chế hook và calling convention ở mức khái niệm; bỏ bài `CreateFileW`.
-- Tuần 10: bỏ (overlay và toán 3D là chuyện của PC). Nhảy sang **tuần 11 → 12 → 13**, rồi **tuần 15–16** với project mod menu.
+- **Nguồn chính là giáo án "Hack Game Mobile Android"** — đi tuần 1–16 của giáo án đó. Nó đã có phần nền riêng (C, Java, Android, GameGuardian, Ghidra ARM64), nên **không cần làm CE/x64dbg/crackme** của nhánh PC.
+- Tài liệu này chỉ dùng để tra khái niệm: tuần 3 (pointer chain), tuần 9 (cơ chế hook), tuần 12 (native hook) — đọc phần lý thuyết, bỏ bài tập PC.
+- Tuần 11–13 ở đây là bản tóm tắt; bản đầy đủ nằm trong giáo án Android.
 
-**Không được cắt ở cả hai nhánh:** tuần 3 (pointer chain + reboot test) và tuần 5 (crackme). Thiếu hai tuần đó thì nhánh nào cũng tắc — chỉ là tắc muộn hơn, lúc đã khó sửa hơn.
+**Không được cắt ở cả hai nhánh:** tuần 3 (pointer chain + reboot test) và bài RE cuối tuần 5 — crackme ở nhánh PC, Ghidra/ARM64 ở nhánh mobile. Thiếu hai phần đó thì nhánh nào cũng tắc — chỉ là tắc muộn hơn, lúc đã khó sửa hơn.
 
 > Ghi nhánh mày chọn vào đầu file ghi chú, kèm ngày. Sáu tháng sau mày sẽ không nhớ vì sao mình bỏ tuần 11.
 
@@ -110,7 +109,7 @@ Cách biết game là loại nào: **Task Manager → Details → cột "Archite
 
 Hai thứ này khác nhau, và lý thuyết pointer chain chỉ áp dụng cho cái thứ hai.
 
-- **Địa chỉ tĩnh** — nằm trong module `.exe`/`.dll`, cộng base là ra, offset không đổi qua các lần chạy. AssaultCube có **con trỏ tới local player** ở `ac_client.exe + 0x10F1A4`; cái con trỏ đó là static nên hardcode được. Nhưng struct player mà nó trỏ tới nằm trên **heap** — HP/ammo là field bên trong, phải đọc qua con trỏ, đừng cộng offset vào base.
+- **Địa chỉ tĩnh** — nằm trong module `.exe`/`.dll`, cộng base là ra, offset không đổi qua các lần chạy. AssaultCube 1.2.0.2 có **con trỏ tới local player** ở `ac_client.exe + 0x10F4F4`; cái con trỏ đó là static nên hardcode được. Nhưng struct player mà nó trỏ tới nằm trên **heap** — HP/ammo là field bên trong, phải đọc qua con trỏ, đừng cộng offset vào base.
 - **Địa chỉ động** — nằm trên heap, do game cấp phát lúc runtime. Vị trí đổi mỗi lần chạy vì **ASLR** + cấp phát động. Đây mới là chỗ cần pointer chain.
 
 Bài học: nếu mày tìm được một giá trị mà **restart game vẫn còn đúng sau khi cộng base** → nó là static, đừng làm phức tạp. Nếu restart là hỏng → mày phải tìm pointer chain. Đừng học thuộc "luôn phải dùng pointer chain" — đó là tư duy sai, và nó làm mày bỏ hàng giờ cho một bài toán không tồn tại.
@@ -606,11 +605,13 @@ Tuần 1 chỉ dạy C, nhưng tuần 7 viết trainer bằng C++/WinAPI. Khoả
 
 ### Điểm rẽ nhánh (đã quyết ở phần Tổng quan)
 
-Nhánh A: sang **tuần 14** hướng A → 15–16. Nhánh B: **tuần 11 → 12 → 13** → 15–16. Điều kiện và phần bỏ lại ở mục "Rẽ nhánh" trong Tổng quan — nếu chưa chọn thì chọn bây giờ, đừng đi tiếp rồi mới đọc.
+Nhánh A: sang **tuần 14** hướng A → 15–16. Nhánh B: **tuần 11 → 12 → 13** ở đây chỉ là bản tóm tắt — học song song bản đầy đủ trong giáo án **"Hack Game Mobile Android"** → 15–16. Điều kiện và phần bỏ lại ở mục "Rẽ nhánh" trong Tổng quan — nếu chưa chọn thì chọn bây giờ, đừng đi tiếp rồi mới đọc.
 
 ---
 
 ### Tuần 11 — Android: môi trường, GameGuardian, Frida Java
+
+> **Tuần 11–13 ở đây là bản khung.** Bản đầy đủ — từng lệnh `adb`, patch smali, patch ARM64, IL2CPP, mod menu — nằm trong giáo án **"Hack Game Mobile Android"** (cùng thư mục). Nếu đi nhánh mobile, đọc giáo án đó song song và dùng nó làm nguồn chính.
 
 **Mục tiêu:** dựng được môi trường android và hook được hàm Java.
 
@@ -837,7 +838,12 @@ Ví dụ dưới đây **minh hoạ cơ chế, không phải byte thật của A
 // thuộc nó, chỉ để chữ ký dài và đặc trưng hơn, tránh khớp nhầm chỗ khác.
 aobscanmodule(ammoDec, ac_client.exe, FF 0E 8B 45 08 ?? ?? ??)
 assert(ammoDec, FF 0E)      // không khớp thì CE báo lỗi, không ghi bừa
-alloc(newmem, 128)
+// tham số thứ 3 = "near": buộc newmem nằm trong ±2GB để jmp rel32 với tới.
+// Không có nó, CE có thể cấp newmem xa hơn tầm nhảy -> enable là crash.
+alloc(newmem, 128, ammoDec)
+// đăng ký ammoDec làm symbol toàn cục: cần nếu mày muốn dùng địa chỉ này
+// trong address list / script khác, và để [DISABLE] giải phóng đúng thứ.
+registersymbol(ammoDec)
 label(returnhere)
 
 newmem:
@@ -858,6 +864,7 @@ ammoDec:
   // assemble lại lệnh gốc, KHÔNG dùng db với ??
   dec [esi]
   mov eax,[ebp+08]
+unregistersymbol(ammoDec)
 dealloc(newmem)
 ```
 
@@ -939,21 +946,22 @@ int main() {
     uintptr_t base = GetModuleBase(pid, "ac_client.exe");
     std::cout << "base = 0x" << std::hex << base << "\n";
 
-    // Ở AssaultCube, base + 0x10F1A4 là con trỏ TỚI local player entity (static).
+    // Ở AssaultCube 1.2.0.2, base + 0x10F4F4 là con trỏ TỚI local player entity (static).
     // ammo KHÔNG nằm ở đó — nó là một field bên trong struct player trên heap.
     // Nên phải đọc 2 tầng: đọc con trỏ trước, rồi cộng offset của field.
-    // (offset 0x10F1A4 phụ thuộc phiên bản game — tự tìm lại bằng CE.)
-    uintptr_t playerPtrAddr = base + 0x10F1A4;
+    // (offset 0x10F4F4 phụ thuộc phiên bản game — tự tìm lại bằng CE.)
+    uintptr_t playerPtrAddr = base + 0x10F4F4;
 
-    // Nếu build x64 mà đọc game 32-bit: con trỏ trong target chỉ 4 byte.
-    // uintptr_t (8 byte) ở đây sẽ đọc lẫn 4 byte rác phía sau -> địa chỉ sai.
-    // Trường hợp đó dùng uint32_t player; ReadProcessMemory(..., &player, 4, ...).
-    uintptr_t player = 0;
-    if (!ReadProcessMemory(h, (LPCVOID)playerPtrAddr, &player, sizeof(player), nullptr)) {
+    // Độ rộng con trỏ do TARGET quyết định, không do trainer. Game 32-bit thì
+    // con trỏ trong target luôn 4 byte, kể cả khi trainer build x64 — đọc
+    // bằng uintptr_t (8 byte trên x64) sẽ lẫn 4 byte rác phía sau.
+    uint32_t player32 = 0;
+    if (!ReadProcessMemory(h, (LPCVOID)playerPtrAddr, &player32, sizeof(player32), nullptr)) {
         std::cout << "read player ptr failed, error = " << GetLastError() << "\n";
         CloseHandle(h);
         return 1;
     }
+    uintptr_t player = player32;   // nâng lên size_t để cộng offset/địa chỉ
     std::cout << "player entity = 0x" << std::hex << player << "\n";
 
     // Đọc nguyên khối struct một lần, thay vì cộng từng offset bằng tay.
@@ -972,12 +980,14 @@ int main() {
     int ammo = 999;
 
     std::cout << "F1 = infinite ammo, F2 = exit\n";
+    // Bit 0 (0x0001) chỉ set khi phím được nhấn TRONG LÚC gọi hàm, nên dễ hụt
+    // vì loop Sleep(50). Bit 15 (0x8000) là "đang giữ phím" -> ổn định.
     while (true) {
-        if (GetAsyncKeyState(VK_F1) & 1) {
+        if (GetAsyncKeyState(VK_F1) & 0x8000) {
             WriteProcessMemory(h, (LPVOID)ammoAddr, &ammo, sizeof(ammo), nullptr);
             std::cout << "ammo set to 999\n";
         }
-        if (GetAsyncKeyState(VK_F2) & 1) break;
+        if (GetAsyncKeyState(VK_F2) & 0x8000) break;
         Sleep(50);
     }
     CloseHandle(h);
@@ -1143,10 +1153,15 @@ DWORD WINAPI MainThread(LPVOID param) {
     // Giữ thread sống. Return ngay thì thread chết nhưng hook vẫn còn — và
     // mày không có chỗ nào để gỡ. Đây là lý do bài verify #5 (bật/tắt 20 lần)
     // cần một vòng lặp như thế này.
-    while (!(GetAsyncKeyState(VK_END) & 1)) Sleep(50);
+    // 0x8000 = phím đang được giữ. Dùng & 1 thì với Sleep(50) mày dễ bấm hụt.
+    while (!(GetAsyncKeyState(VK_END) & 0x8000)) Sleep(50);
 
     MH_DisableHook(MH_ALL_HOOKS);        // gỡ hook TRƯỚC khi DLL bị unload
     MH_Uninitialize();                   // giải phóng trampoline
+    // Cho các thread khác đang chạy dở trong trampoline thoát ra trước khi
+    // unmap DLL. Không có bước này, unload đúng lúc thread khác đang trong
+    // hook -> crash ngẫu nhiên, rất khó tái hiện.
+    Sleep(100);
     FreeLibraryAndExitThread(hSelf, 0);  // gỡ DLL khỏi process đích, không trả về
 }
 
@@ -1197,7 +1212,7 @@ Prototype phải đủ **7 tham số** và đúng thứ tự; sai một cái là
 
 Đăng ký hook thì thay dòng `MessageBoxA` trong `MainThread` ở trên bằng: `MH_CreateHook(&CreateFileW, &hookedCreateFileW, (LPVOID*)&origCreateFileW)`.
 
-**Về trampoline:** MinHook ghi 5 byte đầu hàm đích thành `jmp`. Nhưng nó **tự copy** các byte bị đè sang một vùng nhớ khác (gọi là trampoline) và `origMessageBoxA` trỏ vào đó. Đó là lý do mày gọi `origMessageBoxA` vẫn ra hành vi gốc. Hàm đích cần ít nhất 5 byte để đè — hàm quá ngắn (dưới 5 byte, hoặc kết thúc bằng `ret` sớm) sẽ không hook được, MinHook trả `MH_ERROR_...`.
+**Về trampoline:** MinHook ghi 5 byte đầu hàm đích thành `jmp`. Nhưng nó **tự copy** các byte bị đè sang một vùng nhớ khác (gọi là trampoline) và `origMessageBoxA` trỏ vào đó. Đó là lý do mày gọi `origMessageBoxA` vẫn ra hành vi gốc. Hàm đích cần đủ chỗ để đè (thường ≥ 5 byte, hoặc vài lệnh liền nhau đủ dài); nếu MinHook không dựng được trampoline — gặp lệnh lạ, hàm quá ngắn — `MH_CreateHook` trả **`MH_ERROR_UNSUPPORTED_FUNCTION`**. Đừng bỏ qua return code: in `(int)status` hoặc `switch` trên `MH_STATUS` để biết nó fail ở đâu.
 
 ---
 
@@ -1207,14 +1222,16 @@ Prototype phải đủ **7 tham số** và đúng thứ tự; sai một cái là
 Java.perform(function() {
     var MainActivity = Java.use("com.game.MainActivity");
 
-    // .overload() là BẮT BUỘC khi hàm có overload.
-    // game thật gần như luôn overload -> thiếu nó là lỗi
-    // "cannot set property implementation".
+    // .overload() là BẮT BUỘC khi hàm có overload: thiếu nó Frida không biết
+    // chọn overload nào và ném "cannot set property implementation".
     // hàm có tham số: .overload("int", "java.lang.String")
     MainActivity.getGold.overload().implementation = function() {
-        // gọi bản gốc. ĐỪNG dùng this.getGold() — nó có thể gọi lại chính
-        // cái implementation này và đệ quy vô hạn cho tới khi tràn stack.
-        var real = MainActivity.getGold.call(this);
+        // Gọi bản gốc qua .call(this) — đây là API chính thức của
+        // frida-java-bridge để chuyển tiếp tới implementation gốc, không đi
+        // qua hook hiện tại. Đừng gọi MainActivity.getGold() trực tiếp: với
+        // hàm overloaded Frida ném "ambiguous overload", và đó cũng không
+        // phải đường chuyển tiếp chính thức.
+        var real = MainActivity.getGold.overload().call(this);
         console.log("getGold original = " + real);
         return 999999;
     };
@@ -1223,7 +1240,7 @@ Java.perform(function() {
 
 **Ba lỗi thường gặp khác của Frida trên mobile:**
 
-1. **hàm static** — gọi `MainActivity.getGold.call(MainActivity)` chứ không phải `this`, vì không có instance.
+1. **hàm static** — không có instance. Trong implementation, `this` là wrapper của class nên `MainActivity.getGold.overload().call(this)` vẫn đúng; gọi từ ngoài thì truyền `MainActivity` thay cho `this`.
 2. **class bị obfuscate** (proguard/R8) — tên `com.game.MainActivity` biến thành `a.b.c`. Dùng `Java.enumerateLoadedClasses` để tìm class thật, hoặc `Java.choose`.
 3. **frida-server chưa đúng kiến trúc** — máy arm64 phải dùng `frida-server-arm64`, x86 phải dùng bản x86. Sai là "unable to connect".
 
@@ -1606,7 +1623,7 @@ Mỗi tuần, trước khi sang tuần sau, chạy bài này. Không qua đượ
 
 ### Trạng thái kiểm chứng của code mẫu
 
-Đã build bằng `cl` dòng lệnh (MSVC 14.51 / VS 2026), cả x64 lẫn x86, và chạy thử trên Windows (28/10/2026). Đây là kết quả trên máy mình — máy bạn nên chạy lại, nhất là nếu dùng MinGW (hành vi linker khác MSVC):
+Đã build bằng `cl` dòng lệnh (MSVC 14.51 / VS 2026), cả x64 lẫn x86, và chạy thử trên Windows (28/10/2026). Đây là kết quả trên máy mình — mày nên chạy lại trên máy mày, nhất là nếu dùng MinGW (hành vi linker khác MSVC):
 
 | Mẫu | x64 | x86 | Chạy thử |
 |---|---|---|---|
