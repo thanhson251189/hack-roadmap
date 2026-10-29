@@ -1000,7 +1000,7 @@ body.has-sidebar .sidebar {
 
 .track-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 18px;
 }
 
@@ -1059,6 +1059,12 @@ body.has-sidebar .sidebar {
   --tc-line: rgba(255, 180, 92, 0.32);
 }
 
+.track-card.accent-violet {
+  --tc: #b7a4ff;
+  --tc-soft: rgba(183, 164, 255, 0.1);
+  --tc-line: rgba(183, 164, 255, 0.32);
+}
+
 [data-theme="light"] .track-card.accent-emerald {
   --tc: #0b8a4b;
   --tc-soft: rgba(11, 138, 75, 0.07);
@@ -1075,6 +1081,12 @@ body.has-sidebar .sidebar {
   --tc: #a95c05;
   --tc-soft: rgba(169, 92, 5, 0.07);
   --tc-line: rgba(169, 92, 5, 0.28);
+}
+
+[data-theme="light"] .track-card.accent-violet {
+  --tc: #6b4fd8;
+  --tc-soft: rgba(107, 79, 216, 0.07);
+  --tc-line: rgba(107, 79, 216, 0.28);
 }
 
 .track-top {
@@ -1247,7 +1259,7 @@ body.has-sidebar .sidebar {
 
 .jump-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 18px;
 }
 
@@ -2251,6 +2263,12 @@ body.has-sidebar .sidebar {
   background: rgba(255, 180, 92, 0.09);
 }
 
+.doc-badge.android {
+  color: #b7a4ff;
+  border-color: rgba(183, 164, 255, 0.3);
+  background: rgba(183, 164, 255, 0.09);
+}
+
 [data-theme="light"] .doc-badge.zero {
   color: #0b8a4b;
   border-color: rgba(11, 138, 75, 0.28);
@@ -2267,6 +2285,12 @@ body.has-sidebar .sidebar {
   color: #a95c05;
   border-color: rgba(169, 92, 5, 0.26);
   background: rgba(169, 92, 5, 0.07);
+}
+
+[data-theme="light"] .doc-badge.android {
+  color: #6b4fd8;
+  border-color: rgba(107, 79, 216, 0.26);
+  background: rgba(107, 79, 216, 0.07);
 }
 
 .search-result-title {

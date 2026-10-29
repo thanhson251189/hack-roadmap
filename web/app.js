@@ -406,8 +406,15 @@
 
     const zero = docById.get('zero');
     const hack16 = docById.get('hack16');
+    const android = docById.get('android');
+    const pathWeeks = zero
+      ? weekCount(zero) + Math.max(weekCount(hack16), android ? weekCount(android) : 0)
+      : 28;
     const zeroChips = zero.weeks.map((week) => `<a class="chip" href="#/doc/zero/${week.id}">${escapeHtml(week.label)}</a>`).join('');
     const hackChips = hack16.weeks.map((week) => `<a class="chip" href="#/doc/hack16/${week.id}">${escapeHtml(week.label)}</a>`).join('');
+    const androidChips = android
+      ? android.weeks.map((week) => `<a class="chip" href="#/doc/android/${week.id}">${escapeHtml(week.label)}</a>`).join('')
+      : '';
 
     return `
       <div class="home">
@@ -415,11 +422,11 @@
           <div class="hero-copy">
             <span class="hero-eyebrow"><span class="pulse-dot"></span>Lộ trình tự học · cập nhật 10/2026</span>
             <h1>Từ <em>con số 0</em><br>đến bản mod đầu tiên.</h1>
-            <p class="hero-lede">Ba tài liệu, một đường đi: 12 tuần học nền tảng lập trình, rồi 16 tuần đi vào hack game — Cheat Engine, reverse engineering, trainer C++, hook và mod Android. Không nhảy tầng, không học vẹt.</p>
+            <p class="hero-lede">Bốn tài liệu, hai nhánh: 12 tuần học nền tảng lập trình, rồi chọn PC (Cheat Engine, trainer, hook) hoặc Android (APK, smali, ARM64, mod menu) để làm bản mod đầu tiên. Không nhảy tầng, không học vẹt.</p>
             <div class="hero-actions">${primary}${secondary}</div>
             <ul class="hero-stats">
               <li><strong>${CONTENT.totals.docs}</strong><span>tài liệu</span></li>
-              <li><strong>28</strong><span>tuần</span></li>
+              <li><strong>${pathWeeks}</strong><span>tuần/nhánh</span></li>
               <li><strong>${overall.sections}</strong><span>mục lớn</span></li>
               <li><strong>${overall.tasksTotal}</strong><span>bài tập</span></li>
             </ul>
@@ -445,9 +452,9 @@
           <div class="section-head">
             <div>
               <h2>Tài liệu</h2>
-              <p>Đi theo thứ tự 01 → 02 → 03. Tài liệu 02 dùng song song với 01.</p>
+              <p>Đi 01 → 02, rồi chọn một nhánh: 03 cho PC hoặc 04 cho Android. Tài liệu 02 dùng song song với 01.</p>
             </div>
-            <span class="mono-link">3 tracks · 121 bài tập</span>
+            <span class="mono-link">${docs.length} tài liệu · ${overall.tasksTotal} bài tập</span>
           </div>
           <div class="track-grid">${trackCards}</div>
         </section>
@@ -456,7 +463,7 @@
           <div class="section-head">
             <div>
               <h2>Đường đi</h2>
-              <p>Ước tính 8–12 tháng nếu học 10–12 giờ mỗi tuần. Ba tuần 9, 10, 12 của lộ trình chính thường kéo dài gấp rưỡi.</p>
+              <p>Ước tính 8–12 tháng nếu học 10–12 giờ mỗi tuần. Nhánh PC nặng ở tuần 9, 10, 12; nhánh Android nặng ở tuần 8, 10, 11. Cứ cho mỗi tuần đó thêm 3–5 ngày.</p>
             </div>
           </div>
           <ol class="path">
@@ -465,8 +472,8 @@
               <p>C, kiểu dữ liệu, vòng lặp, mảng, con trỏ, struct, bộ nhớ, file nhị phân. Kết thúc bằng project <code>Player DB</code> và bài kiểm tra bàn giao.</p>
             </li>
             <li>
-              <h3>16 tuần chính</h3>
-              <p>Tuần 1–5 là nền chung. Từ tuần 6 rẽ nhánh PC hoặc Mobile. Tuần 7–10 là trainer, DLL, hook, overlay; tuần 11–13 là Android.</p>
+              <h3>16 tuần chuyên sâu</h3>
+              <p>Chọn một nhánh: PC (trainer, DLL, hook, ESP) hoặc Android (APK, smali, ARM64, IL2CPP, mod menu). Không học cả hai cùng lúc.</p>
             </li>
             <li>
               <h3>Project cuối khóa</h3>
@@ -489,9 +496,14 @@
               <div class="chips">${zeroChips}</div>
             </div>
             <div class="jump-panel">
-              <h3>16 tuần hack game</h3>
-              <p class="jump-sub">Từ Cheat Engine tới mod APK</p>
+              <h3>16 tuần hack game PC</h3>
+              <p class="jump-sub">Từ Cheat Engine tới trainer, hook, ESP</p>
               <div class="chips">${hackChips}</div>
+            </div>
+            <div class="jump-panel">
+              <h3>16 tuần Android</h3>
+              <p class="jump-sub">Từ APK, smali tới IL2CPP và mod menu</p>
+              <div class="chips">${androidChips}</div>
             </div>
           </div>
         </section>
