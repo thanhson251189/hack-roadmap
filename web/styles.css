@@ -829,6 +829,12 @@ body.has-sidebar .sidebar {
   pointer-events: none;
 }
 
+/* terminal is dark in both themes, so selection can't follow --text */
+.status-card ::selection {
+  background: rgba(70, 226, 140, 0.3);
+  color: #f3f8fb;
+}
+
 .status-head {
   display: flex;
   align-items: center;
