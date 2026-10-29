@@ -2,7 +2,7 @@
 
 > Nhánh Android của lộ trình: từ Java, adb, APK, smali đến ARM64, Frida, IL2CPP và mod menu native.
 > Mục tiêu cuối khóa: tự làm một APK mod có menu bật/tắt cho **game offline tự build hoặc open-source**, chạy ổn trên máy Android thật.
-> Tài liệu này thay thế nhánh PC (tuần 6–10 của lộ trình 16 tuần cũ) khi mục tiêu của bạn là mod game mobile.
+> Đây là **nhánh mobile độc lập, đủ 16 tuần** — dùng thay cho lộ trình PC khi mục tiêu của bạn là mod game mobile. Nó có nền riêng: tuần 1 ôn C/Java/Android, tuần 2–4 vào JNI, bộ nhớ Android và Ghidra/ARM64; từ tuần 5 trở đi là APK, smali, `.so`, Frida và IL2CPP. Bạn không cần học Cheat Engine/x64dbg trước.
 
 ---
 
@@ -612,20 +612,27 @@ Interceptor.attach(fn, {
 ```cpp
 #include <jni.h>
 #include <pthread.h>
+#include <unistd.h>          // usleep
 #include <android/log.h>
 #include "dobby.h"
 
 static bool g_gold = false;
-static int (*orig_get_gold)(void*) = nullptr;
+// Hàm đích là JNI: x0 = JNIEnv*, x1 = jobject (this). Hook phải cùng ABI.
+// Nếu hook method C++ của IL2CPP (get_Gold) thì tham số đầu là `this`, không
+// phải JNIEnv* — xem lại chữ ký thật trong dump.cs/header.
+static int (*orig_get_gold)(JNIEnv*, jobject) = nullptr;
 
-static int hook_get_gold(void* self) {
+static int hook_get_gold(JNIEnv* env, jobject thiz) {
   if (g_gold) return 999999;
-  return orig_get_gold(self);
+  return orig_get_gold(env, thiz);
 }
 
 static void* menu_thread(void*) {
   // Vòng lặp vẽ menu + cập nhật cờ. Khung UI thật xem template.
-  for (;;) { /* draw(); */ }
+  for (;;) {
+    // draw();
+    usleep(16000);   // ~60 fps; vòng lặp rỗng bị compiler xóa, thread chết ngầm
+  }
   return nullptr;
 }
 
@@ -642,6 +649,8 @@ extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM*, void*) {
 ```
 
 > `base` phải resolve bằng `dl_iterate_phdr` hoặc hook `android_dlopen_ext` — không hardcode địa chỉ. Khung trên là để hiểu luồng, không phải code build ngay.
+
+> **Đừng để `for (;;) {}` rỗng.** Trong C++, vòng lặp không có side effect và không có điều kiện thoát là hành vi không xác định; compiler được phép coi thread không bao giờ tiến triển rồi xóa cả vòng lặp — thread return, menu biến mất, không crash, cực khó đoán. Bản Debug thì thường busy-spin 100% CPU. Luôn có `usleep`/`nanosleep` và một điều kiện thoát.
 
 **Thực hành:**
 - Build `libmod.so` cho arm64, chèn `loadLibrary` vào app Wallet, xác nhận `JNI_OnLoad` chạy bằng log.
@@ -956,18 +965,25 @@ adb install -r wallet_signed.apk
 
 ### Tuần 8 — patch ARM64 trong `.so`
 
-Hàm gốc (giả lập):
+Hàm gốc — đây là bản JNI thật của tuần 2, với `g_gold` là biến `static` trong `.so`:
 
 ```arm64
-get_gold:
-    ldr w0, [x0, #0x10]
+Java_com_example_wallet_Wallet_getGoldNative:
+    // x0 = JNIEnv*, x1 = jobject (this) — không phải con trỏ tới object game.
+    adrp    x8, g_gold               // lấy địa chỉ trang chứa biến static
+    ldr     w0, [x8, #:lo12:g_gold]  // cộng offset trong trang
     ret
 ```
+
+> **Đừng đọc `ldr w0, [x0, #0x10]` cho hàm JNI.** `x0` là `JNIEnv*`, nên `[x0, #0x10]` rơi vào bảng con trỏ hàm của env, không phải field `gold` của Wallet. Ba trường hợp khác nhau, đừng lẫn:
+> - **JNI export** (`Java_...`): `x0 = JNIEnv*`, `x1 = jobject/jclass`. Muốn đọc field Java thì gọi `GetIntField(env, thiz, fid)`.
+> - **Method C++** (IL2CPP `get_Gold`): `x0 = this`, khi đó `ldr w0, [x0, #0x10]` mới đúng.
+> - **Biến `static` trong `.so`** (như `g_gold`): không nằm trong thanh ghi nào; compiler dùng `adrp` + `ldr` với `:lo12:`.
 
 Patch trả hằng số 999999 — dùng Ghidra Patch Instruction để encode, không tự tính byte:
 
 ```arm64
-get_gold:
+Java_com_example_wallet_Wallet_getGoldNative:
     movz w0, #0x423f
     movk w0, #0xf, lsl #16
     ret
@@ -985,9 +1001,11 @@ Kiểm tra:
 
 ```bash
 readelf -h libwallet.so
-readelf -s libwallet.so | grep get_gold
+readelf -s libwallet.so | grep -i gold   # tên đầy đủ: Java_com_example_wallet_Wallet_getGoldNative
 readelf -l libwallet.so | grep LOAD
 ```
+
+> `grep get_gold` không khớp gì: symbol JNI bị đặt tên theo kiểu `Java_<package>_<class>_<method>`, không phải `get_gold`. Nếu hàm không export hoặc bị strip, tìm bằng Ghidra rồi dùng offset/RVA thay vì tên.
 
 > `ret` = `0xD65F03C0`, `nop` = `0xD503201F`. Sau khi sửa `.so` trong APK, chữ ký hỏng — phải ký lại.
 
@@ -1007,7 +1025,9 @@ Java.perform(() => {
 ```javascript
 // Frida 17+ — không còn Module.findBaseAddress / findExportByName.
 const mod = Process.getModuleByName('libwallet.so');
-const fn = mod.base.add(0x1234); // thay bằng offset thật
+// Nếu hàm còn export, lấy theo tên JNI đỡ phải hardcode offset:
+//   const fn = mod.findExportByName('Java_com_example_wallet_Wallet_getGoldNative');
+const fn = mod.base.add(0x1234); // thay bằng offset thật từ Ghidra
 
 Interceptor.attach(fn, {
   onEnter(args) {
@@ -1051,20 +1071,23 @@ Interceptor.attach(mod.base.add(0x1A2B3C), {
 ```cpp
 #include <jni.h>
 #include <pthread.h>
+#include <unistd.h>   // usleep
 #include <cstdint>
 #include "dobby.h"
 
 static bool g_gold = false;
-static int (*orig_get_gold)(void*) = nullptr;
+// Hook JNI: x0 = JNIEnv*, x1 = jobject. Hook C++ (IL2CPP): tham số đầu là `this`.
+static int (*orig_get_gold)(JNIEnv*, jobject) = nullptr;
 
-static int hook_get_gold(void* self) {
+static int hook_get_gold(JNIEnv* env, jobject thiz) {
   if (g_gold) return 999999;
-  return orig_get_gold(self);
+  return orig_get_gold(env, thiz);
 }
 
 static void* menu_thread(void*) {
   for (;;) {
     // Vẽ menu, cập nhật g_gold. Dùng ImGui + EGL/SurfaceView.
+    usleep(16000);   // ~60 fps; thiếu dòng này vòng lặp rỗng bị xóa/đốt CPU
   }
   return nullptr;
 }
@@ -1081,12 +1104,37 @@ extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM*, void*) {
 }
 ```
 
-Smali chèn vào `Application.onCreate`:
+Smali chèn vào `Application.onCreate` — nhưng phải tạo `Application` trước nếu app chưa có:
 
 ```smali
-const-string v0, "mod"
-invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+# smali/com/example/wallet/ModApp.smali
+.class public Lcom/example/wallet/ModApp;
+.super Landroid/app/Application;
+
+.method public constructor <init>()V
+    .locals 0
+    invoke-direct {p0}, Landroid/app/Application;-><init>()V
+    return-void
+.end method
+
+.method public onCreate()V
+    .locals 1                       # BẮT BUỘC >= 1: với .locals 0, v0 chính là p0
+    const-string v0, "mod"
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+    invoke-super {p0}, Landroid/app/Application;->onCreate()V
+    return-void
+.end method
 ```
+
+Đăng ký trong `AndroidManifest.xml` (giữ nguyên các thuộc tính khác của thẻ):
+
+```xml
+<application android:name="com.example.wallet.ModApp">
+```
+
+> **Bẫy register:** nếu chèn vào method đang có `.locals 0`, `v0` **chính là `p0`** (`this`). `const-string v0, "mod"` ghi đè `this`, và mọi lệnh dùng `p0` sau đó (kể cả `invoke-super`) làm ART ném `VerifyError` ngay khi load class. Cách sửa: tăng `.locals` lên 1 (hoặc cộng 1 vào `.registers`) rồi dùng một register local chưa ai dùng.
+>
+> **Bẫy Application:** app mẫu Wallet **không có** class `Application`. Chèn `loadLibrary` vào `MainActivity.onCreate` cũng chạy nhưng muộn hơn — nếu game khởi tạo native ở `Application` hoặc một service/activity khác thì hook của bạn trượt. Tạo `ModApp` như trên là điểm chèn sớm và ổn định nhất. Nếu chỉ cần thử nhanh, thêm 2 dòng vào đầu `MainActivity.onCreate` (trước `invoke-super`) và nhớ tăng `.locals`.
 
 ### Tuần 13 — checklist test
 

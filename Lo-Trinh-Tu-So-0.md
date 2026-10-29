@@ -278,12 +278,12 @@ Vì sao phải học terminal khi đã có nút Run trong Visual Studio: về sa
 - Hàm: khai báo (prototype) vs định nghĩa; tham số; giá trị trả về; `void`; `return` thoát hàm ngay.
 - Phạm vi (scope) và thời gian sống (lifetime) — giới thiệu, học kỹ ở tuần 7.
 - Truyền tham số **theo giá trị**: hàm nhận bản sao. Sửa bản sao không đổi biến gốc. Đây là lý do tuần 5 phải học con trỏ.
-- Tràn số: `int` 32-bit chỉ chứa tới khoảng 2.1 tỷ. Giai thừa 13 đã tràn. Với số lớn dùng `unsigned long long` và vẫn phải biết giới hạn.
+- Tràn số: `int` 32-bit chỉ chứa tới khoảng 2,1 tỷ; `13!` đã vượt. **Với số có dấu, tràn là hành vi không xác định** — kết quả có thể đổi theo mức tối ưu, nên đừng lấy nó làm demo. Muốn *thấy* wrap-around (được định nghĩa) thì dùng `unsigned int`; với số lớn dùng `unsigned long long` và vẫn phải biết giới hạn (20! là mức cuối).
 
 ### Bài tập
 
 1. In bảng cửu chương 1–9, căn cột bằng `%2d` hoặc `%3d`.
-2. Tính `n!` bằng vòng lặp. In từng bước. Thử `n = 13`, quan sát tràn số.
+2. Tính `n!` bằng vòng lặp, dùng `unsigned int`, in từng bước. Thử `n = 13` để thấy wrap-around có kiểm soát. Sau đó đổi sang `unsigned long long` và thử tới `n = 21` để thấy tràn tiếp.
 3. Kiểm tra số nguyên tố bằng chia thử tới `sqrt(n)` (dùng `<math.h>`, hàm `sqrt`, nhớ link `-lm` nếu dùng gcc).
 4. In 20 số Fibonacci đầu. Dùng `unsigned long long`, quan sát giới hạn.
 5. Trò chơi đoán số 1–100: máy chọn bằng `rand()`, người đoán, đếm số lần, cho biết cao/thấp. Dùng `srand(time(NULL))` (cần `<stdlib.h>`, `<time.h>`).
@@ -668,7 +668,7 @@ Quy tắc: sau `free(p)`, gán `p = NULL` để lần dùng nhầm sau đó cras
 ### Bài tập
 
 1. Tách chương trình `Player` ở tuần 6 thành `player.h`, `player.c`, `main.c`.
-2. Thêm `player_init`, `player_print`, `player_set_hp` vào module.
+2. Thêm `player_init`, `player_print`, `player_print_offsets`, `player_damage` vào module.
 3. Xóa định nghĩa `player_print` trong `.c` nhưng giữ khai báo trong `.h`, build, đọc `LNK2019`, rồi phục hồi.
 4. Thêm một hàm helper `static` trong `player.c`, gọi từ `main.c` để thấy compiler báo lỗi (nó không export).
 5. Đổi tên file header sai, build, đọc lỗi "cannot open source file", sửa include.
@@ -779,7 +779,7 @@ Chương trình console, nhiều file, quản lý danh sách player:
 - `storage.h/.c`: lưu/đọc file nhị phân.
 - `main.c`: menu và vòng lặp chính.
 - Mảng động: `capacity`, `count`, nhân đôi capacity bằng `realloc` khi đầy. Không giới hạn cứng số player.
-- Menu: 1 thêm, 2 liệt kê, 3 tìm theo tên, 4 sửa hp, 5 xóa, 6 lưu, 7 đọc, 0 thoát.
+- Menu: 1 thêm, 2 liệt kê, 3 tìm theo tên, 4 damage (trừ máu), 5 xóa, 6 lưu, 7 đọc, 0 thoát.
 - Nhập liệu bằng `fgets` + `sscanf`, không dùng `scanf("%s")`. Tên dài hơn 31 ký tự phải bị cắt an toàn hoặc báo lỗi.
 - File nhị phân có header: magic `"PDB1"` + số lượng. Đọc file sai magic hoặc thiếu dữ liệu phải báo lỗi rõ ràng, không crash.
 - Khi khởi động, in offset của từng field trong `Player` (bài tập của tuần 6 áp dụng vào thực tế).

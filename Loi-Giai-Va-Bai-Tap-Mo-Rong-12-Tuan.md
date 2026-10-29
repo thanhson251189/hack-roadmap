@@ -37,6 +37,8 @@
 
 Mã lỗi và câu chữ thay đổi theo phiên bản MSVC. Điều cần học là **đọc nội dung**, không phải thuộc mã.
 
+> **Nếu dùng GCC 14+ hoặc Clang 16+:** dòng `print` không còn ra "warning rồi link error" như bảng trên. Cả hai coi *implicit function declaration* là **lỗi compile** mặc định: `error: implicit declaration of function 'print'; did you mean 'printf'? [-Werror=implicit-function-declaration]`. Bài học không đổi — compile fail trước khi tới link — nhưng đừng ngồi chờ `LNK2019` khi build bằng `gcc`.
+
 Phân biệt:
 
 - **Compile error**: cú pháp sai, không sinh ra `.exe`.
@@ -614,7 +616,7 @@ int main(void) {
 }
 ```
 
-Nhập dài hơn 63 ký tự: `fgets` chỉ lấy 63 ký tự, **phần còn lại vẫn nằm trong stdin** và sẽ bị lần đọc sau lấy mất. Đây là lý do project ở tuần 13 dùng `read_line` có xả phần dư.
+Nhập dài hơn 63 ký tự: `fgets` chỉ lấy 63 ký tự, **phần còn lại vẫn nằm trong stdin** và sẽ bị lần đọc sau lấy mất. Đây là lý do project ở mục 13 dùng `read_line` có xả phần dư.
 
 ### 4.7 Ma trận 3×3
 

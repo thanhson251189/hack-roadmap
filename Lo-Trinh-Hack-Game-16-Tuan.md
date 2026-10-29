@@ -56,7 +56,7 @@ Hai nhánh có tuần 1–5 **song song về độ khó nhưng khác nội dung*
 
 **Nhánh A — PC (trainer, ESP, game PC):**
 - Đi đủ tuần 1–10 của tài liệu này.
-- Bỏ tuần 11–13. Sang thẳng **tuần 14, hướng A** (Unity IL2CPP / Unreal) → **tuần 15–16**.
+- Bỏ tuần 11–13. Sang thẳng **tuần 14** — nhánh PC đi **hướng A (Unity/Unreal)**; hướng B (kernel) và C (anti-cheat) là lựa chọn thay thế nếu đúng mục tiêu của bạn → **tuần 15–16**.
 - Đọc lướt phần "Native lib căn bản" của tuần 12 để hiểu module/hook native là gì — không cần làm bài Android.
 - Tuần 11–13 để sau, khi thật sự cần mobile.
 
@@ -961,6 +961,11 @@ int main() {
     }
 
     uintptr_t base = GetModuleBase(pid, "ac_client.exe");
+    if (!base) {
+        std::cout << "module base not found — game vừa thoát hoặc sai tên module\n";
+        CloseHandle(h);
+        return 1;
+    }
     std::cout << "base = 0x" << std::hex << base << "\n";
 
     // Ở AssaultCube 1.2.0.2, base + 0x10F4F4 là con trỏ TỚI local player entity (static).
@@ -1156,7 +1161,7 @@ Cách đúng: để chính DLL tự gọi nó, bạn sẽ thấy hook chạy nga
 typedef int (WINAPI *MessageBoxA_t)(HWND, LPCSTR, LPCSTR, UINT);
 static MessageBoxA_t origMessageBoxA = nullptr;
 
-int WINAPI hookedMessageBoxA(HWND h, LPCSTR text, LPCSTR cap, UINT type) {
+int WINAPI hookedMessageBoxA(HWND h, LPCSTR /*text*/, LPCSTR cap, UINT type) {
     // bạn đang ở đây. sửa tham số, chặn, log, hoặc trả giá trị giả.
     return origMessageBoxA(h, "hooked", cap, type);
 }
@@ -1164,9 +1169,10 @@ int WINAPI hookedMessageBoxA(HWND h, LPCSTR text, LPCSTR cap, UINT type) {
 DWORD WINAPI MainThread(LPVOID param) {
     HMODULE hSelf = (HMODULE)param;
     if (MH_Initialize() != MH_OK) { OutputDebugStringA("MH_Initialize fail\n"); return 1; }
-    if (MH_CreateHook(&MessageBoxA, &hookedMessageBoxA,
-                      (LPVOID*)&origMessageBoxA) != MH_OK) return 1;
-    if (MH_EnableHook(&MessageBoxA) != MH_OK) return 1;
+    if (MH_CreateHook(reinterpret_cast<LPVOID>(&MessageBoxA),
+                      reinterpret_cast<LPVOID>(&hookedMessageBoxA),
+                      reinterpret_cast<LPVOID*>(&origMessageBoxA)) != MH_OK) return 1;
+    if (MH_EnableHook(reinterpret_cast<LPVOID>(&MessageBoxA)) != MH_OK) return 1;
 
     // TỰ TRIGGER: gọi từ trong DLL để thấy hook hoạt động.
     // nếu hook đúng, text sẽ bị đổi thành "hooked".
@@ -1201,7 +1207,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID) {
 }
 ```
 
-**Nếu build bằng MinGW/GCC:** dòng `MH_CreateHook(&MessageBoxA, ...)` báo lỗi vì GCC không cho chuyển ngầm con trỏ hàm sang `LPVOID`. Viết `MH_CreateHook(reinterpret_cast<LPVOID>(&MessageBoxA), ...)`. MSVC cho qua không cần cast, nhưng thêm vào thì cả hai đều build được.
+**Về cast khi build:** MSVC cho phép chuyển ngầm con trỏ hàm sang `LPVOID`; GCC/Clang thì không và báo lỗi ở **mọi** tham số là con trỏ hàm. Mẫu trên đã `reinterpret_cast` cả ba chỗ (`pTarget`, `pDetour`, địa chỉ biến giữ trampoline) nên build được bằng cả hai. Nếu bạn rút gọn và bỏ cast, nhớ thêm lại — đừng chỉ cast tham số đầu.
 
 **Bài tập thật: hook `CreateFileW` — hàm mà notepad có gọi.**
 
@@ -1232,7 +1238,17 @@ Prototype phải đủ **7 tham số** và đúng thứ tự; sai một cái là
 
 **Notepad trên Windows 11** là app đóng gói từ Store, chạy trong tiến trình/ngữ cảnh khác notepad cổ điển — inject có thể fail hoặc hành vi lạ. Gặp khó thì dùng `C:\Windows\System32\notepad.exe` bản cũ, hoặc tốt hơn: tự viết một target 20 dòng chỉ gọi `CreateFileW` khi bấm phím. Target tự viết là thứ bạn kiểm soát 100%, và sau này còn dùng lại để test tool.
 
-Đăng ký hook thì thay dòng `MessageBoxA` trong `MainThread` ở trên bằng: `MH_CreateHook(&CreateFileW, &hookedCreateFileW, (LPVOID*)&origCreateFileW)`.
+Đăng ký hook thì thay **cả hai dòng** `MH_CreateHook` và `MH_EnableHook` trong `MainThread` ở trên — không chỉ dòng create:
+
+```cpp
+MH_CreateHook(reinterpret_cast<LPVOID>(&CreateFileW),
+              reinterpret_cast<LPVOID>(&hookedCreateFileW),
+              reinterpret_cast<LPVOID*>(&origCreateFileW));
+MH_EnableHook(reinterpret_cast<LPVOID>(&CreateFileW));
+// hoặc: MH_EnableHook(MH_ALL_HOOKS) để bật mọi hook đã tạo.
+```
+
+> Thiếu `MH_EnableHook`, `MH_CreateHook` vẫn trả `MH_OK` nhưng hook **chưa kích hoạt**: hàm gốc chạy bình thường, notepad mở file mà không log gì. Nếu còn sót dòng cũ `MH_EnableHook(&MessageBoxA)` trong khi đã thay create sang `CreateFileW`, nó trả `MH_ERROR_NOT_CREATED` — hook MessageBoxA chưa từng được tạo.
 
 **Về trampoline:** MinHook ghi 5 byte đầu hàm đích thành `jmp`. Nhưng nó **tự copy** các byte bị đè sang một vùng nhớ khác (gọi là trampoline) và `origMessageBoxA` trỏ vào đó. Đó là lý do bạn gọi `origMessageBoxA` vẫn ra hành vi gốc. Hàm đích cần đủ chỗ để đè (thường ≥ 5 byte, hoặc vài lệnh liền nhau đủ dài); nếu MinHook không dựng được trampoline — gặp lệnh lạ, hàm quá ngắn — `MH_CreateHook` trả **`MH_ERROR_UNSUPPORTED_FUNCTION`**. Đừng bỏ qua return code: in `(int)status` hoặc `switch` trên `MH_STATUS` để biết nó fail ở đâu.
 
@@ -1270,7 +1286,7 @@ Java.perform(function() {
 
 ### Tuần 12 — Hook native bằng Frida
 
-**Cảnh báo phiên bản:** Frida 17.0.0 (5/2025) **đã gỡ các hàm tĩnh của `Module`**. `Module.findBaseAddress`, `Module.findExportByName`, `Module.enumerateExports` không còn tồn tại; script kiểu cũ chỉ chạy trên ≤ 16.x. Đừng nhầm với `Process.findModuleByName` — hàm đó **vẫn còn** trong 17, và là cách đúng để lấy module.
+**Cảnh báo phiên bản:** Frida 17.0.0 (5/2025) **đã gỡ các hàm tĩnh của `Module`**. `Module.findBaseAddress`, `Module.findExportByName`, `Module.enumerateExports` không còn tồn tại; script kiểu cũ chỉ chạy trên ≤ 16.x. Đừng nhầm với `Process.findModuleByName` — hàm đó **vẫn còn** trong 17. Khác biệt: `Process.getModuleByName(name)` **ném lỗi** nếu module chưa load; `Process.findModuleByName(name)` trả `null` để bạn tự kiểm tra. Dùng `get` khi chắc module đã có, `find` khi cần dò mà không muốn script chết.
 
 | | Frida ≤ 16.x | Frida 17+ |
 |---|---|---|
@@ -1572,7 +1588,7 @@ sy = (1 - (ndc.y + 1) * 0.5) * screenHeight   // y lật ngược, gốc toạ �
 
 | hiện tượng | nguyên nhân |
 |---|---|
-| box vẽ đúng nhưng lệch dần theo khoảng cách | sai handness / sai trục z |
+| box vẽ đúng nhưng lệch dần theo khoảng cách | sai handedness / sai trục z |
 | box đứng yên khi xoay camera | đọc sai địa chỉ matrix (đọc nhầm cái tĩnh) |
 | box hiện cả sau lưng | thiếu check `clip.w` |
 | không vẽ ra chấm nào khi test bằng toạ độ của chính bạn | camera trùng vị trí player, `cw ≈ 0` → bị check chặn |
