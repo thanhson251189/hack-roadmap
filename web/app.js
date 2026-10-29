@@ -333,6 +333,14 @@
     return { view: 'home' };
   }
 
+  let lastTrackedPath = '';
+
+  function trackView(path) {
+    if (path === lastTrackedPath) return;
+    lastTrackedPath = path;
+    if (window.__gcTrack) window.__gcTrack(path);
+  }
+
   function route() {
     const target = parseHash();
     closeMobileSidebar();
@@ -344,13 +352,17 @@
       renderHome();
       setNavActive('home');
       window.scrollTo({ top: 0, behavior: 'instant' });
+      trackView(location.pathname + '#/');
       return;
     }
 
     const doc = docById.get(target.docId);
+    const docChanged = !currentDoc || currentDoc.id !== doc.id;
     setNavActive(doc.id);
-    if (!currentDoc || currentDoc.id !== doc.id) {
+    if (docChanged) {
       renderDoc(doc, target.slug);
+      // Mỗi tài liệu một lượt xem; nhảy mục trong cùng tài liệu không tính.
+      trackView(location.pathname + '#/doc/' + doc.id);
     } else if (target.slug) {
       scrollToSection(target.slug, true);
     } else {
@@ -509,7 +521,7 @@
         </section>
 
         <footer class="home-footer">
-          <p>Tiến độ, ghi chú và mục cần ôn lưu trong trình duyệt này (localStorage) — không gửi gì lên mạng. Đổi máy thì xuất file sao lưu rồi nhập lại.</p>
+          <p>Tiến độ, ghi chú và mục cần ôn lưu trong trình duyệt này (localStorage) — không gửi lên máy chủ. Lượt truy cập được đếm bằng GoatCounter — không cookie, không lưu IP; chỉ có số liệu tổng hợp như trang được xem và nguồn truy cập. Đổi máy thì xuất file sao lưu rồi nhập lại.</p>
           <div class="home-footer-actions">
             <button class="link-btn" type="button" id="exportBtn">Sao lưu (.json)</button>
             <button class="link-btn" type="button" id="importBtn">Nhập bản sao lưu</button>

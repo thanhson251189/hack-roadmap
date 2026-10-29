@@ -29,6 +29,30 @@
       document.documentElement.dataset.theme = 'dark';
     }
   </script>
+  <script>
+    window.goatcounter = { no_onload: true };
+    window.__gcQueue = [];
+    window.__gcTrack = function (path) {
+      var hit = {
+        path: path || location.pathname + location.hash,
+        title: document.title,
+      };
+      if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+        window.goatcounter.count(hit);
+      } else {
+        window.__gcQueue.push(hit);
+      }
+    };
+    window.__gcFlush = function () {
+      if (!window.goatcounter || typeof window.goatcounter.count !== 'function') return;
+      var queue = window.__gcQueue;
+      window.__gcQueue = [];
+      queue.forEach(function (hit) { window.goatcounter.count(hit); });
+    };
+  </script>
+  <script data-goatcounter="https://tuyetbang0110.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"
+          onload="window.__gcFlush()"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
