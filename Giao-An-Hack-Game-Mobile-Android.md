@@ -216,9 +216,9 @@ Bài thực hành: cài app, mở app bằng `am start`, lọc log theo pid, ch�
 
 ### Buổi 5 (3h) — app "Wallet" để làm chuột bạch
 
-Đây là app bạn sẽ mod ở tuần 6, 9, 11. Làm đủ 3 màn hình:
+Đây là app bạn sẽ mod ở tuần 6, 9, 11. Làm 1 màn hình có đủ 3 phần:
 
-1. Màn hình chính: hiển thị gold, trạng thái premium.
+1. Phần hiển thị: gold, trạng thái premium.
 2. Nút "Mua 100 gold" — cộng gold, ghi log.
 3. Nút "Mở khóa premium" — kiểm tra một biến `premium`, nếu chưa có thì hiện thông báo.
 

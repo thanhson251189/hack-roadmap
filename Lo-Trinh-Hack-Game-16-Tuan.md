@@ -621,7 +621,7 @@ Tuần 1 chỉ dạy C, nhưng tuần 7 viết trainer bằng C++/WinAPI. Khoả
 
 ### Điểm rẽ nhánh (đã quyết ở phần Tổng quan)
 
-Nhánh A: sang **tuần 14** hướng A → 15–16. Nhánh B: **tuần 11 → 12 → 13** ở đây chỉ là bản tóm tắt — học song song bản đầy đủ trong giáo án **"Hack Game Mobile Android"** → 15–16. Điều kiện và phần bỏ lại ở mục "Rẽ nhánh" trong Tổng quan — nếu chưa chọn thì chọn bây giờ, đừng đi tiếp rồi mới đọc.
+Nhánh A: sang **tuần 14**, chọn một trong ba hướng — A (Unity/Unreal), B (kernel), C (anti-cheat) → 15–16. Nhánh B: **tuần 11 → 12 → 13** ở đây chỉ là bản tóm tắt — học song song bản đầy đủ trong giáo án **"Hack Game Mobile Android"** → 15–16. Điều kiện và phần bỏ lại ở mục "Rẽ nhánh" trong Tổng quan — nếu chưa chọn thì chọn bây giờ, đừng đi tiếp rồi mới đọc.
 
 ---
 

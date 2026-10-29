@@ -1,4 +1,4 @@
-const CACHE = 'hack-roadmap-v9';
+const CACHE = 'hack-roadmap-v10';
 const SHELL = [
   './',
   'index.html',
