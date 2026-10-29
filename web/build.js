@@ -325,7 +325,13 @@ function buildDoc(doc) {
     }
   }
 
-  html = processed.join('');
+  // The hero already renders the H1, but everything else before the first H2
+  // (scope notes, safety rules, verification status) belongs on the page.
+  const introBody = intro
+    .replace(/^\s*<h1[\s\S]*?<\/h1>\s*/i, '')
+    .replace(/^\s*<hr\s*\/?>\s*/i, '')
+    .trim();
+  html = introBody ? `<div class="doc-intro">${introBody}</div>${processed.join('')}` : processed.join('');
 
   // Week quick-jump chips, derived from headings in document order.
   const weeks = [];

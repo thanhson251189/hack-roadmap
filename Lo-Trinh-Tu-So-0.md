@@ -6,6 +6,8 @@
 
 Nếu mày đã viết được chương trình C có con trỏ, struct, `malloc` và đọc được lỗi compile một mình — đừng đọc file này. Vào thẳng file 16 tuần.
 
+> **Trạng thái kiểm chứng (29/10/2026):** các chương trình C độc lập trong file này và file lời giải đã được build bằng `gcc -Wall -Wextra` + ASan/UBSan. Chi tiết (33 chương trình sạch cảnh báo, 5 bài đặc thù MSVC, phần chưa chạy thật) ở đầu file `Loi-Giai-Va-Bai-Tap-Mo-Rong-12-Tuan.md`.
+
 ---
 
 ## Mục lục

@@ -5,6 +5,8 @@
 > Code C11, build bằng Visual Studio (MSVC) hoặc gcc. Mọi file dùng `scanf`/`strcpy` thêm `#define _CRT_SECURE_NO_WARNINGS` ở đầu nếu build bằng MSVC.
 > Lời giải không phải chân lý. Code của mày khác mà qua tiêu chí và giải thích được thì code của mày đúng.
 
+> **Trạng thái kiểm chứng (29/10/2026):** các chương trình C độc lập trong file này và file nền tảng đã được biên dịch bằng `gcc -Wall -Wextra` và chạy với ASan/UBSan. Kết quả: 33 chương trình sạch cảnh báo; 5 chương trình không build trên Linux vì dùng `crtdbg.h` (đặc thù MSVC) hoặc cần `player.h`; sanitizer chỉ bắt lỗi ở bài `reset(NULL)` — đó là lỗi cố ý để học viên đọc crash. Các đoạn Windows (trainer, injector, MinHook), smali, ARM64 và Frida **chưa được chạy thật**.
+
 ## Cách dùng file này
 
 - Mỗi tuần: **Lời giải** → **Điều đáng chú ý** → **Bài tập mở rộng**.
@@ -1014,13 +1016,13 @@ typedef struct {
 
 Offset: `name=0`, `stats=32`, `stats.hp=32`, `stats.mp=36`, `gold=40`, `sizeof=44`.
 
-Cách chuẩn:
+Cách cộng tương đương (hữu ích khi mày phải tính tay, không có `offsetof`):
 
 ```c
 offsetof(Player2, stats) + offsetof(Stats, hp)
 ```
 
-`offsetof(Player2, stats.hp)` thường chạy trên MSVC/gcc nhưng là mở rộng, không phải C chuẩn. Dùng cách cộng để an toàn.
+`offsetof(Player2, stats.hp)` **cũng là C chuẩn**, không phải mở rộng: chuẩn định nghĩa `offsetof(type, member-designator)` qua biểu thức `&(t.member-designator)`, nên designator lồng nhau hợp lệ (C11 §7.19.3). Cách cộng ở trên chỉ là cách viết tương đương, không phải "cách an toàn hơn". Khác biệt thật nằm ở C++: `offsetof` chỉ được đảm bảo với kiểu standard-layout, nên đừng áp dụng cho class có virtual hoặc kế thừa.
 
 ### 6.10 Bài tập mở rộng tuần 6
 
@@ -1465,6 +1467,8 @@ Player *load_players(const char *path, int *out_count) {
 
 Bản rút gọn này không phân biệt "file rỗng" với "lỗi". Project ở mục 13 xử lý được cả file rỗng. Đây là bài học về thiết kế API: `NULL` không đủ để biểu diễn mọi trạng thái.
 
+> **Cảnh báo portability:** ghi/đọc nguyên `struct` bằng `fwrite`/`fread` chỉ đúng khi file được đọc lại bởi **cùng compiler, cùng kiến trúc, cùng cách build**. Padding, alignment, endianness và kích thước `int` có thể khác giữa MSVC và gcc, giữa x86 và ARM; đổi toolchain là file cũ đọc sai âm thầm. Với dữ liệu cần dùng lâu dài, ghi từng field theo thứ tự byte cố định (ví dụ `uint32_t` little-endian) hoặc dùng text/JSON. Ở bài học này giữ nguyên struct cho gọn — đừng mang nguyên cách đó vào project thật.
+
 ### 9.2 Ghi log text
 
 ```c
@@ -1858,6 +1862,8 @@ int storage_load(PlayerList *list, const char *path) {
     return 1;
 }
 ```
+
+Cách ghi/đọc nguyên `Player` ở đây dính đúng cảnh báo portability ở mục 9.1: ổn cho bài học trên một máy, không dùng cho file phải trao đổi giữa compiler/kiến trúc khác nhau.
 
 ### 10.5 `main.c`
 
