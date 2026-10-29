@@ -275,7 +275,6 @@ function buildDoc(doc) {
       title: doc.title,
       level: 2,
       text: introText.slice(0, 6000),
-      html: intro,
       intro: true,
     });
   }
@@ -307,7 +306,6 @@ function buildDoc(doc) {
       title: sectionTitle,
       level: 2,
       text: plainText(part.slice(match[0].length)).slice(0, 20000),
-      html: sectionHtml,
     });
 
     const subParts = sectionHtml.split(/(?=<h3 id=")/);

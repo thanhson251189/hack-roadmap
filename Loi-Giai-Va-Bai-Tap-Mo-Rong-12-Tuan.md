@@ -1022,7 +1022,7 @@ Cách cộng tương đương (hữu ích khi mày phải tính tay, không có 
 offsetof(Player2, stats) + offsetof(Stats, hp)
 ```
 
-`offsetof(Player2, stats.hp)` **cũng là C chuẩn**, không phải mở rộng: chuẩn định nghĩa `offsetof(type, member-designator)` qua biểu thức `&(t.member-designator)`, nên designator lồng nhau hợp lệ (C11 §7.19.3). Cách cộng ở trên chỉ là cách viết tương đương, không phải "cách an toàn hơn". Khác biệt thật nằm ở C++: `offsetof` chỉ được đảm bảo với kiểu standard-layout, nên đừng áp dụng cho class có virtual hoặc kế thừa.
+`offsetof(Player2, stats.hp)` **cũng là C chuẩn**, không phải mở rộng: chuẩn định nghĩa `offsetof(type, member-designator)` qua biểu thức `&(t.member-designator)`, nên designator lồng nhau hợp lệ (C11 §7.19 ¶3). Cách cộng ở trên chỉ là cách viết tương đương, không phải "cách an toàn hơn". Khác biệt thật nằm ở C++: `offsetof` chỉ được đảm bảo với kiểu standard-layout, nên đừng áp dụng cho class có virtual hoặc kế thừa.
 
 ### 6.10 Bài tập mở rộng tuần 6
 

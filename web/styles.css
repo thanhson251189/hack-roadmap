@@ -1495,6 +1495,14 @@ body.has-sidebar .sidebar {
   margin-top: 30px;
 }
 
+.prose .doc-intro > :first-child {
+  margin-top: 0;
+}
+
+.prose .doc-intro > :last-child {
+  margin-bottom: 0;
+}
+
 .prose h2 {
   position: relative;
   margin: 58px 0 18px;
