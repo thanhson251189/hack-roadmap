@@ -3,7 +3,7 @@
 > File đi kèm `Lo-Trinh-Tu-So-0.md`.
 > **Đừng đọc lời giải trước khi làm.** Làm ít nhất 45–60 phút, chạy, debug, ghi lại chỗ tắc, rồi mới mở.
 > Code C11, build bằng Visual Studio (MSVC) hoặc gcc. Mọi file dùng `scanf`/`strcpy` thêm `#define _CRT_SECURE_NO_WARNINGS` ở đầu nếu build bằng MSVC.
-> Lời giải không phải chân lý. Code của mày khác mà qua tiêu chí và giải thích được thì code của mày đúng.
+> Lời giải không phải chân lý. Code của bạn khác mà qua tiêu chí và giải thích được thì code của bạn đúng.
 
 > **Trạng thái kiểm chứng (29/10/2026):** các chương trình C độc lập trong file này và file nền tảng đã được biên dịch bằng `gcc -Wall -Wextra` và chạy với ASan/UBSan. Kết quả: 33 chương trình sạch cảnh báo; 5 chương trình không build trên Linux vì dùng `crtdbg.h` (đặc thù MSVC) hoặc cần `player.h`; sanitizer chỉ bắt lỗi ở bài `reset(NULL)` — đó là lỗi cố ý để học viên đọc crash. Các đoạn Windows (trainer, injector, MinHook), smali, ARM64 và Frida **chưa được chạy thật**.
 
@@ -13,7 +13,7 @@
 - Bài mở rộng chỉ có gợi ý và tiêu chí đạt, không có lời giải đầy đủ. Tự làm, rồi tự chấm.
 - Gõ lại code, đừng copy-paste. Sau khi chạy được, cố ý sửa một chỗ, dự đoán hậu quả, chạy lại.
 - Địa chỉ in ra thay đổi mỗi lần chạy. Đó là bình thường; đừng so số tuyệt đối, chỉ so khoảng cách và quan hệ.
-- Nếu lời giải dùng cách mày chưa học: đó là chủ ý. Đọc phần giải thích, đừng dán code.
+- Nếu lời giải dùng cách bạn chưa học: đó là chủ ý. Đọc phần giải thích, đừng dán code.
 
 ## Quy ước
 
@@ -80,7 +80,7 @@ dir
 hello\x64\Debug\hello.exe
 ```
 
-Đường dẫn `.exe` thật lấy từ **Output window** sau khi build; có thể là `x64\Debug\hello.exe` hoặc `Debug\hello.exe` tùy project. Nếu gõ tên file mà Windows báo "not recognized", mày đang đứng sai thư mục hoặc chưa gõ đường dẫn.
+Đường dẫn `.exe` thật lấy từ **Output window** sau khi build; có thể là `x64\Debug\hello.exe` hoặc `Debug\hello.exe` tùy project. Nếu gõ tên file mà Windows báo "not recognized", bạn đang đứng sai thư mục hoặc chưa gõ đường dẫn.
 
 ### 1.4 Bài tập mở rộng tuần 1
 
@@ -1016,7 +1016,7 @@ typedef struct {
 
 Offset: `name=0`, `stats=32`, `stats.hp=32`, `stats.mp=36`, `gold=40`, `sizeof=44`.
 
-Cách cộng tương đương (hữu ích khi mày phải tính tay, không có `offsetof`):
+Cách cộng tương đương (hữu ích khi bạn phải tính tay, không có `offsetof`):
 
 ```c
 offsetof(Player2, stats) + offsetof(Stats, hp)
@@ -1659,7 +1659,7 @@ File không kết thúc bằng newline sẽ bị đếm thiếu 1 dòng. Bài m�
 
 ## Tuần 10–12 — Project tham chiếu "Player DB"
 
-Đây là bản tham chiếu tối thiểu, chạy được, không phải bản duy nhất đúng. Project của mày có thể chia module khác, miễn qua spec và 5 bài verify.
+Đây là bản tham chiếu tối thiểu, chạy được, không phải bản duy nhất đúng. Project của bạn có thể chia module khác, miễn qua spec và 5 bài verify.
 
 ### 10.1 `player.h`
 
@@ -2081,4 +2081,4 @@ Qua khi tổng ≥ 9, và không có 0 ở hai dòng **Bộ nhớ** và **Debug*
 - [ ] Ghi sổ: lỗi gặp, nguyên nhân, cách sửa.
 - [ ] Không copy lời giải khi chưa thử ít nhất 45 phút.
 
-Nếu trượt 2 tuần liên tiếp ở cùng một chủ đề, quay lại tuần trước đó thay vì đi tiếp. Nền yếu ở con trỏ và bộ nhớ sẽ làm mày tắc ở tuần 7–12 của file 16 tuần, lúc sửa khó hơn nhiều.
+Nếu trượt 2 tuần liên tiếp ở cùng một chủ đề, quay lại tuần trước đó thay vì đi tiếp. Nền yếu ở con trỏ và bộ nhớ sẽ làm bạn tắc ở tuần 7–12 của file 16 tuần, lúc sửa khó hơn nhiều.

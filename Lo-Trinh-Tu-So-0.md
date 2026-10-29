@@ -1,10 +1,10 @@
 # Lộ Trình Từ Số 0 — Chuẩn Bị Vào Lộ Trình Hack Game 16 Tuần
 
 > Dành cho người **chưa từng viết dòng code nào**.
-> File này không dạy hack game. Nó đưa mày từ zero tới **vạch xuất phát** của `Lo-Trinh-Hack-Game-16-Tuan.md`.
+> File này không dạy hack game. Nó đưa bạn từ zero tới **vạch xuất phát** của `Lo-Trinh-Hack-Game-16-Tuan.md`.
 > 12 tuần lõi + 3 tuần đệm (sau tuần 4, 8, 12), 10–12h/tuần. Xong thì mở file 16 tuần ở tuần 1 như bài ôn, rồi đi tiếp.
 
-Nếu mày đã viết được chương trình C có con trỏ, struct, `malloc` và đọc được lỗi compile một mình — đừng đọc file này. Vào thẳng file 16 tuần.
+Nếu bạn đã viết được chương trình C có con trỏ, struct, `malloc` và đọc được lỗi compile một mình — đừng đọc file này. Vào thẳng file 16 tuần.
 
 > **Trạng thái kiểm chứng (29/10/2026):** các chương trình C độc lập trong file này và file lời giải đã được build bằng `gcc -Wall -Wextra` + ASan/UBSan. Chi tiết (33 chương trình sạch cảnh báo, 5 bài đặc thù MSVC, phần chưa chạy thật) ở đầu file `Loi-Giai-Va-Bai-Tap-Mo-Rong-12-Tuan.md`.
 
@@ -33,7 +33,7 @@ Nếu mày đã viết được chương trình C có con trỏ, struct, `malloc
 19. An toàn và pháp lý
 20. Những thứ không học bây giờ
 21. Lịch và quản lý thời gian
-22. Dấu hiệu mày đang học sai
+22. Dấu hiệu bạn đang học sai
 23. Tài nguyên
 24. Phụ lục A — Lỗi thường gặp
 25. Phụ lục B — Checklist tự debug 20 phút
@@ -51,6 +51,19 @@ Nếu mày đã viết được chương trình C có con trỏ, struct, `malloc
 - Mỗi tuần có: việc phải làm, bài tập, tiêu chí đạt, lỗi thường gặp. **Không đạt tiêu chí thì chưa sang tuần sau** — trừ tuần đệm.
 - **Tự gõ toàn bộ code.** Không copy-paste. Không nhờ AI viết hộ cả bài. Gõ lại từng ký tự là một phần của việc học, không phải hình thức.
 - Số tuần là mốc, không phải deadline. Người đi nhanh 10 tuần, người chậm 20 tuần. **Gate quan trọng hơn lịch.**
+
+### Điểm thắng sớm — thấy kết quả trước khi hết 12 tuần
+
+Đừng đợi đến cuối mới kiểm tra mình có học được không. Bốn mốc dưới đây phải cho ra thứ **chạy được và nhìn thấy được**:
+
+| Mốc | Sản phẩm phải chạy | Chưa đạt nếu |
+|---|---|---|
+| Cuối tuần 2 | máy tính 4 phép tính + BMI: nhập số ra kết quả, chia 0 báo lỗi, nhập chữ không crash | mới compile được, chưa chạy; hoặc chạy nhưng không giải thích được |
+| Cuối tuần 4 | công cụ chuỗi: đảo chuỗi, đếm từ trên input thật | copy code mẫu, đổi input là sai |
+| Cuối tuần 7 | mảng động tự nhân đôi capacity, in địa chỉ heap, `free` sạch, leak report trống | còn leak, hoặc crash khi thêm hơn 100 phần tử |
+| Cuối tuần 12 | Player DB ở mục 13: thêm/sửa/xóa/lưu/đọc; tắt mở chương trình dữ liệu vẫn đúng | chỉ chạy được một lần trong RAM |
+
+Nếu hết tuần 2 mà chưa có chương trình nào chạy được, dừng lại sửa môi trường hoặc hỏi — đừng học tiếp lý thuyết. Mỗi mốc đạt được là một lần bạn thấy mình tiến, và đó là thứ giữ bạn đi hết 8–12 tháng.
 
 ---
 
@@ -71,17 +84,17 @@ Nếu mày đã viết được chương trình C có con trỏ, struct, `malloc
 - [ ] Tự sửa được 2 bug bằng debugger mà không cần ai chỉ.
 - [ ] Đọc được thông báo lỗi compile bằng tiếng Anh và biết sửa.
 
-Qua hết thì mày vào file 16 tuần ở tuần 1 với tư cách **ôn tập**, không phải lần đầu.
+Qua hết thì bạn vào file 16 tuần ở tuần 1 với tư cách **ôn tập**, không phải lần đầu.
 
 ---
 
 ## 3. Sự thật cần biết trước
 
-**Đây là 3–4 tháng, không phải 3 tuần.** Mục tiêu của giai đoạn này là biến mày thành người *biết lập trình*, chưa phải người *hack được game*. Trong 12 tuần này mày sẽ không hack được game nào. Đó là thiết kế, không phải thất bại.
+**Đây là 3–4 tháng, không phải 3 tuần.** Mục tiêu của giai đoạn này là biến bạn thành người *biết lập trình*, chưa phải người *hack được game*. Trong 12 tuần này bạn sẽ không hack được game nào. Đó là thiết kế, không phải thất bại.
 
 **Tuần 5 là bức tường.** Con trỏ là chỗ gần như ai cũng đập đầu. Người đi tiếp được không phải vì thông minh hơn, mà vì chấp nhận vẽ hình ra giấy và làm lại bài đến lần thứ mười. Nếu tuần 5 mất 3 tuần, bình thường.
 
-**Feedback loop ở giai đoạn này tốt hơn giai đoạn sau.** Bây giờ sai là có lỗi compile hoặc crash ngay. Sang phần hack game, sai thường **im lặng** — không crash, chỉ ra số rác. Vì vậy kỹ năng quan trọng nhất mày rèn ở đây không phải cú pháp C, mà là **debug**: đặt giả thuyết, kiểm tra, khoanh vùng. Cú pháp tra Google 30 giây là có; kỹ năng debug thì không.
+**Feedback loop ở giai đoạn này tốt hơn giai đoạn sau.** Bây giờ sai là có lỗi compile hoặc crash ngay. Sang phần hack game, sai thường **im lặng** — không crash, chỉ ra số rác. Vì vậy kỹ năng quan trọng nhất bạn rèn ở đây không phải cú pháp C, mà là **debug**: đặt giả thuyết, kiểm tra, khoanh vùng. Cú pháp tra Google 30 giây là có; kỹ năng debug thì không.
 
 **Tiếng Anh là điều kiện thực tế.** Mọi thông báo lỗi, tài liệu, diễn đàn của ngành này đều bằng tiếng Anh. Không cần giỏi, nhưng phải chịu đọc. Xem mục 18.
 
@@ -101,16 +114,16 @@ Qua hết thì mày vào file 16 tuần ở tuần 1 với tư cách **ôn tập
 2. Trong installer, chọn đúng một workload: **Desktop development with C++**. Không cần workload khác. (Nếu bản 2026 có tên hơi khác, tìm đúng nhóm "C++" và "Desktop".)
 3. Cài. Dung lượng vài GB, chờ là bình thường.
 
-**Vì sao Visual Studio mà không phải thứ khác:** nó có sẵn compiler, debugger, và đúng hệ sinh thái mày sẽ dùng ở tuần 6–9 của file 16 tuần (WinAPI, MSVC). Cài một lần, dùng suốt. Người mới đổi công cụ liên tục là người mất thời gian vào công cụ thay vì code.
+**Vì sao Visual Studio mà không phải thứ khác:** nó có sẵn compiler, debugger, và đúng hệ sinh thái bạn sẽ dùng ở tuần 6–9 của file 16 tuần (WinAPI, MSVC). Cài một lần, dùng suốt. Người mới đổi công cụ liên tục là người mất thời gian vào công cụ thay vì code.
 
-**Nếu máy quá yếu hoặc muốn bản nhẹ:** cài **MSYS2**, rồi trong terminal MSYS2 chạy `pacman -S mingw-w64-ucrt-x86_64-gcc`, thêm thư mục `ucrt64\bin` vào PATH. Build bằng `gcc hello.c -o hello.exe`, debug bằng `gdb`. Cách này nhẹ hơn nhưng mày phải tự lo nhiều thứ hơn. **Chọn một trong hai, đừng cài cả hai trong tuần này.**
+**Nếu máy quá yếu hoặc muốn bản nhẹ:** cài **MSYS2**, rồi trong terminal MSYS2 chạy `pacman -S mingw-w64-ucrt-x86_64-gcc`, thêm thư mục `ucrt64\bin` vào PATH. Build bằng `gcc hello.c -o hello.exe`, debug bằng `gdb`. Cách này nhẹ hơn nhưng bạn phải tự lo nhiều thứ hơn. **Chọn một trong hai, đừng cài cả hai trong tuần này.**
 
 ### 4.2 Tạo project đầu tiên
 
 1. File → New → Project → **Empty Project** (C++) → đặt tên `hello`, thư mục `D:\code\hello`.
    Tạo thư mục code riêng, đừng để lẫn với tài liệu.
 2. Solution Explorer → chuột phải **Source Files** → Add → New Item → chọn **C++ File (.cpp)** nhưng đặt tên `hello.c`.
-   **Đuôi `.c` rất quan trọng**: MSVC sẽ biên dịch bằng C. Đặt `.cpp` là nó chuyển sang luật C++, và mày sẽ gặp những lỗi khó hiểu về sau.
+   **Đuôi `.c` rất quan trọng**: MSVC sẽ biên dịch bằng C. Đặt `.cpp` là nó chuyển sang luật C++, và bạn sẽ gặp những lỗi khó hiểu về sau.
 3. Chuột phải project → **Set as Startup Project**.
 4. Ctrl+F5 = build và chạy không debug. F5 = build và chạy có debug.
 
@@ -125,7 +138,7 @@ int main(void) {
 }
 ```
 
-Giải thích từng dòng — mày phải nói được mấy câu này, không cần thuộc lòng:
+Giải thích từng dòng — bạn phải nói được mấy câu này, không cần thuộc lòng:
 
 - `#include <stdio.h>`: xin compiler đưa vào khai báo của `printf`. Thiếu nó, compiler không biết `printf` là gì.
 - `int main(void)`: điểm bắt đầu của chương trình. `int` là kiểu trả về, `void` nghĩa là không nhận tham số.
@@ -138,7 +151,7 @@ Giải thích từng dòng — mày phải nói được mấy câu này, không
 #define _CRT_SECURE_NO_WARNINGS
 ```
 
-Đây là cách chấp nhận được khi học. Nhưng với chuỗi, mày vẫn sẽ dùng `fgets` chứ không dùng `scanf("%s")` — lý do ở tuần 4.
+Đây là cách chấp nhận được khi học. Nhưng với chuỗi, bạn vẫn sẽ dùng `fgets` chứ không dùng `scanf("%s")` — lý do ở tuần 4.
 
 ### 4.4 Đọc lỗi compile
 
@@ -148,7 +161,7 @@ Cố ý làm hỏng chương trình theo 3 cách, mỗi lần build và **ghi l�
 2. Đổi `printf` thành `print`.
 3. Đổi `return 0;` thành `return;`.
 
-Mẫu thông báo mày sẽ thấy:
+Mẫu thông báo bạn sẽ thấy:
 
 ```
 hello.c(7): error C2143: syntax error: missing ';' before 'return'
@@ -201,7 +214,7 @@ hello\x64\Debug\hello.exe
 - `cd` đổi thư mục. `cd /d` cho phép đổi ổ đĩa.
 - `dir` liệt kê file.
 - Gõ tên file `.exe` để chạy.
-- **PATH** là danh sách thư mục mà Windows tự tìm lệnh. Vì `hello.exe` không nằm trong PATH, mày phải gõ đường dẫn đầy đủ hoặc đứng đúng thư mục. Hiểu khái niệm này là đủ; không cần cấu hình PATH trong tuần này.
+- **PATH** là danh sách thư mục mà Windows tự tìm lệnh. Vì `hello.exe` không nằm trong PATH, bạn phải gõ đường dẫn đầy đủ hoặc đứng đúng thư mục. Hiểu khái niệm này là đủ; không cần cấu hình PATH trong tuần này.
 
 Vì sao phải học terminal khi đã có nút Run trong Visual Studio: về sau mọi tool (debugger, injector, `adb`, Frida) đều chạy từ dòng lệnh. Bây giờ chỉ cần quen cảm giác.
 
@@ -529,7 +542,7 @@ Chạy trên x64, `sizeof(Player)` thường là 44 (32 + 4 + 4 + 4), không pad
 Địa chỉ thấp
 ```
 
-- Biến local sống trong stack, chết khi hàm return. **Trả về con trỏ tới biến local là bug** — vùng nhớ đó không còn thuộc về mày.
+- Biến local sống trong stack, chết khi hàm return. **Trả về con trỏ tới biến local là bug** — vùng nhớ đó không còn thuộc về bạn.
 - Heap: `malloc`, `calloc`, `realloc`, `free`. `malloc` trả `void *` hoặc `NULL`. Luôn kiểm tra `NULL`.
 - Dùng `sizeof *ptr` thay vì gõ lại tên kiểu: `Player *p = malloc(n * sizeof *p);`.
 - `calloc` zero toàn bộ; `realloc` đổi kích thước, có thể trả địa chỉ mới. **Luôn dùng biến tạm**:
@@ -674,7 +687,7 @@ Quy tắc: sau `free(p)`, gán `p = NULL` để lần dùng nhầm sau đó cras
 
 ## 12. Tuần 9 — File I/O, bit và thập lục phân
 
-**Mục tiêu:** đọc/ghi file, hiểu hex và bit. Đây là ngôn ngữ mày sẽ dùng suốt phần reverse engineering.
+**Mục tiêu:** đọc/ghi file, hiểu hex và bit. Đây là ngôn ngữ bạn sẽ dùng suốt phần reverse engineering.
 
 ### Việc phải làm
 
@@ -705,7 +718,7 @@ int main(void) {
 }
 ```
 
-Trên máy Intel/AMD, output là `44 33 22 11`. Đây là lý do khi đọc 4 byte trong memory theo thứ tự tăng dần, mày thấy byte thấp trước.
+Trên máy Intel/AMD, output là `44 33 22 11`. Đây là lý do khi đọc 4 byte trong memory theo thứ tự tăng dần, bạn thấy byte thấp trước.
 
 ### Code mẫu — bit flags
 
@@ -756,7 +769,7 @@ int main(void) {
 
 ## 13. Tuần 10–12 — Project tổng hợp và kiểm tra
 
-Ba tuần này không có lý thuyết mới. Mày làm một chương trình hoàn chỉnh, rồi tự kiểm tra.
+Ba tuần này không có lý thuyết mới. Bạn làm một chương trình hoàn chỉnh, rồi tự kiểm tra.
 
 ### 13.1 Spec project "Player DB"
 
@@ -851,12 +864,12 @@ Viết từ file trống:
 Khi qua bài kiểm tra bàn giao:
 
 1. Đọc mục **"Đọc trước khi bắt đầu — hai cái bẫy"** của file 16 tuần: **Bẫy 1 (32-bit hay 64-bit)** và **Bẫy 2 (địa chỉ tĩnh và động)**. Muốn đọc kỹ hơn thì xem thêm mục **"Giải thích sâu: 32-bit và 64-bit"**. Chỉ đọc hiểu khái niệm, chưa cần làm gì.
-2. Mở file 16 tuần ở **tuần 1**. Với mày, tuần 1 bây giờ là **bài ôn một buổi**: đọc lại, làm bài tập, nếu giải thích được hết thì đi tiếp. Không cần học lại 5 buổi.
+2. Mở file 16 tuần ở **tuần 1**. Với bạn, tuần 1 bây giờ là **bài ôn một buổi**: đọc lại, làm bài tập, nếu giải thích được hết thì đi tiếp. Không cần học lại 5 buổi.
 3. Sang **tuần 2**, cài Cheat Engine. Từ đây mới bắt đầu phần hack game thật.
 4. Nhánh PC/Mobile chọn theo file 16 tuần. Với người mới, khuyến nghị **nhánh PC, target AssaultCube** — offline, 32-bit, tài liệu nhiều.
 5. Tuần 5 của file 16 tuần: dựng máy ảo trước khi chạy crackme. Không ngoại lệ.
 
-**Lưu ý nhỏ:** file 16 tuần có câu `gcc memory_demo.c -o memory_demo`. Nếu mày dùng Visual Studio, tạo project và thêm file `.c` là tương đương. Nếu dùng MSYS2/gcc thì lệnh đó chạy đúng. Code C trong hai file là code C chuẩn, không phụ thuộc IDE.
+**Lưu ý nhỏ:** file 16 tuần có câu `gcc memory_demo.c -o memory_demo`. Nếu bạn dùng Visual Studio, tạo project và thêm file `.c` là tương đương. Nếu dùng MSYS2/gcc thì lệnh đó chạy đúng. Code C trong hai file là code C chuẩn, không phụ thuộc IDE.
 
 **Thời gian thực tế sau bàn giao:** 12 tuần lõi + 3 tuần đệm cho giai đoạn này, rồi 16 tuần của file kia thường kéo dài 5–7 tháng với người mới. Tổng cộng khoảng **8–12 tháng** ở 10–12h/tuần. Đó là con số thật, không phải con số marketing.
 
@@ -865,7 +878,7 @@ Khi qua bài kiểm tra bàn giao:
 ## 16. Phương pháp học
 
 1. **Gõ lại mọi thứ.** Kể cả code trong file này. Cơ tay và việc gặp lỗi chính tả là một phần của học.
-2. **Đoán trước khi chạy.** Trước khi bấm Run, viết ra giấy output mày nghĩ sẽ ra. Sai thì đó là chỗ cần học.
+2. **Đoán trước khi chạy.** Trước khi bấm Run, viết ra giấy output bạn nghĩ sẽ ra. Sai thì đó là chỗ cần học.
 3. **Cố ý phá code.** Đổi một dòng, dự đoán hậu quả, chạy, kiểm tra. Đây là cách học nhanh nhất về ngữ nghĩa.
 4. **Giải thích to.** Nói thành tiếng như đang dạy người khác. Chỗ nào nói vấp là chỗ chưa hiểu.
 5. **Làm lại từ trang giấy trắng.** Sau mỗi tuần, đóng tài liệu, viết lại chương trình chính. Đây là bài kiểm tra thật, không phải đọc lại code cũ.
@@ -884,18 +897,18 @@ AI là gia sư, không phải người làm bài hộ.
 **Nên hỏi:**
 
 - "Giải thích thông báo lỗi này và chỉ ra dòng gây lỗi, đừng viết lại code."
-- "Cho tao 3 bài tập về con trỏ, từ dễ đến khó, kèm đáp án ẩn."
+- "Cho mình 3 bài tập về con trỏ, từ dễ đến khó, kèm đáp án ẩn."
 - "Review code này, chỉ ra bug và giải thích tại sao, đừng đưa bản sửa hoàn chỉnh."
-- "Hỏi tao 5 câu để kiểm tra tao có hiểu stack vs heap không."
+- "Hỏi mình 5 câu để kiểm tra mình có hiểu stack vs heap không."
 - "Giải thích từ này trong tài liệu tiếng Anh."
 
 **Không nên:**
 
-- Dán đề bài rồi lấy code chạy được. Mày sẽ qua tuần nhưng không qua được bài kiểm tra bàn giao.
+- Dán đề bài rồi lấy code chạy được. Bạn sẽ qua tuần nhưng không qua được bài kiểm tra bàn giao.
 - Tin AI về API, tên hàm, tham số. AI hay bịa. Tra tài liệu chính thức hoặc thử compile.
 - Để AI thiết kế cả project. Tự viết spec trước, hỏi AI sau.
 
-**Quy tắc:** mọi dòng code trong bài của mày phải **giải thích được**. Code AI đưa mà mày không hiểu thì gõ lại bằng tay, từng dòng, và hỏi tới khi hiểu. Nếu vẫn không hiểu, bỏ đoạn đó và tự viết cách đơn giản hơn.
+**Quy tắc:** mọi dòng code trong bài của bạn phải **giải thích được**. Code AI đưa mà bạn không hiểu thì gõ lại bằng tay, từng dòng, và hỏi tới khi hiểu. Nếu vẫn không hiểu, bỏ đoạn đó và tự viết cách đơn giản hơn.
 
 ---
 
@@ -913,15 +926,15 @@ Không cần giỏi tiếng Anh để bắt đầu. Cần **chịu đọc**.
 
 ## 19. An toàn và pháp lý
 
-Giai đoạn này **không cài Cheat Engine, không tải "cheat", "hack tool", "crack", "mod menu"**. Chưa đến lúc. Cài sớm chỉ làm mày bỏ qua nền tảng.
+Giai đoạn này **không cài Cheat Engine, không tải "cheat", "hack tool", "crack", "mod menu"**. Chưa đến lúc. Cài sớm chỉ làm bạn bỏ qua nền tảng.
 
-- Không tắt Windows Defender toàn hệ thống. Nếu sau này Defender báo nhầm tool tự build, chỉ thêm **thư mục project của mày** vào exclusion.
+- Không tắt Windows Defender toàn hệ thống. Nếu sau này Defender báo nhầm tool tự build, chỉ thêm **thư mục project của bạn** vào exclusion.
 - Không chạy file `.exe` tải từ nguồn lạ. Kể cả "bài tập".
 - Không dùng tài khoản admin thường trực. Tạo user thường để học.
 - Về sau, khi sang file 16 tuần: chỉ game **offline**, không đụng game online có anti-cheat. Ban HWID là thật và đi theo phần cứng.
 - Crackme và file lạ: chạy trong máy ảo, snapshot trước mỗi lần chạy (từ tuần 5 của file 16 tuần).
 - Không phát tán APK đã sửa của app thương mại. Học trên app tự build hoặc open-source.
-- Không inject vào process của người khác trên máy không phải của mày.
+- Không inject vào process của người khác trên máy không phải của bạn.
 
 Mục tiêu của cả lộ trình là **hiểu máy tính hoạt động thế nào**, không phải kiếm lợi trên game của người khác.
 
@@ -929,7 +942,7 @@ Mục tiêu của cả lộ trình là **hiểu máy tính hoạt động thế 
 
 ## 20. Những thứ không học bây giờ
 
-Đây là danh sách để mày **từ chối** khi bị phân tâm:
+Đây là danh sách để bạn **từ chối** khi bị phân tâm:
 
 - Python, JavaScript, web, mobile app. Học sau nếu cần. Bây giờ chỉ C.
 - LeetCode, thuật toán nâng cao, cấu trúc dữ liệu chuyên sâu. Chưa cần.
@@ -955,14 +968,14 @@ Mục tiêu của cả lộ trình là **hiểu máy tính hoạt động thế 
 - **6h/tuần vẫn đi được**, chỉ chậm hơn: kéo dài 18–24 tuần. Gate không đổi.
 - **Tuần đệm:** sau tuần 4, 8, 12. Dùng để bắt kịp, không dùng để nghỉ hẳn.
 - Lỡ một tuần: dùng tuần đệm, **không bỏ gate**.
-- Ngủ đủ. Thiếu ngủ làm khả năng debug tụt mạnh; mày sẽ tưởng mình dốt trong khi chỉ là mệt.
+- Ngủ đủ. Thiếu ngủ làm khả năng debug tụt mạnh; bạn sẽ tưởng mình dốt trong khi chỉ là mệt.
 - Đau lưng, mỏi mắt: nghỉ 5 phút mỗi 45 phút. Ngồi đúng. Đây là marathon, không phải chạy nước rút.
 
 ---
 
-## 22. Dấu hiệu mày đang học sai
+## 22. Dấu hiệu bạn đang học sai
 
-- Chương trình chạy được nhưng mày không giải thích được vì sao.
+- Chương trình chạy được nhưng bạn không giải thích được vì sao.
 - Xem 2 giờ video, không gõ dòng nào.
 - Sửa code ngẫu nhiên cho tới khi hết lỗi, không hiểu lỗi.
 - Không đọc thông báo lỗi, chỉ tra mã lỗi rồi dán đáp án.
@@ -975,7 +988,7 @@ Mục tiêu của cả lộ trình là **hiểu máy tính hoạt động thế 
 - So sánh tốc độ với người đã có nền.
 - Mua tool, khóa học, hoặc "cheat" trước khi qua bài kiểm tra bàn giao.
 
-Gặp 2 dấu hiệu trở lên: dừng lại, quay về tuần gần nhất mày còn giải thích được mọi thứ, làm lại chậm hơn.
+Gặp 2 dấu hiệu trở lên: dừng lại, quay về tuần gần nhất bạn còn giải thích được mọi thứ, làm lại chậm hơn.
 
 ---
 

@@ -2,7 +2,7 @@
 
 > Nhánh Android của lộ trình: từ Java, adb, APK, smali đến ARM64, Frida, IL2CPP và mod menu native.
 > Mục tiêu cuối khóa: tự làm một APK mod có menu bật/tắt cho **game offline tự build hoặc open-source**, chạy ổn trên máy Android thật.
-> Tài liệu này thay thế nhánh PC (tuần 6–10 của lộ trình 16 tuần cũ) khi mục tiêu của mày là mod game mobile.
+> Tài liệu này thay thế nhánh PC (tuần 6–10 của lộ trình 16 tuần cũ) khi mục tiêu của bạn là mod game mobile.
 
 ---
 
@@ -27,7 +27,7 @@
 
 ### Sản phẩm cuối khóa
 
-Một APK mod cho **app/game do mày tự build hoặc game open-source**, có:
+Một APK mod cho **app/game do bạn tự build hoặc game open-source**, có:
 
 - một menu nổi bật/tắt được ít nhất 3 tính năng;
 - chạy trên máy Android thật, arm64, không crash khi bật/tắt liên tục;
@@ -37,13 +37,13 @@ Một APK mod cho **app/game do mày tự build hoặc game open-source**, có:
 
 ### Ba giới hạn phải chấp nhận
 
-1. **Game online server-authoritative thì không mod được tiền/tài nguyên.** Server giữ dữ liệu, client chỉ hiển thị. Mày có sửa client thì server vẫn trả về số cũ, hoặc ban tài khoản. Phần lớn mod kiểu "unlimited money" chỉ tồn tại ở game offline hoặc game để dữ liệu trên máy.
-2. **Không phải game nào cũng đáng đánh.** Game có packer, pairip, kiểm tra toàn vẹn, metadata IL2CPP mã hóa sẽ chặn mày ở tầng protection — không phải tầng code. Gặp loại đó thì đổi mục tiêu, đừng đốt 3 tuần.
+1. **Game online server-authoritative thì không mod được tiền/tài nguyên.** Server giữ dữ liệu, client chỉ hiển thị. Bạn có sửa client thì server vẫn trả về số cũ, hoặc ban tài khoản. Phần lớn mod kiểu "unlimited money" chỉ tồn tại ở game offline hoặc game để dữ liệu trên máy.
+2. **Không phải game nào cũng đáng đánh.** Game có packer, pairip, kiểm tra toàn vẹn, metadata IL2CPP mã hóa sẽ chặn bạn ở tầng protection — không phải tầng code. Gặp loại đó thì đổi mục tiêu, đừng đốt 3 tuần.
 3. **Không có đường tắt qua tuần 1–5.** Bộ nhớ, con trỏ, asm, debug là kiến thức chung. Nhảy thẳng vào `apktool` chỉ tạo ra người biết gõ lệnh, không sửa được lỗi khi game crash.
 
 ### An toàn và pháp lý
 
-- Chỉ mod app **mày tự viết**, app **open-source** (F-Droid, GitHub), hoặc game offline mày sở hữu — và chỉ để học trên máy mình.
+- Chỉ mod app **bạn tự viết**, app **open-source** (F-Droid, GitHub), hoặc game offline bạn sở hữu — và chỉ để học trên máy mình.
 - **Không phân phối APK đã sửa của game thương mại.** Đó là phân phối phần mềm vi phạm bản quyền, có thể bị gỡ, bị kiện hoặc bị xử lý hành chính tùy mức độ. Site kiểu gamemodx sống trong vùng xám và thường xuyên bị DMCA.
 - **Không dùng kỹ thuật trong đây để** gian lận game PvP online, vượt qua thanh toán thật, đánh cắp tài khoản, hoặc né anti-cheat để bán dịch vụ.
 - Dùng **máy lab**: máy Android cũ, không đăng nhập tài khoản ngân hàng, không dùng SIM chính. Cài lại máy sau mỗi đợt thử nghiệm lớn.
@@ -74,7 +74,7 @@ Một APK mod cho **app/game do mày tự build hoặc game open-source**, có:
 
 **Về trọng số:** đây là phân bổ sức, không phải điểm. Ba tuần nặng nhất là **10, 11, 8** — mỗi tuần có thể kéo dài gấp rưỡi. Tuần 7 và 14 nhẹ về lý thuyết nhưng nhiều việc tay chân.
 
-**Về thời gian:** 16 tuần × 12–15h là **190–240 giờ**. Thực tế phần lớn người đi hết trong **5–7 tháng**, vì tuần 10–11 phụ thuộc vào việc mày có tìm được app mẫu phù hợp hay không.
+**Về thời gian:** 16 tuần × 12–15h là **190–240 giờ**. Thực tế phần lớn người đi hết trong **5–7 tháng**, vì tuần 10–11 phụ thuộc vào việc bạn có tìm được app mẫu phù hợp hay không.
 
 **Hai lộ trình song song:** tài liệu này là **nhánh Android**. Nhánh PC (trainer, ESP, overlay) nằm ở tài liệu 16 tuần chính. **Tuần 1–5 của hai nhánh song song về độ khó nhưng khác nội dung** — nhánh PC dùng Cheat Engine/x64dbg/crackme, nhánh này dùng Android/GameGuardian/Ghidra ARM64. Chọn một nhánh và đi hết; đừng học cả hai cùng lúc, và đừng lấy bài nhánh này thay bài nhánh kia.
 
@@ -149,7 +149,7 @@ Chạy hết các lệnh sau trước khi học tuần 1:
 
 ## Giáo án chi tiết tuần 1
 
-> **Tuần 1 nặng hơn phần còn lại vì gom 3 mảng: C, Java, Android app.** Nếu mày chưa từng viết Java hoặc chưa từng build app Android, đừng cố nhồi đủ 5 buổi trong 7 ngày — kéo tuần 1 thành 10–14 ngày, hoặc dời buổi 5 (app Wallet) sang đầu tuần 2. Mốc thật của tuần 1 là **build và cài được app + đọc được log**, không phải "học xong C".
+> **Tuần 1 nặng hơn phần còn lại vì gom 3 mảng: C, Java, Android app.** Nếu bạn chưa từng viết Java hoặc chưa từng build app Android, đừng cố nhồi đủ 5 buổi trong 7 ngày — kéo tuần 1 thành 10–14 ngày, hoặc dời buổi 5 (app Wallet) sang đầu tuần 2. Mốc thật của tuần 1 là **build và cài được app + đọc được log**, không phải "học xong C".
 
 ### Mục tiêu tuần
 
@@ -170,7 +170,7 @@ Không cần học lại toàn bộ C. Chỉ cần chắc 5 thứ:
 
 Bài thực hành 30 phút: viết chương trình C in ra địa chỉ của một biến local, một biến global, một vùng `malloc`, và giải thích vì sao chúng khác nhau.
 
-> Đây là nền cho tuần 3 và 8. Nếu mày không giải thích được "vì sao địa chỉ đổi mỗi lần chạy", đừng sang tuần 2.
+> Đây là nền cho tuần 3 và 8. Nếu bạn không giải thích được "vì sao địa chỉ đổi mỗi lần chạy", đừng sang tuần 2.
 
 ### Buổi 2 (2h) — Java: class, method, static
 
@@ -216,7 +216,7 @@ Bài thực hành: cài app, mở app bằng `am start`, lọc log theo pid, ch�
 
 ### Buổi 5 (3h) — app "Wallet" để làm chuột bạch
 
-Đây là app mày sẽ mod ở tuần 6, 9, 11. Làm đủ 3 màn hình:
+Đây là app bạn sẽ mod ở tuần 6, 9, 11. Làm đủ 3 màn hình:
 
 1. Màn hình chính: hiển thị gold, trạng thái premium.
 2. Nút "Mua 100 gold" — cộng gold, ghi log.
@@ -764,7 +764,7 @@ extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM*, void*) {
 
 ### Tuần 15 — Project: spec, khung, một feature end-to-end
 
-**Chọn mục tiêu hợp lệ:** app tự build, game open-source, hoặc game offline mày sở hữu — chỉ dùng cá nhân.
+**Chọn mục tiêu hợp lệ:** app tự build, game open-source, hoặc game offline bạn sở hữu — chỉ dùng cá nhân.
 
 **Việc của tuần:**
 - Viết **spec 1 trang**: game nào, phiên bản, ABI, 3 feature, tiêu chí ổn định, thiết bị test.
@@ -788,7 +788,7 @@ extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM*, void*) {
 - Chạy test matrix tuần 13 + 30 phút ổn định tuần 14.
 - README: mục tiêu, kỹ thuật (hook gì, offset nào, vì sao), cách build, giới hạn, disclaimer pháp lý.
 - Ghi lại **những gì đã sai** — phần có giá trị nhất sau này.
-- Không phát hành APK mod của game thương mại. Nếu muốn chia sẻ, chỉ chia sẻ **source mod + hướng dẫn** cho app open-source hoặc app của mày.
+- Không phát hành APK mod của game thương mại. Nếu muốn chia sẻ, chỉ chia sẻ **source mod + hướng dẫn** cho app open-source hoặc app của bạn.
 
 **Tiêu chí đạt:**
 - [ ] 3 feature hoạt động, tắt được, không crash.
@@ -1144,7 +1144,7 @@ DEX là bytecode; smali là cách viết dạng text của bytecode đó. `apkto
 
 ### 4. Vì sao rebuild phải ký lại
 
-Chữ ký nằm trong `META-INF` (v1) và trong vùng ký của file zip (v2/v3). Sửa bất kỳ byte nào — kể cả một file `.so` — làm hash thay đổi, chữ ký cũ không còn hợp lệ. Android từ chối cài APK có chữ ký hỏng. Ký bằng khóa của mày cũng có nghĩa app là một "danh tính" khác, nên phải gỡ bản cũ trước khi cài.
+Chữ ký nằm trong `META-INF` (v1) và trong vùng ký của file zip (v2/v3). Sửa bất kỳ byte nào — kể cả một file `.so` — làm hash thay đổi, chữ ký cũ không còn hợp lệ. Android từ chối cài APK có chữ ký hỏng. Ký bằng khóa của bạn cũng có nghĩa app là một "danh tính" khác, nên phải gỡ bản cũ trước khi cài.
 
 ---
 
@@ -1263,7 +1263,7 @@ Gặp mấy thứ này, chi phí vượt lợi ích cho người học. Chọn g
 2. **Backup trước khi sửa.** APK gốc, file `.so` gốc, keystore lab.
 3. **Một thay đổi một lần.** Build, test, ghi log, rồi mới sửa tiếp.
 4. **Ghi phiên bản.** Game version, tool version, offset — thiếu một thứ là mất cả buổi.
-5. **Không phân phối APK của game thương mại.** Chỉ chia sẻ source mod cho app open-source hoặc app của mày.
+5. **Không phân phối APK của game thương mại.** Chỉ chia sẻ source mod cho app open-source hoặc app của bạn.
 6. **Không đụng vào thanh toán thật, tài khoản người khác, hay game PvP online.**
 7. **Gặp packer/pairip thì đổi mục tiêu.** Đừng biến tuần 13 thành 3 tháng.
 8. **Tải tool từ nguồn chính thức.** Site lạ + file APK lạ = malware.

@@ -11,14 +11,15 @@
 1. Tổng quan lộ trình
 2. Rẽ nhánh: PC hay Mobile — quyết trước khi bắt đầu
 3. Đọc trước khi bắt đầu — hai cái bẫy
-4. Giáo án chi tiết tuần 1
-5. Giáo án tóm tắt tuần 2–16
-6. Code mẫu các tuần
-7. Giải thích sâu: Con trỏ
-8. Giải thích sâu: 32-bit và 64-bit
-9. Giải thích sâu: Toán 3D — World-to-Screen
-10. Verify: bài kiểm tra thật
-11. Tài nguyên & quy tắc
+4. Bản game dùng trong tài liệu — AssaultCube 1.2.0.2
+5. Giáo án chi tiết tuần 1
+6. Giáo án tóm tắt tuần 2–16
+7. Code mẫu các tuần
+8. Giải thích sâu: Con trỏ
+9. Giải thích sâu: 32-bit và 64-bit
+10. Giải thích sâu: Toán 3D — World-to-Screen
+11. Verify: bài kiểm tra thật
+12. Tài nguyên & quy tắc
 
 ---
 
@@ -43,9 +44,9 @@
 | 15 | Project: thiết kế & nền | 2% |
 | 16 | Project: hoàn thiện & README | 2% |
 
-**Về trọng số:** Trọng số chỉ để mày phân bổ sức, không phải điểm số. Nếu mày đã biết C++ thì tuần 6–7 nhẹ đi nhiều; nếu chưa từng chạm Android thì tuần 11–13 sẽ nặng hơn con số 6% kia. Và **2% của tuần 15–16 không có nghĩa hai tuần đó nhẹ** — chúng là hai tuần làm việc thật, chỉ là không có lý thuyết mới. Ba tuần nặng nhất là **9, 10, 12**; cứ cho mỗi tuần thêm 3–5 ngày, đừng ép đúng 7 ngày.
+**Về trọng số:** Trọng số chỉ để bạn phân bổ sức, không phải điểm số. Nếu bạn đã biết C++ thì tuần 6–7 nhẹ đi nhiều; nếu chưa từng chạm Android thì tuần 11–13 sẽ nặng hơn con số 6% kia. Và **2% của tuần 15–16 không có nghĩa hai tuần đó nhẹ** — chúng là hai tuần làm việc thật, chỉ là không có lý thuyết mới. Ba tuần nặng nhất là **9, 10, 12**; cứ cho mỗi tuần thêm 3–5 ngày, đừng ép đúng 7 ngày.
 
-**Về thời gian:** 16 tuần × 12–15h là **190–240 giờ**. Đó là mức tối thiểu để đi hết lộ trình, không phải mức trung bình. Thực tế phần lớn người đi hết trong 5–6 tháng, và ba tuần 9, 10, 12 thường kéo dài gấp rưỡi. Con số 16 tuần để mày có mốc, không phải để tự trách khi trượt.
+**Về thời gian:** 16 tuần × 12–15h là **190–240 giờ**. Đó là mức tối thiểu để đi hết lộ trình, không phải mức trung bình. Thực tế phần lớn người đi hết trong 5–6 tháng, và ba tuần 9, 10, 12 thường kéo dài gấp rưỡi. Con số 16 tuần để bạn có mốc, không phải để tự trách khi trượt.
 
 **Về bảng trên:** tuần 11–13 chỉ bắt buộc với nhánh Mobile. Nhánh PC bỏ qua và quay lại sau như một khóa riêng — xem mục "Rẽ nhánh" ngay dưới. Nếu chọn mobile, **dùng giáo án "Hack Game Mobile Android" làm nguồn chính**; tuần 11–13 ở đây chỉ là bản tóm tắt, không đủ để làm mod menu phát hành được.
 
@@ -66,7 +67,7 @@ Hai nhánh có tuần 1–5 **song song về độ khó nhưng khác nội dung*
 
 **Không được cắt ở cả hai nhánh:** tuần 3 (pointer chain + reboot test) và bài RE cuối tuần 5 — crackme ở nhánh PC, Ghidra/ARM64 ở nhánh mobile. Thiếu hai phần đó thì nhánh nào cũng tắc — chỉ là tắc muộn hơn, lúc đã khó sửa hơn.
 
-> Ghi nhánh mày chọn vào đầu file ghi chú, kèm ngày. Sáu tháng sau mày sẽ không nhớ vì sao mình bỏ tuần 11.
+> Ghi nhánh bạn chọn vào đầu file ghi chú, kèm ngày. Sáu tháng sau bạn sẽ không nhớ vì sao mình bỏ tuần 11.
 
 **Nguyên tắc xuyên suốt:**
 - Mỗi ngày tối thiểu 1–2h, cuối tuần 4–6h.
@@ -86,7 +87,7 @@ Hai nhánh có tuần 1–5 **song song về độ khó nhưng khác nội dung*
 
 ## Đọc trước khi bắt đầu — hai cái bẫy
 
-Hai thứ dưới đây không làm mày tắc ngay, nhưng nó làm mày mất cả ngày mà không hiểu tại sao. Đọc trước.
+Hai thứ dưới đây không làm bạn tắc ngay, nhưng nó làm bạn mất cả ngày mà không hiểu tại sao. Đọc trước.
 
 ### Bẫy 1: 32-bit hay 64-bit — chọn sai tool là mất cả ngày
 
@@ -103,7 +104,7 @@ Cách biết game là loại nào: **Task Manager → Details → cột "Archite
 
 > **Cheat Engine thì không cần chia.** Bản CE hiện đại attach được vào cả process 32-bit lẫn 64-bit. Thứ **bắt buộc** phải khớp là: `x32dbg`/`x64dbg` với process, và DLL với process đích khi inject.
 
-> **AssaultCube là game 32-bit.** Mở `x64dbg` là sai tool — phải dùng `x32dbg`. Đây là lỗi phổ biến nhất của người mới, và nó không báo lỗi gì cả. Mày chỉ ngồi nhìn danh sách process trống.
+> **AssaultCube là game 32-bit.** Mở `x64dbg` là sai tool — phải dùng `x32dbg`. Đây là lỗi phổ biến nhất của người mới, và nó không báo lỗi gì cả. Bạn chỉ ngồi nhìn danh sách process trống.
 
 ### Bẫy 2: địa chỉ tĩnh và địa chỉ động
 
@@ -112,9 +113,21 @@ Hai thứ này khác nhau, và lý thuyết pointer chain chỉ áp dụng cho c
 - **Địa chỉ tĩnh** — nằm trong module `.exe`/`.dll`, cộng base là ra, offset không đổi qua các lần chạy. AssaultCube 1.2.0.2 có **con trỏ tới local player** ở `ac_client.exe + 0x10F4F4`; cái con trỏ đó là static nên hardcode được. Nhưng struct player mà nó trỏ tới nằm trên **heap** — HP/ammo là field bên trong, phải đọc qua con trỏ, đừng cộng offset vào base.
 - **Địa chỉ động** — nằm trên heap, do game cấp phát lúc runtime. Vị trí đổi mỗi lần chạy vì **ASLR** + cấp phát động. Đây mới là chỗ cần pointer chain.
 
-Bài học: nếu mày tìm được một giá trị mà **restart game vẫn còn đúng sau khi cộng base** → nó là static, đừng làm phức tạp. Nếu restart là hỏng → mày phải tìm pointer chain. Đừng học thuộc "luôn phải dùng pointer chain" — đó là tư duy sai, và nó làm mày bỏ hàng giờ cho một bài toán không tồn tại.
+Bài học: nếu bạn tìm được một giá trị mà **restart game vẫn còn đúng sau khi cộng base** → nó là static, đừng làm phức tạp. Nếu restart là hỏng → bạn phải tìm pointer chain. Đừng học thuộc "luôn phải dùng pointer chain" — đó là tư duy sai, và nó làm bạn bỏ hàng giờ cho một bài toán không tồn tại.
 
 Nhưng phân biệt cho đúng: cái static có thể chỉ là **ô chứa con trỏ**, không phải giá trị. Con trỏ đứng yên qua các lần chạy; vùng nhớ mà nó trỏ tới thì đổi mỗi lần. Hai chuyện khác nhau, và lẫn hai chuyện đó là lý do code trainer đọc ra địa chỉ rác.
+
+---
+
+## Bản game dùng trong tài liệu — AssaultCube 1.2.0.2
+
+Mọi offset, pattern và script trong tài liệu này được viết cho **AssaultCube 1.2.0.2** (bản 32-bit). Bản 1.3.x đổi layout và compiler, nên `0x10F4F4` cùng pattern ở tuần 4 **không còn đúng** — script sẽ không tìm thấy hoặc ghi sai chỗ.
+
+- Tải đúng file `AssaultCube_v1.2.0.2.exe` (45.464.090 byte) từ release chính thức của dự án: https://github.com/assaultcube/AC/releases/tag/v1.2.0.2
+- Đối chiếu dung lượng sau khi tải. Không lấy từ mirror lạ, không dùng bản "repack".
+- Cài xong, mở Task Manager → Details để chắc `ac_client.exe` là 32-bit (xem lại Bẫy 1).
+- Xác nhận offset trước khi viết trainer: attach `ac_client.exe` bằng CE, nhảy tới `ac_client.exe+10F4F4`, xem giá trị là một con trỏ; dereference rồi đối chiếu HP/ammo với HUD. Không khớp nghĩa là sai bản — đừng sửa code cho khớp số.
+- Chỉ dùng cho single-player/offline trên máy của bạn.
 
 ---
 
@@ -329,7 +342,7 @@ int main() {
 
 ## Giáo án tóm tắt tuần 2–16
 
-Tuần 1 là giáo án chia từng buổi vì đó là chỗ dễ bỏ nhất. Từ tuần 2 trở đi, mỗi tuần là **khung + checklist**, không phải bài giảng — mày phải tự đọc tài liệu ngoài. Chỗ nào thấy trống, tìm dòng "**Tài liệu:**" trong tuần đó trước khi đi lang thang.
+Tuần 1 là giáo án chia từng buổi vì đó là chỗ dễ bỏ nhất. Từ tuần 2 trở đi, mỗi tuần là **khung + checklist**, không phải bài giảng — bạn phải tự đọc tài liệu ngoài. Chỗ nào thấy trống, tìm dòng "**Tài liệu:**" trong tuần đó trước khi đi lang thang.
 
 ### Tuần 2 — Cheat Engine cơ bản
 
@@ -337,6 +350,7 @@ Tuần 1 là giáo án chia từng buổi vì đó là chỗ dễ bỏ nhất. T
 
 **Lý thuyết:**
 - Cài CE từ cheatengine.org.
+- Dùng đúng **AssaultCube 1.2.0.2** (mục "Bản game dùng trong tài liệu"); bản 1.3.x có offset khác.
 - Giao diện: process list, scan type, value type.
 - Khái niệm: address, value, type.
 - Scan types: Exact Value, Unknown Initial Value, Changed/Unchanged.
@@ -347,6 +361,8 @@ Tuần 1 là giáo án chia từng buổi vì đó là chỗ dễ bỏ nhất. T
 - Mở game offline, tìm HP / tiền / ammo.
 - Sửa giá trị, xem phản ứng.
 - Ghi lại lệnh asm ghi vào địa chỉ.
+
+**Điểm thắng của tuần (phải nhìn thấy bằng mắt):** đổi ammo hoặc HP trong AssaultCube từ giá trị gốc sang giá trị khác và thấy HUD đổi theo, rồi chụp ảnh hoặc ghi lại địa chỉ + value type. Chỉ "hiểu lý thuyết" mà chưa thấy số đổi thì chưa qua tuần 2 — sang tuần 3 sẽ chỉ là học chay.
 
 **Bài tập:**
 - Làm hết CE Tutorial bước 1–5.
@@ -371,8 +387,8 @@ Tuần 1 là giáo án chia từng buổi vì đó là chỗ dễ bỏ nhất. T
 - Thanh ghi **x64 (64-bit)**: `rax`, `rbx`, `rcx`, `rdx`, `rsi`, `rdi`, `rsp`, `rbp`, `rip`, cộng thêm `r8`–`r15`.
 - Thanh ghi con: `eax` là 32 bit thấp của `rax`, `ax` là 16 bit thấp, `al`/`ah` là 8 bit. Ghi vào `eax` là **xoá sạch 32 bit trên của `rax`** — đây là cái bẫy khi đọc code 64-bit, địa chỉ bị cắt cụt mà không có lỗi nào.
 - Lệnh: `mov`, `add`, `sub`, `inc`, `dec`, `cmp`, `test`, `jmp`, `je`, `jne`, `jg`, `jl`, `call`, `ret`, `push`, `pop`.
-- **Calling convention: tuần này chỉ cần nhận ra, chưa cần hiểu.** Mục tiêu là đọc được "chỗ này hàm nhận tham số" — thấy `push`/`mov [esp+4]` trước một `call` là đủ. Chi tiết `cdecl` / `stdcall` / shadow space học ở **tuần 9**, lúc hooking bắt mày phải biết chính xác. Học sớm chỉ tốn trí nhớ.
-- **Dựng struct từ memory — làm ngay tuần này:** Cheat Engine có **Structure Dissect** (Memory Viewer → Tools → Dissect data/structures), và **ReClass.NET** làm việc đó chuyên hơn: import process, kéo offset, đặt tên field, export ra class C++. Cộng offset bằng tay thì không thấy **padding**, và padding là thứ làm struct của mày đọc ra rác.
+- **Calling convention: tuần này chỉ cần nhận ra, chưa cần hiểu.** Mục tiêu là đọc được "chỗ này hàm nhận tham số" — thấy `push`/`mov [esp+4]` trước một `call` là đủ. Chi tiết `cdecl` / `stdcall` / shadow space học ở **tuần 9**, lúc hooking bắt bạn phải biết chính xác. Học sớm chỉ tốn trí nhớ.
+- **Dựng struct từ memory — làm ngay tuần này:** Cheat Engine có **Structure Dissect** (Memory Viewer → Tools → Dissect data/structures), và **ReClass.NET** làm việc đó chuyên hơn: import process, kéo offset, đặt tên field, export ra class C++. Cộng offset bằng tay thì không thấy **padding**, và padding là thứ làm struct của bạn đọc ra rác.
 
 **Thực hành:**
 - Tìm địa chỉ HP, pointer scan, lưu `.PTR`.
@@ -468,7 +484,7 @@ Tuần 1 chỉ dạy C, nhưng tuần 7 viết trainer bằng C++/WinAPI. Khoả
 
 **Lý thuyết — Ngày 3: dựng project đúng**
 - Visual Studio: tạo **Console App (C++)**, chọn **x86** hay **x64** cho khớp game.
-- Link thư viện: **Console App tạo trong Visual Studio đã link sẵn `kernel32.lib`, `user32.lib`** (và vài lib nữa) — `GetAsyncKeyState`, `MessageBoxA` chạy được ngay, không cần làm gì. Nhưng nếu build bằng **`cl` dòng lệnh** hay CMake/script riêng thì danh sách đó không có, và mày gặp `LNK2019: unresolved external symbol __imp_GetAsyncKeyState`. Lúc đó thêm `#pragma comment(lib, "user32.lib")` ở đầu file — các mẫu dưới đây đều có sẵn để copy ra ngoài VS vẫn build được. (`#pragma comment` là đặc trưng MSVC; MinGW bỏ qua nó, nhưng MinGW vốn link user32 mặc định.) `psapi.lib` nếu dùng `EnumProcessModules`.
+- Link thư viện: **Console App tạo trong Visual Studio đã link sẵn `kernel32.lib`, `user32.lib`** (và vài lib nữa) — `GetAsyncKeyState`, `MessageBoxA` chạy được ngay, không cần làm gì. Nhưng nếu build bằng **`cl` dòng lệnh** hay CMake/script riêng thì danh sách đó không có, và bạn gặp `LNK2019: unresolved external symbol __imp_GetAsyncKeyState`. Lúc đó thêm `#pragma comment(lib, "user32.lib")` ở đầu file — các mẫu dưới đây đều có sẵn để copy ra ngoài VS vẫn build được. (`#pragma comment` là đặc trưng MSVC; MinGW bỏ qua nó, nhưng MinGW vốn link user32 mặc định.) `psapi.lib` nếu dùng `EnumProcessModules`.
 - Debug vs Release: **luôn build Release khi test tốc độ**, Debug chậm hàng chục lần.
 - **Character set:** project VS mặc định bật **Unicode**, nên `PROCESSENTRY32` tự đổi thành `PROCESSENTRY32W`, `szExeFile` thành `WCHAR[260]`, và `_stricmp` hết compile. Lưu ý: `tlhelp32.h` **không** có bản `...A` — ANSI chính là tên không hậu tố. Hai cách: `#undef UNICODE` trước `#include <windows.h>` (các mẫu dưới làm vậy), hoặc đổi Character Set sang **Multi-Byte**.
 
@@ -549,7 +565,7 @@ Tuần 1 chỉ dạy C, nhưng tuần 7 viết trainer bằng C++/WinAPI. Khoả
 - Trampoline hook: ghi đè 5 byte đầu bằng `jmp`.
 - IAT hook, VMT hook — **đọc để biết, tuần này không code.** VMT sẽ dùng ở tuần 10 khi hook `Present` của DirectX.
 - MinHook — thư viện dễ nhất.
-- **Calling convention — học ở đây, không phải tuần 3.** Tuần 3 mày chỉ cần đọc được `push`/`mov` trước một `call`. Đến hooking thì mày buộc phải biết chính xác, vì prototype phải khớp từng tham số với hàm gốc:
+- **Calling convention — học ở đây, không phải tuần 3.** Tuần 3 bạn chỉ cần đọc được `push`/`mov` trước một `call`. Đến hooking thì bạn buộc phải biết chính xác, vì prototype phải khớp từng tham số với hàm gốc:
   - **x86**: `cdecl` (caller dọn stack), `stdcall` (callee dọn stack), `fastcall` (2 tham số đầu vào `ecx`, `edx`).
   - **x64 Windows**: **Microsoft x64** — 4 tham số đầu vào `rcx`, `rdx`, `r8`, `r9`, còn lại trên stack, có **32 byte shadow space**, caller dọn stack. Không có `stdcall`/`cdecl` trong code 64-bit.
   - sai một tham số trong typedef là stack lệch → crash ngay lần gọi đầu tiên, và rất khó lần ra.
@@ -557,7 +573,7 @@ Tuần 1 chỉ dạy C, nhưng tuần 7 viết trainer bằng C++/WinAPI. Khoả
 - **Tài liệu:** README của MinHook (mục Usage, đúng 4 bước: `MH_Initialize` → `MH_CreateHook` → `MH_EnableHook` → `MH_Uninitialize`), và bài về trampoline hook trên GuidedHacking.
 
 **Thực hành:**
-- Hook `CreateFileW` trong notepad — mở file là thấy hook chạy. **Đừng chọn `MessageBoxA`**: notepad không bao giờ gọi nó, mày sẽ tưởng code sai và debug vô ích. (Xem code mẫu tuần 9 ở dưới.)
+- Hook `CreateFileW` trong notepad — mở file là thấy hook chạy. **Đừng chọn `MessageBoxA`**: notepad không bao giờ gọi nó, bạn sẽ tưởng code sai và debug vô ích. (Xem code mẫu tuần 9 ở dưới.)
 - Muốn thêm một hook nữa: `RegOpenKeyExW` (notepad đọc registry khi mở) hoặc `GetSystemMetrics` (gọi liên tục khi resize cửa sổ).
 
 **Bài tập:**
@@ -572,15 +588,15 @@ Tuần 1 chỉ dạy C, nhưng tuần 7 viết trainer bằng C++/WinAPI. Khoả
 
 ### Tuần 10 — Overlay & vẽ trong game
 
-**Mục tiêu:** hiểu vòng lặp render và vẽ được lên trên game. Đây là tuần đệm sau hooking — nơi mày biến "hook được" thành "thấy được".
+**Mục tiêu:** hiểu vòng lặp render và vẽ được lên trên game. Đây là tuần đệm sau hooking — nơi bạn biến "hook được" thành "thấy được".
 
 **Lý thuyết:**
 - **Vòng lặp render:** game vẽ một frame rồi swap buffer, khoảng 60 lần/giây. Hook đúng chỗ swap là hook được "mỗi frame".
 - **Hai cách vẽ:**
-  1. **In-process overlay** — hook `wglSwapBuffers` (OpenGL) hoặc `IDXGISwapChain::Present` (DirectX), vẽ ngay trong process game. Mượt, nhưng code của mày sống trong game.
+  1. **In-process overlay** — hook `wglSwapBuffers` (OpenGL) hoặc `IDXGISwapChain::Present` (DirectX), vẽ ngay trong process game. Mượt, nhưng code của bạn sống trong game.
   2. **External overlay** — cửa sổ riêng, trong suốt, luôn trên cùng, click-through (`WS_EX_LAYERED | WS_EX_TRANSPARENT`), vẽ bằng GDI/Direct2D. Dễ hơn, nhưng giật hơn vì không đồng bộ với frame của game.
 - **ImGui:** `ImGui::CreateContext`, `NewFrame`, vẽ, `Render`, `EndFrame`. Muốn nhận chuột/bàn phím phải hook `WndProc` và gọi `ImGui_ImplWin32_WndProcHandler`.
-- **DirectX thì hook qua VMT:** `IDXGISwapChain::Present` không nằm trong export table. Mày lấy con trỏ interface rồi ghi đè đúng slot trong bảng hàm ảo. Đây chính là chỗ VMT hook ở tuần 9 được dùng thật.
+- **DirectX thì hook qua VMT:** `IDXGISwapChain::Present` không nằm trong export table. Bạn lấy con trỏ interface rồi ghi đè đúng slot trong bảng hàm ảo. Đây chính là chỗ VMT hook ở tuần 9 được dùng thật.
 - Tại sao overlay in-process dễ bị anti-cheat phát hiện hơn external.
 - **Toán chiếu world → screen:** đọc chương "Toán 3D — World-to-Screen" ở cuối file. Thiếu nó thì overlay chỉ vẽ được chữ ở góc màn hình, không vẽ được box quanh enemy.
 - **Tài liệu:** repo ImGui, thư mục `examples/example_win32_directx11` — copy khung đó rồi thay phần vẽ.
@@ -641,7 +657,7 @@ Nhánh A: sang **tuần 14** hướng A → 15–16. Nhánh B: **tuần 11 → 1
 
 ### Tuần 12 — ARM64 & native hook
 
-Native lib trên Android gần như luôn là **ARM64**. Toàn bộ asm mày học từ tuần 3 là x86/x64 — sang đây nó vô dụng, nên tuần này vừa học kiến trúc mới vừa áp dụng ngay vào hook.
+Native lib trên Android gần như luôn là **ARM64**. Toàn bộ asm bạn học từ tuần 3 là x86/x64 — sang đây nó vô dụng, nên tuần này vừa học kiến trúc mới vừa áp dụng ngay vào hook.
 
 **Mục tiêu:** đọc được asm ARM64 và hook một hàm trong `.so`.
 
@@ -656,7 +672,7 @@ Native lib trên Android gần như luôn là **ARM64**. Toàn bộ asm mày h�
 | giá trị trả về | `rax` | `x0` |
 | lệnh nhảy có điều kiện | `je`, `jne` | `b.eq`, `b.ne`, `cbz`, `cbnz` |
 
-**Lệnh cần thuộc:** `mov`, `add`, `sub`, `ldr`, `str`, `bl` (call), `ret`, `b`, `b.eq`/`b.ne`, `cmp`, `cbz`/`cbnz`, `adrp` (lấy địa chỉ trang — mày sẽ thấy nó khắp nơi).
+**Lệnh cần thuộc:** `mov`, `add`, `sub`, `ldr`, `str`, `bl` (call), `ret`, `b`, `b.eq`/`b.ne`, `cmp`, `cbz`/`cbnz`, `adrp` (lấy địa chỉ trang — bạn sẽ thấy nó khắp nơi).
 
 **Trong Frida:**
 - đọc tham số: `this.context.x0`, `x1`...
@@ -667,7 +683,7 @@ Native lib trên Android gần như luôn là **ARM64**. Toàn bộ asm mày h�
 - `.so` là thư viện native, tương đương `.dll` trên Windows.
 - ABI phổ biến: `arm64-v8a` (chính), `armeabi-v7a` (cũ), `x86_64` (chỉ emulator). Lấy đúng file từ APK: giải nén, vào `lib/<abi>/`.
 - Hàm **export** nằm trong bảng symbol — tìm được bằng tên. Hàm **không export** (bị strip hoặc obfuscate) phải tìm bằng offset từ Ghidra.
-- Ghidra: chọn **AARCH64** khi import, nếu không nó sẽ decode sai và mày sẽ đọc ra rác.
+- Ghidra: chọn **AARCH64** khi import, nếu không nó sẽ decode sai và bạn sẽ đọc ra rác.
 - **Tài liệu:** AAPCS64 (tên chính thức của ARM64 ABI) cho quy ước gọi hàm, tham số và stack; Ghidra docs phần AARCH64.
 
 **Hook native bằng Frida:**
@@ -678,8 +694,8 @@ Native lib trên Android gần như luôn là **ARM64**. Toàn bộ asm mày h�
 
 **Chọn môi trường cho đúng — đây là chỗ mất nhiều ngày nhất.** Game thật thường chỉ ship `arm64-v8a`. Emulator AVD mặc định trên PC x86 là system image x86_64, và game ARM chạy qua lớp dịch — hook ở đó lệch lung tung, không đại diện cho máy thật. Các lựa chọn, xếp theo độ thực tế:
 
-1. **Máy thật Android đã root** — sạch nhất, đúng thứ mày sẽ gặp khi làm thật.
-2. **Tự build `.so` bằng NDK** — build **cả hai** ABI: `arm64-v8a` để luyện đọc asm ARM64 trong Ghidra, `x86_64` để chạy nhanh trên emulator khi luyện cơ chế hook. Mày kiểm soát 100% hàm nào để hook, không phụ thuộc game.
+1. **Máy thật Android đã root** — sạch nhất, đúng thứ bạn sẽ gặp khi làm thật.
+2. **Tự build `.so` bằng NDK** — build **cả hai** ABI: `arm64-v8a` để luyện đọc asm ARM64 trong Ghidra, `x86_64` để chạy nhanh trên emulator khi luyện cơ chế hook. Bạn kiểm soát 100% hàm nào để hook, không phụ thuộc game.
 3. **Emulator với system image ARM64** — đúng kiến trúc nhưng chạy bằng giả lập phần mềm trên PC x86, **rất** chậm; chỉ dùng để xác nhận script chạy được, đừng dùng để debug.
 
 **Genymotion Desktop:** bản desktop thường là x86 kèm lớp dịch ARM, **không phải** ARM thật. Đừng tin nhãn "ARM" trên trang tải — kiểm tra `uname -m` trong `adb shell` trước khi đổ thời gian vào đó.
@@ -707,7 +723,7 @@ Native lib trên Android gần như luôn là **ARM64**. Toàn bộ asm mày h�
 
 **Mục tiêu:** sửa APK ở tầng Java/smali rồi build lại thành file cài được.
 
-> **Chọn app để luyện:** app **tự build** hoặc **open-source** (F-Droid, GitHub). App thương mại thường có obfuscation + anti-tamper + kiểm tra chữ ký — mày sẽ tưởng kỹ thuật của mình sai, trong khi thứ chặn mày là packer. Và đừng sửa APK thương mại rồi phát tán lại: đó là phân phối phần mềm đã bị sửa, khác hẳn việc tự học trên máy mình.
+> **Chọn app để luyện:** app **tự build** hoặc **open-source** (F-Droid, GitHub). App thương mại thường có obfuscation + anti-tamper + kiểm tra chữ ký — bạn sẽ tưởng kỹ thuật của mình sai, trong khi thứ chặn bạn là packer. Và đừng sửa APK thương mại rồi phát tán lại: đó là phân phối phần mềm đã bị sửa, khác hẳn việc tự học trên máy mình.
 
 **Lý thuyết:**
 - `apktool d` / `apktool b` — giải nén và đóng gói lại.
@@ -761,7 +777,7 @@ Native lib trên Android gần như luôn là **ARM64**. Toàn bộ asm mày h�
 
 ### Tuần 15 — Project: thiết kế & nền
 
-Tuần này mày **không** cố làm xong. Mày dựng nền cho đúng, để tuần 16 chỉ còn việc hoàn thiện.
+Tuần này bạn **không** cố làm xong. Bạn dựng nền cho đúng, để tuần 16 chỉ còn việc hoàn thiện.
 
 **Chọn 1 project:**
 1. **Trainer PC** — overlay ImGui + hotkey + pointer chain tự động + ESP.
@@ -777,7 +793,7 @@ Tuần này mày **không** cố làm xong. Mày dựng nền cho đúng, để 
 - Làm được **đúng một tính năng** end-to-end: bật tool → tính năng chạy → tắt tool → sạch.
 
 **Tiêu chí đạt:**
-- [ ] Có spec bằng văn bản, mày đọc lại hiểu ngay.
+- [ ] Có spec bằng văn bản, bạn đọc lại hiểu ngay.
 - [ ] Project build ra file chạy được.
 - [ ] Một tính năng hoàn chỉnh, không phải năm tính năng dở dang.
 
@@ -789,12 +805,12 @@ Tuần này mày **không** cố làm xong. Mày dựng nền cho đúng, để 
 - Hoàn thiện các tính năng còn lại trong spec.
 - **Ổn định hoá:** chạy liên tục 30 phút không crash, bật/tắt 50 lần không rò handle, thoát game không treo tool.
 - Xử lý lỗi: game chưa chạy, sai phiên bản, offset sai — tool phải báo rõ ràng chứ không im lặng.
-- **README** — đây là phần bị coi thường nhất và cũng là phần chứng minh mày hiểu:
+- **README** — đây là phần bị coi thường nhất và cũng là phần chứng minh bạn hiểu:
   - tool làm gì, ảnh chụp màn hình;
   - kỹ thuật dùng: hook gì, chain nào, tại sao;
   - cách build;
   - giới hạn đã biết.
-- Ghi lại **những gì đã sai** trong quá trình làm. Đây là phần có giá trị nhất với chính mày 3 tháng sau.
+- Ghi lại **những gì đã sai** trong quá trình làm. Đây là phần có giá trị nhất với chính bạn 3 tháng sau.
 
 **Tiêu chí đạt:**
 - [ ] Project chạy ổn định như định nghĩa "ổn định" ở trên.
@@ -812,23 +828,23 @@ Tuần này mày **không** cố làm xong. Mày dựng nền cho đúng, để 
 
 ### Ba lỗi thường gặp
 
-1. **Label patch phải nằm ở địa chỉ gốc, không phải trong `newmem`.** Trong Auto Assemble, mọi thứ sau `newmem:` được ghi vào vùng nhớ vừa `alloc`. Chỉ khi mày mở lại label của `aobscanmodule` (ở đây là `ammoDec:`) thì code mới được ghi vào game. Đặt một label khác sau `jmp returnhere` là ghi `jmp newmem` vào chính `newmem` → vòng lặp vô hạn ngay khi enable, hoặc không ghi gì vào game cả.
+1. **Label patch phải nằm ở địa chỉ gốc, không phải trong `newmem`.** Trong Auto Assemble, mọi thứ sau `newmem:` được ghi vào vùng nhớ vừa `alloc`. Chỉ khi bạn mở lại label của `aobscanmodule` (ở đây là `ammoDec:`) thì code mới được ghi vào game. Đặt một label khác sau `jmp returnhere` là ghi `jmp newmem` vào chính `newmem` → vòng lặp vô hạn ngay khi enable, hoặc không ghi gì vào game cả.
 2. **`db` không nhận wildcard.** `db 2B ?? ?? ?? ?? ??` không hợp lệ. `[DISABLE]` phải ghi byte thật, hoặc tốt hơn: viết lại đúng lệnh asm gốc để CE tự assemble lại.
 3. **Thiếu `dealloc`.** Mỗi lần enable/disable là rò một vùng nhớ, và lần enable sau có thể ghi vào địa chỉ đã cấp cho thứ khác.
 
 ### Stolen bytes — nguyên tắc thật
 
-`jmp rel32` luôn tốn **đúng 5 byte**. Nhưng lệnh mày muốn patch có thể chỉ 2 byte (`dec [esi]`) hoặc 6 byte. Nên không có chuyện "patch đúng một lệnh" — mày luôn patch **một đoạn N byte với N ≥ 5**, và phải làm đủ ba bước:
+`jmp rel32` luôn tốn **đúng 5 byte**. Nhưng lệnh bạn muốn patch có thể chỉ 2 byte (`dec [esi]`) hoặc 6 byte. Nên không có chuyện "patch đúng một lệnh" — bạn luôn patch **một đoạn N byte với N ≥ 5**, và phải làm đủ ba bước:
 
 1. Đo chiều dài các lệnh gốc cho tới khi tổng **≥ 5**.
 2. Ghi `jmp newmem` (5 byte) + pad `nop` cho đủ N.
 3. Trong `newmem`, **chép lại nguyên văn các lệnh gốc** đó trước khi `jmp returnhere`.
 
-Bỏ bước 3 là mày xoá luôn logic gốc. Với `dec [esi]` thì ammo ngừng giảm (có vẻ đúng ý), nhưng nếu lệnh bị đè là `mov eax,[ebp+8]` thì phần còn lại của hàm chạy với giá trị rác.
+Bỏ bước 3 là bạn xoá luôn logic gốc. Với `dec [esi]` thì ammo ngừng giảm (có vẻ đúng ý), nhưng nếu lệnh bị đè là `mov eax,[ebp+8]` thì phần còn lại của hàm chạy với giá trị rác.
 
 ### Script đúng
 
-Ví dụ dưới đây **minh hoạ cơ chế, không phải byte thật của AssaultCube** — mày phải tự tìm lệnh thật bằng "Find out what writes to this address" rồi thay vào.
+Ví dụ dưới đây **minh hoạ cơ chế, không phải byte thật của AssaultCube** — bạn phải tự tìm lệnh thật bằng "Find out what writes to this address" rồi thay vào.
 
 ```
 [ENABLE]
@@ -841,7 +857,7 @@ assert(ammoDec, FF 0E)      // không khớp thì CE báo lỗi, không ghi bừ
 // tham số thứ 3 = "near": buộc newmem nằm trong ±2GB để jmp rel32 với tới.
 // Không có nó, CE có thể cấp newmem xa hơn tầm nhảy -> enable là crash.
 alloc(newmem, 128, ammoDec)
-// đăng ký ammoDec làm symbol toàn cục: cần nếu mày muốn dùng địa chỉ này
+// đăng ký ammoDec làm symbol toàn cục: cần nếu bạn muốn dùng địa chỉ này
 // trong address list / script khác, và để [DISABLE] giải phóng đúng thứ.
 registersymbol(ammoDec)
 label(returnhere)
@@ -870,11 +886,11 @@ dealloc(newmem)
 
 **Nếu tổng byte lệnh gốc lớn hơn 5:** sau `jmp newmem` thêm `nop` cho đủ, và `returnhere:` đặt sau các `nop` đó.
 
-**Script trên chép lại `dec [esi]` nên hành vi không đổi — cố ý.** Nó minh hoạ cơ chế trước, để mày thấy "chép stolen bytes" là bắt buộc. Muốn thấy hiệu ứng thật thì **bỏ `dec [esi]` khỏi `newmem`**: ammo sẽ ngừng giảm. Chỗ bị đè vẫn đúng 5 byte nên không cần `nop`; nhưng `[DISABLE]` vẫn phải assemble lại đủ 5 byte gốc.
+**Script trên chép lại `dec [esi]` nên hành vi không đổi — cố ý.** Nó minh hoạ cơ chế trước, để bạn thấy "chép stolen bytes" là bắt buộc. Muốn thấy hiệu ứng thật thì **bỏ `dec [esi]` khỏi `newmem`**: ammo sẽ ngừng giảm. Chỗ bị đè vẫn đúng 5 byte nên không cần `nop`; nhưng `[DISABLE]` vẫn phải assemble lại đủ 5 byte gốc.
 
 **Đo ở đâu:** Memory Viewer của CE hiện sẵn cột byte bên cạnh asm. Hoặc chuột phải → "Show instruction length". Đừng đoán.
 
-**Kiểm tra pattern có an toàn:** dán pattern vào ô scan của Memory Viewer (chế độ Array of Bytes) rồi xem nó khớp bao nhiêu chỗ. Khớp 1 chỗ là tốt. Khớp 40 chỗ là pattern của mày vô dụng.
+**Kiểm tra pattern có an toàn:** dán pattern vào ô scan của Memory Viewer (chế độ Array of Bytes) rồi xem nó khớp bao nhiêu chỗ. Khớp 1 chỗ là tốt. Khớp 40 chỗ là pattern của bạn vô dụng.
 
 ---
 
@@ -893,7 +909,7 @@ dealloc(newmem)
 // player.h — xuất từ ReClass.NET ở tuần 3, đã đặt tên field. Nội dung thật
 // của nó trông như thế này (ReClass sinh pad_XXXX cho những chỗ chưa đặt tên):
 //   struct Player { char pad_0000[0x140]; int ammo; int hp; ... };
-// Nên offsetof(Player, ammo) == 0x140, nhưng mày không phải gõ 0x140 ở đâu nữa.
+// Nên offsetof(Player, ammo) == 0x140, nhưng bạn không phải gõ 0x140 ở đâu nữa.
 #include "player.h"
 
 DWORD GetPID(const char* name) {
@@ -967,7 +983,7 @@ int main() {
 
     // Đọc nguyên khối struct một lần, thay vì cộng từng offset bằng tay.
     // Player là struct export từ ReClass.NET (tuần 3): field có tên, nên khi
-    // game update đổi offset, mày sửa header chứ không sửa code.
+    // game update đổi offset, bạn sửa header chứ không sửa code.
     Player snap{};
     if (!ReadProcessMemory(h, (LPCVOID)player, &snap, sizeof(snap), nullptr)) {
         std::cout << "read player struct failed, error = " << GetLastError() << "\n";
@@ -1009,7 +1025,7 @@ int main() {
 #include <windows.h>
 #pragma comment(lib, "user32.lib")   // chỉ cần khi build bằng cl; VS project có sẵn
 
-// ĐỪNG gọi user32 (MessageBoxA...) ngay trong DllMain: mày đang chạy dưới
+// ĐỪNG gọi user32 (MessageBoxA...) ngay trong DllMain: bạn đang chạy dưới
 // loader lock -> dễ deadlock, và LoadLibrary phía injector sẽ không trả về
 // cho tới khi hộp thoại được tắt (injector treo ở WaitForSingleObject).
 DWORD WINAPI InitThread(LPVOID) {
@@ -1116,20 +1132,20 @@ int main(int argc, char** argv) {
 }
 ```
 
-**Bốn lỗi làm inject fail mà không ai nói cho mày:**
+**Bốn lỗi làm inject fail mà không ai nói cho bạn:**
 
-1. **Sai bit DLL.** DLL 32-bit không load được vào process 64-bit và ngược lại — nhưng `CreateRemoteThread` **vẫn** trả handle và thread **vẫn** chạy, chỉ có `LoadLibraryA` bên trong trả 0. Không đọc `exitCode` thì mày thấy "injected" và tưởng thành công.
-2. **Đường dẫn DLL.** `LoadLibraryA` chạy trong process đích, nên đường dẫn tương đối được resolve theo thư mục của **game**, không phải của mày. Dùng đường dẫn tuyệt đối.
-3. **`PROCESS_ALL_ACCESS` fail** khiến mày tưởng game chống inject. Thực ra mày chỉ xin sai quyền.
+1. **Sai bit DLL.** DLL 32-bit không load được vào process 64-bit và ngược lại — nhưng `CreateRemoteThread` **vẫn** trả handle và thread **vẫn** chạy, chỉ có `LoadLibraryA` bên trong trả 0. Không đọc `exitCode` thì bạn thấy "injected" và tưởng thành công.
+2. **Đường dẫn DLL.** `LoadLibraryA` chạy trong process đích, nên đường dẫn tương đối được resolve theo thư mục của **game**, không phải của bạn. Dùng đường dẫn tuyệt đối.
+3. **`PROCESS_ALL_ACCESS` fail** khiến bạn tưởng game chống inject. Thực ra bạn chỉ xin sai quyền.
 4. **Bản thân injector cũng phải cùng bit với target.** Code trên lấy địa chỉ `LoadLibraryA` từ chính process của injector rồi truyền sang target. Injector 64-bit đưa địa chỉ 64-bit của nó vào process 32-bit thì thread nhảy vào vùng nhớ không tồn tại — hoặc tệ hơn, vào chỗ tình cờ hợp lệ và crash ngẫu nhiên. Build injector cùng platform với game, đừng chỉ build DLL đúng bit.
 
 ---
 
 ### Tuần 9 — Hook bằng MinHook
 
-**Bài tập `MessageBoxA` trong notepad có một cái bẫy chết người: notepad không bao giờ gọi `MessageBoxA`.** Mày inject, hook thành công, rồi ngồi nhìn màn hình — không có gì xảy ra. Không phải code sai. Nó chỉ không được trigger.
+**Bài tập `MessageBoxA` trong notepad có một cái bẫy chết người: notepad không bao giờ gọi `MessageBoxA`.** Bạn inject, hook thành công, rồi ngồi nhìn màn hình — không có gì xảy ra. Không phải code sai. Nó chỉ không được trigger.
 
-Cách đúng: để chính DLL tự gọi nó, mày sẽ thấy hook chạy ngay.
+Cách đúng: để chính DLL tự gọi nó, bạn sẽ thấy hook chạy ngay.
 
 ```cpp
 #include <windows.h>
@@ -1141,7 +1157,7 @@ typedef int (WINAPI *MessageBoxA_t)(HWND, LPCSTR, LPCSTR, UINT);
 static MessageBoxA_t origMessageBoxA = nullptr;
 
 int WINAPI hookedMessageBoxA(HWND h, LPCSTR text, LPCSTR cap, UINT type) {
-    // mày đang ở đây. sửa tham số, chặn, log, hoặc trả giá trị giả.
+    // bạn đang ở đây. sửa tham số, chặn, log, hoặc trả giá trị giả.
     return origMessageBoxA(h, "hooked", cap, type);
 }
 
@@ -1157,9 +1173,9 @@ DWORD WINAPI MainThread(LPVOID param) {
     MessageBoxA(nullptr, "original text", "test", MB_OK);
 
     // Giữ thread sống. Return ngay thì thread chết nhưng hook vẫn còn — và
-    // mày không có chỗ nào để gỡ. Đây là lý do bài verify #5 (bật/tắt 20 lần)
+    // bạn không có chỗ nào để gỡ. Đây là lý do bài verify #5 (bật/tắt 20 lần)
     // cần một vòng lặp như thế này.
-    // 0x8000 = phím đang được giữ. Dùng & 1 thì với Sleep(50) mày dễ bấm hụt.
+    // 0x8000 = phím đang được giữ. Dùng & 1 thì với Sleep(50) bạn dễ bấm hụt.
     while (!(GetAsyncKeyState(VK_END) & 0x8000)) Sleep(50);
 
     MH_DisableHook(MH_ALL_HOOKS);        // gỡ hook TRƯỚC khi DLL bị unload
@@ -1174,7 +1190,7 @@ DWORD WINAPI MainThread(LPVOID param) {
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID) {
     if (reason == DLL_PROCESS_ATTACH) {
         // Phải là hModule, không phải nullptr. nullptr thì hàm fail âm thầm
-        // và mày vẫn nhận DLL_THREAD_ATTACH/THREAD_DETACH như thường.
+        // và bạn vẫn nhận DLL_THREAD_ATTACH/THREAD_DETACH như thường.
         DisableThreadLibraryCalls(hModule);
 
         // truyền hModule sang thread: FreeLibraryAndExitThread cần nó
@@ -1189,7 +1205,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID) {
 
 **Bài tập thật: hook `CreateFileW` — hàm mà notepad có gọi.**
 
-`MessageBoxA` chỉ để mày thấy cơ chế chạy. Bài nộp là `CreateFileW`: mở file nào cũng trigger, kể cả notepad tự lưu autosave.
+`MessageBoxA` chỉ để bạn thấy cơ chế chạy. Bài nộp là `CreateFileW`: mở file nào cũng trigger, kể cả notepad tự lưu autosave.
 
 ```cpp
 typedef HANDLE (WINAPI *CreateFileW_t)(LPCWSTR, DWORD, DWORD, LPSECURITY_ATTRIBUTES,
@@ -1199,7 +1215,7 @@ static CreateFileW_t origCreateFileW = nullptr;
 HANDLE WINAPI hookedCreateFileW(LPCWSTR path, DWORD access, DWORD share,
                                 LPSECURITY_ATTRIBUTES sa, DWORD disp,
                                 DWORD flags, HANDLE tmpl) {
-    // KHÔNG mở file log bằng CreateFileW ở đây: mày gọi chính hook của mày,
+    // KHÔNG mở file log bằng CreateFileW ở đây: bạn gọi chính hook của bạn,
     // đệ quy tới khi tràn stack. Hook đang chạy trên mọi luồng, mọi lúc.
     OutputDebugStringW(path);
     OutputDebugStringW(L"\n");
@@ -1209,16 +1225,16 @@ HANDLE WINAPI hookedCreateFileW(LPCWSTR path, DWORD access, DWORD share,
 
 Hai cái bẫy mà không ai nói trước:
 
-1. **Notepad không có console.** `std::cout` trong hook sẽ không hiện ở đâu cả — mày tưởng hook không chạy. Dùng `OutputDebugStringW` và xem bằng **DebugView** (Sysinternals), hoặc mở sẵn một handle log **trước khi** enable hook rồi `WriteFile` vào đó.
+1. **Notepad không có console.** `std::cout` trong hook sẽ không hiện ở đâu cả — bạn tưởng hook không chạy. Dùng `OutputDebugStringW` và xem bằng **DebugView** (Sysinternals), hoặc mở sẵn một handle log **trước khi** enable hook rồi `WriteFile` vào đó.
 2. **Đừng log bằng chính hàm đang bị hook.** Mở file trong `hookedCreateFileW` là đệ quy vô hạn — hook gọi hook. Đây là lỗi làm treo cả notepad, và nó không giống bug thông thường nên rất khó lần.
 
 Prototype phải đủ **7 tham số** và đúng thứ tự; sai một cái là stack lệch và notepad crash ngay lần mở file đầu tiên. Nhớ hook bản `...W` chứ không phải `...A` — notepad gọi bản `W`.
 
-**Notepad trên Windows 11** là app đóng gói từ Store, chạy trong tiến trình/ngữ cảnh khác notepad cổ điển — inject có thể fail hoặc hành vi lạ. Gặp khó thì dùng `C:\Windows\System32\notepad.exe` bản cũ, hoặc tốt hơn: tự viết một target 20 dòng chỉ gọi `CreateFileW` khi bấm phím. Target tự viết là thứ mày kiểm soát 100%, và sau này còn dùng lại để test tool.
+**Notepad trên Windows 11** là app đóng gói từ Store, chạy trong tiến trình/ngữ cảnh khác notepad cổ điển — inject có thể fail hoặc hành vi lạ. Gặp khó thì dùng `C:\Windows\System32\notepad.exe` bản cũ, hoặc tốt hơn: tự viết một target 20 dòng chỉ gọi `CreateFileW` khi bấm phím. Target tự viết là thứ bạn kiểm soát 100%, và sau này còn dùng lại để test tool.
 
 Đăng ký hook thì thay dòng `MessageBoxA` trong `MainThread` ở trên bằng: `MH_CreateHook(&CreateFileW, &hookedCreateFileW, (LPVOID*)&origCreateFileW)`.
 
-**Về trampoline:** MinHook ghi 5 byte đầu hàm đích thành `jmp`. Nhưng nó **tự copy** các byte bị đè sang một vùng nhớ khác (gọi là trampoline) và `origMessageBoxA` trỏ vào đó. Đó là lý do mày gọi `origMessageBoxA` vẫn ra hành vi gốc. Hàm đích cần đủ chỗ để đè (thường ≥ 5 byte, hoặc vài lệnh liền nhau đủ dài); nếu MinHook không dựng được trampoline — gặp lệnh lạ, hàm quá ngắn — `MH_CreateHook` trả **`MH_ERROR_UNSUPPORTED_FUNCTION`**. Đừng bỏ qua return code: in `(int)status` hoặc `switch` trên `MH_STATUS` để biết nó fail ở đâu.
+**Về trampoline:** MinHook ghi 5 byte đầu hàm đích thành `jmp`. Nhưng nó **tự copy** các byte bị đè sang một vùng nhớ khác (gọi là trampoline) và `origMessageBoxA` trỏ vào đó. Đó là lý do bạn gọi `origMessageBoxA` vẫn ra hành vi gốc. Hàm đích cần đủ chỗ để đè (thường ≥ 5 byte, hoặc vài lệnh liền nhau đủ dài); nếu MinHook không dựng được trampoline — gặp lệnh lạ, hàm quá ngắn — `MH_CreateHook` trả **`MH_ERROR_UNSUPPORTED_FUNCTION`**. Đừng bỏ qua return code: in `(int)status` hoặc `switch` trên `MH_STATUS` để biết nó fail ở đâu.
 
 ---
 
@@ -1350,7 +1366,7 @@ int *p = &x;
 
 ### 3. Tại sao hack game cần con trỏ
 
-Khi dùng Cheat Engine tìm HP, mày tìm được **địa chỉ** — ví dụ `0x1A2B3C4D`.
+Khi dùng Cheat Engine tìm HP, bạn tìm được **địa chỉ** — ví dụ `0x1A2B3C4D`.
 
 Nhưng địa chỉ này **đổi mỗi lần chạy game** vì:
 - **ASLR** (Address Space Layout Randomization) — OS random base address.
@@ -1418,7 +1434,7 @@ Nội dung: hp       mp       gold
 - `p->mp` = đọc tại `p + 4`.
 - `p->gold` = đọc tại `p + 8`.
 
-**Offset** chính là khoảng cách byte từ đầu struct tới field. Đây là lý do khi hack game mày thấy "offset 0x8" — đó là `gold`.
+**Offset** chính là khoảng cách byte từ đầu struct tới field. Đây là lý do khi hack game bạn thấy "offset 0x8" — đó là `gold`.
 
 **Căn lề (padding):**
 ```c
@@ -1465,12 +1481,12 @@ typedef struct {
 
 ## Giải thích sâu: 32-bit và 64-bit
 
-### 1. Tại sao nó quan trọng hơn mày nghĩ
+### 1. Tại sao nó quan trọng hơn bạn nghĩ
 
-Không chỉ là chọn tool. Nó đổi **cách mày viết struct, cách mày tính offset, cách mày gọi hàm**.
+Không chỉ là chọn tool. Nó đổi **cách bạn viết struct, cách bạn tính offset, cách bạn gọi hàm**.
 
 - con trỏ x86 = 4 byte, x64 = 8 byte.
-- `size_t` / `uintptr_t` phải dùng cho địa chỉ. **Đừng bao giờ** dùng `int` hay `DWORD` cho địa chỉ trong code 64-bit — nó cắt cụt giá trị và mày ghi vào nhầm chỗ, mà không có lỗi nào.
+- `size_t` / `uintptr_t` phải dùng cho địa chỉ. **Đừng bao giờ** dùng `int` hay `DWORD` cho địa chỉ trong code 64-bit — nó cắt cụt giá trị và bạn ghi vào nhầm chỗ, mà không có lỗi nào.
 - struct có con trỏ bên trong sẽ **to hơn** trên x64 → offset lệch → tool đọc sai mà không báo gì.
 
 ### 2. Đọc byte đầu của file exe
@@ -1482,13 +1498,13 @@ Không chỉ là chọn tool. Nó đổi **cách mày viết struct, cách mày 
 
 ### 3. WOW64 — game 32-bit trên Windows 64-bit
 
-game 32-bit chạy trong subsystem **WOW64**. Mày vẫn dùng `x32dbg` để debug nó. Cheat Engine hiện đại xử lý được cả hai loại process trong cùng một bản — không cần lo chuyện CE.
+game 32-bit chạy trong subsystem **WOW64**. Bạn vẫn dùng `x32dbg` để debug nó. Cheat Engine hiện đại xử lý được cả hai loại process trong cùng một bản — không cần lo chuyện CE.
 
 Thứ **thật sự** phải khớp bit:
 
 - **debugger với process**: `x32dbg` cho 32-bit, `x64dbg` cho 64-bit. Đây là cặp nghiêm ngặt nhất.
 - **DLL với process đích** khi inject.
-- **độ rộng con trỏ trong code của mày**: `uintptr_t`, không `DWORD`.
+- **độ rộng con trỏ trong code của bạn**: `uintptr_t`, không `DWORD`.
 
 ### 4. Checklist khi bắt đầu một game mới
 
@@ -1502,7 +1518,7 @@ Thứ **thật sự** phải khớp bit:
 
 ## Giải thích sâu: Toán 3D — World-to-Screen
 
-Tuần 10 dạy overlay, nhưng ESP (project tuần 15–16) mới là chỗ cần phần toán dưới đây — và **không có nó thì ESP không tồn tại**. Mày tìm được toạ độ enemy rồi vẫn không vẽ được cái box quanh đầu nó.
+Tuần 10 dạy overlay, nhưng ESP (project tuần 15–16) mới là chỗ cần phần toán dưới đây — và **không có nó thì ESP không tồn tại**. Bạn tìm được toạ độ enemy rồi vẫn không vẽ được cái box quanh đầu nó.
 
 ### 1. Ba không gian
 
@@ -1514,9 +1530,9 @@ ESP = lấy world position của enemy → chiếu qua camera → ra pixel → v
 
 ### 2. View matrix là gì
 
-game giữ một **ma trận 4x4** (thường 64 byte `float`, liên tiếp) để biến đổi world → view. Mày tìm nó trong memory bằng CE: scan một dải float, hoặc tìm ngay cạnh camera position trong entity local player.
+game giữ một **ma trận 4x4** (thường 64 byte `float`, liên tiếp) để biến đổi world → view. Bạn tìm nó trong memory bằng CE: scan một dải float, hoặc tìm ngay cạnh camera position trong entity local player.
 
-Đây là lý do ESP khó hơn hack máu: mày phải tìm **một cấu trúc 64 byte**, không phải một con số.
+Đây là lý do ESP khó hơn hack máu: bạn phải tìm **một cấu trúc 64 byte**, không phải một con số.
 
 ### 3. Công thức
 
@@ -1540,7 +1556,7 @@ clip.z = x*m[2] + y*m[6]  + z*m[10] + m[14]
 clip.w = x*m[3] + y*m[7]  + z*m[11] + m[15]
 ```
 
-> **Đừng tin nhãn "row-major / column-major" trong tài liệu** — chúng bị dùng lẫn lộn khắp nơi. Suy luận "DirectX là row-major nên translation ở `m[3]`" là **sai**: DirectX row-major nhưng đi với row-vector, nên translation vẫn ở `m[12..14]`. Cách chắc chắn: nhìn **vị trí translation** trong ma trận mày dump được — `m[12..14]` thì dùng B, `m[3]/m[7]/m[11]` thì dùng A. **AssaultCube render bằng OpenGL → thử B trước.** Nhưng game tự dựng ma trận rồi nạp vào GL theo kiểu riêng là chuyện thường — thử cả hai, cái nào ra box đúng thì giữ.
+> **Đừng tin nhãn "row-major / column-major" trong tài liệu** — chúng bị dùng lẫn lộn khắp nơi. Suy luận "DirectX là row-major nên translation ở `m[3]`" là **sai**: DirectX row-major nhưng đi với row-vector, nên translation vẫn ở `m[12..14]`. Cách chắc chắn: nhìn **vị trí translation** trong ma trận bạn dump được — `m[12..14]` thì dùng B, `m[3]/m[7]/m[11]` thì dùng A. **AssaultCube render bằng OpenGL → thử B trước.** Nhưng game tự dựng ma trận rồi nạp vào GL theo kiểu riêng là chuyện thường — thử cả hai, cái nào ra box đúng thì giữ.
 
 Bước 2 — clip → NDC: chia cho `clip.w`.
 
@@ -1550,16 +1566,16 @@ sx = (ndc.x + 1) * 0.5 * screenWidth
 sy = (1 - (ndc.y + 1) * 0.5) * screenHeight   // y lật ngược, gốc toạ độ màn hình ở góc trên trái
 ```
 
-**Điều kiện loại:** `clip.w < 0.1` → điểm nằm sau camera, đừng vẽ. Thiếu check này là box hiện ra cả sau lưng mày.
+**Điều kiện loại:** `clip.w < 0.1` → điểm nằm sau camera, đừng vẽ. Thiếu check này là box hiện ra cả sau lưng bạn.
 
-### 4. Dấu hiệu mày sai
+### 4. Dấu hiệu bạn sai
 
 | hiện tượng | nguyên nhân |
 |---|---|
 | box vẽ đúng nhưng lệch dần theo khoảng cách | sai handness / sai trục z |
 | box đứng yên khi xoay camera | đọc sai địa chỉ matrix (đọc nhầm cái tĩnh) |
 | box hiện cả sau lưng | thiếu check `clip.w` |
-| không vẽ ra chấm nào khi test bằng toạ độ của chính mày | camera trùng vị trí player, `cw ≈ 0` → bị check chặn |
+| không vẽ ra chấm nào khi test bằng toạ độ của chính bạn | camera trùng vị trí player, `cw ≈ 0` → bị check chặn |
 | mọi thứ dồn về một góc / box lệch dần | chọn nhầm công thức A/B (translation ở `m[3]` hay `m[12..14]`) |
 | box co giãn sai khi lại gần | hàm chia perspective sai, hoặc chia nhầm trục |
 
@@ -1605,7 +1621,7 @@ bool WorldToScreenGL(const Vec3& w, const float m[16],
 
 ### 6. Bài tập
 
-Năm bài dưới đây là bài tập của **tuần 10**, và được dùng lại trong project tuần 15–16. Làm đúng thứ tự — bài 2 là bài kiểm tra nhanh nhất cho biết ma trận mày đọc được có đúng không.
+Năm bài dưới đây là bài tập của **tuần 10**, và được dùng lại trong project tuần 15–16. Làm đúng thứ tự — bài 2 là bài kiểm tra nhanh nhất cho biết ma trận bạn đọc được có đúng không.
 
 1. Tìm view matrix của AssaultCube bằng CE (nó ở static, khá dễ).
 2. Vẽ chấm ở một toạ độ **cố định** trên bản đồ — điểm spawn, hoặc một bot đứng yên trước mặt. Nhìn thẳng vào nó thì chấm phải nằm giữa màn hình.
@@ -1613,32 +1629,36 @@ Năm bài dưới đây là bài tập của **tuần 10**, và được dùng l
 4. Vẽ box 2D quanh enemy từ chấm đó — bằng **GDI** hoặc cửa sổ debug trong suốt, chưa cần ImGui.
 5. Chuyển box đó sang **ImGui**. (Dòng chữ "hello" ở thực hành tuần 10 là bài khởi động; đích của bài này là cái box.)
 
-**Đừng lấy toạ độ của chính mày để test bài 2.** Trong game góc nhìn thứ nhất, camera nằm ngay tại local player — khoảng cách theo trục nhìn gần bằng 0, nên `cw` rơi vào `if (cw < 0.1f) return false`. Hàm trả `false`, không có chấm nào, và mày sẽ tưởng mình tìm sai view matrix. Đó là bẫy của bài test, không phải của ma trận.
+**Đừng lấy toạ độ của chính bạn để test bài 2.** Trong game góc nhìn thứ nhất, camera nằm ngay tại local player — khoảng cách theo trục nhìn gần bằng 0, nên `cw` rơi vào `if (cw < 0.1f) return false`. Hàm trả `false`, không có chấm nào, và bạn sẽ tưởng mình tìm sai view matrix. Đó là bẫy của bài test, không phải của ma trận.
 
 ---
 
 ## Verify: bài kiểm tra thật
 
-Mỗi tuần, trước khi sang tuần sau, chạy bài này. Không qua được thì chưa đạt — kể cả khi mày "cảm thấy hiểu".
+Mỗi tuần, trước khi sang tuần sau, chạy bài này. Không qua được thì chưa đạt — kể cả khi bạn "cảm thấy hiểu".
 
 1. **restart test** — tắt game, mở lại, tool vẫn tìm đúng giá trị. Không được chạy lại CE để tìm lại.
 2. **reboot test** — restart máy, chạy lại. Pointer chain phải sống. Đây là bài kiểm tra thật của tuần 3.
 3. **đóng tool test** — chạy game một mình, xác nhận giá trị gốc, rồi bật tool, xác nhận nó đổi. Không được để tool tự bịa số.
-4. **giải thích test** — nói to lên, không nhìn code: "chỗ này làm gì, tại sao, nếu bỏ dòng này thì sao". Không qua được #4 thì mày đang copy, không phải đang học.
+4. **giải thích test** — nói to lên, không nhìn code: "chỗ này làm gì, tại sao, nếu bỏ dòng này thì sao". Không qua được #4 thì bạn đang copy, không phải đang học.
 5. **crash test** — bật/tắt tool 20 lần. Có crash nào không? Bug client-side thường chỉ lộ ra ở đây, không lộ ở lần chạy đầu.
 
 ### Trạng thái kiểm chứng của code mẫu
 
-Đã build bằng `cl` dòng lệnh (MSVC 14.51 / VS 2026), cả x64 lẫn x86, và chạy thử trên Windows (lần cuối 29/10/2026). Đây là kết quả trên máy mình — mày nên chạy lại trên máy mày, nhất là nếu dùng MinGW (hành vi linker khác MSVC):
+Đã build bằng `cl` dòng lệnh (MSVC 14.51 / VS 2026), cả x64 lẫn x86, và chạy thử trên Windows (lần cuối 29/10/2026). "Process test" là chương trình tự viết, giả lập đúng cấu trúc `Client { Player* }` — **không phải AssaultCube**. Đây là kết quả trên máy mình; bạn nên chạy lại trên máy bạn, nhất là nếu dùng MinGW (hành vi linker khác MSVC):
 
 | Mẫu | x64 | x86 | Chạy thử |
 |---|---|---|---|
-| trainer (tuần 7) | build OK | build OK | chưa — cần game; cần `player.h` từ ReClass |
+| trainer (tuần 7) | build OK | build OK | **logic có** — process test 32-bit: đọc con trỏ 4 byte đúng, đọc struct, ghi ammo, giữ phím chỉ ghi 1 lần, không bấm thì 0 lần; **offset AC thật: chưa** |
 | injector (tuần 8) | build OK | build OK | **có** — cả nhánh thành công lẫn sai bit |
 | DLL tuần 8 | build OK | build OK | **có** — inject vào process test, dùng bản DLL không UI |
-| hook MinHook (tuần 9) | build OK (header giả lập) | — | chưa — cần MinHook thật |
+| hook MinHook (tuần 9) | build OK | build OK | **có** — MinHook v1.3.3 thật: hook/disable/uninit trong EXE (cả hai bản) và trong DLL + `FreeLibraryAndExitThread` qua injector; chưa hook game |
 | `WorldToScreen` A/B | build + unit test | — | **có** — PASS cả hai, kể cả check `w` |
-| script CE | — | — | chưa — cần game |
+| script CE | — | — | chưa — cần game + CE |
+
+Bài test trainer dùng `VK_F24` thay `F1` để không bấm nhầm app khác — cùng một đường `GetAsyncKeyState`, cùng logic latch. Kết quả: trainer x64 đọc target 32-bit đúng (không lẫn 4 byte rác), ghi `ammo` từ 30 → 999, giữ phím 2,5 giây chỉ ghi đúng 1 lần.
+
+Ba thứ **vẫn chưa kiểm chứng**, đừng coi là đã xong: (1) offset `0x10F4F4` và pattern `FF 0E 8B 45 08` trên đúng file AC 1.2.0.2 — bài test chứng minh code đúng, không chứng minh số offset đúng; (2) script CE chưa được nạp vào CE; (3) toàn bộ Android (smali, ARM64, Frida 17) chưa chạy trên thiết bị thật. Khi có game/CE/thiết bị, chạy đúng thứ tự: xác nhận offset → trainer → script CE → hook.
 
 Một khác biệt giữa hai cách build, đáng biết trước: **project VS có sẵn `user32.lib`, còn `cl` dòng lệnh thì không** — cùng một file, trong VS chạy được, ngoài command line báo `LNK2019`. Các mẫu trong tài liệu đều có pragma để cả hai cách build đều qua. Trainer và injector cũng đã build với `/DUNICODE /D_UNICODE` (tức project VS mặc định Unicode) mà không phải sửa gì. Đây là lý do bài "verify" tồn tại: đọc không thay được build.
 
@@ -1659,15 +1679,15 @@ Một khác biệt giữa hai cách build, đáng biết trước: **project VS 
 | Video | LiveOverflow, GuidedHacking, OALabs |
 
 ### Quy tắc sống còn
-1. **Không skip tuần** trong nhánh mày đã chọn. Nền tảng yếu = tắc ở tuần 7 (PC) hoặc tuần 12 (mobile).
+1. **Không skip tuần** trong nhánh bạn đã chọn. Nền tảng yếu = tắc ở tuần 7 (PC) hoặc tuần 12 (mobile).
 2. **Luôn ghi chép.** Địa chỉ, offset, lệnh asm — ghi hết.
-3. **Hỏi khi tắc.** Kẹt quá 2 tiếng ở một bước thì dừng lại, ghi rõ mày đã thử gì, rồi hỏi.
+3. **Hỏi khi tắc.** Kẹt quá 2 tiếng ở một bước thì dừng lại, ghi rõ bạn đã thử gì, rồi hỏi.
 4. **Dùng máy ảo** cho: crackme (từ tuần 5), kernel driver, phân tích malware/anti-cheat. Snapshot trước mỗi lần chạy file lạ.
-5. **Không hack game online có anti-cheat mạnh** ở giai đoạn học. Ban HWID là thật và nó đi theo phần cứng của mày.
+5. **Không hack game online có anti-cheat mạnh** ở giai đoạn học. Ban HWID là thật và nó đi theo phần cứng của bạn.
 6. **Crackme không phải bài tập vô hại.** Chúng là file `.exe` lạ tải từ internet, và một số cố tình chứa malware. VM, không ngoại lệ.
 7. **Trình cài Cheat Engine có thể kèm phần mềm quảng cáo.** Đọc từng màn hình, bỏ tick mọi thứ không phải CE. Trang chính thức là `cheatengine.org` — không tải từ mirror lạ.
-8. **Windows Defender sẽ báo nhầm** injector, trainer, DLL mày tự build. Đừng tắt Defender toàn hệ thống. Chỉ thêm **thư mục project của mày** vào exclusions, và chỉ khi mày biết chính xác file mình vừa build.
-9. **Chỉ inject vào process của chính mày.** Inject vào process của người khác trên máy không phải của mày là chuyện khác hoàn toàn về mặt pháp lý — và nó không phải bài học nào trong lộ trình này.
+8. **Windows Defender sẽ báo nhầm** injector, trainer, DLL bạn tự build. Đừng tắt Defender toàn hệ thống. Chỉ thêm **thư mục project của bạn** vào exclusions, và chỉ khi bạn biết chính xác file mình vừa build.
+9. **Chỉ inject vào process của chính bạn.** Inject vào process của người khác trên máy không phải của bạn là chuyện khác hoàn toàn về mặt pháp lý — và nó không phải bài học nào trong lộ trình này.
 10. **Tuần 14, hướng B và C là phần rủi ro nhất.** Driver đọc memory có thể BSOD; nghiên cứu anti-cheat dễ thành né tránh. Làm trong VM, và định hướng theo phía **phát hiện** ("anti-cheat nhìn thấy gì") thay vì phía né tránh — vừa an toàn hơn, vừa học được nhiều hơn.
 
 ---
