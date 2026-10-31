@@ -174,8 +174,8 @@ Ví dụ, một chương trình viết bằng ngôn ngữ cấp cao như sau:
 #include <stdio.h>
 int main()
 {
-printf("Hello, World!\n");
-return 0;
+    printf("Hello, World!\n");
+    return 0;
 }
 ```
 
@@ -239,16 +239,14 @@ Chuong trinh C dau tien */
 //bat dau chuong trinh chinh
 int main (void)
 {
-printf("Chao mung den voi C! \n");
-getch();
-return 0; /* cho biet chuong trinh da ket
-thuc thanh cong */
+    printf("Chao mung den voi C! \n");
+    getch();
+    return 0; /* cho biet chuong trinh da ket
+    thuc thanh cong */
 } //ket thuc chuong trinh chinh
 ```
 
-Sau khi thực thi, chương trình sẽ in ra màn hình dòng chữ Chao
-
-*mung den voi C! , như ở hình sau:*
+Sau khi thực thi, chương trình sẽ in ra màn hình dòng chữ **Chao mung den voi C!**, như ở hình sau:
 
 `Chao mung den voi C!` Ở dòng lệnh số 1 và số 2, ta có hai câu:
 
@@ -267,13 +265,7 @@ Chuong trinh C dau tien */
 
 Dấu mở ngoặc { ở dòng lệnh số 7 thể hiện vị trí bắt đầu của hàm main và tương ứng dấu đóng ngoặc } ở dòng 13 thể hiện vị trí kết thúc của hàm main . Phần được viết giữa một cặp dấu ngoặc { } được gọi là một khối lệnh.
 
-Ở dòng lệnh số 8, câu `printf("Chao mung den voi C! \n");` là câu lệnh yêu cầu in ra màn hình một chuỗi các ký tự với nội dung Chao mung den voi C! . Mỗi câu lệnh trong C sẽ được kết thúc bằng một dấu chấm phẩy (;) Ở dòng lệnh số 9, câu lệnh `getch();` là lệnh chờ nhập một ký tự bất kỳ từ bàn phím. Lệnh này được sử dụng nhằm mục đích dừng chương trình để chờ người dùng nhập một ký tự bất kỳ từ bàn phím. Để chương trình có thể hiểu và biên dịch được lệnh
-
-```c
-getch(); chúng ta cần lệnh khai báo thư viện #include <conio.h> như ở
-```
-
-dòng lệnh số 4.
+Ở dòng lệnh số 8, câu `printf("Chao mung den voi C! \n");` là câu lệnh yêu cầu in ra màn hình một chuỗi các ký tự với nội dung Chao mung den voi C! . Mỗi câu lệnh trong C sẽ được kết thúc bằng một dấu chấm phẩy (;) Ở dòng lệnh số 9, câu lệnh `getch();` là lệnh chờ nhập một ký tự bất kỳ từ bàn phím. Lệnh này được sử dụng nhằm mục đích dừng chương trình để chờ người dùng nhập một ký tự bất kỳ từ bàn phím. Để chương trình có thể hiểu và biên dịch được lệnh `getch();` chúng ta cần lệnh khai báo thư viện `#include <conio.h>` như ở dòng lệnh số 4.
 
 Ở dòng lệnh số 10, câu lệnh
 
@@ -308,17 +300,17 @@ Chúng ta sẽ viết một chương trình C thực hiện việc nhập hai s�
 #include <conio.h>
 int main (void)
 {
-int a;  //khai bao bien a, de luu so thu nhat
-int b;   //khai bao bien b, de luu so thu hai
-int tong;//khai bao bien tong, de luu ket qua
-printf ("Nhap so thu nhat : \n");
-scanf("%d",&a);  //nhap so nguyen tu ban phim
-printf("Nhap so thu hai: \n");
-scanf("%d",&b);  //nhap so nguyen tu ban phim
-tong = a + b;     //tinh tong
-printf("Tong la: %d \n",tong);  //in ket qua
-getch(); //cho nhap 1 ky tu bat ky
-return 0;
+    int a;  //khai bao bien a, de luu so thu nhat
+    int b;   //khai bao bien b, de luu so thu hai
+    int tong;//khai bao bien tong, de luu ket qua
+    printf ("Nhap so thu nhat : \n");
+    scanf("%d",&a);  //nhap so nguyen tu ban phim
+    printf("Nhap so thu hai: \n");
+    scanf("%d",&b);  //nhap so nguyen tu ban phim
+    tong = a + b;     //tinh tong
+    printf("Tong la: %d \n",tong);  //in ket qua
+    getch(); //cho nhap 1 ky tu bat ky
+    return 0;
 }
 ```
 
@@ -465,28 +457,26 @@ Tới đây, có thể thấy mỗi biến là một vùng nhớ độc lập c�
 
 Trong một số ngôn ngữ lập trình hiện đại, biến chỉ cần được khai báo trước khi sử dụng và tại bất kỳ vị trí nào trong chương trình. Một số ngôn ngôn ngữ còn bỏ qua bước khai báo biến, tương đương với việc biến sẽ được khởi tạo khi lần đầu tiên được sử dụng mà không cần phải khai báo trước đó. Tuy nhiên, ngôn ngữ lập trình C bắt buộc biến phải được khai báo trước khi sử dụng. Hơn nữa, biến phải được khai báo ở đầu chương trình, trước vị trí các câu lệnh. Biến có thể được khai báo bên trong chương trình chính hoặc chương trình con, hoặc bên ngoài chương trình chính hoặc chương trình con. Trong 2 trường hợp này, phạm vi hoạt động của biến khác nhau. Cụ thể, dựa vào phạm vi hoạt động của biến, các biến được chia làm 2 loại cơ bản như sau:
 
-- Biến chung hoặc biến toàn cục (global): là các biến được khai báo bên ngoài các hàm và có thể được truy xuất trong bất kỳ hàm nào cùng nằm trong một tệp chương trình. Ví dụ một chương trình được viết
-
-*có tên  file1.c  có nội dung như sau:*
+- Biến chung hoặc biến toàn cục (global): là các biến được khai báo bên ngoài các hàm và có thể được truy xuất trong bất kỳ hàm nào cùng nằm trong một tệp chương trình. Ví dụ một chương trình được viết `file1.c` có nội dung như sau:
 
 ```c
 #include <stdio.h>
 #include <conio.h>
 int a,b,tong,hieu ;
 void tinhhieu(){
-hieu = a - b;     //tinh hieu
-printf("Hieu la: %d \n",hieu);
+    hieu = a - b;     //tinh hieu
+    printf("Hieu la: %d \n",hieu);
 }
 int main (void)
 {
-printf ("Nhap so thu nhat : \n");
-scanf("%d",&a);  //nhap so nguyen tu ban phim
-printf("Nhap so thu hai: \n");
-scanf("%d",&b);  //nhap so nguyen tu ban phim
-tong = a + b;     //tinh tong
-printf("Tong la: %d \n",tong); //in ket qua
-getch(); //cho nhap 1 ky tu bat ky
-return 0;
+    printf ("Nhap so thu nhat : \n");
+    scanf("%d",&a);  //nhap so nguyen tu ban phim
+    printf("Nhap so thu hai: \n");
+    scanf("%d",&b);  //nhap so nguyen tu ban phim
+    tong = a + b;     //tinh tong
+    printf("Tong la: %d \n",tong); //in ket qua
+    getch(); //cho nhap 1 ky tu bat ky
+    return 0;
 }
 ```
 
@@ -498,22 +488,22 @@ Trong chương trình trên, biến a, b được khai báo bên ngoài có đ�
 #include <stdio.h>
 #include <conio.h>
 void tinhhieu(){
-int a,b,hieu ;
-hieu = a - b;     //tinh hieu
-printf("Hieu la: %d \n",hieu);
+    int a,b,hieu ;
+    hieu = a - b;     //tinh hieu
+    printf("Hieu la: %d \n",hieu);
 }
 int main (void)
 {
-int a,b,tong ;
-printf ("Nhap so thu nhat : \n");
-scanf("%d",&a);  //nhap so nguyen tu ban phim
-printf("Nhap so thu hai: \n");
-scanf("%d",&b);  //nhap so nguyen tu ban phim
-tong = a + b;     //tinh tong
-printf("Tong la: %d \n",tong);  //in ket qua
-tinhhieu();
-getch(); //cho nhap 1 ky tu bat ky
-return 0;
+    int a,b,tong ;
+    printf ("Nhap so thu nhat : \n");
+    scanf("%d",&a);  //nhap so nguyen tu ban phim
+    printf("Nhap so thu hai: \n");
+    scanf("%d",&b);  //nhap so nguyen tu ban phim
+    tong = a + b;     //tinh tong
+    printf("Tong la: %d \n",tong);  //in ket qua
+    tinhhieu();
+    getch(); //cho nhap 1 ky tu bat ky
+    return 0;
 }
 ```
 
@@ -724,9 +714,7 @@ Toán tử điều kiện (?): là toán tử được sử dụng phổ biến 
 
 Toán hạng = biểu thức ? giá trị 1: giá trị 2 Trong đó, nếu biểu thức trả về kết quả là đúng (true) thì giá trị 1 được gán cho toán hạng bên trái biểu thức, ngược lại thì giá trị 2 được gán cho toán hạng bên trái biểu thức.
 
-Ví dụ sau sẽ tìm và gán giá trị lớn nhất cho biến max giữa 2 biến
-
-*a  và  b:*
+Ví dụ sau sẽ tìm và gán giá trị lớn nhất cho biến max giữa 2 biến a và b:
 
 ```c
 int a = 6, b = 7, max ;
@@ -841,15 +829,15 @@ return 0;
 #include <conio.h>
 int main (void)
 {
-int     a,b;
-printf ("Nhap a:");
-scanf("%d", &a);
-printf ("Nhap b:");
-scanf("%d", &b);
-printf ("ket qua 1: %d , ket qua 2: %d", a+b,
-a - b);
-getch();
-return 0;
+    int     a,b;
+    printf ("Nhap a:");
+    scanf("%d", &a);
+    printf ("Nhap b:");
+    scanf("%d", &b);
+    printf ("ket qua 1: %d , ket qua 2: %d", a+b,
+    a - b);
+    getch();
+    return 0;
 }
 ```
 
@@ -859,13 +847,13 @@ return 0;
 #include <stdio.h>
 int main(void)
 {
-int a = 10, b = 100;
-float c = 10.5, d = 100.5;
-printf("++a = %d \n", ++a); // K ế t qu ả  in:.......
-printf("--b = %d \n", --b); // K ế t qu ả  in:.......
-printf("++c = %f \n", ++c); // K ế t qu ả  in:.......
-printf("--d = %f \n", --d); // K ế t qu ả  in:.......
-return 0;
+    int a = 10, b = 100;
+    float c = 10.5, d = 100.5;
+    printf("++a = %d \n", ++a); // Kết quả in:.......
+    printf("--b = %d \n", --b); // Kết quả in:.......
+    printf("++c = %f \n", ++c); // Kết quả in:.......
+    printf("--d = %f \n", --d); // Kết quả in:.......
+    return 0;
 }
 ```
 
@@ -875,20 +863,20 @@ return 0;
 #include <stdio.h>
 int main(void)
 {
-int a = 5, c;
-c = a;
-printf("c = %d\n", c); // K ế t qu ả  in:......
-c += a;
-printf("c = %d\n", c); // K ế t qu ả  in:......
-c -= a;
-printf("c = %d\n", c); // K ế t qu ả  in:......
-c *= a;
-printf("c = %d\n", c); // K ế t qu ả  in:......
-c /= a;
-printf("c = %d\n", c); // K ế t qu ả  in:......
-c %= a;
-printf("c = %d\n", c); // K ế t qu ả  in:......
-return 0;
+    int a = 5, c;
+    c = a;
+    printf("c = %d\n", c); // Kết quả in:......
+    c += a;
+    printf("c = %d\n", c); // Kết quả in:......
+    c -= a;
+    printf("c = %d\n", c); // Kết quả in:......
+    c *= a;
+    printf("c = %d\n", c); // Kết quả in:......
+    c /= a;
+    printf("c = %d\n", c); // Kết quả in:......
+    c %= a;
+    printf("c = %d\n", c); // Kết quả in:......
+    return 0;
 }
 ```
 
@@ -930,10 +918,10 @@ Lệnh phức hay khối lệnh là một tập hợp nhiều lệnh đơn đư�
 
 ```c
 {
-char ten[30];
-printf("\n Nhap vao ten cua ban:");
-scanf("%s", ten);
-printf("\n Chao Ban %s",ten);
+    char ten[30];
+    printf("\n Nhap vao ten cua ban:");
+    scanf("%s", ten);
+    printf("\n Chao Ban %s",ten);
 }
 ```
 
@@ -959,13 +947,13 @@ Ví dụ 2.3: Chương trình nhập năm sinh của một người từ bàn ph
 #include <conio.h>
 int main(void)
 {
-int namsinh;
-printf("Nhap nam sinh cua ban : ");
-scanf("%d", &namsinh);
-printf("\nChao ban! Tinh den nam 2020,tuoi ban là %4d
-tuoi",2020-namsinh);
-getch();
-return 0;
+    int namsinh;
+    printf("Nhap nam sinh cua ban : ");
+    scanf("%d", &namsinh);
+    printf("\nChao ban! Tinh den nam 2020,tuoi ban là %4d
+    tuoi",2020-namsinh);
+    getch();
+    return 0;
 }
 ```
 
@@ -987,20 +975,20 @@ Chúng ta có chương trình được viết như sau:
 #include <math.h>
 int main(void)
 { float a,b,c, p,q,s;
-printf("Nhap so do 3 canh cua tam giac ");
-printf("\na = ");
-scanf("%f", &a);
-printf("\nb = ");
-scanf("%f", &b);
-printf("\nc = ");
-scanf("%f", &c);
-printf("\nc = ");
-scanf("%f", &c);
-p = a+b+c; q = p/2;
-s = sqrt(q*(q-a)*(q-b)*(q-c));
-printf("\nChu vi la %5.1f, dien tich la %5.2f ",p,s);
-getch();
-return 0;
+    printf("Nhap so do 3 canh cua tam giac ");
+    printf("\na = ");
+    scanf("%f", &a);
+    printf("\nb = ");
+    scanf("%f", &b);
+    printf("\nc = ");
+    scanf("%f", &c);
+    printf("\nc = ");
+    scanf("%f", &c);
+    p = a+b+c; q = p/2;
+    s = sqrt(q*(q-a)*(q-b)*(q-c));
+    printf("\nChu vi la %5.1f, dien tich la %5.2f ",p,s);
+    getch();
+    return 0;
 }
 ```
 
@@ -1041,7 +1029,7 @@ Lệnh if thiếu là lệnh mà ở đó khối lệnh sẽ được thực hi�
 ```c
 if   (biểu thức)
 {
-Khối lệnh;
+    Khối lệnh;
 }
 ```
 
@@ -1071,15 +1059,15 @@ Không đặt dấu chấm phẩy sau câu lệnh if, ví dụ như if (biểu t
 #include <stdio.h>
 int main(void)
 {
-int a = 5, b = 6, c = 7;
-if (c > a)
-{
-a = a + b;
-b = b + 1;
-}
-printf("Gia tri cua a la %d cua b la %d",a,b);
-getch();
-return 0;
+    int a = 5, b = 6, c = 7;
+    if (c > a)
+    {
+        a = a + b;
+        b = b + 1;
+    }
+    printf("Gia tri cua a la %d cua b la %d",a,b);
+    getch();
+    return 0;
 }
 ```
 
@@ -1107,15 +1095,15 @@ Ví dụ 2.6: So sánh sự khác nhau của ví dụ 2.6 này và ví dụ 2.5 
 #include <stdio.h>
 int main(void)
 {
-int a = 5, b = 6, c = 7;
-if (c < a)
-{
-a = a + b;
-b = b + 1;
-}
-printf("Gia tri cua a la %d cua b la %d",a,b);
-getch();
-return 0;
+    int a = 5, b = 6, c = 7;
+    if (c < a)
+    {
+        a = a + b;
+        b = b + 1;
+    }
+    printf("Gia tri cua a la %d cua b la %d",a,b);
+    getch();
+    return 0;
 }
 ```
 
@@ -1131,19 +1119,19 @@ Chương trình ở ví dụ 2.6 này chỉ khác với ví dụ 2.5 ở dòng 5
 #include <stdio.h>
 int main(void)
 {
-int a = 5, b = 6, c = 7;
-if (a > c)
-a = a + b;
-b = b + 1;
-if (a < b)
-{
-c = b - a;
-b = c + 5;
-}
-printf("Gia tri cua a la %d cua b la %d va c la
-14 %d",a,b,c);
-getch();
-return 0;
+    int a = 5, b = 6, c = 7;
+    if (a > c)
+        a = a + b;
+    b = b + 1;
+    if (a < b)
+    {
+        c = b - a;
+        b = c + 5;
+    }
+    printf("Gia tri cua a la %d cua b la %d va c la
+    14 %d",a,b,c);
+    getch();
+    return 0;
 }
 ```
 
@@ -1162,11 +1150,11 @@ Không giống với lệnh if thiếu, lệnh if đủ sẽ lựa chọn và qu
 ```c
 if  (biểu thức)
 {
-Khối lệnh 1;
+    Khối lệnh 1;
 }
 else
 {
-Khối lệnh 2;
+    Khối lệnh 2;
 }
 ```
 
@@ -1196,23 +1184,23 @@ Khi khối lệnh 1 hoặc khối lệnh 2 bao gồm từ 2 lệnh trở lên th
 #include <stdio.h>
 int main(void)
 {
-int a = 4, b = 2, c = 5;
-c -= 2;
-if (a > c)
-a = a + b;
-b = b + c;
-if (a < b)
-{
-c = b - a;
-b = c + 5;
-}
-else
-a = a + 1;
-b = b +1;
-printf("Gia tri cua a la %d cua b la %d va c la
-%d",a,b,c);
-getch();
-return 0;
+    int a = 4, b = 2, c = 5;
+    c -= 2;
+    if (a > c)
+        a = a + b;
+    b = b + c;
+    if (a < b)
+    {
+        c = b - a;
+        b = c + 5;
+    }
+    else
+        a = a + 1;
+    b = b +1;
+    printf("Gia tri cua a la %d cua b la %d va c la
+    %d",a,b,c);
+    getch();
+    return 0;
 }
 ```
 
@@ -1235,11 +1223,11 @@ Với lệnh if … else if …else thì chương trình sẽ lựa chọn và q
 ```c
 if    (biểu thức 1)
 {
-Khối lệnh 1;
+    Khối lệnh 1;
 }
 else if  (biểu thức 2)
 {
-Khối lệnh 2;
+    Khối lệnh 2;
 }
 ```
 
@@ -1248,11 +1236,11 @@ Khối lệnh 2;
 ```c
 else if  (biểu thức n-1)
 {
-Khối lệnh n-1;
+    Khối lệnh n-1;
 }
 else
 {
-Khối lệnh n;
+    Khối lệnh n;
 }
 ```
 
@@ -1280,21 +1268,21 @@ Nếu khối lệnh 1, 2…n bao gồm từ 2 lệnh trở lên thì phải đ�
 #include <stdio.h>
 int main(void)
 {
-int a = 4, b = 2, c = 5;
-if ((a > c)|| (a < b) && (b > c))
-a = a - 2;
-else if (a == b)
-{
-c = b - a;
-b = c + 5;
-}
-else
-a = a + 1;
-b = b +1;
-printf("Gia tri cua a la %d cua b la %d va c la
-%d",a,b,c);
-getch();
-return 0;
+    int a = 4, b = 2, c = 5;
+    if ((a > c)|| (a < b) && (b > c))
+        a = a - 2;
+    else if (a == b)
+    {
+        c = b - a;
+        b = c + 5;
+    }
+    else
+        a = a + 1;
+    b = b +1;
+    printf("Gia tri cua a la %d cua b la %d va c la
+    %d",a,b,c);
+    getch();
+    return 0;
 }
 ```
 
@@ -1367,12 +1355,12 @@ Lệnh switch…case hoạt động tương tự như lệnh if ... else if ... 
 ```c
 switch  (biểu thức nguyên)
 {
-case  n1 :
-khối lệnh 1;
-break;
-case  n2 :
-khối lệnh 2;
-break;
+    case  n1 :
+        khối lệnh 1;
+        break;
+    case  n2 :
+        khối lệnh 2;
+        break;
 ```
 
 **……………………**
@@ -1411,24 +1399,24 @@ Lưu ý là máy sẽ nhảy ra khỏi lệnh switch khi nó gặp câu lệnh b
 #include <stdio.h>
 int main(void)
 {
-int a = 15, b = 0;
-switch (a%3)
-{
-case 0:
-b = 0;
-printf ("chia het");
-break;
-case 1:
-b = 1;
-printf("khong chia het");
-break;
-default:
-b = 2;
-printf("khong chia het");
-};
-printf("\n gia tri cua b la %d", b);
-getch();
-return 0;
+    int a = 15, b = 0;
+    switch (a%3)
+    {
+        case 0:
+            b = 0;
+            printf ("chia het");
+            break;
+        case 1:
+            b = 1;
+            printf("khong chia het");
+            break;
+        default:
+            b = 2;
+            printf("khong chia het");
+    };
+    printf("\n gia tri cua b la %d", b);
+    getch();
+    return 0;
 }
 ```
 
@@ -1441,7 +1429,7 @@ Gia tri cua b la 0
 
 *Giải thích hoạt động của chương trình:*
 
-V í dụ này khác với các ví dụ trước đó từ dòng lệnh 5. Ở dòng lệ nh 5, biểu thức a%3 của lệnh switch sẽ được tính toán và kiểm tra, nếu kết quả của biểu thức này là giá trị 0 thì chương trình sẽ nhảy đến vị trí dòng lệnh 7 tương ứng với nhãn case 0 :, nếu kết quả của biểu thức này là giá trị 1 thì chương trình sẽ nhảy đến dòng 11 tương ứng với nhãn case 1 :, nếu là các giá trị khác thì chương trình sẽ nhảy đến dòng lệnh 15 tương ứng với nhãn default: . Với trường hợp cụ thể của ví dụ này, kết quả của biểu thức a%3 là 0 , do đó chương trình sẽ nhảy đến nhãn case 0: ở dòng 7 để thực hiện tiếp cho đến khi gặp lệnh break ở dòng lệnh 10 thì kết thúc lệnh switch. Sau đó, chương trình nhảy đến dòng lệnh 19 và thực thi tiếp cho đến cuối chương trình chính.
+Ví dụ này khác với các ví dụ trước đó từ dòng lệnh 5. Ở dòng lệ nh 5, biểu thức a%3 của lệnh switch sẽ được tính toán và kiểm tra, nếu kết quả của biểu thức này là giá trị 0 thì chương trình sẽ nhảy đến vị trí dòng lệnh 7 tương ứng với nhãn case 0 :, nếu kết quả của biểu thức này là giá trị 1 thì chương trình sẽ nhảy đến dòng 11 tương ứng với nhãn case 1 :, nếu là các giá trị khác thì chương trình sẽ nhảy đến dòng lệnh 15 tương ứng với nhãn default: . Với trường hợp cụ thể của ví dụ này, kết quả của biểu thức a%3 là 0 , do đó chương trình sẽ nhảy đến nhãn case 0: ở dòng 7 để thực hiện tiếp cho đến khi gặp lệnh break ở dòng lệnh 10 thì kết thúc lệnh switch. Sau đó, chương trình nhảy đến dòng lệnh 19 và thực thi tiếp cho đến cuối chương trình chính.
 
 Bây giờ, ta giả sử lệnh break; ở dòng lệnh 10 bị bỏ đi, thì điều gì sẽ xảy ra? Kết quả của trường hợp này sẽ là:
 
@@ -1512,22 +1500,22 @@ printf("La so le\n");
 #include <conio.h>
 int main (void)
 {
-int   a,b,c,m;
-printf ("Nhap a:");
-scanf("%d", &a);
-printf ("Nhap b:");
-scanf("%d", &b);
-printf ("Nhap c:");
-scanf("%d", &c);
-if (a > b)
-m = a;
-else
-m = b;
-if (m < c)
-m = c;
-printf("ket qua =  %d",m);
-getch();
-return 0;
+    int   a,b,c,m;
+    printf ("Nhap a:");
+    scanf("%d", &a);
+    printf ("Nhap b:");
+    scanf("%d", &b);
+    printf ("Nhap c:");
+    scanf("%d", &c);
+    if (a > b)
+        m = a;
+    else
+        m = b;
+    if (m < c)
+        m = c;
+    printf("ket qua =  %d",m);
+    getch();
+    return 0;
 }
 ```
 
@@ -1579,7 +1567,7 @@ Sau khi kết thúc chương này, người đọc có thể:
 ```c
 for   (biểu thức 1; biểu thức 2; biểu thức 3)
 {
-Khối lệnh;
+    Khối lệnh;
 }
 ```
 
@@ -1628,15 +1616,15 @@ Tiếp theo là đến vòng lặp for, biểu thức 1 ở đây giá trị bi�
 #include <stdio.h>
 int main(void)
 {
-int i, a = 0;
-for (i = 0; i<2; i++,printf("gia tri i la %d, ",i))
-{a ++;
-printf("\n gia tri a la %d, ",a);
-}
-printf("\ngia tri sau vong lap cua i la %d va a la
-10 %d", i, a);
-getch();
-return 0;
+    int i, a = 0;
+    for (i = 0; i<2; i++,printf("gia tri i la %d, ",i))
+    {a ++;
+        printf("\n gia tri a la %d, ",a);
+    }
+    printf("\ngia tri sau vong lap cua i la %d va a la
+    10 %d", i, a);
+    getch();
+    return 0;
 }
 ```
 
@@ -1666,8 +1654,8 @@ a ++;
 int i=0, a = 3;
 for (; i<5;)
 {
-a ++;
-i++;
+    a ++;
+    i++;
 }
 ```
 
@@ -1677,10 +1665,10 @@ i++;
 int i=0, a = 3;
 for (; ;)
 {
-a ++;
-i++;
-if (i>=5)
-break;
+    a ++;
+    i++;
+    if (i>=5)
+        break;
 }
 ```
 
@@ -1692,16 +1680,16 @@ Ví dụ 3.3: Viết chương trình nhập điểm số một môn học của 
 #include <stdio.h>
 int main(void)
 {
-float a;
-printf("Moi ban nhap 1 so: ");
-scanf("%f",&a);
-for (; ;)
-{
-if ((a<=10)&&(a>=0))
-{
-printf("ban da nhap gia tri phu hop");
-break;
-}
+    float a;
+    printf("Moi ban nhap 1 so: ");
+    scanf("%f",&a);
+    for (; ;)
+    {
+        if ((a<=10)&&(a>=0))
+        {
+            printf("ban da nhap gia tri phu hop");
+            break;
+        }
 ```
 
 14 else
@@ -1725,7 +1713,7 @@ Với chương trình ở trên, các lệnh ở những dòng lệnh từ 9 đ�
 ```c
 while   (Biểu thức)
 {
-Khối lệnh;
+    Khối lệnh;
 }
 ```
 
@@ -1743,9 +1731,7 @@ Nguyên tắc thực hiện:
 
 **Chú ý:**
 
-- Biểu thức  ở đây được hiểu là một biểu thức hoặc nhiều biểu thức con. Nếu là nhiều biểu thức con thì các biểu thức con sẽ được cách nhau bởi các dấu phẩy (,) và tính đúng sai sẽ được quyết định bởi  biểu
-
-**thức con cuối cùng .**
+- Biểu thức  ở đây được hiểu là một biểu thức hoặc nhiều biểu thức con. Nếu là nhiều biểu thức con thì các biểu thức con sẽ được cách nhau bởi các dấu phẩy (,) và tính đúng sai sẽ được quyết định bởi  biểu thức con cuối cùng.
 
 - Trong thân while (khối lệnh) có thể chứa một hoặc nhiều cấu trúc điều khiển khác.
 - Trong thân while có thể sử dụng lệnh continue để chuyển đến đầu vòng lặp để thực hiện lần lặp tiếp theo (bỏ qua các câu lệnh còn lại trong thân).
@@ -1759,7 +1745,7 @@ Nguyên tắc thực hiện:
 int a = 4, i = 0;
 while (i < 4)
 {
-i++;
+    i++;
 }
 a = a + i;
 ```
@@ -1776,13 +1762,13 @@ Như vậy, với đoạn chương trình trên, nếu vắng mặt biểu thứ
 #include <stdio.h>
 int main(void)
 {
-int  a = 1, N, i = 1;
-printf("Moi nhap vao so can tim giai thua ");
-scanf("%d",&N);
-if(N < 0)printf("So nay khong co giai thua");
-else if (N == 0)printf("Giai thua cua 0 la 1");
-else
-{
+    int  a = 1, N, i = 1;
+    printf("Moi nhap vao so can tim giai thua ");
+    scanf("%d",&N);
+    if(N < 0)printf("So nay khong co giai thua");
+    else if (N == 0)printf("Giai thua cua 0 la 1");
+    else
+    {
 ```
 
 11 while (i <= N) 12 { 13 a = a*i; 14 i ++; 15 } 16 printf(“\n Giai thua cua %d la %d”, N,a); 17 } 18 return 0; 19 } Trong ví dụ này, có sự kết hợp của câu lệnh if…else if…else... và lệnh while để tìm điều kiện của một số để tính giai thừa của số này và in ra kết quả. Các phần liên quan đến lệnh rẽ nhánh if đã được bày ở chương trước. Trong phần này, ta chú ý đến chương trình trên trong câu lệnh while, từ dòng 11 đến hết dòng 15, đây là đoạn chính để tính giai thừa, giúp chương trình nhân liên tục các số từ 1 đến N. Dòng 16 sẽ in ra kết quả đã tính được ở vòng lặp while.
@@ -1796,9 +1782,9 @@ scanf("%d", &a);
 b = 1;
 while (a!=0)
 {
-printf("vui long nhap lai ");
-scanf("%d",&a);
-b++;
+    printf("vui long nhap lai ");
+    scanf("%d",&a);
+    b++;
 ```
 
 10 if(b>=3) 11 { 12 printf(“Ban bi khoa chuong trinh”); 13 while(1); 14 } 15 } Trong đoạn chương trình trên ta thấy, lệnh while được sử dụng để kiểm tra một số nguyên nhập vào có bằng với một giá trị đã cho trước hay không (biểu thức kiểm tra a != 0: trong trường hợp này là kiểm tra xem số nhập vào có bằng 0 hay không). Nếu số nhập vào là số 0 thì chương trình sẽ thoát ra khỏi vòng lặp while, nếu sai thì chương trình sẽ yêu cầu nhập lại và chỉ được phép nhập lại tối đa 3 lần (dòng lệnh 10). Nếu cả 3 lần nhập lại đều sai thì chương trình sẽ rơi vào vòng lặp vô hạn (dòng lệnh 13) và chỉ còn cách tắt đi và chạy lại. Chương trình này là cơ sở dùng để kiểm tra thông tin bảo mật nào đó nếu áp dụng thêm các phần học ở các chương tiếp theo.
@@ -1811,7 +1797,7 @@ b++;
 
 ```c
 {
-Khối lệnh ;
+    Khối lệnh ;
 }
 while  (biểu thức);
 ```
@@ -1835,7 +1821,7 @@ Chú ý: Với lệnh while thì Biểu thức điều kiện được kiểm tr
 int i = 0;
 do
 {
-printf("%d",i);
+    printf("%d",i);
 }
 while (i++ <4);
 ```
@@ -1862,27 +1848,27 @@ Ví dụ 3.8: Chương trình nhập vào độ dài 3 cạnh của một tam gi
 #include <stdio.h>
 int main(void)
 {
-int a,b,c,dk;
-do
-{
-printf("moi ban nhap vao canh 1: ");
-scanf("%d",&a);
-printf("moi ban nhap vao canh 2: ");
-scanf("%d",&b);
-printf("moi ban nhap vao canh 3: ");
-scanf("%d",&c);
-dk=0;
-if((a>=b+c)||(b>=a+c)||(c>=a+b))
-{
-dk=1;
-printf("ban nhap khong dung\n");
-printf("moi ban nhap lai 3 canh \n");
-}
-else
-printf("ban da nhap dung 3 canh tam giac");
-}
-while (dk);
-return 0;
+    int a,b,c,dk;
+    do
+    {
+        printf("moi ban nhap vao canh 1: ");
+        scanf("%d",&a);
+        printf("moi ban nhap vao canh 2: ");
+        scanf("%d",&b);
+        printf("moi ban nhap vao canh 3: ");
+        scanf("%d",&c);
+        dk=0;
+        if((a>=b+c)||(b>=a+c)||(c>=a+b))
+        {
+            dk=1;
+            printf("ban nhap khong dung\n");
+            printf("moi ban nhap lai 3 canh \n");
+        }
+        else
+            printf("ban da nhap dung 3 canh tam giac");
+    }
+    while (dk);
+    return 0;
 }
 ```
 
@@ -1898,20 +1884,19 @@ Câu lệnh break; cho phép thoát khỏi for, while, do...while và switch. Kh
 #include <stdio.h>
 int main(void)
 {
-int a;
-for(; ;)
-{
-printf("Nhap so duong: ");
-scanf("%d",&a);
-if (a >= 0)
-break;
+    int a;
+    for(; ;)
+    {
+        printf("Nhap so duong: ");
+        scanf("%d",&a);
+        if (a >= 0)
+            break;
+    }
+    return 0;
 }
-return 0;}
 ```
 
-Trong chương trình trên, lệnh for(; ;) ở dòng lệnh số 5 sẽ tạo ra một vòng lặp vô tận. Bên trong thân vòng lặp, lệnh break ; ở dòng lệnh số 10 sẽ giúp chương trình thoát khỏi vòng lặp vô tận trên khi xảy ra điều kiện a >= 0. Điều này tương đương với việc vòng lặp sẽ tiếp tục lặp nếu người dùng nhập vào một số a < 0 và chỉ kết thúc bởi lệnh break ; khi
-
-*người dùng nhập một số a >= 0. Kết quả của chương trình là :*
+Trong chương trình trên, lệnh for(; ;) ở dòng lệnh số 5 sẽ tạo ra một vòng lặp vô tận. Bên trong thân vòng lặp, lệnh break ; ở dòng lệnh số 10 sẽ giúp chương trình thoát khỏi vòng lặp vô tận trên khi xảy ra điều kiện a >= 0. Điều này tương đương với việc vòng lặp sẽ tiếp tục lặp nếu người dùng nhập vào một số a < 0 và chỉ kết thúc bởi lệnh break ; khi người dùng nhập một số a >= 0. *Kết quả của chương trình là:*
 
 ```c
 Nhap so duong: -4
@@ -1935,27 +1920,21 @@ continue;  như sau:
 #include <stdio.h>
 int main(void)
 {
-int i=0, a = 3;
-for (; ;)
-{  a ++;
-i++;
-if (i<5) continue;
-break;
-}
-printf("gia tri a la %d",a);return 0;
-return 0;
+    int i=0, a = 3;
+    for (; ;)
+    {  a ++;
+        i++;
+        if (i<5) continue;
+        break;
+    }
+    printf("gia tri a la %d",a);return 0;
+    return 0;
 }
 ```
 
 *Kết quả sau khi chạy chương trình trên  là:*
 
-`gia tri a la 8` Ở dòng 8, nếu giá trị i thỏa mãn điều kiện i < 5 thì gặp câu lệnh
-
-```c
-continue;  nên vòng lặp được tiếp tục thực hiện (lúc này lệnh  break;  ở
-```
-
-dòng 9 sẽ không được thực hiện). Đến khi i = 5, điều kiện của lệnh if ở dòng 8 sẽ có kết quả là sai, câu lệnh continue; không được thực hiện, chương trình sẽ chuyển xuống dòng lệnh 9, khi đó lệnh break; được thực hiện và thoát khỏi vòng lặp for và kết thúc chương trình.
+`gia tri a la 8` Ở dòng 8, nếu giá trị i thỏa mãn điều kiện i < 5 thì gặp câu lệnh `continue;` nên vòng lặp được tiếp tục thực hiện (lúc này lệnh `break;` ở dòng 9 sẽ không được thực hiện). Đến khi i = 5, điều kiện của lệnh if ở dòng 8 sẽ có kết quả là sai, câu lệnh continue; không được thực hiện, chương trình sẽ chuyển xuống dòng lệnh 9, khi đó lệnh break; được thực hiện và thoát khỏi vòng lặp for và kết thúc chương trình.
 
 ### 3.6. Câu lệnh goto và nhãn
 
@@ -1964,7 +1943,7 @@ Lệnh goto có cú pháp:
 ```c
 goto nhãn;
 nhãn:
-L ệ nh;
+Lệnh;
 ```
 
 Nhãn có thể viết như tên biến và có thêm dấu hai chấm (:) đứng sau. Nhãn có thể được gán cho bất kỳ câu lệnh nào trong chương trình.
@@ -1982,19 +1961,19 @@ Khi dùng lệnh goto cần lưu ý các đặc điểm sau:
 #include <stdio.h>
 int main (void)
 {
-int a = 1;
-nhan:do
-{
-if(a == 4)
-{
-a = a+2;
-printf("khong in a=4 va a=5!\n");
-goto nhan;
-}
-printf("Gia tri cua a la: %d\n", a);
-a = a+1;
-}while(a < 9);
-return 0;
+    int a = 1;
+    nhan:do
+    {
+        if(a == 4)
+        {
+            a = a+2;
+            printf("khong in a=4 va a=5!\n");
+            goto nhan;
+        }
+        printf("Gia tri cua a la: %d\n", a);
+        a = a+1;
+    }while(a < 9);
+    return 0;
 }
 ```
 
@@ -2059,19 +2038,19 @@ printf("%d",kq);
 #include <conio.h>
 int main (void)
 {
-int a =0,i=0;
-while (++i <10)
-{
-if (i%2==0)
-a = a+i;
-else
-a = a+ 2*i;
-if (i == 6)
-break;
-}
-printf("%d", a);
-getch();
-return 0;
+    int a =0,i=0;
+    while (++i <10)
+    {
+        if (i%2==0)
+            a = a+i;
+        else
+            a = a+ 2*i;
+        if (i == 6)
+            break;
+    }
+    printf("%d", a);
+    getch();
+    return 0;
 }
 ```
 
@@ -2087,19 +2066,19 @@ return 0;
 #include <conio.h>
 int main (void)
 {
-int a = 0,i, j = 0;
-for (i = 3; i > 0; i--)
-{
-while (j++<10)
-{
-if (j == 7)
-continue;
-if (j%2==1)
-printf("%d",j);
-}
-}
-getch();
-return 0;
+    int a = 0,i, j = 0;
+    for (i = 3; i > 0; i--)
+    {
+        while (j++<10)
+        {
+            if (j == 7)
+                continue;
+            if (j%2==1)
+                printf("%d",j);
+        }
+    }
+    getch();
+    return 0;
 }
 ```
 
@@ -2114,23 +2093,23 @@ return 0;
 #include <conio.h>
 int main (void)
 {
-int n, i, j;
-printf("Nhap vao so n :");
-scanf("%d",&n);
-if (n == 0 || n ==1 || n == 2)
-printf("SNT");
-else
-{
-for (i=2; i<=n; i++)
-if (n %i == 0)
-break;
-if (i==n)
-printf("SNT");
-else
-printf("Khong phai SNT");
-}
-getch();
-return 0;
+    int n, i, j;
+    printf("Nhap vao so n :");
+    scanf("%d",&n);
+    if (n == 0 || n ==1 || n == 2)
+        printf("SNT");
+    else
+    {
+        for (i=2; i<=n; i++)
+            if (n %i == 0)
+                break;
+        if (i==n)
+            printf("SNT");
+        else
+            printf("Khong phai SNT");
+    }
+    getch();
+    return 0;
 }
 ```
 
@@ -2209,19 +2188,19 @@ Ta xem kết quả của chương trình sau để hiểu rõ hơn.
 #include <stdio.h>
 int main(void)
 {
-int   a[10];
-printf("kich thuoc cua a[0] la: %d",sizeof(a[0]));
-printf("\ndia chi cua a[0] la: %d",&a[0]);
-printf("\ndia chi cua a[1] la: %d",&a[1]);
-printf("\ndia chi cua a[2] la: %d",&a[2]);
-printf("\ndia chi cua a[3] la: %d",&a[3]);
-printf("\ndia chi cua a[4] la: %d",&a[4]);
-printf("\ndia chi cua a[5] la: %d",&a[5]);
-printf("\ndia chi cua a[6] la: %d",&a[6]);
-printf("\ndia chi cua a[7] la: %d",&a[7]);
-printf("\ndia chi cua a[8] la: %d",&a[8]);
-printf("\ndia chi cua a[9] la: %d",&a[9]);
-return 0;
+    int   a[10];
+    printf("kich thuoc cua a[0] la: %d",sizeof(a[0]));
+    printf("\ndia chi cua a[0] la: %d",&a[0]);
+    printf("\ndia chi cua a[1] la: %d",&a[1]);
+    printf("\ndia chi cua a[2] la: %d",&a[2]);
+    printf("\ndia chi cua a[3] la: %d",&a[3]);
+    printf("\ndia chi cua a[4] la: %d",&a[4]);
+    printf("\ndia chi cua a[5] la: %d",&a[5]);
+    printf("\ndia chi cua a[6] la: %d",&a[6]);
+    printf("\ndia chi cua a[7] la: %d",&a[7]);
+    printf("\ndia chi cua a[8] la: %d",&a[8]);
+    printf("\ndia chi cua a[9] la: %d",&a[9]);
+    return 0;
 }
 ```
 
@@ -2255,14 +2234,14 @@ Với cách khai báo như trong ví dụ 4.2 thì các phần tử a[0], a[1], 
 #include <stdio.h>
 int main(void)
 {
-int  a[10] = {5,7,9};
-printf("gia tri phan tu a[0] la: %d",a[0]);
-printf("\ngia tri phan tu a[1] la: %d",a[1]);
-printf("\ngia tri phan tu a[2] la: %d",a[2]);
-printf("\ngia tri phan tu a[3] la: %d",a[3]);
-printf("\ngia tri phan tu a[4] la: %d",a[4]);
-printf("\ngia tri phan tu a[5] la: %d",a[5]);
-return 0;
+    int  a[10] = {5,7,9};
+    printf("gia tri phan tu a[0] la: %d",a[0]);
+    printf("\ngia tri phan tu a[1] la: %d",a[1]);
+    printf("\ngia tri phan tu a[2] la: %d",a[2]);
+    printf("\ngia tri phan tu a[3] la: %d",a[3]);
+    printf("\ngia tri phan tu a[4] la: %d",a[4]);
+    printf("\ngia tri phan tu a[5] la: %d",a[5]);
+    return 0;
 }
 ```
 
@@ -2287,18 +2266,18 @@ Với cách khai báo như ví dụ 4.3 thì máy sẽ tạo ra một mảng a c
 #include <stdio.h>
 int main(void)
 {
-int  a[10] = {5,7,9,3,4,6,8,1,2,5};
-printf("gia tri phan tu a[0] la: %d",a[0]);
-printf("\ngia tri phan tu a[1] la: %d",a[1]);
-printf("\ngia tri phan tu a[2] la: %d",a[2]);
-printf("\ngia tri phan tu a[3] la: %d",a[3]);
-printf("\ngia tri phan tu a[4] la: %d",a[4]);
-printf("\ngia tri phan tu a[5] la: %d",a[5]);
-printf("\ngia tri phan tu a[6] la: %d",a[6]);
-printf("\ngia tri phan tu a[7] la: %d",a[7]);
-printf("\ngia tri phan tu a[8] la: %d",a[8]);
-printf("\ngia tri phan tu a[9] la: %d",a[9]);
-return 0;
+    int  a[10] = {5,7,9,3,4,6,8,1,2,5};
+    printf("gia tri phan tu a[0] la: %d",a[0]);
+    printf("\ngia tri phan tu a[1] la: %d",a[1]);
+    printf("\ngia tri phan tu a[2] la: %d",a[2]);
+    printf("\ngia tri phan tu a[3] la: %d",a[3]);
+    printf("\ngia tri phan tu a[4] la: %d",a[4]);
+    printf("\ngia tri phan tu a[5] la: %d",a[5]);
+    printf("\ngia tri phan tu a[6] la: %d",a[6]);
+    printf("\ngia tri phan tu a[7] la: %d",a[7]);
+    printf("\ngia tri phan tu a[8] la: %d",a[8]);
+    printf("\ngia tri phan tu a[9] la: %d",a[9]);
+    return 0;
 }
 ```
 
@@ -2329,8 +2308,8 @@ Phần trên đây đã trình bày 3 cú pháp khai báo của mảng một chi
 int a[10], i;
 for (i=0; i<10; i++)
 {
-printf("nhap phan tu thu %d: ", i);
-scanf("%d", &a[i]);
+    printf("nhap phan tu thu %d: ", i);
+    scanf("%d", &a[i]);
 }
 ```
 
@@ -2342,7 +2321,7 @@ Ví dụ 4.5: Xuất ra màn hình các giá trị của một mảng cho trư�
 int a[5]={1,2,3};
 for (i = 0; i<5; i++)
 {
-printf("%d  ", a[i]);
+    printf("%d  ", a[i]);
 }
 ```
 
@@ -2356,8 +2335,8 @@ int max, i;
 max = a[0];
 for (i=1; i<6; i++)
 {
-if(max < a[i])
-max = a[i];
+    if(max < a[i])
+        max = a[i];
 }
 printf("gia tri lon nhat la %d", max);
 ```
@@ -2378,11 +2357,11 @@ int max, i, j;
 max = a[0];
 for (i=1; i<6; i++)
 {
-if(max < a[i])
-{
-max = a[i];
-j=i;
-}
+    if(max < a[i])
+    {
+        max = a[i];
+        j=i;
+    }
 }
 printf("phan tu lon nhat mang la a[%d] ", j);
 printf("\ngia tri cua a[%d] la %d", j, max);
@@ -2407,8 +2386,8 @@ int min, i;
 min = a[0];
 for (i=1; i<6; i++)
 {
-if(min > a[i])
-min = a[i];
+    if(min > a[i])
+        min = a[i];
 }
 printf("%d", min);
 ```
@@ -2425,16 +2404,16 @@ Ví dụ 4.6 : Sắp xếp các giá trị của một mảng cho trước theo 
 int a[6]={1,7,9,6,8,2};
 int  tam,i,j;
 for (i=0; i<5; i++)
-for (j = i+1; j<6; j++)
-if (a [i]< a[j])
+    for (j = i+1; j<6; j++)
+        if (a [i]< a[j])
 {
-tam = a[i];
-a[i]= a[j];
-a[j]= tam;
+    tam = a[i];
+    a[i]= a[j];
+    a[j]= tam;
 }
 for (i=0; i<6; i++)
 {
-printf ("%d", a[i]);
+    printf ("%d", a[i]);
 }
 ```
 
@@ -2469,26 +2448,26 @@ Ví dụ 4.7: Chương trình nhập giá trị của mảng 10 phần tử từ
 #include <conio.h>
 int main (void)
 {
-int a[10], i, j, tam;
-for (i=0; i<10; i++)
-{
-printf("nhap phan tu thu %d: ", i) ;
-scanf("%d",&a[i]);
-}
-for (i=0; i<9; i++)
-for (j = i+1; j<10; j++)
-if (a [i]> a[j])
-{
-tam = a[i];
-a[i]= a[j];
-a[j]= tam;
-}
-for (i=0; i<10; i++)
-{
-printf("%d", a[i]);
-}
-getch();
-return 0;
+    int a[10], i, j, tam;
+    for (i=0; i<10; i++)
+    {
+        printf("nhap phan tu thu %d: ", i) ;
+        scanf("%d",&a[i]);
+    }
+    for (i=0; i<9; i++)
+        for (j = i+1; j<10; j++)
+            if (a [i]> a[j])
+    {
+        tam = a[i];
+        a[i]= a[j];
+        a[j]= tam;
+    }
+    for (i=0; i<10; i++)
+    {
+        printf("%d", a[i]);
+    }
+    getch();
+    return 0;
 }
 ```
 
@@ -2571,10 +2550,10 @@ a2[1][2]=0
 int  a[5][10];
 int i, j;
 for (i=0; i<5; i++)
-for(j=0; j<10; j++)
+    for(j=0; j<10; j++)
 {
-printf("Nhap phan tu %d %d",i, j);
-scanf("%d", &a[i][j]) ;
+    printf("Nhap phan tu %d %d",i, j);
+    scanf("%d", &a[i][j]) ;
 }
 ```
 
@@ -2589,11 +2568,11 @@ int  a[3][2]={{1,2},{2,3},{3,4}};
 int i,j;
 for (i=0;i<3;i++)
 {
-for(j=0;j<2;j++)
-{
-printf ("%d", a[i][j]);
-}
-printf("\n");
+    for(j=0;j<2;j++)
+    {
+        printf ("%d", a[i][j]);
+    }
+    printf("\n");
 }
 ```
 
@@ -2604,25 +2583,25 @@ Ví dụ 4.12: Chương trình sau sẽ in ra số lớn nhất trên từng hà
 #include <conio.h>
 int main (void)
 {
-int a[5][4], i,j,max;
-for (i=0;i<5;i++)
-for(j=0;j<4;j++)
-{
-printf("Nhap phan tu %d %d: ",i, j);
-scanf("%d", &a[i][j]) ;
-}
-for (i=0; i<5; i++)
-{
-max = a[i][0];
-for(j=0;j<4;j++)
-{
-if (max < a[i][j])
-max = a[i][j];
-}
-printf("%d\n", max);
-}
-getch();
-return 0;
+    int a[5][4], i,j,max;
+    for (i=0;i<5;i++)
+        for(j=0;j<4;j++)
+    {
+        printf("Nhap phan tu %d %d: ",i, j);
+        scanf("%d", &a[i][j]) ;
+    }
+    for (i=0; i<5; i++)
+    {
+        max = a[i][0];
+        for(j=0;j<4;j++)
+        {
+            if (max < a[i][j])
+                max = a[i][j];
+        }
+        printf("%d\n", max);
+    }
+    getch();
+    return 0;
 }
 ```
 
@@ -2660,12 +2639,12 @@ Hàm nhập chuỗi: gets (biến chuỗi); Hàm xuất chuỗi: puts (biến ch
 #include <stdio.h>
 int main(void)
 {
-char s[40];
-printf("Hay nhap 1 chuoi: \n");
-gets(s);
-printf("Chuoi da nhap la: \n");
-puts(s);
-return 0;
+    char s[40];
+    printf("Hay nhap 1 chuoi: \n");
+    gets(s);
+    printf("Chuoi da nhap la: \n");
+    puts(s);
+    return 0;
 }
 ```
 
@@ -2690,14 +2669,14 @@ Xét chương trình sau:
 #include <stdio.h>
 int main(void)
 {
-char s[10] = "Hello";
-int i,dem;
-dem = 0;
-for(i = 0; i < 10; i++)
-if(s[i] == 'e')
-dem++;
-printf("Co %d ky tu e.",dem);
-return 0;
+    char s[10] = "Hello";
+    int i,dem;
+    dem = 0;
+    for(i = 0; i < 10; i++)
+        if(s[i] == 'e')
+            dem++;
+    printf("Co %d ky tu e.",dem);
+    return 0;
 }
 ```
 
@@ -2738,8 +2717,8 @@ char s[5][10];
 int i;
 for (i=0;i<5;i++)
 {
-puts ("Nhap chuoi");
-gets (s[i]);
+    puts ("Nhap chuoi");
+    gets (s[i]);
 }
 ```
 
@@ -2751,8 +2730,8 @@ Thao tác trên từng phần tử: mỗi phần tử trong mảng chuỗi có k
 char   s[5][10]={"Mot", "Hai", "Ba", "Bon", "Nam"};
 int i,j;
 for (i = 0; i < 5; i++)
-for (j=0; j <10; j++)
-printf ("%c",s[i][j]);
+    for (j=0; j <10; j++)
+        printf ("%c",s[i][j]);
 ```
 
 #### 4.2.3. Một số hàm liên quan đến ký tự và chuỗi ký tự
@@ -2995,26 +2974,26 @@ e. float a[2,3]= {{2,5},{7,4}};
 #include <conio.h>
 int main (void)
 {
-int a[10],i, flag=0;
-for (i=0; i<10; i++)
-{
-printf("nhap phan tu thu %d: ", i);
-scanf("%d",&a[i]);
-}
-for (i=0; i<10; i++)
-{
-if ((a[i]%2 == 1)&&(a[i]>=20))
-{
-flag = 1;
-break;
-}
-}
-if (flag == 1)
-printf("Co");
-else
-printf("Khong");
-getch();
-return 0;
+    int a[10],i, flag=0;
+    for (i=0; i<10; i++)
+    {
+        printf("nhap phan tu thu %d: ", i);
+        scanf("%d",&a[i]);
+    }
+    for (i=0; i<10; i++)
+    {
+        if ((a[i]%2 == 1)&&(a[i]>=20))
+        {
+            flag = 1;
+            break;
+        }
+    }
+    if (flag == 1)
+        printf("Co");
+    else
+        printf("Khong");
+    getch();
+    return 0;
 }
 ```
 
@@ -3029,20 +3008,20 @@ return 0;
 #include <conio.h>
 int main (void)
 {
-int a[10],i, dem=0;
-for (i=0; i<10; i++)
-{
-printf("nhap phan tu thu %d: ", i);
-scanf("%d",&a[i]);
-}
-for (i=0; i<10; i++)
-{
-if ((a[i]%5 == 0))
-dem++;
-}
-printf ("co %d phan tu thoa yeu cau", dem);
-getch();
-return 0;
+    int a[10],i, dem=0;
+    for (i=0; i<10; i++)
+    {
+        printf("nhap phan tu thu %d: ", i);
+        scanf("%d",&a[i]);
+    }
+    for (i=0; i<10; i++)
+    {
+        if ((a[i]%5 == 0))
+            dem++;
+    }
+    printf ("co %d phan tu thoa yeu cau", dem);
+    getch();
+    return 0;
 }
 ```
 
@@ -3057,30 +3036,30 @@ return 0;
 #include <conio.h>
 int main (void)
 {
-int  a[10],b[10],c[10],i, j=0,k=0;
-for (i=0; i<10; i++)
-{
-printf("nhap phan tu thu %d: ", i);
-scanf("%d",&a[i]);
-}
-for (i=0; i<10; i++)
-{
-if ((a[i]%2 == 0))
-b[j++]=a[i];
-if ((a[i]%2 != 0))
-c[k++]=a[i];
-}
-for (i=0; i<j; i++)
-{
-printf ("%d", b[i]);
-}
-printf("\n");
-for (i=0; i<k; i++)
-{
-printf ("%d", c[i]);
-}
-getch();
-return 0;
+    int  a[10],b[10],c[10],i, j=0,k=0;
+    for (i=0; i<10; i++)
+    {
+        printf("nhap phan tu thu %d: ", i);
+        scanf("%d",&a[i]);
+    }
+    for (i=0; i<10; i++)
+    {
+        if ((a[i]%2 == 0))
+            b[j++]=a[i];
+        if ((a[i]%2 != 0))
+            c[k++]=a[i];
+    }
+    for (i=0; i<j; i++)
+    {
+        printf ("%d", b[i]);
+    }
+    printf("\n");
+    for (i=0; i<k; i++)
+    {
+        printf ("%d", c[i]);
+    }
+    getch();
+    return 0;
 }
 ```
 
@@ -3133,7 +3112,7 @@ Chương này sẽ giới thiệu cách thức sử dụng biến con trỏ, cũ
 
 Giống như các biến khác, con trỏ phải được khai báo trước khi sử dụng. Khai báo biến con trỏ cũng giống như khai báo các biến thông thường khác được bắt đầu với kiểu dữ liệu. Tuy nhiên, kiểu dữ liệu khi khai báo con trỏ không xác định độ dài ô nhớ mà xác định kiểu dữ liệu con trỏ được dùng để trỏ tới. Kiểu dữ liệu này giúp cho con trỏ có thể tăng địa chỉ thích hợp khi trỏ đến các phần tử liên tiếp nhau. Cú pháp khai báo con trỏ như sau:
 
-Tên ki ể u d ữ li ệ u *tên con tr ỏ ; Tên ki ể u d ữ li ệ u* tên con tr ỏ ;
+Tên kiểu dữ liệu *tên con trỏ; Tên kiểu dữ liệu* tên con trỏ;
 
 *Ví dụ:*
 
@@ -3302,29 +3281,29 @@ Ví dụ: viết chương trình nhập dữ liệu cho mảng gồm n phần t�
 #include <stdlib.h>
 void main(void)
 {
-int n, i,max;
-int *p ;
-do {
-printf("Nhap n: ");
-scanf("%d",&n) ;
-}while (n<=0);
-p = (int *)malloc (n*sizeof(int));
-if (p!=NULL)
-{
-for (i=0;i<n;i++)
-{
-printf("\nnhap phan tu thu %d: ",i+1);
-scanf("%d",(p+i));
-}
-max = *p ;
-for (i=1;i<n;i++)
-{
-if(max<*(p+i))
-max = *(p+i);
-}
-printf("max = %d",max) ;
-}
-free(p);
+    int n, i,max;
+    int *p ;
+    do {
+        printf("Nhap n: ");
+        scanf("%d",&n) ;
+    }while (n<=0);
+    p = (int *)malloc (n*sizeof(int));
+    if (p!=NULL)
+    {
+        for (i=0;i<n;i++)
+        {
+            printf("\nnhap phan tu thu %d: ",i+1);
+            scanf("%d",(p+i));
+        }
+        max = *p ;
+        for (i=1;i<n;i++)
+        {
+            if(max<*(p+i))
+                max = *(p+i);
+        }
+        printf("max = %d",max) ;
+    }
+    free(p);
 }
 ```
 
@@ -3384,57 +3363,57 @@ Ví dụ: Viết chương trình nhập n số nguyên, in ra các số đã nh�
 #include <stdlib.h>
 void main(void)
 {
-int n,m, i,j,min;
-int *p ;
-do
-{
-printf("Nhap n: ");
-scanf("%d",&n) ;
-}while (n<=0);
-p = (int *)calloc (n,sizeof(int));
-if (p!=NULL)
-{
-for (i=0;i<n;i++)
-{
-printf("\nnhap phan tu thu %d: ",i+1);
-scanf("%d",(p+i));
-}
-for(i=0;i<n-1;i++)
-for(j=i+1;j<n;j++)
-if(*(p+i)>*(p+j))
-{
-*(p+i)=*(p+i)+*(p+j);
-*(p+j)=*(p+i) - *(p+j);
-*(p+i)=*(p+i) - *(p+j);
-}
-for (i=0;i<n;i++)
-{
-printf(" %d , ",*(p+i));
-}
-do
-{
-printf("\nNhap m: ");
-scanf("%d",&m) ;
-}while (m<=0);
-p = (int*)realloc(p,(n+m)*sizeof(int));
-if (p!=NULL)
-{
-for (i=0;i<m;i++)
-{
-printf("\nnhap phan tu thu %d:
-45 ",n+i+1);
-scanf("%d",(p+n+i));
-}
-min = *p ;
-for (i=1;i<n+m;i++)
-{
-if(min>*(p+i))
-min = *(p+i);
-}
-printf("min = %d",min) ;
-}
-}
-free(p);
+    int n,m, i,j,min;
+    int *p ;
+    do
+    {
+        printf("Nhap n: ");
+        scanf("%d",&n) ;
+    }while (n<=0);
+    p = (int *)calloc (n,sizeof(int));
+    if (p!=NULL)
+    {
+        for (i=0;i<n;i++)
+        {
+            printf("\nnhap phan tu thu %d: ",i+1);
+            scanf("%d",(p+i));
+        }
+        for(i=0;i<n-1;i++)
+            for(j=i+1;j<n;j++)
+                if(*(p+i)>*(p+j))
+        {
+            *(p+i)=*(p+i)+*(p+j);
+            *(p+j)=*(p+i) - *(p+j);
+            *(p+i)=*(p+i) - *(p+j);
+        }
+        for (i=0;i<n;i++)
+        {
+            printf(" %d , ",*(p+i));
+        }
+        do
+        {
+            printf("\nNhap m: ");
+            scanf("%d",&m) ;
+        }while (m<=0);
+        p = (int*)realloc(p,(n+m)*sizeof(int));
+        if (p!=NULL)
+        {
+            for (i=0;i<m;i++)
+            {
+                printf("\nnhap phan tu thu %d:
+                45 ",n+i+1);
+                scanf("%d",(p+n+i));
+            }
+            min = *p ;
+            for (i=1;i<n+m;i++)
+            {
+                if(min>*(p+i))
+                    min = *(p+i);
+            }
+            printf("min = %d",min) ;
+        }
+    }
+    free(p);
 }
 ```
 
@@ -3505,14 +3484,14 @@ Hàm được định nghĩa bao gồm tên hàm, danh sách và kiểu dữ li�
 
 Một cách tổng quát, hàm được định nghĩa như sau:
 
-Ki ể u_d ữ _liê ̣u Tên_hàm (danh sách các tham s ố )
+Kiểu_dữ_liệu Tên_hàm (danh sách các tham s ố )
 
 ```c
 {
-Khai báo bi ế n c ụ c b ộ ;
-Câu l ệ nh;
-...
-return  giá tr ị ;
+    Khai báo biến cục bộ;
+    Câu lệnh;
+    ...
+    return giá trị;
 }
 ```
 
@@ -3528,10 +3507,10 @@ Ví dụ hàm tìm max của 2 số nguyên được định nghĩa như sau:
 ```c
 int   timmax(int a, int b)
 {
-int max;
-if (a>b) max = a;
-else   max = b;
-return   max;
+    int max;
+    if (a>b) max = a;
+    else   max = b;
+    return   max;
 }
 ```
 
@@ -3542,18 +3521,18 @@ Ví dụ chương trình chính sử dụng hàm đã viết để tìm giá tr�
 ```c
 int   timmax(int a, int b)
 {
-int max;
-if (a>b) max = a;
-else   max = b;
-return   max;
+    int max;
+    if (a>b) max = a;
+    else   max = b;
+    return   max;
 }
 void main (void)
 {
-int a = 5, b = 7, c=6, d= 9, max1, max2, max;
-max1 = timmax (a,b);
-max2 = timmax(c,d);
-max = timmax(max1, max2);
-printf(" max = :%d",max);
+    int a = 5, b = 7, c=6, d= 9, max1, max2, max;
+    max1 = timmax (a,b);
+    max2 = timmax(c,d);
+    max = timmax(max1, max2);
+    printf(" max = :%d",max);
 }
 ```
 
@@ -3572,23 +3551,23 @@ int   timmax(int a, int b)
 int max;
 if (a>b) max = a;
 void main (void){ else   max = b;
-return   max;
-int a=5,b=7,c=6,d=9,max1,max2,max; }
+    return   max;
+    int a=5,b=7,c=6,d=9,max1,max2,max; }
 max1 = timmax (a,b);
 int   timmax(int a, int b)
 max2 = timmax(c,d); {
-int max;
-max = timmax(max1, max2); if (a>b) max = a;
-else   max = b;
-printf( " max = :%d",max); return   max;
+    int max;
+    max = timmax(max1, max2); if (a>b) max = a;
+    else   max = b;
+    printf( " max = :%d",max); return   max;
 }
 }
 int   timmax(int a, int b)
 {
-int max;
-if (a>b) max = a;
-else   max = b;
-return   max;
+    int max;
+    if (a>b) max = a;
+    else   max = b;
+    return   max;
 }
 ```
 
@@ -3609,18 +3588,18 @@ Hàm có tham số và có giá trị trả về được định nghĩa như m�
 #include <stdlib.h>
 int   giaithua(int n)
 {
-int i,S=1 ;
-for (i=1;i<=n;i++)
-S *=i ;
-return   S;
+    int i,S=1 ;
+    for (i=1;i<=n;i++)
+        S *=i ;
+    return   S;
 }
 void main (void)
 {
-int n,Sn;
-printf("Nhap n : ");
-scanf("%d",&n);
-Sn = giaithua(n);
-printf(" giai thua cua %d la %d",n,Sn);
+    int n,Sn;
+    printf("Nhap n : ");
+    scanf("%d",&n);
+    Sn = giaithua(n);
+    printf(" giai thua cua %d la %d",n,Sn);
 }
 ```
 
@@ -3634,24 +3613,24 @@ int   KiemtraSNT(int n)
 Hàm trả về 1 nếu là số nguyên tố, ngược lại trả về 0
 */
 {
-int i ;
-for (i=2;i<n;i++)
-{
-if (n%i==0) return 0;
-}
-return 1 ;
+    int i ;
+    for (i=2;i<n;i++)
+    {
+        if (n%i==0) return 0;
+    }
+    return 1 ;
 }
 void main (void)
 {
-int n,Snt;
-printf("Nhap n : ");
-scanf("%d",&n);
-Snt = KiemtraSNT(n) ;
-if (Snt)
-printf(" %d la So nguyen to" ,n);
-else
-printf(" %d khong phai la So nguyen to"
-25 ,n);
+    int n,Snt;
+    printf("Nhap n : ");
+    scanf("%d",&n);
+    Snt = KiemtraSNT(n) ;
+    if (Snt)
+        printf(" %d la So nguyen to" ,n);
+    else
+        printf(" %d khong phai la So nguyen to"
+    25 ,n);
 }
 ```
 
@@ -3662,11 +3641,11 @@ Trong ví dụ trên, hàm thực hiện chức năng kiểm tra xem một số 
 Trong nhiều trường hợp các hàm chỉ nhận tham số mà không trả về giá trị. Trong một số ngôn ngữ lập trình như Pascal, các hàm không trả về giá trị được gọi là các thủ tục. Tuy nhiên, ngôn ngữ C không phân biệt hàm và thủ tục. Khai báo và sử dụng hàm không có giá trị trả về như sau:
 
 ```c
-void Tên_hàm (danh sách các tham s ố )
+void Tên_hàm (danh sách các tham số)
 {
-Khai báo bi ế n c ụ c b ộ ;
-Câu l ệ nh;
-...
+    Khai báo biến cục bộ;
+    Câu lệnh;
+    ...
 }
 ```
 
@@ -3679,25 +3658,25 @@ Ví dụ viết hàm kiểm tra một số có phải là số Armstrong hay kh�
 #include <stdlib.h>
 void Armstrong (int n)
 {
-int s1, s, n1;
-s = 0;
-n1=n;
-while(n1!=0)
-{
-s1 = n1 % 10;
-s += s1 * s1 * s1;
-n1 = n1/10;
-}
-if (n == s) printf(" %d la So armstrong" ,n);
-else
-printf(" %d khong phai la So armstrong" ,n);
+    int s1, s, n1;
+    s = 0;
+    n1=n;
+    while(n1!=0)
+    {
+        s1 = n1 % 10;
+        s += s1 * s1 * s1;
+        n1 = n1/10;
+    }
+    if (n == s) printf(" %d la So armstrong" ,n);
+    else
+        printf(" %d khong phai la So armstrong" ,n);
 }
 void main (void)
 {
-int n ;
-printf("Nhap n : ");
-scanf("%d",&n);
-Armstrong(n) ;
+    int n ;
+    printf("Nhap n : ");
+    scanf("%d",&n);
+    Armstrong(n) ;
 }
 ```
 
@@ -3710,9 +3689,9 @@ Trong một số trường hợp hàm không nhận bất kỳ tham số nào nh
 ```c
 int  Tên_hàm (void)
 {
-Khai báo bi ế n c ụ c b ộ ;
-Câu l ệ nh;
-...
+    Khai báo biến cục bộ;
+    Câu lệnh;
+    ...
 }
 ```
 
@@ -3721,18 +3700,18 @@ Ví dụ về hàm không có tham số nhưng có giá trị trả về:
 ```c
 int GetEven(void)
 { int n;
-do{
-printf("Nhap mot so chan  :");
-scanf("%d",&n);
-}
-while(n%2!=0) ;
-return n ;
+    do{
+        printf("Nhap mot so chan  :");
+        scanf("%d",&n);
+    }
+    while(n%2!=0) ;
+    return n ;
 }
 void main()
 {
-int a;
-a= GetEven();
-printf("a = %d ", a) ;
+    int a;
+    a= GetEven();
+    printf("a = %d ", a) ;
 }
 ```
 
@@ -3745,9 +3724,9 @@ Cũng giống như hàm không có giá trị trả về, trong một số trư�
 ```c
 void Tên_hàm (void)
 {
-Khai báo bi ế n c ụ c b ộ ;
-Câu l ệ nh;
-...
+    Khai báo biến cục bộ;
+    Câu lệnh;
+    ...
 }
 ```
 
@@ -3756,13 +3735,13 @@ Hàm không có tham số và giá trị trả về có chức năng giống nh�
 ```c
 void  inchu(void)
 {
-int i;
-for (i =  0; i< 5; i++)
-puts("Hello");
+    int i;
+    for (i =  0; i< 5; i++)
+        puts("Hello");
 }
 void main (void)
 {
-inchu( );
+    inchu( );
 }
 ```
 
@@ -3774,8 +3753,8 @@ Hàm main là hàm chính trong các chương trình viết bằng ngôn ngữ C
 #include <stdio.h>
 int main(int argc, char *argv[])
 {
-…
-return 0;
+    …
+    return 0;
 }
 ```
 
@@ -3791,18 +3770,18 @@ Hàm phải được khai báo trước khi sử dụng. Điều này đồng ng
 int   timmax(int a, int b);// khai báo hàm
 void main (void)
 {
-int a = 5, b = 7, c=6, d= 9, max1, max2, max;
-max1 = timmax (a,b);
-max2 = timmax(c,d);
-max = timmax(max1, max2);
-printf( " max = :%d",max);
+    int a = 5, b = 7, c=6, d= 9, max1, max2, max;
+    max1 = timmax (a,b);
+    max2 = timmax(c,d);
+    max = timmax(max1, max2);
+    printf( " max = :%d",max);
 }
 int   timmax(int a, int b)
 {
-int max;
-if (a>b) max = a;
-else   max = b;
-return   max;
+    int max;
+    if (a>b) max = a;
+    else   max = b;
+    return   max;
 }
 ```
 
@@ -3822,16 +3801,16 @@ Ví dụ về phương pháp truyền giá trị cho tham số hàm như sau:
 void  hoanvi(int a, int b) ;
 void main (void)
 {
-int a = 5, b =6;
-hoanvi(a , b);
-printf ("a = %d , a= %d", a,b);
+    int a = 5, b =6;
+    hoanvi(a , b);
+    printf ("a = %d , a= %d", a,b);
 }
 void  hoanvi(int a, int b)
 {
-int tam;
-tam  = a;
-a = b;
-b = tam;
+    int tam;
+    tam  = a;
+    a = b;
+    b = tam;
 }
 ```
 
@@ -3846,16 +3825,16 @@ Truyền địa chỉ cho tham số hàm còn được gọi là phương pháp 
 void  hoanvi(int *x, int *y) ;
 void main (void)
 {
-int a = 5, b =6;
-hoanvi(&a , &b);
-printf ("a = %d , a= %d", a,b);
+    int a = 5, b =6;
+    hoanvi(&a , &b);
+    printf ("a = %d , a= %d", a,b);
 }
 void  hoanvi(int *x, int *y)
 {
-int tam;
-tam  = *x;
-*x = *y;
-*y = tam;
+    int tam;
+    tam  = *x;
+    *x = *y;
+    *y = tam;
 }
 ```
 
@@ -3881,18 +3860,18 @@ Ví dụ hàm tìm giá trị phần tử lớn nhất của mảng được đ�
 int Timmax (int *a,int n) ;
 void main (void)
 {
-int arr[] = {6,13,2,3,9,7,5,18,4,12};
-int max ;
-max = Timmax(arr,10);
-printf ("Max = %d ",max);
+    int arr[] = {6,13,2,3,9,7,5,18,4,12};
+    int max ;
+    max = Timmax(arr,10);
+    printf ("Max = %d ",max);
 }
 int Timmax (int *a, int n)
 {
-int i,max ;
-max = a[0] ;
-for (i=1;i<n;i++)
-max = (max<a[i])?a[i]:max ;
-return max ;
+    int i,max ;
+    max = a[0] ;
+    for (i=1;i<n;i++)
+        max = (max<a[i])?a[i]:max ;
+    return max ;
 }
 ```
 
@@ -3906,18 +3885,18 @@ Chương trình trên có thể được viết lại như sau mà không làm t
 int Timmax (int *a,int n);
 void main (void)
 {
-int arr[] = {6,13,2,3,9,7,5,18,4,12};
-int max ;
-max = Timmax(&arr[0],10);
-printf ("Max = %d ",max);
+    int arr[] = {6,13,2,3,9,7,5,18,4,12};
+    int max ;
+    max = Timmax(&arr[0],10);
+    printf ("Max = %d ",max);
 }
 int Timmax (int a[],int n)
 {
-int i,max ;
-max = *a ;
-for (i=1;i<n;i++)
-max = (max<*(a+i))? *(a+i):max ;
-return max ;
+    int i,max ;
+    max = *a ;
+    for (i=1;i<n;i++)
+        max = (max<*(a+i))? *(a+i):max ;
+    return max ;
 }
 ```
 
@@ -3934,32 +3913,32 @@ void Sapxepmang(int a[],int n);
 void Inmang(int a[],int n);
 void main (void)
 {
-int arr[] = {6,13,2,3,9,7,5,18,4,12};
-printf("mang truoc khi sap xep :\n");
-Inmang(arr,10);
-Sapxepmang(arr,10);
-printf("\nmang sau khi sap xep :\n");
-Inmang(arr,10);
+    int arr[] = {6,13,2,3,9,7,5,18,4,12};
+    printf("mang truoc khi sap xep :\n");
+    Inmang(arr,10);
+    Sapxepmang(arr,10);
+    printf("\nmang sau khi sap xep :\n");
+    Inmang(arr,10);
 }
 void Sapxepmang(int a[],int n)
 {
-int i,j,tam ;
-for (i=0;i<n-1 ; i++)
-for(j=i+1; j<n;j++)
-{
-if (a[i]>a[j])
-{
-tam = a[i];
-a[i]= a[j];
-a[j]=tam;
-}
-}
+    int i,j,tam ;
+    for (i=0;i<n-1 ; i++)
+        for(j=i+1; j<n;j++)
+    {
+        if (a[i]>a[j])
+        {
+            tam = a[i];
+            a[i]= a[j];
+            a[j]=tam;
+        }
+    }
 }
 void Inmang(int a[],int n)
 {
-int i;
-for (i=0;i<n ; i++)
-printf("%d, ",a[i]);
+    int i;
+    for (i=0;i<n ; i++)
+        printf("%d, ",a[i]);
 }
 ```
 
@@ -3979,15 +3958,15 @@ Trong ngôn ngữ C, hàm có thể gọi các hàm khác và cũng có thể g�
 ```c
 void recurse()
 {
-... .. ...
-recurse();
-... .. ...
+    ... .. ...
+    recurse();
+    ... .. ...
 }
 int main()
 {
-10     ... .. ...
-recurse();
-12     ... .. ...
+    10     ... .. ...
+    recurse();
+    12     ... .. ...
 }
 ```
 
@@ -3998,19 +3977,19 @@ Một ví dụ của hàm đệ quy là thực hiện phép tính giai thừa. G
 ```c
 int giaithua(int n)
 {
-int i,gt = n;
-for (i=n-1;i>0;i--)
-gt=gt*i ;
-return gt ;
+    int i,gt = n;
+    for (i=n-1;i>0;i--)
+        gt=gt*i ;
+    return gt ;
 }
 void main()
 {
-int n;
-do{
-printf("Nhap n  :");
-scanf("%d",&n);
-} while(n<1);
-printf("Giai thua cua %d la %d", n, giaithua(n));
+    int n;
+    do{
+        printf("Nhap n  :");
+        scanf("%d",&n);
+    } while(n<1);
+    printf("Giai thua cua %d la %d", n, giaithua(n));
 }
 ```
 
@@ -4019,18 +3998,18 @@ Trong chương trình trên chúng ta tính giai thừa bằng cách lặp lại
 ```c
 int giaithua(int n)
 {
-if (n==1)
-return 1;
-return n*giaithua(n-1) ;
+    if (n==1)
+        return 1;
+    return n*giaithua(n-1) ;
 }
 void main()
 {
-int n;
-do{
-printf("Nhap n  :");
-scanf("%d",&n);
-} while(n<1);
-printf("Giai thua cua %d la %d", n, giaithua(n));
+    int n;
+    do{
+        printf("Nhap n  :");
+        scanf("%d",&n);
+    } while(n<1);
+    printf("Giai thua cua %d la %d", n, giaithua(n));
 }
 ```
 
@@ -4146,11 +4125,11 @@ Các kiểu cấu trúc là kiểu dữ liệu tự tạo, được xây dựng 
 ```c
 struct SinhVien
 {
-char hoTen[40];
-char MSSV[12];
-float diemGiuaKy;
-float diemCuoiKy;
-float diemTongKet;
+    char hoTen[40];
+    char MSSV[12];
+    float diemGiuaKy;
+    float diemCuoiKy;
+    float diemTongKet;
 };
 ```
 
@@ -4159,10 +4138,10 @@ float diemTongKet;
 ```c
 struct ThietBi
 {
-char tenTB[20];
-int namSanXuat;
-float giaTien;
-char  trangThai;
+    char tenTB[20];
+    int namSanXuat;
+    float giaTien;
+    char  trangThai;
 };
 ```
 
@@ -4170,11 +4149,11 @@ Kiểu cấu trúc ThietBi này được định nghĩa gồm 4 biến thành ph
 
 Như vậy, cú pháp chung của thao tác định nghĩa để tạo nên một kiểu cấu trúc mới sẽ là:
 
-struct TênKi ể uC ấ uTrúc
+struct TênKiểuCấuTrúc
 
 ```c
 {
-Khai báo các bi ế n thành ph ầ n;
+    Khai báo các biến thành phần;
 };
 ```
 
@@ -4193,11 +4172,11 @@ Tổng kích thước vùng nhớ của biến a là 64 bytes Tổng kích thư�
 ```c
 struct SinhVien
 {
-char hoTen[38];
-char MSSV[12];
-float diemGiuaKy;
-float diemCuoiKy;
-float diemTongKet;
+    char hoTen[38];
+    char MSSV[12];
+    float diemGiuaKy;
+    float diemCuoiKy;
+    float diemTongKet;
 };
 ```
 
@@ -4214,13 +4193,13 @@ sẽ phát sinh vùng nhớ cho biến c thuộc kiểu cấu trúc ThietBi và 
 Tổng kích thước vùng nhớ của biến c là 32 bytes Như vậy, cú pháp chung để khai báo các biến thuộc kiểu cấu trúc sẽ là:
 
 ```c
-struct  TênKi ể uC ấ uTrúc  tênBi ế n;
+struct TênKiểuCấuTrúc tênBiến;
 ```
 
-ho ặ c
+hoặc
 
 ```c
-struct  TênKi ể uC ấ uTrúc  tênBi ế n = {các giá tr ị  kh ở i t ạ o};
+struct TênKiểuCấuTrúc tênBiến = {các giá trị khởi tạo};
 ```
 
 Với kiểu cấu trúc, các phép toán có thể sử dụng được trên các biến cấu trúc là: phép gán = giữa các biến cấu trúc cùng kiểu, phép toán lấy địa chỉ & của một biến cấu trúc, phép truy xuất . tới các biến thành phần của một biến cấu trúc. Các phép so sánh (ví dụ: ==, !=, ...) sẽ không thể thực hiện được trên các biến cấu trúc. Chẳng hạn ở đoạn lệnh sau:
@@ -4231,7 +4210,7 @@ struct ThietBi d;
 d = c; //gan du lieu cua c vao d
 //phep toan hop le
 if (d != c)   //phep toan khong hop le
-printf("Du lieu khac nhau");
+    printf("Du lieu khac nhau");
 ```
 
 thì trình biên dịch sẽ báo lỗi ở dòng lệnh 6 if (d != c) vì phép so sánh khác nhau != không thể thực hiện được trên hai biến cấu trúc d và c.
@@ -4264,31 +4243,31 @@ Xét một chương trình được viết như sau:
 #include <conio.h>
 struct ThietBi
 {
-char tenTB[20];
-int namSanXuat;
-float giaTien;
-char  trangThai;
+    char tenTB[20];
+    int namSanXuat;
+    float giaTien;
+    char  trangThai;
 };
 int main (void)
 {
-char tam[2];
-struct ThietBi  c = {"NA", 0, 0, 'T'};
-printf("Nhap thong tin cua 1 thiet bi:\n");
-printf("Nhap ten: ");
-gets(c.tenTB);
-printf("Nhap nam san xuat: ");
-scanf("%d",&c.namSanXuat);
-printf("Nhap gia tien: ");
-scanf("%f",&c.giaTien);
-gets(tam);
-printf("Nhap trang thai: Tot (T) hoac Hong
-(H): ");
-scanf("%c",&c.trangThai);
-printf("\nThong tin thiet bi da nhap:\n");
-printf("%s, %d, %.1f, %c\n",c.tenTB,c.nam-
-SanXuat,c.giaTien,c.trangThai);
-getch();
-return 0;
+    char tam[2];
+    struct ThietBi  c = {"NA", 0, 0, 'T'};
+    printf("Nhap thong tin cua 1 thiet bi:\n");
+    printf("Nhap ten: ");
+    gets(c.tenTB);
+    printf("Nhap nam san xuat: ");
+    scanf("%d",&c.namSanXuat);
+    printf("Nhap gia tien: ");
+    scanf("%f",&c.giaTien);
+    gets(tam);
+    printf("Nhap trang thai: Tot (T) hoac Hong
+    (H): ");
+    scanf("%c",&c.trangThai);
+    printf("\nThong tin thiet bi da nhap:\n");
+    printf("%s, %d, %.1f, %c\n",c.tenTB,c.nam-
+    SanXuat,c.giaTien,c.trangThai);
+    getch();
+    return 0;
 }
 ```
 
@@ -4353,39 +4332,39 @@ Xét một chương trình khác được viết như sau:
 #include <conio.h>
 struct ThietBi
 {
-char tenTB[20];
-int namSanXuat;
-float giaTien;
-char  trangThai;
+    char tenTB[20];
+    int namSanXuat;
+    float giaTien;
+    char  trangThai;
 };
 int main (void)
 {
-char tam[2];
-struct ThietBi  d[5];
-int i, n = 5;
-for (i = 0; i < n; i++)
-{
-printf("\nNhap thong tin cua thiet bi
-thu %d:\n", i);
-printf("Nhap ten: ");
-gets(d[i].tenTB);
-printf("Nhap nam san xuat: ");
-scanf("%d",&d[i].namSanXuat);
-printf("Nhap gia tien: ");
-scanf("%f",&d[i].giaTien);
-gets(tam);
-printf("Nhap trang thai: Tot (T) hoac
-Hong (H): ");
-scanf("%c",&d[i].trangThai);
-gets(tam);
-}
-printf("\nThong tin cac thiet bi da
-nhap:\n");
-for ( i = 0; i < n; i++)
-printf("%s, %d, %.1f, %c\n",d[i].tenT-
-B,d[i].namSanXuat,d[i].giaTien,d[i].trangThai);
-getch();
-return 0;
+    char tam[2];
+    struct ThietBi  d[5];
+    int i, n = 5;
+    for (i = 0; i < n; i++)
+    {
+        printf("\nNhap thong tin cua thiet bi
+        thu %d:\n", i);
+        printf("Nhap ten: ");
+        gets(d[i].tenTB);
+        printf("Nhap nam san xuat: ");
+        scanf("%d",&d[i].namSanXuat);
+        printf("Nhap gia tien: ");
+        scanf("%f",&d[i].giaTien);
+        gets(tam);
+        printf("Nhap trang thai: Tot (T) hoac
+        Hong (H): ");
+        scanf("%c",&d[i].trangThai);
+        gets(tam);
+    }
+    printf("\nThong tin cac thiet bi da
+    nhap:\n");
+    for ( i = 0; i < n; i++)
+        printf("%s, %d, %.1f, %c\n",d[i].tenT-
+    B,d[i].namSanXuat,d[i].giaTien,d[i].trangThai);
+    getch();
+    return 0;
 }
 ```
 
@@ -4451,7 +4430,7 @@ p 1824868116
 Như vậy, cú pháp chung để khai báo một biến con trỏ kiểu cấu trúc sẽ là:
 
 ```c
-struct TênKi ể uC ấ uTrúc  *TênBi ế nConTr ỏ ;
+struct TênKiểuCấuTrúc *TênBiếnConTrỏ;
 ```
 
 Sau khi khai báo, có thể sử dụng con trỏ cấu trúc để trỏ tới một vùng nhớ cấu trúc cùng kiểu cấu trúc với con trỏ. Ví dụ, đoạn lệnh sau:
@@ -4493,48 +4472,48 @@ Xét một chương trình được viết như sau:
 #include <malloc.h>
 struct ThietBi
 {
-char tenTB[20];
-int namSanXuat;
-float giaTien;
-char  trangThai;
+    char tenTB[20];
+    int namSanXuat;
+    float giaTien;
+    char  trangThai;
 };
 int main (void)
 {
-char tam[2];
-int i, n;
-printf("Nhap so n: ");
-scanf("%d",&n);
-struct ThietBi  *p;
-p = (ThietBi*)malloc(n*sizeof(ThietBi));
-if (p == NULL)
-printf("Cap phat bo nho khong thanh cong!");
-else
-{
-for (i = 0; i < n; i++)
-{
-printf("\nNhap thong tin cua thiet bi thu
-28  %d:\n", i);
-gets(tam);
-printf("Nhap ten: ");
-gets((p+i)->tenTB);
-printf("Nhap nam san xuat: ");
-scanf("%d",&(p+i)->namSanXuat);
-printf("Nhap gia tien: ");
-scanf("%f",&(p+i)->giaTien);
-gets(tam);
-printf("Nhap trang thai: Tot (T) hoac
-Hong (H): ");
-scanf("%c",&(p+i)->trangThai);
-}
-printf("\nThong tin cac thiet bi da nhap:\n");
-for ( i = 0; i < n; i++)
-printf("%s, %d, %.1f, %c\n",
-49  (p+i)->tenTB,(p+i)->namSanXuat,(p+i)->giaTien,
-50 (p+i)->trangThai);
-}
-free(p);
-getch();
-return 0;
+    char tam[2];
+    int i, n;
+    printf("Nhap so n: ");
+    scanf("%d",&n);
+    struct ThietBi  *p;
+    p = (ThietBi*)malloc(n*sizeof(ThietBi));
+    if (p == NULL)
+        printf("Cap phat bo nho khong thanh cong!");
+    else
+    {
+        for (i = 0; i < n; i++)
+        {
+            printf("\nNhap thong tin cua thiet bi thu
+            28  %d:\n", i);
+            gets(tam);
+            printf("Nhap ten: ");
+            gets((p+i)->tenTB);
+            printf("Nhap nam san xuat: ");
+            scanf("%d",&(p+i)->namSanXuat);
+            printf("Nhap gia tien: ");
+            scanf("%f",&(p+i)->giaTien);
+            gets(tam);
+            printf("Nhap trang thai: Tot (T) hoac
+            Hong (H): ");
+            scanf("%c",&(p+i)->trangThai);
+        }
+        printf("\nThong tin cac thiet bi da nhap:\n");
+        for ( i = 0; i < n; i++)
+            printf("%s, %d, %.1f, %c\n",
+        49  (p+i)->tenTB,(p+i)->namSanXuat,(p+i)->giaTien,
+        50 (p+i)->trangThai);
+    }
+    free(p);
+    getch();
+    return 0;
 }
 ```
 
@@ -4579,47 +4558,47 @@ Xét một chương trình được viết như sau:
 #include <conio.h>
 struct ThietBi
 {
-char tenTB[20];
-int namSanXuat;
-float giaTien;
-char  trangThai;
+    char tenTB[20];
+    int namSanXuat;
+    float giaTien;
+    char  trangThai;
 };
 void NhapDuLieu(struct ThietBi *x, int n)
 {
-char tam[2];
-int i;
-for (i = 0; i < n; i++)
-{
-printf("\nNhap thong tin cua thiet bi thu
-20 %d:\n", i);
-printf("Nhap ten: ");
-gets((x+i)->tenTB);
-printf("Nhap nam san xuat: ");
-scanf("%d",&(x+i)->namSanXuat);
-printf("Nhap gia tien: ");
-scanf("%f",&(x+i)->giaTien);
-gets(tam);
-printf("Nhap trang thai: Tot (T) hoac
-Hong (H): ");
-scanf("%c",&(x+i)->trangThai);
-gets(tam);
-}
+    char tam[2];
+    int i;
+    for (i = 0; i < n; i++)
+    {
+        printf("\nNhap thong tin cua thiet bi thu
+        20 %d:\n", i);
+        printf("Nhap ten: ");
+        gets((x+i)->tenTB);
+        printf("Nhap nam san xuat: ");
+        scanf("%d",&(x+i)->namSanXuat);
+        printf("Nhap gia tien: ");
+        scanf("%f",&(x+i)->giaTien);
+        gets(tam);
+        printf("Nhap trang thai: Tot (T) hoac
+        Hong (H): ");
+        scanf("%c",&(x+i)->trangThai);
+        gets(tam);
+    }
 }
 void InMotThietBi(struct ThietBi a)
 {
-printf("%s, %d, %.1f, %c\n",a.tenTB,a.namSanXu-
-at,a.giaTien,a.trangThai);
+    printf("%s, %d, %.1f, %c\n",a.tenTB,a.namSanXu-
+    at,a.giaTien,a.trangThai);
 }
 int main (void)
 {
-int i, n = 2;
-struct ThietBi  d[2];
-NhapDuLieu(&d[0],n);
-printf("\nThong tin cac thiet bi da nhap:\n");
-for ( i = 0; i < n; i++)
-InMotThietBi(d[i]);
-getch();
-return 0;
+    int i, n = 2;
+    struct ThietBi  d[2];
+    NhapDuLieu(&d[0],n);
+    printf("\nThong tin cac thiet bi da nhap:\n");
+    for ( i = 0; i < n; i++)
+        InMotThietBi(d[i]);
+    getch();
+    return 0;
 }
 ```
 
@@ -4654,59 +4633,59 @@ Xét một chương trình khác được viết như sau:
 #include <malloc.h>
 struct ThietBi
 {
-char tenTB[20];
-int namSanXuat;
-float giaTien;
-char  trangThai;
+    char tenTB[20];
+    int namSanXuat;
+    float giaTien;
+    char  trangThai;
 };
 void NhapDuLieu(struct ThietBi *x, int n)
 {
-char tam[2];
-int i;
-for (i = 0; i < n; i++)
-{
-printf("\nNhap thong tin cua thiet bi thu
-%d:\n", i);
-gets(tam);
-printf("Nhap ten: ");
-gets((x+i)->tenTB);
-printf("Nhap nam san xuat: ");
-scanf("%d",&(x+i)->namSanXuat);
-printf("Nhap gia tien: ");
-scanf("%f",&(x+i)->giaTien);
-gets(tam);
-printf("Nhap trang thai: Tot (T) hoac Hong
-(H): ");
-scanf("%c",&(x+i)->trangThai);
-}
+    char tam[2];
+    int i;
+    for (i = 0; i < n; i++)
+    {
+        printf("\nNhap thong tin cua thiet bi thu
+        %d:\n", i);
+        gets(tam);
+        printf("Nhap ten: ");
+        gets((x+i)->tenTB);
+        printf("Nhap nam san xuat: ");
+        scanf("%d",&(x+i)->namSanXuat);
+        printf("Nhap gia tien: ");
+        scanf("%f",&(x+i)->giaTien);
+        gets(tam);
+        printf("Nhap trang thai: Tot (T) hoac Hong
+        (H): ");
+        scanf("%c",&(x+i)->trangThai);
+    }
 }
 void InMotThietBi(struct ThietBi a)
 {
-printf("%s, %d, %.1f, %c\n",a.tenTB,a.namSanXuat,
-a.giaTien,a.trangThai);
+    printf("%s, %d, %.1f, %c\n",a.tenTB,a.namSanXuat,
+    a.giaTien,a.trangThai);
 }
 int main (void)
 {
-int i, n;
-printf("Nhap so n: ");
-scanf("%d",&n);
-struct ThietBi  *p;
-p = (ThietBi*)malloc(n*sizeof(ThietBi));
-if (p == NULL)
-printf("Cap phat bo nho khong thanh
-cong!");
-else
-else
-{
-NhapDuLieu(p,n);
-printf("\nThong tin cac thiet bi da
-nhap:\n");
-for ( i = 0; i < n; i++)
-InMotThietBi(*(p+i));
-}
-free(p);
-getch();
-return 0;
+    int i, n;
+    printf("Nhap so n: ");
+    scanf("%d",&n);
+    struct ThietBi  *p;
+    p = (ThietBi*)malloc(n*sizeof(ThietBi));
+    if (p == NULL)
+        printf("Cap phat bo nho khong thanh
+    cong!");
+    else
+        else
+    {
+        NhapDuLieu(p,n);
+        printf("\nThong tin cac thiet bi da
+        nhap:\n");
+        for ( i = 0; i < n; i++)
+            InMotThietBi(*(p+i));
+    }
+    free(p);
+    getch();
+    return 0;
 }
 ```
 
@@ -4746,8 +4725,8 @@ Kiểu Union được định nghĩa tương tự như kiểu cấu trúc. Xét 
 ```c
 union KieuSo
 {
-int x;
-double y;
+    int x;
+    double y;
 };
 ```
 
@@ -4755,11 +4734,11 @@ trong đoạn lệnh này, union là từ khóa bắt buộc, KieuSo là tên c�
 
 Như vậy, cú pháp chung của thao tác định nghĩa để tạo nên một kiểu cấu trúc mới sẽ là:
 
-union TênKi ể uUnion
+union TênKiểuUnion
 
 ```c
 {
-Khai báo các bi ế n thành ph ầ n;
+    Khai báo các biến thành phần;
 };
 ```
 
@@ -4772,19 +4751,19 @@ Các biến union cần được khai báo trước khi sử dụng, tương t�
 #include <conio.h>
 union KieuSo
 {
-int x;
-double y;
+    int x;
+    double y;
 };
 int main (void)
 {
-union KieuSo a;
-printf("Kich thuoc bien a: %d\n",sizeof(a));
-a.x = 5;
-printf("%d\n",a.x);
-a.y = 7.85;
-printf("%f\n",a.y);
-getch();
-return 0;
+    union KieuSo a;
+    printf("Kich thuoc bien a: %d\n",sizeof(a));
+    a.x = 5;
+    printf("%d\n",a.x);
+    a.y = 7.85;
+    printf("%f\n",a.y);
+    getch();
+    return 0;
 }
 ```
 
@@ -4816,7 +4795,7 @@ Tương tự như kiểu cấu trúc hoặc union, kiểu liệt kê là kiểu 
 ```c
 enum MauSac
 {
-Den, Nau, Do, Cam, Vang, Luc, Lam, Tim, Xam, Trang
+    Den, Nau, Do, Cam, Vang, Luc, Lam, Tim, Xam, Trang
 };
 ```
 
@@ -4828,7 +4807,7 @@ enum TênKi ể uLi ệ tKê
 
 ```c
 {
-Danh sách tên đ ị nh danh;
+    Danh sách tên định danh;
 };
 ```
 
@@ -4841,19 +4820,19 @@ Thao tác định nghĩa kiểu liệt kê ở phần trước hoàn toàn chưa
 #include <conio.h>
 enum MauSac
 {
-Den, Nau, Do, Cam, Vang, Luc, Lam, Tim, Xam, Trang
+    Den, Nau, Do, Cam, Vang, Luc, Lam, Tim, Xam, Trang
 };
 int main (void)
 {
-enum MauSac R;
-printf("Kich thuoc R: %d\n",sizeof(R));
-printf("Gia tri R: %d\n",R);
-R = Den;
-printf("Gia tri R: %d\n", R);
-R = Cam;
-printf("Gia tri R: %d\n", R);
-getch();
-return 0;
+    enum MauSac R;
+    printf("Kich thuoc R: %d\n",sizeof(R));
+    printf("Gia tri R: %d\n",R);
+    R = Den;
+    printf("Gia tri R: %d\n", R);
+    R = Cam;
+    printf("Gia tri R: %d\n", R);
+    getch();
+    return 0;
 }
 ```
 
@@ -4951,78 +4930,78 @@ Cho chương trình dưới. Hãy phân tích và cho biết chương trình th�
 #include <malloc.h>
 struct SinhVien
 {
-char hoTen[30];
-float   diemToan;
-float   diemLy;
-float   diemHoa;
-float diemTB;
+    char hoTen[30];
+    float   diemToan;
+    float   diemLy;
+    float   diemHoa;
+    float diemTB;
 };
 void  NhapDs( struct SinhVien *sv, int n)
 {
-int  i; char tam[2];
-puts ("Nhap du lieu cho danh sach Sinh
-vien");
-for (i = 0; i < n; i++)
-{
-printf ( "Sinh vien thu : %d\n",i);
-puts ( "Ho ten:");
-gets ((sv+i)->hoTen);
-puts ("Diem toan:");
-scanf ("%f", &(sv+i)->diemToan);
-puts ("Diem ly:");
-scanf ("%f", &(sv+i)->diemLy);
-puts ("Diem hoa:");
-scanf ("%f", &(sv+i)->diemHoa);
-gets(tam);
-(sv+i)->diemTB = ((sv+i)->diemToan +
-(sv+i)->diemLy + (sv+i)->diemHoa)/3;
-}
+    int  i; char tam[2];
+    puts ("Nhap du lieu cho danh sach Sinh
+    vien");
+    for (i = 0; i < n; i++)
+    {
+        printf ( "Sinh vien thu : %d\n",i);
+        puts ( "Ho ten:");
+        gets ((sv+i)->hoTen);
+        puts ("Diem toan:");
+        scanf ("%f", &(sv+i)->diemToan);
+        puts ("Diem ly:");
+        scanf ("%f", &(sv+i)->diemLy);
+        puts ("Diem hoa:");
+        scanf ("%f", &(sv+i)->diemHoa);
+        gets(tam);
+        (sv+i)->diemTB = ((sv+i)->diemToan +
+        (sv+i)->diemLy + (sv+i)->diemHoa)/3;
+    }
 }
 void  InDs(struct SinhVien *sv, int n)
 {
-int  i;
-puts("Danh sach sinh vien da nhap:");
-for (i = 0; i < n; i++)
-{
-puts ( "ho ten: ");
-puts ((sv+i)->hoTen);
-printf ("Diem tb: %f\n",
-(sv+i)->diemTB);
-}
+    int  i;
+    puts("Danh sach sinh vien da nhap:");
+    for (i = 0; i < n; i++)
+    {
+        puts ( "ho ten: ");
+        puts ((sv+i)->hoTen);
+        printf ("Diem tb: %f\n",
+        (sv+i)->diemTB);
+    }
 }
 int main (void)
 {
-int  n, i;
-char tam[2];
-float max;
-struct  SinhVien *a;
-puts ("Nhap so luong sinh vien: ");
-scanf ("%d",&n);
-gets(tam);
-a = (SinhVien*) malloc (n*sizeof (SinhVien));
-if (a == NULL)
-puts ("Khong the cap phat bo nho.");
-else
-{
-NhapDs (a,n);
-InDs (a, n);
-max = a->diemTB;
-for (i= 0; i <n; i++)
-if( max < (a +i)->diemTB)
-max = (a +i)->diemTB;
-puts("sinh vien co diem trung binh lon
-nhat:");
-for (i= 0; i <n; i++)
-if( max == (a +i)->diemTB)
-{
-puts( (a + i)->hoTen);
-printf ( "Diem tb: %f\n",
-(a + i)->diemTB);
-}
-}
-free (a);
-getch();
-return 0;
+    int  n, i;
+    char tam[2];
+    float max;
+    struct  SinhVien *a;
+    puts ("Nhap so luong sinh vien: ");
+    scanf ("%d",&n);
+    gets(tam);
+    a = (SinhVien*) malloc (n*sizeof (SinhVien));
+    if (a == NULL)
+        puts ("Khong the cap phat bo nho.");
+    else
+    {
+        NhapDs (a,n);
+        InDs (a, n);
+        max = a->diemTB;
+        for (i= 0; i <n; i++)
+            if( max < (a +i)->diemTB)
+                max = (a +i)->diemTB;
+        puts("sinh vien co diem trung binh lon
+        nhat:");
+        for (i= 0; i <n; i++)
+            if( max == (a +i)->diemTB)
+        {
+            puts( (a + i)->hoTen);
+            printf ( "Diem tb: %f\n",
+            (a + i)->diemTB);
+        }
+    }
+    free (a);
+    getch();
+    return 0;
 }
 ```
 
@@ -5122,85 +5101,85 @@ void  Hoanvi(int *x, int *y);
 float Tinhtrungbinh(int a, int b);
 void main (void)
 {
-int *arr;
-int n ;
-int max, min;
-float tb;
-do{
-printf(" Nhap n ");
-scanf("%d",&n);
-}while(n<=0);
-arr = (int*) malloc (n*sizeof(int));
-Nhapmang(arr,n);
-printf("cac phan tu mang :\n");
-Inmang(arr,n);
-max = Timmax(arr,n);
-min = Timmin(arr,n);
-printf("\nmax = %d, min = %d",max,min);
-tb=Tinhtrungbinh(max,min);
-printf("\ntrung binh  = %.2f ",tb);
-Hoanvi(&arr[0],&arr[n-1]);
-printf("\ncap nhat mang  :\n");
-Inmang(arr,n);
-Sapxepmang(arr,n);
-printf("\nmang sau khi sap xep :\n");
-Inmang(arr,n);
+    int *arr;
+    int n ;
+    int max, min;
+    float tb;
+    do{
+        printf(" Nhap n ");
+        scanf("%d",&n);
+    }while(n<=0);
+    arr = (int*) malloc (n*sizeof(int));
+    Nhapmang(arr,n);
+    printf("cac phan tu mang :\n");
+    Inmang(arr,n);
+    max = Timmax(arr,n);
+    min = Timmin(arr,n);
+    printf("\nmax = %d, min = %d",max,min);
+    tb=Tinhtrungbinh(max,min);
+    printf("\ntrung binh  = %.2f ",tb);
+    Hoanvi(&arr[0],&arr[n-1]);
+    printf("\ncap nhat mang  :\n");
+    Inmang(arr,n);
+    Sapxepmang(arr,n);
+    printf("\nmang sau khi sap xep :\n");
+    Inmang(arr,n);
 }
 void Sapxepmang(int a[],int n)
 {
-int i,j,tam ;
-for (i=0;i<n-1 ; i++)
-for(j=i+1; j<n;j++)
-{
-if (a[i]>a[j])
-{
-tam = a[i];
-a[i]= a[j];
-a[j]=tam;
-}
-}
+    int i,j,tam ;
+    for (i=0;i<n-1 ; i++)
+        for(j=i+1; j<n;j++)
+    {
+        if (a[i]>a[j])
+        {
+            tam = a[i];
+            a[i]= a[j];
+            a[j]=tam;
+        }
+    }
 }
 void Inmang(int a[],int n)
 {
-int i;
-for (i=0;i<n ; i++)
-printf("%d, ",a[i]);
+    int i;
+    for (i=0;i<n ; i++)
+        printf("%d, ",a[i]);
 }
 void Nhapmang(int a[],int n)
 {
-int i;
-for (i=0;i<n ; i++)
-{
-printf(" \na[%d] =  ",i);
-scanf("%d",&a[i]);
-}
+    int i;
+    for (i=0;i<n ; i++)
+    {
+        printf(" \na[%d] =  ",i);
+        scanf("%d",&a[i]);
+    }
 }
 int Timmax (int *a,int n)
 {
-int i,max ;
-max = a[0] ;
-for (i=1;i<n;i++)
-max = (max<a[i])?a[i]:max ;
-return max ;
+    int i,max ;
+    max = a[0] ;
+    for (i=1;i<n;i++)
+        max = (max<a[i])?a[i]:max ;
+    return max ;
 }
 int Timmin (int *a,int n)
 {
-int i,min ;
-min = a[0] ;
-for (i=1;i<n;i++)
-min = (min>a[i])?a[i]:min ;
-return min ;
+    int i,min ;
+    min = a[0] ;
+    for (i=1;i<n;i++)
+        min = (min>a[i])?a[i]:min ;
+    return min ;
 }
 void  Hoanvi(int *x, int *y)
 {
-int tam;
-tam  = *x;
-*x = *y;
-*y = tam;
+    int tam;
+    tam  = *x;
+    *x = *y;
+    *y = tam;
 }
 float Tinhtrungbinh(int a, int b)
 {
-return (float)(a+b)/2 ;
+    return (float)(a+b)/2 ;
 }
 ```
 
@@ -5238,100 +5217,96 @@ Ví dụ trên sẽ được viết lại với 3 tệp, tệp chứa hàm main 
 #include "tinhtoan.h"
 void main (void)
 {
-int *arr;
-int n ;
-int max, min;
-float tb;
-do{
-printf(" Nhap n ");
-scanf("%d",&n);
-}while(n<=0);
-arr = (int*) malloc (n*sizeof(int));
-Nhapmang(arr,n);
-printf("cac phan tu mang :\n");
-Inmang(arr,n);
-max = Timmax(arr,n);
-min = Timmin(arr,n);
-printf("\nmax = %d, min = %d",max,min);
-tb=Tinhtrungbinh(max,min);
-printf("\ntrung binh  = %.2f ",tb);
-Hoanvi(&arr[0],&arr[n-1]);
-printf("\ncap nhat mang  :\n");
-Inmang(arr,n);
-Sapxepmang(arr,n);
-printf("\nmang sau khi sap xep :\n");
-Inmang(arr,n);
+    int *arr;
+    int n ;
+    int max, min;
+    float tb;
+    do{
+        printf(" Nhap n ");
+        scanf("%d",&n);
+    }while(n<=0);
+    arr = (int*) malloc (n*sizeof(int));
+    Nhapmang(arr,n);
+    printf("cac phan tu mang :\n");
+    Inmang(arr,n);
+    max = Timmax(arr,n);
+    min = Timmin(arr,n);
+    printf("\nmax = %d, min = %d",max,min);
+    tb=Tinhtrungbinh(max,min);
+    printf("\ntrung binh  = %.2f ",tb);
+    Hoanvi(&arr[0],&arr[n-1]);
+    printf("\ncap nhat mang  :\n");
+    Inmang(arr,n);
+    Sapxepmang(arr,n);
+    printf("\nmang sau khi sap xep :\n");
+    Inmang(arr,n);
 }
 ```
 
-Trong chương trình trên, các hàm thao tác trên mảng được đặt
-
-*trong thư tệp  thaotacmang.h .  Tệp này có nội dung như sau:*
+Trong chương trình trên, các hàm thao tác trên mảng được đặt trong tệp `thaotacmang.h`. Tệp này có nội dung như sau:
 
 ```c
 /*thaotacmang.h*/
 void Sapxepmang(int a[],int n)
 {
-int i,j,tam ;
-for (i=0;i<n-1 ; i++)
-for(j=i+1; j<n;j++)
-{
-if (a[i]>a[j])
-{
-tam = a[i];
-a[i]= a[j];
-a[j]=tam;
-}
-}
+    int i,j,tam ;
+    for (i=0;i<n-1 ; i++)
+        for(j=i+1; j<n;j++)
+    {
+        if (a[i]>a[j])
+        {
+            tam = a[i];
+            a[i]= a[j];
+            a[j]=tam;
+        }
+    }
 }
 void Inmang(int a[],int n)
 {
-int i;
-for (i=0;i<n ; i++)
-printf("%d, ",a[i]);
+    int i;
+    for (i=0;i<n ; i++)
+        printf("%d, ",a[i]);
 }
 void Nhapmang(int a[],int n)
 {
-int i;
-for (i=0;i<n ; i++){
-printf(" \na[%d] =  ",i);
-scanf("%d",&a[i]);
-}
+    int i;
+    for (i=0;i<n ; i++){
+        printf(" \na[%d] =  ",i);
+        scanf("%d",&a[i]);
+    }
 }
 int Timmax (int *a,int n)
 {
-int i,max ;
-max = a[0] ;
-for (i=1;i<n;i++)
-max = (max<a[i])?a[i]:max ;
-return max ;
+    int i,max ;
+    max = a[0] ;
+    for (i=1;i<n;i++)
+        max = (max<a[i])?a[i]:max ;
+    return max ;
 }
 int Timmin (int *a,int n)
 {
-int i,min ;
-min = a[0] ;
-for (i=1;i<n;i++)
-min = (min>a[i])?a[i]:min ;
-return min ;
+    int i,min ;
+    min = a[0] ;
+    for (i=1;i<n;i++)
+        min = (min>a[i])?a[i]:min ;
+    return min ;
 }
 ```
 
-Tương tự, các hàm tính toán được tách riêng sang một tệp được
-
-*đặt tên  tinhtoan.h  . Tệp này có nội dung như sau:*
+Tương tự, các hàm tính toán được tách riêng sang một tệp được đặt tên `tinhtoan.h`. Tệp này có nội dung như sau:
 
 ```c
 /*tinhtoan*/
 void  Hoanvi(int *x, int *y)
 {
-int tam;
-tam  = *x;
-*x = *y;
-*y = tam;
+    int tam;
+    tam  = *x;
+    *x = *y;
+    *y = tam;
 }
 float Tinhtrungbinh(int a, int b)
 {
-return (float)(a+b)/2 ;
+    return (float)(a+b)/2 ;
 }
 ```
 
@@ -5344,7 +5319,7 @@ Chỉ thị định nghĩa #define được sử dụng để định nghĩa m�
 Cú pháp sử dụng chỉ thị #define định nghĩa một chuỗi tương đương như sau:
 
 ```c
-#define   tên   giáTr ị ThayTh ế
+#define tên giáTrị ThayThế
 ```
 
 Ví dụ sử dụng chỉ thị #define định nghĩa hằng số và chuỗi như sau:
@@ -5355,9 +5330,9 @@ Ví dụ sử dụng chỉ thị #define định nghĩa hằng số và chuỗi 
 #define hello  "xin chao \n"
 void main (void)
 {
-float r = 2 ;
-printf(hello) ;
-printf ("Dien tich hinh tron la %.2f",r*r*PI);
+    float r = 2 ;
+    printf(hello) ;
+    printf ("Dien tich hinh tron la %.2f",r*r*PI);
 }
 ```
 
@@ -5377,9 +5352,9 @@ Chỉ thị #define còn được sử dụng để định nghĩa một đoạn
 #define timmax(x,y) ((x)>(y) ? (x) : (y))
 void main (void)
 {
-int a = 5, b = 9 ;
-int max = timmax(a,b);
-printf ("max = %d",max);
+    int a = 5, b = 9 ;
+    int max = timmax(a,b);
+    printf ("max = %d",max);
 }
 ```
 
@@ -5390,7 +5365,7 @@ So sánh macro trên với hàm sau đây:
 ```c
 int timmax1 (int a, int b)
 {
-return a>b?a:b ;
+    return a>b?a:b ;
 }
 ```
 
@@ -5414,19 +5389,19 @@ Xét ví dụ sau:
 #ifdef INTERGER
 int timmax(int a, int b)
 {
-return a>b ? a:b ;
+    return a>b ? a:b ;
 }
 #else
 float timmax(float a, float b)
 {
-return a>b ? a:b ;
+    return a>b ? a:b ;
 }
 #endif
 void main (void)
 {
-int a = 5, b = 9 ;
-int max = timmax(a,b);
-printf ("max = %d",max);
+    int a = 5, b = 9 ;
+    int max = timmax(a,b);
+    printf ("max = %d",max);
 }
 ```
 
@@ -5440,19 +5415,19 @@ Tương tự, cũng có thể dùng các chỉ thị điều khiển quá trình
 #if INTERGER == 1
 int timmax(int a, int b)
 {
-return a>b ? a:b ;
+    return a>b ? a:b ;
 }
 #else
 float timmax(float a, float b)
 {
-return a>b ? a:b ;
+    return a>b ? a:b ;
 }
 #endif
 void main (void)
 {
-int a = 5, b = 9 ;
-int max = timmax(a,b);
-printf ("max = %d",max);
+    int a = 5, b = 9 ;
+    int max = timmax(a,b);
+    printf ("max = %d",max);
 }
 ```
 
@@ -5512,18 +5487,18 @@ Nguyên văn trong sách — không biên dịch được vì `void main`:
 #include <stdlib.h>
 void main(void)
 {
-int n, i,max;
-int *p ;
-do {
-printf("Nhap n: ");
-scanf("%d",&n) ;
-}while (n<=0);
-p = (int *)malloc (n*sizeof(int));
-if (p!=NULL)
-{
-/* nhập mảng, tìm max */
-}
-free(p);
+    int n, i,max;
+    int *p ;
+    do {
+        printf("Nhap n: ");
+        scanf("%d",&n) ;
+    }while (n<=0);
+    p = (int *)malloc (n*sizeof(int));
+    if (p!=NULL)
+    {
+        /* nhập mảng, tìm max */
+    }
+    free(p);
 }
 ```
 
