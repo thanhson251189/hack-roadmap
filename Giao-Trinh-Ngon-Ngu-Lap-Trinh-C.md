@@ -144,26 +144,26 @@ Hợp ngữ (Assemly language) là ngôn ngữ thế hệ thứ 2 của ngôn ng
 
 Ví dụ một chương trình được viết bằng hợp ngữ như sau:
 
-```c
+```asm
 section .text
-global _start  ;must be declared for linker (gcc)
-_start:          ;tell linker entry point
-mov edx,len  ;message length
-mov ecx,msg  ;message to write
-mov ebx,1    ;file descriptor (stdout)
-mov eax,4    ;system call number (sys_write)
-int 0x80     ;call kernel
-mov edx,9    ;message length
-mov ecx,s2   ;message to write
-mov ebx,1    ;file descriptor (stdout)
-mov eax,4    ;system call number (sys_write)
-int 0x80     ;call kernel
-mov eax,1    ;system call number (sys_exit)
-int 0x80     ;call kernel
+    global _start                     ; must be declared for linker (gcc)
+_start:                               ; tell linker entry point
+    mov edx,len                       ; message length
+    mov ecx,msg                       ; message to write
+    mov ebx,1                         ; file descriptor (stdout)
+    mov eax,4                         ; system call number (sys_write)
+    int 0x80                          ; call kernel
+    mov edx,9                         ; message length
+    mov ecx,s2                        ; message to write
+    mov ebx,1                         ; file descriptor (stdout)
+    mov eax,4                         ; system call number (sys_write)
+    int 0x80                          ; call kernel
+    mov eax,1                         ; system call number (sys_exit)
+    int 0x80                          ; call kernel
 section .data
-msg db 'Displaying 9 stars',0xa ;a message
-len equ $ - msg  ;length of message
-s2 times 9 db '*'
+    msg db 'Displaying 9 stars',0xa   ; a message
+    len equ $ - msg                   ; length of message
+    s2 times 9 db '*'
 ```
 
 Ngôn ngữ cấp cao (high-level programming language) là ngôn ngữ gần với ngôn ngữ con người và được sử dụng phổ biến hiện nay. Chương trình được viết bằng ngôn ngữ cấp cao giúp người lập trình dễ đọc, dễ hiểu, dễ chỉnh sửa. Với ngôn ngữ cấp cao, người lập trình dễ dàng chuyển đổi ý tưởng, các giải thuật thành các đoạn chương trình mà không cần quan tâm nhiều đến việc quản lý bộ nhớ, quản lý các thanh ghi, các chi tiết phần cứng như đã làm trong lập trình bằng ngôn ngữ cấp thấp. Cũng giống như hợp ngữ, ngôn ngữ cấp cao cần được chuyển đổi sang mã máy (ngôn ngữ máy) trước khi được thực thi. Có nhiều ngôn ngữ cấp cao được phát triển đến thời điểm hiện tại. Trong đó một số ngôn ngữ hình thành lâu đời như C, Pascal, Fortran, Basic, Java.
@@ -3846,7 +3846,7 @@ Mảng sẽ được truyền vào cho tham số hàm thông qua tham chiếu đ
 
 ```c
 int func(int *a, int n);
-//h oặ c
+//hoặc
 int func(int  a[], int n);
 ```
 
