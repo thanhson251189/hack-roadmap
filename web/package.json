@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "node build.js",
+    "dev": "node build.js --plain && node server.js",
     "serve": "node server.js",
     "start": "node build.js && node server.js"
   },

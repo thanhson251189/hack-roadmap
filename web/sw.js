@@ -1,17 +1,15 @@
-const CACHE = 'hack-roadmap-v11';
+const CACHE = 'hack-roadmap-v13';
 const SHELL = [
   './',
   'index.html',
   'styles.css',
   'content.js',
   'app.js',
+  'auth.js',
   'manifest.json',
   'icons/icon-192.png',
   'icons/icon-512.png',
   'icons/icon-maskable-512.png',
-  'downloads/Lo-Trinh-Tu-So-0.md',
-  'downloads/Loi-Giai-Va-Bai-Tap-Mo-Rong-12-Tuan.md',
-  'downloads/Lo-Trinh-Hack-Game-16-Tuan.md',
 ];
 
 self.addEventListener('install', (event) => {

@@ -1,4 +1,5 @@
-(() => {
+// Nội dung đã được auth.js giải mã trước khi gọi hàm này.
+window.__bootApp = () => {
   'use strict';
 
   const CONTENT = window.CONTENT;
@@ -63,7 +64,6 @@
   const ICONS = {
     arrow: '<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     chevron: '<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M6 3.5l4.5 4.5L6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    download: '<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 2v8m0 0l3-3m-3 3L5 7M2.5 11.5v1A1.5 1.5 0 004 14h8a1.5 1.5 0 001.5-1.5v-1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     check: '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     bookmark: '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2.5h8v11L8 10.8 4 13.5v-11z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>',
     pencil: '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M10.8 2.8l2.4 2.4L6 12.4l-3.2.8.8-3.2 7.2-7.2z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>',
@@ -434,7 +434,7 @@
           <div class="hero-copy">
             <span class="hero-eyebrow"><span class="pulse-dot"></span>Lộ trình tự học · cập nhật 10/2026</span>
             <h1>Từ <em>con số 0</em><br>đến bản mod đầu tiên.</h1>
-            <p class="hero-lede">Bốn tài liệu, hai nhánh: 12 tuần học nền tảng lập trình, rồi chọn PC (Cheat Engine, trainer, hook) hoặc Android (APK, smali, ARM64, mod menu) để làm bản mod đầu tiên. Không nhảy tầng, không học vẹt.</p>
+            <p class="hero-lede">Năm tài liệu, hai nhánh: 12 tuần học nền tảng lập trình, rồi chọn PC (Cheat Engine, trainer, hook) hoặc Android (APK, smali, ARM64, mod menu) để làm bản mod đầu tiên. Không nhảy tầng, không học vẹt.</p>
             <div class="hero-actions">${primary}${secondary}</div>
             <ul class="hero-stats">
               <li><strong>${CONTENT.totals.docs}</strong><span>tài liệu</span></li>
@@ -464,7 +464,7 @@
           <div class="section-head">
             <div>
               <h2>Tài liệu</h2>
-              <p>Đi 01 → 02, rồi chọn một nhánh: 03 cho PC hoặc 04 cho Android. Tài liệu 02 dùng song song với 01.</p>
+              <p>Đi 01 → 02, rồi chọn một nhánh: 03 cho PC hoặc 04 cho Android. Tài liệu 02 dùng song song với 01, tài liệu 05 là giáo trình tham khảo khi cần tra cứu sâu.</p>
             </div>
             <span class="mono-link">${docs.length} tài liệu · ${overall.tasksTotal} bài tập</span>
           </div>
@@ -687,7 +687,6 @@
             ${last ? `<a class="btn ghost small" href="#/doc/${doc.id}/${last.id}">Vị trí đang đọc</a>` : ''}
             <button class="btn ghost small${state.hideDone ? ' is-on' : ''}" type="button" id="filterDoneBtn" aria-pressed="${state.hideDone}">Ẩn bài đã xong</button>
             <button class="btn ghost small" type="button" id="resetDocBtn">Đặt lại tiến độ tài liệu</button>
-            <a class="btn ghost small" href="downloads/${doc.file}" download>Tải bản .md ${ICONS.download}</a>
           </div>
         </header>
         ${weeks}
@@ -1583,7 +1582,7 @@
     searchResults = [];
 
     if (!raw) {
-      els.searchResults.innerHTML = searchEmptyTemplate('Tìm trong 3 tài liệu');
+      els.searchResults.innerHTML = searchEmptyTemplate(`Tìm trong ${docs.length} tài liệu`);
       bindSearchSuggestions();
       return;
     }
@@ -1753,4 +1752,4 @@
   else applyTheme(document.documentElement.dataset.theme || 'dark');
 
   route();
-})();
+};

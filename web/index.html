@@ -82,6 +82,9 @@
           <span class="search-label">Tìm kiếm</span>
           <kbd class="search-kbd">Ctrl K</kbd>
         </button>
+        <button class="icon-btn" id="lockLogout" type="button" aria-label="Đăng xuất" title="Đăng xuất" hidden>
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M8.5 3.5H5A1.5 1.5 0 003.5 5v10A1.5 1.5 0 005 16.5h3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 6.5L15.5 10 12 13.5M15.5 10H8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
         <button class="icon-btn" id="themeToggle" type="button" aria-label="Đổi giao diện sáng/tối">
           <svg class="icon-sun" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="10" cy="10" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.4 1.4M14.6 14.6L16 16M16 4l-1.4 1.4M5.4 14.6L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           <svg class="icon-moon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M16.5 12.2A6.8 6.8 0 017.8 3.5 6.8 6.8 0 1016.5 12.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
@@ -166,9 +169,32 @@
     </div>
   </div>
 
+  <div class="lock-screen" id="lockScreen" hidden>
+    <form class="lock-card" id="lockForm" autocomplete="on">
+      <div class="lock-brand">
+        <span class="brand-mark" aria-hidden="true"><span>[</span><span class="brand-caret">_</span><span>]</span></span>
+        <span class="lock-brand-text">hack<span class="brand-slash">/</span>roadmap</span>
+      </div>
+      <h1 class="lock-title">Kho tài liệu cá nhân</h1>
+      <p class="lock-lede">Nội dung được mã hoá trên máy chủ. Đăng nhập để giải mã và đọc.</p>
+      <label class="lock-field">
+        <span>Email</span>
+        <input id="lockEmail" type="email" name="email" autocomplete="username" placeholder="ban@example.com" required spellcheck="false">
+      </label>
+      <label class="lock-field">
+        <span>Mật khẩu</span>
+        <input id="lockPassword" type="password" name="password" autocomplete="current-password" placeholder="••••••••" required>
+      </label>
+      <p class="lock-error" id="lockError" role="alert" hidden></p>
+      <button class="btn primary lock-submit" id="lockSubmit" type="submit">Đăng nhập</button>
+      <p class="lock-foot">Phiên đăng nhập được nhớ trên máy này. Bấm biểu tượng <span class="lock-key">↪</span> ở thanh trên để đăng xuất.</p>
+    </form>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="content.js"></script>
   <script src="app.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>
