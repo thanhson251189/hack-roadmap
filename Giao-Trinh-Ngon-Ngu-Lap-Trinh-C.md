@@ -322,9 +322,11 @@ int main (void)
 
 Kết quả sau khi thực thi chương trình như sau:
 
-```c
+```c ln
 Nhap so thu nhat :
+5
 Nhap so thu hai:
+7
 Tong la: 12
 ```
 
@@ -364,7 +366,7 @@ Một chương trình trước khi được thực thi cần trải qua 4 bướ
 
 - Preprocessor – Quá trình tiền xử lý là bước đầu tiên trong quá trình biên dịch. Các tập tin chương trình được loại bỏ các phần chú thích (comment). Đồng thời các chỉ thị được thể hiện sau dấu # được xử lý. Các chỉ thị sau ký tự # bao gồm các khai báo thư viện, các định nghĩa. Ví dụ:
 
-```c
+```c ln
 #include <stdio.h>
 #define PI   3.14
 ```
@@ -998,8 +1000,7 @@ int main(void)
     s = sqrt(q*(q-a)*(q-b)*(q-c));
     printf("\nChu vi la %5.1f, dien tich la %5.2f ",p,s);
     getch();
-    return 0;
-}
+    return 0; }
 ```
 
 Kết quả thực hiện chương trình:
@@ -1190,7 +1191,7 @@ Khi khối lệnh 1 hoặc khối lệnh 2 bao gồm từ 2 lệnh trở lên th
 
 *Ví dụ 2.8:  Cho chương trình sau:*
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -1207,8 +1208,7 @@ int main(void)
     else
         a = a + 1;
     b = b +1;
-    printf("Gia tri cua a la %d cua b la %d va c la
-    %d",a,b,c);
+    printf("Gia tri cua a la %d cua b la %d va c la %d",a,b,c);
     getch();
     return 0;
 }
@@ -1274,7 +1274,7 @@ Nếu khối lệnh 1, 2…n bao gồm từ 2 lệnh trở lên thì phải đ�
 
 *Ví dụ 2.9:  Cho chương trình sau:*
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -1289,8 +1289,7 @@ int main(void)
     else
         a = a + 1;
     b = b +1;
-    printf("Gia tri cua a la %d cua b la %d va c la
-    %d",a,b,c);
+    printf("Gia tri cua a la %d cua b la %d va c la %d",a,b,c);
     getch();
     return 0;
 }
@@ -1628,8 +1627,7 @@ int main(void)
     printf("\ngia tri sau vong lap cua i la %d va a la
     %d", i, a);
     getch();
-    return 0;
-}
+    return 0; }
 ```
 
 Khi chạy chương trình, kết quả in ra màn hình sẽ là:
@@ -1910,8 +1908,7 @@ int main(void)
         if (a >= 0)
             break;
     }
-    return 0;
-}
+    return 0; }
 ```
 
 Trong chương trình trên, lệnh for(; ;) ở dòng lệnh số 5 sẽ tạo ra một vòng lặp vô tận. Bên trong thân vòng lặp, lệnh break ; ở dòng lệnh số 10 sẽ giúp chương trình thoát khỏi vòng lặp vô tận trên khi xảy ra điều kiện a >= 0. Điều này tương đương với việc vòng lặp sẽ tiếp tục lặp nếu người dùng nhập vào một số a < 0 và chỉ kết thúc bởi lệnh break ; khi người dùng nhập một số a >= 0. *Kết quả của chương trình là:*
@@ -2490,8 +2487,7 @@ int main (void)
         printf("%d", a[i]);
     }
     getch();
-    return 0;
-}
+    return 0; }
 ```
 
 Ví dụ 4.7 là sự mở rộng thêm của ví dụ 4.6, với các dòng lệnh từ số 7 đến số 11 giúp ta có thể nhập giá trị của một mảng từ bàn phím. Và điều kiện ở dòng lệnh 15 giúp cho việc sắp xếp các giá trị của mảng sẽ theo thứ tự từ bé đến lớn.
@@ -4313,9 +4309,10 @@ sẽ lưu giá trị số 2019 vào biến thành phần namSanXuat của ô nh�
 
 Xét một chương trình khác được viết như sau:
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
+
 struct ThietBi
 {
     char tenTB[20];
@@ -4323,6 +4320,7 @@ struct ThietBi
     float giaTien;
     char  trangThai;
 };
+
 int main (void)
 {
     char tam[2];
@@ -4332,22 +4330,28 @@ int main (void)
     {
         printf("\nNhap thong tin cua thiet bi
         thu %d:\n", i);
+
         printf("Nhap ten: ");
         gets(d[i].tenTB);
+
         printf("Nhap nam san xuat: ");
         scanf("%d",&d[i].namSanXuat);
+
         printf("Nhap gia tien: ");
         scanf("%f",&d[i].giaTien);
+
         gets(tam);
         printf("Nhap trang thai: Tot (T) hoac
         Hong (H): ");
         scanf("%c",&d[i].trangThai);
         gets(tam);
     }
+
     printf("\nThong tin cac thiet bi da
     nhap:\n");
     for ( i = 0; i < n; i++)
-        printf("%s, %d, %.1f, %c\n",d[i].tenTB,d[i].namSanXuat,d[i].giaTien,d[i].trangThai);
+        printf("%s, %d, %.1f, %c\n",d[i].tenT
+B,d[i].namSanXuat,d[i].giaTien,d[i].trangThai);
     getch();
     return 0;
 }
@@ -4355,8 +4359,7 @@ int main (void)
 
 Trong chương trình này, mảng một chiều d gồm 5 phần tử kiểu cấu trúc ThietBi được khai báo trong hàm main ở dòng lệnh số 15. Mục đích của việc khai báo mảng d là tạo ra vùng nhớ gồm 5 ô nhớ để lưu trữ thông tin của 5 thiết bị. Mỗi thiết bị sẽ có bốn thành phần thông tin cần lưu trữ là: tenTB, namSanXuat, giaTien, trangThai . Tiếp theo, các thông tin của 5 thiết bị sẽ được người dùng nhập vào từ bàn phím, ở đoạn lệnh từ dòng lệnh số 17 đến dòng lệnh số 36, bằng cách dùng một vòng lặp. Cuối cùng, thông tin của tất cả các thiết bị sẽ được in ra màn hình, ở đoạn lệnh từ dòng lệnh số 39 đến dòng lệnh số 42. Kết quả sau khi chạy chương trình trên là:
 
-```c ln
-
+```c ln=2
 Nhap thong tin cua thiet bi thu 0:
 Nhap ten: quat
 Nhap nam san xuat: 2017
@@ -4463,10 +4466,11 @@ sẽ giải phóng vùng nhớ đã cấp cho con trỏ p.
 
 Xét một chương trình được viết như sau:
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
 #include <malloc.h>
+
 struct ThietBi
 {
     char tenTB[20];
@@ -4474,34 +4478,40 @@ struct ThietBi
     float giaTien;
     char  trangThai;
 };
+
 int main (void)
 {
     char tam[2];
     int i, n;
     printf("Nhap so n: ");
     scanf("%d",&n);
+
     struct ThietBi  *p;
     p = (ThietBi*)malloc(n*sizeof(ThietBi));
     if (p == NULL)
-        printf("Cap phat bo nho khong thanh cong!");
-    else
+        printf("Cap phat bo nho khong thanh cong!"); else
     {
         for (i = 0; i < n; i++)
         {
             printf("\nNhap thong tin cua thiet bi thu
             %d:\n", i);
+
             gets(tam);
             printf("Nhap ten: ");
             gets((p+i)->tenTB);
+
             printf("Nhap nam san xuat: ");
             scanf("%d",&(p+i)->namSanXuat);
+
             printf("Nhap gia tien: ");
             scanf("%f",&(p+i)->giaTien);
+
             gets(tam);
             printf("Nhap trang thai: Tot (T) hoac
             Hong (H): ");
             scanf("%c",&(p+i)->trangThai);
         }
+
         printf("\nThong tin cac thiet bi da nhap:\n");
         for ( i = 0; i < n; i++)
             printf("%s, %d, %.1f, %c\n",
@@ -4518,8 +4528,7 @@ Trong chương trình này, con trỏ p kiểu cấu trúc ThietBi được khai
 
 Kết quả sau khi chạy chương trình trên là:
 
-```c ln
-
+```c ln=2
 Nhap so n: 3
 
 Nhap thong tin cua thiet bi thu 0:
@@ -4554,9 +4563,10 @@ Một hàm có thể có các tham số đầu vào kiểu cấu trúc. Khi truy
 
 Xét một chương trình được viết như sau:
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
+
 struct ThietBi
 {
     char tenTB[20];
@@ -4564,6 +4574,8 @@ struct ThietBi
     float giaTien;
     char  trangThai;
 };
+
+
 void NhapDuLieu(struct ThietBi *x, int n)
 {
     char tam[2];
@@ -4574,10 +4586,13 @@ void NhapDuLieu(struct ThietBi *x, int n)
         %d:\n", i);
         printf("Nhap ten: ");
         gets((x+i)->tenTB);
+
         printf("Nhap nam san xuat: ");
         scanf("%d",&(x+i)->namSanXuat);
+
         printf("Nhap gia tien: ");
         scanf("%f",&(x+i)->giaTien);
+
         gets(tam);
         printf("Nhap trang thai: Tot (T) hoac
         Hong (H): ");
@@ -4585,18 +4600,24 @@ void NhapDuLieu(struct ThietBi *x, int n)
         gets(tam);
     }
 }
+
 void InMotThietBi(struct ThietBi a)
 {
-    printf("%s, %d, %.1f, %c\n",a.tenTB,a.namSanXuat,a.giaTien,a.trangThai);
+    printf("%s, %d, %.1f, %c\n",a.tenTB,a.namSanXu
+at,a.giaTien,a.trangThai);
 }
+
 int main (void)
 {
     int i, n = 2;
     struct ThietBi  d[2];
+
     NhapDuLieu(&d[0],n);
+
     printf("\nThong tin cac thiet bi da nhap:\n");
     for ( i = 0; i < n; i++)
         InMotThietBi(d[i]);
+
     getch();
     return 0;
 }
