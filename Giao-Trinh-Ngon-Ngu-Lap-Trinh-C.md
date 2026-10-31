@@ -297,18 +297,22 @@ int main (void)
 
 Chúng ta sẽ viết một chương trình C thực hiện việc nhập hai số nguyên từ bàn phím, sau đó thực hiện tính tổng hai số này và cuối cùng in kết quả ra màn hình. Nội dung của chương trình được thể hiện như sau:
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
+
 int main (void)
 {
     int a;  //khai bao bien a, de luu so thu nhat
     int b;   //khai bao bien b, de luu so thu hai
     int tong;//khai bao bien tong, de luu ket qua
+
     printf ("Nhap so thu nhat : \n");
     scanf("%d",&a);  //nhap so nguyen tu ban phim
+
     printf("Nhap so thu hai: \n");
     scanf("%d",&b);  //nhap so nguyen tu ban phim
+
     tong = a + b;     //tinh tong
     printf("Tong la: %d \n",tong);  //in ket qua
     getch(); //cho nhap 1 ky tu bat ky
@@ -461,7 +465,7 @@ Trong một số ngôn ngữ lập trình hiện đại, biến chỉ cần đư
 
 - Biến chung hoặc biến toàn cục (global): là các biến được khai báo bên ngoài các hàm và có thể được truy xuất trong bất kỳ hàm nào cùng nằm trong một tệp chương trình. Ví dụ một chương trình được viết `file1.c` có nội dung như sau:
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
 int a,b,tong,hieu ;
@@ -537,7 +541,7 @@ sẽ gây ra lỗi vì giá trị đã khởi tạo của hằng PI là cố đ�
 
 Sau khi khai báo, có thể sử dụng hằng số PI trong các câu lệnh khác trong chương trình. Ví dụ, đoạn lệnh tính toán chu vi của một hình tròn có đường kính là 5cm có thể viết như sau:
 
-```c
+```c ln
 int d = 5;
 float C;
 C = d*PI;
@@ -849,7 +853,7 @@ int main (void)
 
 - [ ] 3.  Cho biết kết quả khi thực thi chương trình sau:
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -975,7 +979,7 @@ Chu vi p = (a+b+c), diện tích s = sqrt(q*(q-a)*(q-b)*(q-c)) với q = p/2 và
 
 Chúng ta có chương trình được viết như sau:
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
 #include <math.h>
@@ -1061,7 +1065,7 @@ Không đặt dấu chấm phẩy sau câu lệnh if, ví dụ như if (biểu t
 
 *Ví dụ 2.5 : Cho chương trình sau:*
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -1121,7 +1125,7 @@ Chương trình ở ví dụ 2.6 này chỉ khác với ví dụ 2.5 ở dòng 5
 
 *Ví dụ 2.7:  Cho chương trình sau:*
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -1135,7 +1139,7 @@ int main(void)
         b = c + 5;
     }
     printf("Gia tri cua a la %d cua b la %d va c la
-    14 %d",a,b,c);
+    %d",a,b,c);
     getch();
     return 0;
 }
@@ -1612,7 +1616,7 @@ Tiếp theo là đến vòng lặp for, biểu thức 1 ở đây giá trị bi�
 
 Để hiểu rõ hơn thứ tự các lệnh thực hiện, ta có thể xem xét tiếp ví dụ 3.2 sau:
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -1622,7 +1626,7 @@ int main(void)
         printf("\n gia tri a la %d, ",a);
     }
     printf("\ngia tri sau vong lap cua i la %d va a la
-    10 %d", i, a);
+    %d", i, a);
     getch();
     return 0;
 }
@@ -1676,7 +1680,7 @@ Với 3 trường hợp trên ta thấy: lệnh for có thể vắng mặt từ 
 
 Ví dụ 3.3: Viết chương trình nhập điểm số một môn học của một sinh viên từ bàn phím. Biết rằng điểm phải lớn hơn 0 và nhỏ hơn 10. Nếu vi phạm điều kiện này thì yêu cầu nhập lại.
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -1694,7 +1698,7 @@ int main(void)
 
 14 else
 
-```c
+```c ln=15
 printf("\ngia tri ban nhap khong phu hop");
 printf("\n moi ban nhap gia tri khac: ");
 scanf("%f",&a);
@@ -1784,7 +1788,7 @@ Trong ví dụ này, có sự kết hợp của câu lệnh if…else if…else.
 
 Ví dụ 3.6: Xét đoạn chương trình yêu cầu người dùng nhập vào một số bí mật (số 0) sau:
 
-```c
+```c ln
 int  a , b;
 printf("moi nhap vao so bi mat ");
 scanf("%d", &a);
@@ -1898,7 +1902,7 @@ Ví dụ này cho ta thấy kết quả của biểu thức điều kiện của
 
 Câu lệnh break; cho phép thoát khỏi for, while, do...while và switch. Khi có nhiều vòng lặp lồng nhau, câu lệnh break; sẽ đưa máy ra khỏi vòng lặp (hoặc switch) bên trong nhất đang chứa break . Như vậy, lệnh break; cho ta khả năng thoát khỏi vòng lặp từ một điểm bất kỳ bên trong vòng lặp mà không dùng đến điều kiện kết thúc vòng lặp ở biểu thức điều kiện. Mọi câu lệnh break; có thể thay bằng lệnh goto với nhãn ở vị trí thích hợp. Xét chương trình sau:
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -1931,10 +1935,9 @@ Trái với câu lệnh break; (dùng để thoát khỏi vòng lặp), câu l�
 
 Lưu ý là lệnh continue; chỉ áp dụng cho các vòng lặp chứ không dùng cho lệnh switch.
 
-Ví dụ 3.9 : Ta xét lại ví dụ 3.1 ở trường hợp 3 và thêm vào câu lệnh
+Ví dụ 3.9 : Ta xét lại ví dụ 3.1 ở trường hợp 3 và thêm vào câu lệnh *continue;* như sau:
 
-```c
-continue;  như sau:
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -2202,7 +2205,7 @@ Ta xem kết quả của chương trình sau để hiểu rõ hơn.
 
 *Ví dụ 4.1b:*
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -2248,7 +2251,7 @@ Ví dụ 4.2: int a[10] = {5,7,9};
 
 Với cách khai báo như trong ví dụ 4.2 thì các phần tử a[0], a[1], a[2] là đã được gán giá trị ban đầu lần lượt là 5, 7 và 9, các phần tử còn lại sẽ được khởi tạo bằng 0. Xem ví dụ này qua chương trình dưới đây:
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -2265,22 +2268,24 @@ int main(void)
 
 **Khi chạy chương trình trên, ta  được kết quả sau:**
 
-```c
+```c ln
 gia tri phan tu a[0] la: 5
 gia tri phan tu a[1] la: 7
 gia tri phan tu a[2] la: 9
 gia tri phan tu a[3] la: 0
 gia tri phan tu a[4] la: 0
 gia tri phan tu a[5] la: 0
-Cú pháp 3:  kiểu dữ liệu    tên mảng [ ] = {giá trị};
-Ví dụ 4.3:   int  a[] = {5,7,9,3,4,6,8,1,2,5};
 ```
+
+*Cú pháp 3:* kiểu dữ liệu tên mảng [ ] = {giá trị};
+
+*Ví dụ 4.3:* int  a[] = {5,7,9,3,4,6,8,1,2,5};
 
 ![Mảng a được khởi tạo đầy đủ 10 giá trị.](assets/giaotrinh-c/hinh-99-56-14.png)
 
 Với cách khai báo như ví dụ 4.3 thì máy sẽ tạo ra một mảng a có số phần tử mảng đúng bằng số lượng các giá trị được khởi tạo trong cặp dấu ngoặc nhọn { }. Và giá trị của từng phần tử cũng tương ứng với các giá trị đã được khai báo trong cặp dấu ngoặc nhọn { } này. Chương trình và kết quả chạy ở dưới đây thể hiện điều đó.
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -2418,7 +2423,7 @@ Ví dụ 4.5c này khác với ví dụ 4.5a ở ý nghĩa tìm min so với tì
 
 Ví dụ 4.6 : Sắp xếp các giá trị của một mảng cho trước theo thứ tự giảm dần:
 
-```c
+```c ln
 int a[6]={1,7,9,6,8,2};
 int  tam,i,j;
 for (i=0; i<5; i++)
@@ -2461,9 +2466,10 @@ Nếu với yêu cầu sắp xếp mảng và in ra giá trị từ lớn đến
 
 Ví dụ 4.7: Chương trình nhập giá trị của mảng 10 phần tử từ bàn phím và sắp xếp và in ra mảng theo thứ tự tăng dần.
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
+
 int main (void)
 {
     int a[10], i, j, tam;
@@ -2472,6 +2478,7 @@ int main (void)
         printf("nhap phan tu thu %d: ", i) ;
         scanf("%d",&a[i]);
     }
+
     for (i=0; i<9; i++)
         for (j = i+1; j<10; j++)
             if (a [i]> a[j])
@@ -2598,7 +2605,7 @@ for (i=0;i<3;i++)
 
 Ví dụ 4.12: Chương trình sau sẽ in ra số lớn nhất trên từng hàng của một mảng 2 chiều nhập vào từ bàn phím.
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
 int main (void)
@@ -2610,6 +2617,7 @@ int main (void)
         printf("Nhap phan tu %d %d: ",i, j);
         scanf("%d", &a[i][j]) ;
     }
+
     for (i=0; i<5; i++)
     {
         max = a[i][0];
@@ -2651,13 +2659,15 @@ Chuỗi là mảng 1 chiều các phần tử kiểu ký tự, kết thúc bằn
 
 Hàm nhập chuỗi: gets (biến chuỗi); Hàm xuất chuỗi: puts (biến chuỗi); Xét chương trình sau:
 
-```c
+```c ln
 #include <stdio.h>
+
 int main(void)
 {
     char s[40];
     printf("Hay nhap 1 chuoi: \n");
     gets(s);
+
     printf("Chuoi da nhap la: \n");
     puts(s);
     return 0;
@@ -2681,8 +2691,9 @@ Ta có thể thao tác trên từng phần tử của một chuỗi tương tự
 
 Xét chương trình sau:
 
-```c
+```c ln
 #include <stdio.h>
+
 int main(void)
 {
     char s[10] = "Hello";
@@ -2760,7 +2771,7 @@ Hàm có chức năng chuyển đổi 1 chuỗi sang giá trị double.
 
 *Ví dụ 4.19:*
 
-```c
+```c ln
 float f;
 char str[] = "12345.67";
 f= atof(str);
@@ -3275,7 +3286,7 @@ p = (int*)malloc(100*sizeof(int));
 
 Ví dụ: viết chương trình nhập dữ liệu cho mảng gồm n phần tử số nguyên với giá trị n được nhập trước, sau đó in ra phần tử lớn nhất.
 
-```c
+```c ln
 #include<stdio.h>
 #include <stdlib.h>
 void main(void)
@@ -3357,7 +3368,7 @@ p = (int*)realloc(p, 200*sizeof(int));
 
 Ví dụ: Viết chương trình nhập n số nguyên, in ra các số đã nhập theo thứ tự tăng dần. Sau đó nhập thêm m số nguyên nữa, tìm và in ra giá trị bé nhất trong số (n+m) số nguyên vừa nhập.
 
-```c
+```c ln
 #include<stdio.h>
 #include <stdlib.h>
 void main(void)
@@ -3369,6 +3380,7 @@ void main(void)
         printf("Nhap n: ");
         scanf("%d",&n) ;
     }while (n<=0);
+
     p = (int *)calloc (n,sizeof(int));
     if (p!=NULL)
     {
@@ -3389,6 +3401,7 @@ void main(void)
         {
             printf(" %d , ",*(p+i));
         }
+
         do
         {
             printf("\nNhap m: ");
@@ -3400,7 +3413,7 @@ void main(void)
             for (i=0;i<m;i++)
             {
                 printf("\nnhap phan tu thu %d:
-                45 ",n+i+1);
+                ",n+i+1);
                 scanf("%d",(p+n+i));
             }
             min = *p ;
@@ -3570,7 +3583,7 @@ void main (void)
 
 Hàm giaithua nhận vào một giá trị kiểu số nguyên và trả về một giá trị kiểu số nguyên. Lệnh return cho phép trả về giá trị với kiểu giá trị được khai báo phía trước tên hàm. Trong trường hợp thiếu lệnh return, trình biên dịch vẫn không báo lỗi hoặc cảnh báo. Tuy nhiên, hàm sẽ không trả về giá trị để gán cho biến khi gọi hàm trong chương trình chính. Mặc khác, lệnh return không nhất thiết phải đặt ở cuối chương trình của hàm. Trong một số trường hợp có thể đặt lệnh return ở giữa hoặc bất kỳ nơi đâu trong thân hàm. Khi gặp lệnh return, hàm xem như kết thúc và trả về giá trị cho chương trình gọi nó. Ví dụ:
 
-```c
+```c ln
 #include<stdio.h>
 #include <stdlib.h>
 int   KiemtraSNT(int n)
@@ -3595,7 +3608,7 @@ void main (void)
         printf(" %d la So nguyen to" ,n);
     else
         printf(" %d khong phai la So nguyen to"
-    25 ,n);
+    ,n);
 }
 ```
 
@@ -3618,7 +3631,7 @@ Kiểu dữ liệu trả về trước Tên_hàm được thay thế bằng từ
 
 Ví dụ viết hàm kiểm tra một số có phải là số Armstrong hay không: hàm không trả về kết quả là 0 hay 1 như hàm tìm số nguyên tố mà hàm kiểm tra số Armstrong sẽ tự in ra kết quả sau khi kiểm tra trong hàm. Số Armstrong được định nghĩa là số có giá trị bằng tổng lập phương của các chữ số trong số đó. Ví dụ 153, 371
 
-```c
+```c ln
 #include<stdio.h>
 #include <stdlib.h>
 void Armstrong (int n)
@@ -3729,7 +3742,7 @@ Trong ví dụ trên, hàm main nhận 2 tham số, thực tế 2 tham số này
 
 Hàm phải được khai báo trước khi sử dụng. Điều này đồng nghĩa với việc định nghĩa hàm hoặc là khai báo hàm phải tồn tại ở trước vị trí nó được gọi. Trong các ví dụ trên, hàm được định nghĩa ở trên hàm main và nó được gọi trong hàm main. Để đảm bảo việc hàm có thể được gọi từ một hàm khác mà hàm này có thể được viết trên hoặc dưới hàm được gọi thì các hàm cần phải được khai báo ở vị trí đầu chương trình. Việc khai báo hàm chỉ đơn thuần là cung cấp cho chương trình các thông tin về hàm như tên hàm, kiểu dữ liệu trả về, tham số. Khai báo hàm được thực hiện theo cú pháp sau Ki ể u_d ữ _li ệ u Tên_hàm (danh sách tham s ố ); Các hàm được khai báo trong cùng một chương trình hoặc có thể được đặt trong một tệp tiêu đề (header file). Ví dụ về khai báo hàm như sau:
 
-```c
+```c ln
 #include<stdio.h>
 #include <stdlib.h>
 int   timmax(int a, int b);// khai báo hàm
@@ -3786,7 +3799,7 @@ Kết quả sau khi chạy chương trình sẽ là: `a = 5, b= 6` Trong chươn
 
 Truyền địa chỉ cho tham số hàm còn được gọi là phương pháp truyền tham chiếu. Trong trường hợp này, tham số không nhận giá trị trực tiếp mà nhận địa chỉ của biến bên ngoài. Kết hợp với các phép toán con trỏ, cho phép các câu lệnh bên trong hàm truy xuất đến các biến bên ngoài. Trong ví dụ sau, để người đọc không nhầm lẫn, 2 biến bên trong hàm hoanvi được đổi tên là x và y. Hàm hoán đổi giá trị 2 biến được viết lại như sau:
 
-```c
+```c ln
 #include  <stdio.h>
 void  hoanvi(int *x, int *y) ;
 void main (void)
@@ -3795,6 +3808,7 @@ void main (void)
     hoanvi(&a , &b);
     printf ("a = %d , a= %d", a,b);
 }
+
 void  hoanvi(int *x, int *y)
 {
     int tam;
@@ -3845,7 +3859,7 @@ Hàm tìm số lớn nhất trong mảng sử dụng tham số con trỏ. Trong 
 
 Chương trình trên có thể được viết lại như sau mà không làm thay đổi kết quả cũng như chức năng của hàm.
 
-```c
+```c ln
 #include  <stdio.h>
 #include <conio.h>
 int Timmax (int *a,int n);
@@ -3922,18 +3936,19 @@ mang sau khi sap xep :
 
 Trong ngôn ngữ C, hàm có thể gọi các hàm khác và cũng có thể gọi chính nó. Một hàm được gọi bởi chính nó được gọi là hàm đệ quy. Các hàm đệ quy hữu ích trong các chương trình cần lặp lại các quá trình tính toán hoặc xử lý. Cấu trúc hàm đệ quy được minh họa như sau:
 
-```c
+```c ln
 void recurse()
 {
     ... .. ...
     recurse();
     ... .. ...
 }
+
 int main()
 {
-    10     ... .. ...
+    ... .. ...
     recurse();
-    12     ... .. ...
+    ... .. ...
 }
 ```
 
@@ -4090,7 +4105,7 @@ Kiểu cấu trúc – structure – là một tập hợp các biến khác ki�
 
 Các kiểu cấu trúc là kiểu dữ liệu tự tạo, được xây dựng dựa trên các đối tượng của các kiểu dữ liệu khác. Xét một kiểu cấu trúc được định nghĩa như sau:
 
-```c
+```c ln
 struct SinhVien
 {
     char hoTen[40];
@@ -4103,7 +4118,7 @@ struct SinhVien
 
 Ở dòng lệnh số 1, từ khóa struct là bắt buộc để bắt đầu cho phần định nghĩa một kiểu cấu trúc. Tên gọi SinhVien là tên được đặt cho kiểu cấu trúc đang định nghĩa. Các biến được khai báo bên trong cặp dấu ngoặc { }; của phần định nghĩa ở trên được gọi là các biến thành phần của kiểu cấu trúc. Các biến thành phần trong cùng một kiểu cấu trúc phải có tên gọi khác nhau, tuy nhiên các biến thành phần của các kiểu cấu trúc khác nhau có thể có tên gọi trùng nhau. Việc định nghĩa một kiểu cấu trúc phải được kết thúc bằng một dấu chấm phẩy ; Các biến thành phần của một kiểu cấu trúc có thể là các biến thuộc các kiểu dữ liệu cơ bản (char, int, float,...) hoặc là biến con trỏ, biến mảng, hoặc là biến thuộc một kiểu cấu trúc khác. Xét một kiểu cấu trúc khác được định nghĩa như sau:
 
-```c
+```c ln=4
 struct ThietBi
 {
     char tenTB[20];
@@ -4139,7 +4154,7 @@ Câu lệnh này đã khai báo ra biến a thuộc kiểu cấu trúc SinhVien 
 
 Lúc này, kích thước của vùng nhớ mỗi biến a, b sẽ bằng tổng kích thước của các biến thành phần ( hoTen, MSSV, diemGiuaKy, diemCuoiKy, diemTongKet ). Lưu ý với các biến thành phần của mỗi biến cấu trúc, máy tính sẽ cấp vùng nhớ theo đơn vị word (thường là 4 byte). Chẳng hạn, biến thành phần hoTen của biến a và biến b ở trên, đã được định nghĩa trong kiểu cấu trúc SinhVien là một mảng một chiều gồm 40 ký tự, thì máy tính sẽ cấp vùng nhớ cho thành phần này là 10 words (tương đương 40 bytes). Nếu thành phần hoTen được định nghĩa là mảng 38 ký tự:
 
-```c
+```c ln
 struct SinhVien
 {
     char hoTen[38];
@@ -4342,33 +4357,38 @@ int main (void)
 
 Trong chương trình này, mảng một chiều d gồm 5 phần tử kiểu cấu trúc ThietBi được khai báo trong hàm main ở dòng lệnh số 15. Mục đích của việc khai báo mảng d là tạo ra vùng nhớ gồm 5 ô nhớ để lưu trữ thông tin của 5 thiết bị. Mỗi thiết bị sẽ có bốn thành phần thông tin cần lưu trữ là: tenTB, namSanXuat, giaTien, trangThai . Tiếp theo, các thông tin của 5 thiết bị sẽ được người dùng nhập vào từ bàn phím, ở đoạn lệnh từ dòng lệnh số 17 đến dòng lệnh số 36, bằng cách dùng một vòng lặp. Cuối cùng, thông tin của tất cả các thiết bị sẽ được in ra màn hình, ở đoạn lệnh từ dòng lệnh số 39 đến dòng lệnh số 42. Kết quả sau khi chạy chương trình trên là:
 
-```c
+```c ln=2
 1
 Nhap thong tin cua thiet bi thu 0:
 Nhap ten: quat
 Nhap nam san xuat: 2017
 Nhap gia tien: 0.25
 Nhap trang thai: Tot (T) hoac Hong (H): T
+
 Nhap thong tin cua thiet bi thu 1:
 Nhap ten: den
 Nhap nam san xuat: 2017
 Nhap gia tien: 0.75
 Nhap trang thai: Tot (T) hoac Hong (H): H
+
 Nhap thong tin cua thiet bi thu 2:
 Nhap ten: may lanh
 Nhap nam san xuat: 2018
 Nhap gia tien: 4.75
 Nhap trang thai: Tot (T) hoac Hong (H): T
+
 Nhap thong tin cua thiet bi thu 3:
 Nhap ten: Tivi
 Nhap nam san xuat: 2017
 Nhap gia tien: 12.5
 Nhap trang thai: Tot (T) hoac Hong (H): T
+
 Nhap thong tin cua thiet bi thu 4:
 Nhap ten: loa
 Nhap nam san xuat: 2017
 Nhap gia tien: 2.3
 Nhap trang thai: Tot (T) hoac Hong (H): T
+
 Thong tin cac thiet bi da nhap:
 quat, 2017, 0.3, T
 den, 2017, 0.8, H
@@ -4471,7 +4491,7 @@ int main (void)
         for (i = 0; i < n; i++)
         {
             printf("\nNhap thong tin cua thiet bi thu
-            28  %d:\n", i);
+            %d:\n", i);
             gets(tam);
             printf("Nhap ten: ");
             gets((p+i)->tenTB);
@@ -4487,8 +4507,8 @@ int main (void)
         printf("\nThong tin cac thiet bi da nhap:\n");
         for ( i = 0; i < n; i++)
             printf("%s, %d, %.1f, %c\n",
-        49  (p+i)->tenTB,(p+i)->namSanXuat,(p+i)->giaTien,
-        50 (p+i)->trangThai);
+        (p+i)->tenTB,(p+i)->namSanXuat,(p+i)->giaTien,
+        (p+i)->trangThai);
     }
     free(p);
     getch();
@@ -4553,7 +4573,7 @@ void NhapDuLieu(struct ThietBi *x, int n)
     for (i = 0; i < n; i++)
     {
         printf("\nNhap thong tin cua thiet bi thu
-        20 %d:\n", i);
+        %d:\n", i);
         printf("Nhap ten: ");
         gets((x+i)->tenTB);
         printf("Nhap nam san xuat: ");
@@ -5070,7 +5090,7 @@ Quá trình tiền xử lý được thực hiện trước khi quá trình biê
 
 Chỉ thị bao hàm tệp (include) xuất hiện trong hầu hết các chương trình C. Chỉ thị bao hàm tệp được sử dụng để khai báo thư viện, đồng thời được sử dụng để khai báo các tệp tiêu đề (header file). Trong các ví dụ ở các chương trước đó, chúng ta thường bắt gặp chỉ thị bao hàm tệp sau:
 
-```c
+```c ln
 #include  <stdio.h>
 #include <math.h>
 #include "myfile.h"
@@ -5082,7 +5102,7 @@ Ngoài việc khai báo các thư viện chuẩn, chỉ thị bao hàm tệp cò
 
 Ví dụ: Viết chương trình thực hiện các yêu cầu sau: nhập mảng n phần tử, in các phần tử mảng, tìm giá trị lớn nhất, nhỏ nhất trong các phần tử mảng. Tính giá trị trung bình phần tử lớn nhất và phần tử nhỏ nhất mảng. Hoán đổi phần tử lớn đầu tiên và phần tử cuối cùng của mảng. In mảng theo thứ tự tăng dần. Mỗi chức năng đều được viết dưới dạng 1 hàm.
 
-```c
+```c ln
 /*chapter08.c*/
 #include  <stdio.h>
 #include <stdlib.h>
@@ -5093,6 +5113,7 @@ int Timmax (int *a,int n);
 int Timmin (int *a,int n);
 void  Hoanvi(int *x, int *y);
 float Tinhtrungbinh(int a, int b);
+
 void main (void)
 {
     int *arr;
@@ -5119,6 +5140,7 @@ void main (void)
     printf("\nmang sau khi sap xep :\n");
     Inmang(arr,n);
 }
+
 void Sapxepmang(int a[],int n)
 {
     int i,j,tam ;
@@ -5133,12 +5155,14 @@ void Sapxepmang(int a[],int n)
         }
     }
 }
+
 void Inmang(int a[],int n)
 {
     int i;
     for (i=0;i<n ; i++)
         printf("%d, ",a[i]);
 }
+
 void Nhapmang(int a[],int n)
 {
     int i;
@@ -5148,6 +5172,7 @@ void Nhapmang(int a[],int n)
         scanf("%d",&a[i]);
     }
 }
+
 int Timmax (int *a,int n)
 {
     int i,max ;
@@ -5156,6 +5181,7 @@ int Timmax (int *a,int n)
         max = (max<a[i])?a[i]:max ;
     return max ;
 }
+
 int Timmin (int *a,int n)
 {
     int i,min ;
@@ -5164,6 +5190,7 @@ int Timmin (int *a,int n)
         min = (min>a[i])?a[i]:min ;
     return min ;
 }
+
 void  Hoanvi(int *x, int *y)
 {
     int tam;
@@ -5171,6 +5198,7 @@ void  Hoanvi(int *x, int *y)
     *x = *y;
     *y = tam;
 }
+
 float Tinhtrungbinh(int a, int b)
 {
     return (float)(a+b)/2 ;
@@ -5179,7 +5207,7 @@ float Tinhtrungbinh(int a, int b)
 
 Kết quả khi chạy chương trình với n được nhập n = 6, các phần tử mảng được nhập và kết quả tương ứng như sau:
 
-```c
+```c ln
 Nhap n 6
 a[0] =  9
 a[1] =  4
@@ -5203,7 +5231,7 @@ Khi số lượng hàm cũng như số lượng dòng lệnh chương trình tă
 
 Ví dụ trên sẽ được viết lại với 3 tệp, tệp chứa hàm main sẽ gọi các hàm trong 2 tệp còn lại. Các tệp đều nằm trong cùng một thư mục. Chương trình được sắp xếp lại như sau bao gồm một tệp chứa chương trình chính.
 
-```c
+```c ln
 /*chapter08.c*/
 #include  <stdio.h>
 #include <stdlib.h>
@@ -5239,7 +5267,7 @@ void main (void)
 
 Trong chương trình trên, các hàm thao tác trên mảng được đặt trong tệp `thaotacmang.h`. Tệp này có nội dung như sau:
 
-```c
+```c ln
 /*thaotacmang.h*/
 void Sapxepmang(int a[],int n)
 {
@@ -5255,6 +5283,7 @@ void Sapxepmang(int a[],int n)
         }
     }
 }
+
 void Inmang(int a[],int n)
 {
     int i;
@@ -5269,6 +5298,7 @@ void Nhapmang(int a[],int n)
         scanf("%d",&a[i]);
     }
 }
+
 int Timmax (int *a,int n)
 {
     int i,max ;
@@ -5277,6 +5307,7 @@ int Timmax (int *a,int n)
         max = (max<a[i])?a[i]:max ;
     return max ;
 }
+
 int Timmin (int *a,int n)
 {
     int i,min ;
@@ -5289,7 +5320,7 @@ int Timmin (int *a,int n)
 
 Tương tự, các hàm tính toán được tách riêng sang một tệp được đặt tên `tinhtoan.h`. Tệp này có nội dung như sau:
 
-```c
+```c ln
 /*tinhtoan*/
 void  Hoanvi(int *x, int *y)
 {
@@ -5318,7 +5349,7 @@ Cú pháp sử dụng chỉ thị #define định nghĩa một chuỗi tương �
 
 Ví dụ sử dụng chỉ thị #define định nghĩa hằng số và chuỗi như sau:
 
-```c
+```c ln
 #include  <stdio.h>
 #define PI 3.14
 #define hello  "xin chao \n"
@@ -5341,7 +5372,7 @@ Dien tich hinh tron la 12.56
 
 Chỉ thị #define còn được sử dụng để định nghĩa một đoạn chương trình, được xem như một macro. Ví dụ, định nghĩa macro timmax như sau:
 
-```c
+```c ln
 #include  <stdio.h>
 #define timmax(x,y) ((x)>(y) ? (x) : (y))
 void main (void)
@@ -5377,9 +5408,10 @@ biên dịch hoặc không biên dịch một đoạn chương trình.
 
 Xét ví dụ sau:
 
-```c
+```c ln
 #include  <stdio.h>
 #define INTERGER
+
 #ifdef INTERGER
 int timmax(int a, int b)
 {
@@ -5391,6 +5423,7 @@ float timmax(float a, float b)
     return a>b ? a:b ;
 }
 #endif
+
 void main (void)
 {
     int a = 5, b = 9 ;
@@ -5403,7 +5436,7 @@ Chương trình trên xây dựng hàm tìm giá trị lớn nhất. Tuy nhiên,
 
 Tương tự, cũng có thể dùng các chỉ thị điều khiển quá trình biên dịch với #if, #else, và #endif . Ví dụ:
 
-```c
+```c ln
 #include  <stdio.h>
 #define INTERGER 1
 #if INTERGER == 1
