@@ -1694,11 +1694,7 @@ int main(void)
             printf("ban da nhap gia tri phu hop");
             break;
         }
-```
-
-14 else
-
-```c ln=15
+        else
 printf("\ngia tri ban nhap khong phu hop");
 printf("\n moi ban nhap gia tri khac: ");
 scanf("%f",&a);
@@ -2195,7 +2191,7 @@ Ví dụ 4.1a: int a[10];
 
 **Mỗi phần tử trong mảng có kiểu  int**
 
-10 phần tử Với cách khai báo như ví dụ 4.1a thì mảng a gồm 10 phần tử, các phần tử trong mảng này có kiểu dữ liệu là int (có kích thước vùng nhớ là 4 byte), vùng nhớ của các phần tử này liên tiếp nhau trong vùng nhớ từ phần tử a[0] đến phần tử a[9].
+Với cách khai báo như ví dụ 4.1a thì mảng a gồm 10 phần tử, các phần tử trong mảng này có kiểu dữ liệu là int (có kích thước vùng nhớ là 4 byte), vùng nhớ của các phần tử này liên tiếp nhau trong vùng nhớ từ phần tử a[0] đến phần tử a[9].
 
 Khi kháo báo như trên, các phần tử mảng được tham chiếu như sau:
 
@@ -2239,9 +2235,11 @@ dia chi cua a[4] la: 2686680
 dia chi cua a[5] la: 2686684
 dia chi cua a[6] la: 2686688
 dia chi cua a[7] la: 2686692
+dia chi cua a[8] la: 2686696
+dia chi cua a[9] la: 2686700
 ```
 
-10 dia chi cua a[8] la: 2686696 11 dia chi cua a[9] la: 2686700 Với kết quả trên cho thấy địa chỉ trong bộ nhớ của các biến trong mảng là liền kề nhau và tăng dần từ a[0] đến a[9], mỗi biến có kích thước là 4 byte.
+Với kết quả trên cho thấy địa chỉ trong bộ nhớ của các biến trong mảng là liền kề nhau và tăng dần từ a[0] đến a[9], mỗi biến có kích thước là 4 byte.
 
 - Cú pháp 2:  kiểu dữ liệu    tên mảng [số phần tử]= {giá trị};
 
@@ -4118,7 +4116,7 @@ struct SinhVien
 
 Ở dòng lệnh số 1, từ khóa struct là bắt buộc để bắt đầu cho phần định nghĩa một kiểu cấu trúc. Tên gọi SinhVien là tên được đặt cho kiểu cấu trúc đang định nghĩa. Các biến được khai báo bên trong cặp dấu ngoặc { }; của phần định nghĩa ở trên được gọi là các biến thành phần của kiểu cấu trúc. Các biến thành phần trong cùng một kiểu cấu trúc phải có tên gọi khác nhau, tuy nhiên các biến thành phần của các kiểu cấu trúc khác nhau có thể có tên gọi trùng nhau. Việc định nghĩa một kiểu cấu trúc phải được kết thúc bằng một dấu chấm phẩy ; Các biến thành phần của một kiểu cấu trúc có thể là các biến thuộc các kiểu dữ liệu cơ bản (char, int, float,...) hoặc là biến con trỏ, biến mảng, hoặc là biến thuộc một kiểu cấu trúc khác. Xét một kiểu cấu trúc khác được định nghĩa như sau:
 
-```c ln=4
+```c ln
 struct ThietBi
 {
     char tenTB[20];
@@ -4357,8 +4355,8 @@ int main (void)
 
 Trong chương trình này, mảng một chiều d gồm 5 phần tử kiểu cấu trúc ThietBi được khai báo trong hàm main ở dòng lệnh số 15. Mục đích của việc khai báo mảng d là tạo ra vùng nhớ gồm 5 ô nhớ để lưu trữ thông tin của 5 thiết bị. Mỗi thiết bị sẽ có bốn thành phần thông tin cần lưu trữ là: tenTB, namSanXuat, giaTien, trangThai . Tiếp theo, các thông tin của 5 thiết bị sẽ được người dùng nhập vào từ bàn phím, ở đoạn lệnh từ dòng lệnh số 17 đến dòng lệnh số 36, bằng cách dùng một vòng lặp. Cuối cùng, thông tin của tất cả các thiết bị sẽ được in ra màn hình, ở đoạn lệnh từ dòng lệnh số 39 đến dòng lệnh số 42. Kết quả sau khi chạy chương trình trên là:
 
-```c ln=2
-1
+```c ln
+
 Nhap thong tin cua thiet bi thu 0:
 Nhap ten: quat
 Nhap nam san xuat: 2017
@@ -4403,7 +4401,7 @@ trong đó, các thông tin ở các dòng kết quả từ dòng số 2 đến 
 
 Tương tự như biến con trỏ của các kiểu dữ liệu khác, một biến con trỏ kiểu cấu trúc có thể được dùng để truy xuất tới một vùng nhớ cùng kiểu cấu trúc đó bằng cách sử dụng thông tin địa chỉ của vùng nhớ cần truy xuất. Con trỏ kiểu cấu trúc cũng cần phải được khai báo trước khi sử dụng. Xét các câu lệnh khai báo sau:
 
-```c
+```c ln
 struct ThietBi  c = {"Quat", 2019, 225.5, 'T'};
 struct ThietBi *p;
 ```
@@ -4520,8 +4518,8 @@ Trong chương trình này, con trỏ p kiểu cấu trúc ThietBi được khai
 
 Kết quả sau khi chạy chương trình trên là:
 
-```c ln=2
-1
+```c ln
+
 Nhap so n: 3
 
 Nhap thong tin cua thiet bi thu 0:
