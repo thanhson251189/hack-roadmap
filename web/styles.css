@@ -1603,6 +1603,29 @@ body.has-sidebar .sidebar {
 
 .prose p {
   margin: 0 0 1.05em;
+  /* giong ban in: thut dau dong + can hai ben */
+  text-indent: 1.7em;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Chu thich hinh: can giua, khong thut dau dong */
+.prose p.figcap {
+  margin: 0.2em 0 0.6em;
+  text-indent: 0;
+  text-align: center;
+  font-style: italic;
+  color: var(--text-faint);
+}
+
+/* Doan nam trong danh sach / trich dan / bang: giu nguyen can trai */
+.prose li p,
+.prose blockquote p,
+.prose td p,
+.prose th p,
+.prose p.noindent {
+  text-indent: 0;
+  text-align: left;
 }
 
 .prose strong {

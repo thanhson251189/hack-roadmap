@@ -127,9 +127,9 @@ Chương trình máy tính (computer program) là một chuỗi các lệnh đư
 
 - Ngôn ngữ lập trình cấp cao (high-level programming language).
 
-![Hình 1.1 . Phân loại ngôn ngữ lập trình](assets/giaotrinh-c/hinh-13-3-7.png)
+![Hình 1.1. Phân loại ngôn ngữ lập trình](assets/giaotrinh-c/hinh-13-3-7.png)
 
-*Hình 1.1 . Phân loại ngôn ngữ lập trình*
+*Hình 1.1. Phân loại ngôn ngữ lập trình*
 
 Ngôn ngữ cấp thấp cũng được chia ra 2 mức khác nhau, ngôn ngữ máy hay mã máy và hợp ngữ (assembly language). Ngôn ngữ máy (machine code) là các đoạn mã hệ 16 (hexadecimal code) hoặc mã nhị phân (binary code) được sử dụng để lập trình cho các hệ thống máy tính đầu tiên và được xem là thế hệ đầu tiên của ngôn ngữ lập trình. Mã máy được viết dưới dạng nhị phân (0 và 1) giúp máy tính (hay phần cứng hệ thống số) có thể đọc và thực thi trực tiếp các tác vụ mà người lập trình thiết kế. Một lợi thế của ngôn ngữ máy là máy tính có thể đọc trực tiếp và thực thi mà không cần tới một trình biên dịch, hay chuyển đổi nào. Điều này giúp các chương trình được viết dưới dạng ngôn ngữ máy có thể thực thi nhanh và chính xác. Tuy nhiên, bên cạnh những ưu điểm, lập trình bằng ngôn ngữ máy cũng có nhiều nhược điểm. Cụ thể là các mã nhị phân làm cho người lập trình khó nhớ, khó hiểu, khó chỉnh sửa. Hơn nữa, việc sửa lỗi, tìm lỗi chương trình cũng trở nên khó khăn thông qua việc dò, tham chiếu các mã nhị phân với các lệnh.
 
@@ -375,9 +375,9 @@ Một chương trình trước khi được thực thi cần trải qua 4 bướ
 - Asembly – hợp dịch: Các mã hợp ngữ được biên dịch sang mã máy (machine-code).
 - Link- quá trình liên kết: trong trường hợp chương trình tham chiếu đến các hàm thuộc các thư viện hoặc các hàm từ các tập tin mã nguồn khác, trình liên kết sẽ tổng hợp các mã chương trình này lại để tạo một tập tin mã nguồn có khả năng thực thi (executable machine code). Tập tin cuối cùng này có phần mở rộng  .exe . Đây là tập tin chứa mã nhị phân để thực thi chương trình.
 
-![Hình 1.2 .  Các bước biên dịch chương trình C](assets/giaotrinh-c/hinh-31-8-1.png)
+![Hình 1.2. Các bước biên dịch chương trình C](assets/giaotrinh-c/hinh-31-8-1.png)
 
-*Hình 1.2 .  Các bước biên dịch chương trình C*
+*Hình 1.2. Các bước biên dịch chương trình C*
 
 ### 1.7. Từ khóa và tên gọi
 

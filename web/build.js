@@ -276,6 +276,14 @@ function buildDoc(doc) {
         headings.push({ id, text, depth, html: inner });
         return `<h${depth} id="${id}">${inner}<a class="h-anchor" href="#/doc/${doc.id}/${id}" aria-label="Liên kết tới mục này" tabindex="-1">#</a></h${depth}>`;
       },
+      paragraph({ tokens }) {
+        const inner = this.parser.parseInline(tokens);
+        const raw = tokens.map((t) => t.raw ?? t.text ?? '').join('').trim();
+        // Chu chu thich hinh: ban in can giua, khong thut dau dong
+        const isCaption = /^(Hinh|Hình|Fig)\b/i.test(raw.replace(/^\*+/, ''));
+        const cls = isCaption ? ' class="figcap"' : '';
+        return `<p${cls}>${inner}</p>`;
+      },
       code({ text, lang }) {
         const info = parseFenceInfo(lang);
         const highlighted = highlightCode(text, info.lang);
