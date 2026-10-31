@@ -119,6 +119,7 @@ window.__bootApp = () => {
       notes: normalizeNotes(source.notes),
       last,
       hideDone: Boolean(source.hideDone),
+      tocHidden: Boolean(source.tocHidden),
     };
   }
 
@@ -540,6 +541,7 @@ window.__bootApp = () => {
     activeSectionId = '';
     document.title = 'Hack Roadmap — Học lộ trình từ số 0 đến mod game';
     document.body.classList.remove('has-sidebar');
+    document.body.classList.remove('toc-hidden');
     view.classList.remove('hide-done');
     setMenuVisible(false);
     els.sidePercent.textContent = '0%';
@@ -1194,6 +1196,7 @@ window.__bootApp = () => {
     document.title = `${doc.title} — Hack Roadmap`;
     document.body.classList.add('has-sidebar');
     setMenuVisible(true);
+    applyTocVisibility();
     view.classList.toggle('hide-done', state.hideDone);
     view.innerHTML = docTemplate(doc);
     renderSidebar(doc);
@@ -1280,6 +1283,36 @@ window.__bootApp = () => {
     els.menuBtn.hidden = !visible;
   }
 
+  /* Ẩn/hiện mục lục: trên màn hình rộng thì thu cột trái, trên mobile thì mở drawer. */
+
+  function syncMenuButton() {
+    const wide = window.innerWidth > 1080;
+    const tocHidden = Boolean(state.tocHidden);
+    const open = wide
+      ? document.body.classList.contains('has-sidebar') && !tocHidden
+      : document.body.classList.contains('sidebar-open');
+    const label = wide && !tocHidden ? 'Ẩn mục lục ([)' : 'Mở mục lục ([)';
+    els.menuBtn.setAttribute('aria-label', label);
+    els.menuBtn.title = label;
+    els.menuBtn.setAttribute('aria-expanded', String(open));
+  }
+
+  function applyTocVisibility() {
+    document.body.classList.toggle('toc-hidden', Boolean(state.tocHidden));
+    syncMenuButton();
+  }
+
+  function toggleToc() {
+    if (window.innerWidth > 1080) {
+      state.tocHidden = !state.tocHidden;
+      saveState();
+      applyTocVisibility();
+      return;
+    }
+    if (document.body.classList.contains('sidebar-open')) closeMobileSidebar();
+    else openMobileSidebar();
+  }
+
   /* ---------------- active section & progress ---------------- */
 
   function updateActiveToc(headingId, sectionId) {
@@ -1363,6 +1396,7 @@ window.__bootApp = () => {
 
   window.addEventListener('resize', () => {
     if (window.innerWidth > 1080) closeMobileSidebar();
+    syncMenuButton();
     updateScrollUI();
     for (const hint of view.querySelectorAll('.table-hint')) {
       const wrap = hint.previousElementSibling;
@@ -1476,20 +1510,17 @@ window.__bootApp = () => {
 
   function openMobileSidebar() {
     document.body.classList.add('sidebar-open');
-    els.menuBtn.setAttribute('aria-expanded', 'true');
+    syncMenuButton();
     updateBodyLock();
   }
 
   function closeMobileSidebar() {
     document.body.classList.remove('sidebar-open');
-    els.menuBtn.setAttribute('aria-expanded', 'false');
+    syncMenuButton();
     updateBodyLock();
   }
 
-  els.menuBtn.addEventListener('click', () => {
-    if (document.body.classList.contains('sidebar-open')) closeMobileSidebar();
-    else openMobileSidebar();
-  });
+  els.menuBtn.addEventListener('click', toggleToc);
 
   els.scrim.addEventListener('click', closeMobileSidebar);
 
@@ -1735,6 +1766,12 @@ window.__bootApp = () => {
     if (event.key === '/' && !typing && els.searchOverlay.hidden) {
       event.preventDefault();
       openSearch();
+      return;
+    }
+    if (event.key === '[' && !typing && els.searchOverlay.hidden
+      && document.body.classList.contains('has-sidebar')) {
+      event.preventDefault();
+      toggleToc();
     }
   });
 

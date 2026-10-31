@@ -366,7 +366,7 @@ kbd {
 }
 
 .menu-btn {
-  display: none;
+  display: inline-flex;
 }
 
 .menu-btn[hidden] {
@@ -410,6 +410,26 @@ body.has-sidebar .shell {
 
 body.has-sidebar .sidebar {
   display: flex;
+}
+
+/* Trên màn hình rộng, mục lục thu về 0 cột thay vì tháo khỏi DOM để chuyển động mượt. */
+@media (min-width: 1081px) {
+  body.has-sidebar .shell {
+    transition: grid-template-columns 0.24s var(--ease);
+  }
+
+  body.has-sidebar.toc-hidden .shell {
+    grid-template-columns: 0px minmax(0, 1fr);
+  }
+
+  body.has-sidebar.toc-hidden .sidebar {
+    visibility: hidden;
+    padding-left: 0;
+    padding-right: 0;
+    border-right-color: transparent;
+    overflow: hidden;
+    transition: visibility 0s linear 0.24s;
+  }
 }
 
 .side-head {
