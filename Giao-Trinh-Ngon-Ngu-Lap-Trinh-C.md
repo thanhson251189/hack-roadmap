@@ -117,17 +117,11 @@ Sau khi kết thúc chương này, người đọc có thể:
 
 Chương trình máy tính (computer program) là một chuỗi các lệnh được viết bởi một loại ngôn ngữ lập trình để thực hiện một hoặc một số tác vụ nào đó. Trong đó ngôn ngữ lập trình là một tập quy ước cụ thể được sử dụng để viết chương trình cho máy tính. Nói cách khác, chương trình được xem như một loạt các lệnh mà máy tính có thể đọc hiểu và thực thi theo đó. Khi nói đến chương trình máy tính, người ta thường hình dung ra chương trình được chạy trên một máy tính. Tuy nhiên, chương trình, nhìn ở góc độ kỹ thuật thì là một chuỗi các mã lệnh dùng để điều khiển phần cứng, cụ thể là bộ vi xử lý, bộ vi điều khiển. Có nhiều loại ngôn ngữ lập trình khác nhau. Các ngôn ngữ lập trình được phân loại theo mức độ trừu tượng, trong đó gồm có:
 
-- Ngôn ngữ máy (machine language) hay còn được gọi là mã
+- Ngôn ngữ máy (machine language) hay còn được gọi là mã máy (machine code).
 
-máy (machine code).
+- Ngôn ngữ lập trình cấp thấp (low-level programming language).
 
-- Ngôn ngữ lập trình cấp thấp (low-level programming
-
-language).
-
-- Ngôn ngữ lập trình cấp cao (high-level programming
-
-language).
+- Ngôn ngữ lập trình cấp cao (high-level programming language).
 
 ![Hình 1.1 . Phân loại ngôn ngữ lập trình](assets/giaotrinh-c/hinh-13-3-7.png)
 
@@ -193,42 +187,37 @@ Lập trình là một quá trình tư duy logic giải quyết một vấn đ�
 
 Lưu đồ (Flowchart) là cách biểu diễn bằng hình ảnh của giải thuật hay các bước xử lý và thực hiện của chương trình. Lưu đồ được viết dưới dạng các khối được quy ước cụ thể nhằm giúp người lập trình có thể đọc hiểu và chuyển các ý tưởng, giải thuật sang ngôn ngữ lập trình. Trong quá trình vẽ lưu đồ giải thuật, các ký hiệu, từ khóa, ngôn ngữ thể hiện có thể tùy chọn sao cho người đọc có thể hiểu được. Ngôn ngữ thể hiện ở đây không nhất thiết là một ngôn ngữ lập trình cụ thể nào. Nó có thể là một ngôn ngữ thông thường mà người không có kiến thức lập trình cũng có thể đọc và hiểu được. Các ngôn ngữ dùng để biểu diễn trong lưu đồ như vậy còn được gọi là code giả (Psuedo code). Một số quy ước khi biểu diễn giải thuật dưới dạng lưu đồ như sau:
 
-Bắt đầu hay kết thúc của một chương trình.
-
-Nhập hay xuất dữ liệu Các xử lý, tính toán Rẽ nhánh hay các quyết định có điều kiện Chương trình con, hàm, thủ tục Các điểm đầu cuối dùng để nối lưu đồ khi sang trang Chiều đi của quá trình xử lý Ví dụ 1.1. Lưu đồ cho chương trình cộng 2 số được nhập từ bàn phím.
-
-Start Declare variables num1, num2, and sum Read num1 and num2 sum ←num1+num2 Display sum Stop Trong lưu đồ trên, điểm đầu cuối cho quá trình bắt đầu và kết thúc được phân biệt bởi từ khóa start và end trong hình oval. Các từ khóa này có thể sử dụng begin và end, start và stop hoặc bằng bất kỳ ngôn ngữ nào chỉ định việc bắt đầu và kết thúc. Để biểu diễn tổng sum là kết quả của phép cộng 2 số a và b, có thể sử dụng mô tả sum ← num1 + num2 hoặc đơn giản hơn có thể biểu diễn bởi
-
-**sum = num1 + num2 .**
-
-Ví dụ 1.2. Lưu đồ cho bài toán in ra số lớn nhất trong 3 số được nhập vào từ bàn phím.
-
-Start Declare variables a, b, c Read a,b,c True a>b?
-
-False False True
-
-| b>c? | a>c? |  |
-| --- | --- | --- |
-| False | True |  |
-| Print c | Print b | Print a |
-
-Stop Ví dụ 1.3. Lưu đồ cho bài toàn giải phương trình bậc 2: ax 2 + bx + c = 0 Start Declare variables a, b, c, d Declare x1 and x2 Read a, b, c d = b*b-4*a*c True d<0?
-
-False − b + d x 1 = 2 * a
-
-| − b − d | Print: |
+| Ký hiệu | Ý nghĩa |
 | --- | --- |
-| x 2 = | Non-real root |
+| Hình oval | Bắt đầu hay kết thúc của một chương trình |
+| Hình bình hành | Nhập hay xuất dữ liệu |
+| Hình chữ nhật | Các xử lý, tính toán |
+| Hình thoi | Rẽ nhánh hay các quyết định có điều kiện |
+| Hình chữ nhật có hai vạch dọc hai bên | Chương trình con, hàm, thủ tục |
+| Hình tròn nhỏ | Các điểm đầu cuối dùng để nối lưu đồ khi sang trang |
+| Mũi tên | Chiều đi của quá trình xử lý |
 
-2 * a Print: x1, x2 Stop Trong các khối quyết định có điều kiện (các khối hình thoi) luôn có 2 ngõ ra, một cho điều kiện đúng và một cho điều kiện sai. Các từ khóa biểu diễn cho cặp luận lý đúng sai có thể dùng là True/False, Yes/ No, T/F, Y/N, Đ/S hay một ngôn ngữ nào khác miễn là nó thỏa mãn ý nghĩa biểu diễn luận lý đúng và sai. Chương trình máy tính là một quá trình xử lý tuần tự, trong trường hợp xử lý song song sẽ dùng các kỹ thuật khác và chưa được đề cập ở đây, chính vì điều đó, từ vị trí bắt đầu chỉ có một đường duy nhất đi đến vị trí kết thúc.
+*Ví dụ 1.1. Lưu đồ cho chương trình cộng 2 số được nhập từ bàn phím.*
+
+![Ví dụ 1.1. Lưu đồ cho chương trình cộng 2 số được nhập từ bàn phím.](assets/giaotrinh-c/luu-do-1-1.png)
+
+Trong lưu đồ trên, điểm đầu cuối cho quá trình bắt đầu và kết thúc được phân biệt bởi từ khóa start và end trong hình oval. Các từ khóa này có thể sử dụng begin và end, start và stop hoặc bằng bất kỳ ngôn ngữ nào chỉ định việc bắt đầu và kết thúc. Để biểu diễn tổng sum là kết quả của phép cộng 2 số a và b, có thể sử dụng mô tả sum ← num1 + num2 hoặc đơn giản hơn có thể biểu diễn bởi **sum = num1 + num2**.
+
+*Ví dụ 1.2. Lưu đồ cho bài toán in ra số lớn nhất trong 3 số được nhập vào từ bàn phím.*
+
+![Ví dụ 1.2. Lưu đồ cho bài toán in ra số lớn nhất trong 3 số được nhập vào từ bàn phím.](assets/giaotrinh-c/luu-do-1-2.png)
+
+*Ví dụ 1.3. Lưu đồ cho bài toán giải phương trình bậc 2: ax² + bx + c = 0*
+
+![Ví dụ 1.3. Lưu đồ cho bài toán giải phương trình bậc 2: ax² + bx + c = 0](assets/giaotrinh-c/luu-do-1-3.png)
+
+Trong các khối quyết định có điều kiện (các khối hình thoi) luôn có 2 ngõ ra, một cho điều kiện đúng và một cho điều kiện sai. Các từ khóa biểu diễn cho cặp luận lý đúng sai có thể dùng là True/False, Yes/ No, T/F, Y/N, Đ/S hay một ngôn ngữ nào khác miễn là nó thỏa mãn ý nghĩa biểu diễn luận lý đúng và sai. Chương trình máy tính là một quá trình xử lý tuần tự, trong trường hợp xử lý song song sẽ dùng các kỹ thuật khác và chưa được đề cập ở đây, chính vì điều đó, từ vị trí bắt đầu chỉ có một đường duy nhất đi đến vị trí kết thúc.
 
 Ví dụ 1.4. Hãy giải thích hoạt động của chương trình dựa vào lưu đồ sau đây:
 
 ![Hình minh họa](assets/giaotrinh-c/hinh-21-4-10.png)
 
 Ví dụ 1.5. Hãy phân tích hoạt động của chương trình dựa vào lưu đồ sau đây:
-
-s
 
 ### 1.3. Ngôn ngữ lập trình C
 
@@ -270,39 +259,15 @@ Chuong trinh C dau tien */
 
 được viết bắt đầu bằng ký hiệu /* và kết thúc bởi ký hiệu */ để thể hiện rằng đây là hai câu chú thích – comment. Đây là cách viết chú thích trên nhiều dòng lệnh. Câu chú thích được đặt trong chương trình để giải thích hoặc làm rõ thêm cho chương trình mà không ảnh hưởng đến hoạt động của chương trình khi chạy. Các câu chú thích sẽ được bỏ qua khi biên dịch chương trình.
 
-Ở dòng lệnh số 3, câu lệnh
-
-```c
-#include<stdio.h>
-```
-
-là một lệnh tiền xử lý trong ngôn ngữ C. Các câu lệnh tiền xử lý sẽ bắt đầu bằng dấu # và được xử lý trước khi chương trình được biên dịch. Câu lệnh này là câu lệnh khai báo thư viện sẽ yêu cầu bộ tiền xử lý bao gồm file thư viện stdio.h vào chương trình, đây là thư viện xuất/ nhập dữ liệu tiêu chuẩn trong C. Thư viện này sẽ chứa các thông tin được sử dụng bởi trình biên dịch khi tiến hành biên dịch cho các hàm xuất nhập dữ liệu cơ bản, như hàm printf hoặc scanf.
+Ở dòng lệnh số 3, câu lệnh `#include<stdio.h>` là một lệnh tiền xử lý trong ngôn ngữ C. Các câu lệnh tiền xử lý sẽ bắt đầu bằng dấu # và được xử lý trước khi chương trình được biên dịch. Câu lệnh này là câu lệnh khai báo thư viện sẽ yêu cầu bộ tiền xử lý bao gồm file thư viện stdio.h vào chương trình, đây là thư viện xuất/ nhập dữ liệu tiêu chuẩn trong C. Thư viện này sẽ chứa các thông tin được sử dụng bởi trình biên dịch khi tiến hành biên dịch cho các hàm xuất nhập dữ liệu cơ bản, như hàm printf hoặc scanf.
 
 Ở dòng lệnh số 5, câu `//bat dau chuong trinh chinh` cũng là một câu chú thích. Đây là câu chú thích trên 1 dòng lệnh . Để viết câu chú thích trên 1 dòng lệnh, ta sẽ bắt đầu bằng ký hiệu //. Câu chú thích trên 1 dòng lệnh sẽ tự động kết thúc khi ta đưa con trỏ xuống dòng mới.
 
-Ở dòng lệnh số 6, câu
-
-```c
-int main (void)
-```
-
-đánh dấu phần chương trình chính , phần bắt buộc phải có trong mỗi chương trình C. Các thông số viết phía trước và phía sau từ main cho biết main là một khối chương trình được gọi là hàm – function. Một chương trình C có thể có một hoặc nhiều hàm nhưng bắt buộc phải có một hàm main, hay còn gọi là chương trình chính . Phía bên trái từ main là từ int thể hiện rằng hàm main sẽ trả về một giá trị số nguyên Thông số ( void) phía bên phải của main thể hiện rằng hàm main không cần nhận bất kỳ thông tin đầu vào nào. Điều này sẽ được giải thích kỹ hơn ở chương Hàm.
+Ở dòng lệnh số 6, câu `int main (void)` đánh dấu phần chương trình chính , phần bắt buộc phải có trong mỗi chương trình C. Các thông số viết phía trước và phía sau từ main cho biết main là một khối chương trình được gọi là hàm – function. Một chương trình C có thể có một hoặc nhiều hàm nhưng bắt buộc phải có một hàm main, hay còn gọi là chương trình chính . Phía bên trái từ main là từ int thể hiện rằng hàm main sẽ trả về một giá trị số nguyên Thông số ( void) phía bên phải của main thể hiện rằng hàm main không cần nhận bất kỳ thông tin đầu vào nào. Điều này sẽ được giải thích kỹ hơn ở chương Hàm.
 
 Dấu mở ngoặc { ở dòng lệnh số 7 thể hiện vị trí bắt đầu của hàm main và tương ứng dấu đóng ngoặc } ở dòng 13 thể hiện vị trí kết thúc của hàm main . Phần được viết giữa một cặp dấu ngoặc { } được gọi là một khối lệnh.
 
-Ở dòng lệnh số 8, câu
-
-```c
-printf("Chao mung den voi C! \n");
-```
-
-là câu lệnh yêu cầu in ra màn hình một chuỗi các ký tự với nội dung Chao mung den voi C! . Mỗi câu lệnh trong C sẽ được kết thúc bằng một dấu chấm phẩy (;) Ở dòng lệnh số 9, câu lệnh
-
-```c
-getch();
-```
-
-là lệnh chờ nhập một ký tự bất kỳ từ bàn phím. Lệnh này được sử dụng nhằm mục đích dừng chương trình để chờ người dùng nhập một ký tự bất kỳ từ bàn phím. Để chương trình có thể hiểu và biên dịch được lệnh
+Ở dòng lệnh số 8, câu `printf("Chao mung den voi C! \n");` là câu lệnh yêu cầu in ra màn hình một chuỗi các ký tự với nội dung Chao mung den voi C! . Mỗi câu lệnh trong C sẽ được kết thúc bằng một dấu chấm phẩy (;) Ở dòng lệnh số 9, câu lệnh `getch();` là lệnh chờ nhập một ký tự bất kỳ từ bàn phím. Lệnh này được sử dụng nhằm mục đích dừng chương trình để chờ người dùng nhập một ký tự bất kỳ từ bàn phím. Để chương trình có thể hiểu và biên dịch được lệnh
 
 ```c
 getch(); chúng ta cần lệnh khai báo thư viện #include <conio.h> như ở
@@ -379,53 +344,17 @@ int tong;  //khai bao bien tong, de luu ket qua
 
 được dùng để khai báo ra các vùng nhớ phục vụ cho việc lưu trữ dữ liệu, được gọi là biến – variable. Một biến là một vùng nhớ trong bộ nhớ RAM dùng để lưu trữ dữ liệu trong quá trình xử lý của chương trình. Ba câu lệnh trên là ba câu lệnh khai bao biến để tạo ra 3 biến có tên gọi lần lượt là a, b và tong có kiểu dữ liệu là int (kiểu số nguyên). Điều này có nghĩa là các biến này có thể lưu trữ được các giá trị số nguyên, ví dụ như: 9, -15, hoặc 12345. Tất cả các biến cần phải được khai báo một lần trước khi sử dụng trong chương trình với một tên gọi và một kiểu dữ liệu cố định.
 
-Ở dòng lệnh số 10, câu lệnh
+Ở dòng lệnh số 10, câu lệnh `printf ("Nhap so thu nhat : \n");` có tác dụng in ra màn hình câu thông báo Nhap so thu nhat :
 
-```c
-printf ("Nhap so thu nhat : \n");
-```
+Câu lệnh tiếp theo ở dòng số 11 `scanf("%d",&a);   //nhap so nguyen tu ban phim` sử dụng hàm scanf để cho phép người dùng nhập một số nguyên từ bàn phím và lưu vào biến a. Hàm scanf này có hai tham số: “%d” và &a. Tham số đầu tiên “%d” được gọi là mã định dạng, cho biết kiểu dữ liệu của dữ liệu mà người dùng sẽ nhập vào. Trong trường hợp này, “%d” là mã định dạng cho kiểu số nguyên. Trong tham số thứ hai (&a), dấu & được gọi là toán tử lấy địa chỉ. Theo sau toán tử lấy địa chỉ là tên biến a dùng để xác định địa chỉ (vị trí) của biến a trong bộ nhớ RAM.
 
-có tác dụng in ra màn hình câu thông báo Nhap so thu nhat :
+Tương tự, câu lệnh ở dòng lệnh số 14 `scanf("%d",&b);   //nhap so nguyen tu ban phim` cho phép người dùng nhập một số nguyên từ bàn phím và lưu vào biến b.
 
-Câu lệnh tiếp theo ở dòng số 11
+Ở dòng lệnh số 16, câu lệnh `tong = a + b;     //tinh tong` thực hiện tính tổng của hai biến a và b bằng phép toán cộng +, sau đó lưu kết quả vào vùng nhớ biến tong bằng phép toán gán = .
 
-```c
-scanf("%d",&a);   //nhap so nguyen tu ban phim
-```
+Câu lệnh ở dòng số 17 `printf("Tong la: %d \n",tong);  //in ket qua` gọi hàm printf để in ra màn hình dòng chữ Tong la: đi kèm phía sau là giá trị của biến tong. Hàm printf này có hai tham số, “Tong la: %d \n” và tong . Tham số đầu tiên “Tong la: %d \n” là chuỗi định dạng gồm chuỗi ký tự cần in ra màn hình Tong la: , mã định dạng %d cho biết sẽ có một số nguyên được in ra và ký tự điều khiển \n để đưa con trỏ xuống dòng. Tham số thứ hai, tong, sẽ xác định giá trị dữ liệu cần in ra.
 
-sử dụng hàm scanf để cho phép người dùng nhập một số nguyên từ bàn phím và lưu vào biến a. Hàm scanf này có hai tham số: “%d” và &a. Tham số đầu tiên “%d” được gọi là mã định dạng, cho biết kiểu dữ liệu của dữ liệu mà người dùng sẽ nhập vào. Trong trường hợp này, “%d” là mã định dạng cho kiểu số nguyên. Trong tham số thứ hai (&a), dấu & được gọi là toán tử lấy địa chỉ. Theo sau toán tử lấy địa chỉ là tên biến a dùng để xác định địa chỉ (vị trí) của biến a trong bộ nhớ RAM.
-
-Tương tự, câu lệnh ở dòng lệnh số 14
-
-```c
-scanf("%d",&b);   //nhap so nguyen tu ban phim
-```
-
-cho phép người dùng nhập một số nguyên từ bàn phím và lưu vào biến b.
-
-Ở dòng lệnh số 16, câu lệnh
-
-```c
-tong = a + b;     //tinh tong
-```
-
-thực hiện tính tổng của hai biến a và b bằng phép toán cộng +, sau đó lưu kết quả vào vùng nhớ biến tong bằng phép toán gán = .
-
-Câu lệnh ở dòng số 17
-
-```c
-printf("Tong la: %d \n",tong);  //in ket qua
-```
-
-gọi hàm printf để in ra màn hình dòng chữ Tong la: đi kèm phía sau là giá trị của biến tong. Hàm printf này có hai tham số, “Tong la: %d \n” và tong . Tham số đầu tiên “Tong la: %d \n” là chuỗi định dạng gồm chuỗi ký tự cần in ra màn hình Tong la: , mã định dạng %d cho biết sẽ có một số nguyên được in ra và ký tự điều khiển \n để đưa con trỏ xuống dòng. Tham số thứ hai, tong, sẽ xác định giá trị dữ liệu cần in ra.
-
-Câu lệnh ở dòng lệnh 19
-
-```c
-getch(); //cho nhap 1 ky tu bat ky
-```
-
-dùng hàm getch() nhằm tác dụng chờ người dùng nhập một ký tự bất kỳ từ bàn phím. Để sử dụng được hàm getch(), ta cần khai báo thư viện conio.h như ở dòng lệnh số 2:
+Câu lệnh ở dòng lệnh 19 `getch(); //cho nhap 1 ky tu bat ky` dùng hàm getch() nhằm tác dụng chờ người dùng nhập một ký tự bất kỳ từ bàn phím. Để sử dụng được hàm getch(), ta cần khai báo thư viện conio.h như ở dòng lệnh số 2:
 
 ```c
 #include <conio.h>
@@ -496,29 +425,19 @@ int a;
 
 là câu lệnh khai báo biến có tên gọi là a với kiểu dữ liệu là kiểu số nguyên int. Lúc này, chương trình sẽ tạo ra một vùng nhớ kiểu số nguyên cho biến a và giá trị dữ liệu hiện tại đang chứa trong vùng nhớ biến a là một giá trị ngẫu nhiên.
 
-a 2019896881
+*Ô nhớ biến `a` chứa giá trị ngẫu nhiên: 2019896881*
 
-Để quản lý giá trị ban đầu của biến sau khi khai báo ta có thể khởi tạo giá trị ban đầu cho biến ngay tại thời điểm khai báo biến. Ví dụ, câu lệnh
+Để quản lý giá trị ban đầu của biến sau khi khai báo ta có thể khởi tạo giá trị ban đầu cho biến ngay tại thời điểm khai báo biến. Ví dụ, câu lệnh `int a = 0;` sẽ tạo ra vùng nhớ cho biến a và khởi tạo giá trị ban đầu là số 0 cho vùng nhớ biến a.
 
-```c
-int a = 0;
-```
-
-sẽ tạo ra vùng nhớ cho biến a và khởi tạo giá trị ban đầu là số 0 cho vùng nhớ biến a.
-
-a 0
+*Ô nhớ biến `a` được khởi tạo bằng 0*
 
 Như vậy, cú pháp chung của câu lệnh khai báo biến trong C sẽ là:
 
-TênKiểuDữLiệu tênBiến; hoặc:
+`kiểu_dữ_liệu tên_biến;` hoặc:
 
-TênKiểuDữLiệu tênBiến = giá trị khởi tạo; Ta cũng có thể khai báo một danh sách gồm nhiều biến có cùng kiểu dữ liệu bằng một câu lệnh duy nhất. Ví dụ, có thể viết
+`kiểu_dữ_liệu tên_biến = giá_trị_khởi_tạo;`
 
-```c
-int a, b, tong;
-```
-
-để khai báo nên 3 biến a, b, tong có kiểu dữ liệu là kiểu số nguyên, thay cho 3 câu lệnh khai báo đã viết trước đó là:
+Ta cũng có thể khai báo một danh sách gồm nhiều biến có cùng kiểu dữ liệu bằng một câu lệnh duy nhất. Ví dụ, có thể viết `int a, b, tong;` để khai báo nên 3 biến a, b, tong có kiểu dữ liệu là kiểu số nguyên, thay cho 3 câu lệnh khai báo đã viết trước đó là:
 
 ```c
 int a;
@@ -612,9 +531,9 @@ const float PI = 3.14;
 
 là một câu lệnh khai báo hằng số. Trong câu lệnh này, từ khóa const là bắt buộc để bắt đầu một câu lệnh khai báo hằng; float là kiểu dữ liệu của hằng, PI là tên của hằng và 3.14 là giá trị khởi tạo cho hằng số. Sau câu lệnh này, chương trình sẽ tạo ra một ô nhớ kiểu float cho hằng PI và khởi tạo giá trị dữ liệu lưu trong ô nhớ này là 3.14, như minh họa ở hình dưới:
 
-PI 3.14
+*Hằng PI: ô nhớ 4 byte, giá trị khởi tạo 3.14*
 
-kích thước 4 bytes Giá trị khởi tạo 3.14 của hằng PI là cố định và không được phép thay đổi. Nếu người dùng yêu cầu thay đổi giá trị của hằng PI, chương trình sẽ báo lỗi. Chẳng hạn câu lệnh sau:
+Giá trị khởi tạo 3.14 của hằng PI là cố định và không được phép thay đổi. Nếu người dùng yêu cầu thay đổi giá trị của hằng PI, chương trình sẽ báo lỗi. Chẳng hạn câu lệnh sau:
 
 ```c
 PI = 4.5; //cau lenh gay ra loi
@@ -658,9 +577,7 @@ Ngôn ngữ C cung cấp nhiều phép toán khác nhau cho người dùng để
 
 Ví dụ để thực hiện phép toán:
 
-`y = (a/b)x + c`
-
-thì câu lệnh được viết trong ngôn ngữ C tương ứng sẽ là:
+`y = (a/b)x + c` thì câu lệnh được viết trong ngôn ngữ C tương ứng sẽ là:
 
 ```c
 y = (a/b)*x + c;
@@ -824,13 +741,7 @@ Cuối cùng là các phép toán mở rộng. Đây chỉ là hình thức vi�
 
 #### 1.11.1 Hàm nhập dữ liệu
 
-Như đã đề cập trong phần trước, trong chương trình cộng hai số nguyên, ta có câu lệnh nhập dữ liệu từ bàn phím
-
-```c
-scanf("%d",&a);   //nhap so nguyen tu ban phim
-```
-
-sử dụng hàm scanf để cho phép người dùng nhập một số nguyên từ bàn phím và lưu vào biến a. Hàm scanf này có hai tham số: “%d” và &a, với “%d” là mã định dạng kiểu số nguyên cho dữ liệu nhận vào và & là toán tử xác định địa chỉ của biến để lưu dữ liệu.
+Như đã đề cập trong phần trước, trong chương trình cộng hai số nguyên, ta có câu lệnh nhập dữ liệu từ bàn phím `scanf("%d",&a);   //nhap so nguyen tu ban phim` sử dụng hàm scanf để cho phép người dùng nhập một số nguyên từ bàn phím và lưu vào biến a. Hàm scanf này có hai tham số: “%d” và &a, với “%d” là mã định dạng kiểu số nguyên cho dữ liệu nhận vào và & là toán tử xác định địa chỉ của biến để lưu dữ liệu.
 
 Vậy cú pháp chung của hàm nhập dữ liệu sẽ là:
 
@@ -863,13 +774,7 @@ trong trường hợp này, các dấu “,” được đặt trong chuỗi đ�
 
 #### 1.11.2 Hàm xuất dữ liệu
 
-Cũng trong chương trình cộng hai số, ta có câu lệnh
-
-```c
-printf("Tong la: %d \n",tong);  //in ket qua
-```
-
-là câu lệnh in dữ liệu ra màn hình sử dụng hàm printf . Hàm printf ở lệnh này có hai tham số, “Tong la: %d \n” và tong . Tham số đầu tiên “Tong la: %d \n” là chuỗi định dạng gồm chuỗi ký tự cần in ra màn hình Tong la: , mã định dạng %d cho biết sẽ có một số nguyên được in ra, ký tự điều khiển \n để đưa con trỏ xuống dòng. Tham số thứ hai, tong , sẽ xác định giá trị dữ liệu cần in ra.
+Cũng trong chương trình cộng hai số, ta có câu lệnh `printf("Tong la: %d \n",tong);  //in ket qua` là câu lệnh in dữ liệu ra màn hình sử dụng hàm printf . Hàm printf ở lệnh này có hai tham số, “Tong la: %d \n” và tong . Tham số đầu tiên “Tong la: %d \n” là chuỗi định dạng gồm chuỗi ký tự cần in ra màn hình Tong la: , mã định dạng %d cho biết sẽ có một số nguyên được in ra, ký tự điều khiển \n để đưa con trỏ xuống dòng. Tham số thứ hai, tong , sẽ xác định giá trị dữ liệu cần in ra.
 
 Vậy cú pháp chung của hàm in dữ liệu ra màn hình là:
 
@@ -889,13 +794,7 @@ trong đó:
 
 + ký tự điều khiển (\n \t …).
 
-Lưu ý là để trình biên dịch có thể biên dịch được hàm scanf và printf, ta cần khai báo thư viện stdio.h bằng câu lệnh
-
-```c
-#include <stdio.h>
-```
-
-ở đầu chương trình.
+Lưu ý là để trình biên dịch có thể biên dịch được hàm scanf và printf, ta cần khai báo thư viện stdio.h bằng câu lệnh `#include <stdio.h>` ở đầu chương trình.
 
 Danh sách các mã định dạng dữ liệu cho biến được liệt kê trong bảng sau:
 
@@ -3051,9 +2950,7 @@ Kết quả khi chạy chương trình: `XIN CHAO`
 
 - Hàm strlen
 
-Cú pháp: int strlen(const char *s); //Phải khai báo thư
-
-viện string.h Hàm có chức năng là trả về độ dài chuỗi s.
+Cú pháp: int strlen(const char *s); //Phải khai báo thư viện string.h Hàm có chức năng là trả về độ dài chuỗi s.
 
 *Ví dụ 4.28:*
 
@@ -3316,13 +3213,10 @@ Như vậy, trong trường hợp này có thể xem a là con trỏ mà nội d
 | --- | --- | --- | --- | --- | --- |
 | Giá trị mảng | 1 | 5 | 3 | 2 | 4 |
 
-Truy xuất phần
-
-a[0] a[1] a[2] a[3] a[4]
-
-tử mảng Truy xuất phần tử
-
-mảng dùng con trỏ *(a) *(a+1) *(a+2) *(a+3) *(a+4)
+| Cách truy xuất | Vị trí 0 | Vị trí 1 | Vị trí 2 | Vị trí 3 | Vị trí 4 |
+| --- | --- | --- | --- | --- | --- |
+| Tên mảng | `a[0]` | `a[1]` | `a[2]` | `a[3]` | `a[4]` |
+| Con trỏ | `*(a)` | `*(a+1)` | `*(a+2)` | `*(a+3)` | `*(a+4)` |
 
 *Hình 5.3. Mối liên hệ giữa mảng và con trỏ*
 
@@ -3597,11 +3491,7 @@ Ngoài ra, ngôn ngữ C còn cung cấp các hàm xây dựng sẵn, cho phép 
 
 ![Hình minh họa](assets/giaotrinh-c/hinh-140-83-1.png)
 
-Tham số Hàm
-
-Kết quả trả về
-
-truyền vào Thực hiện tính toán, xử lý...
+*Tham số truyền vào → Hàm (thực hiện tính toán, xử lý…) → Kết quả trả về*
 
 *Hình 6.1 .  Hàm với tham số truyền vào, kết quả trả về của hàm.*
 
@@ -3704,9 +3594,7 @@ return   max;
 
 *Hình 6.2.  Mô tả hoạt động của chương trình khi gọi hàm*
 
-*Hình 6.2 mô tả thứ tự hoạt động của chương trình. Trong đó,*
-
-khi gọi làm lần thứ nhất, giá trị 2 biến a, b, được sao chép vào giá trị 2 biến nội bộ bên trong hàm, sau khi so sánh, hàm trả về kết quả giá trị lớn nhất lưu lại trong biến max1. Khi gọi làm lần 2, hàm lại thực thi với 2 giá trị mới là c và d, kết quả trả về cho biến max2. Tương tự, khi gọi hàm lần thứ 3, kết quả trả về cho biến max. Như vậy, thay vì thực hiện đoạn chương trình nhiều lần, ta đi định nghĩa hàm 1 lần và cho phép hàm được gọi nhiều lần, như minh chứng ở hình 6.2. Cần lưu ý là chương trình trên chỉ là một ví dụ minh họa cách thức hàm hoạt động, không phải là một giải thuật tối ưu để tìm số lớn nhất trong 4 số.
+Hình 6.2 mô tả thứ tự hoạt động của chương trình. Trong đó, khi gọi làm lần thứ nhất, giá trị 2 biến a, b, được sao chép vào giá trị 2 biến nội bộ bên trong hàm, sau khi so sánh, hàm trả về kết quả giá trị lớn nhất lưu lại trong biến max1. Khi gọi làm lần 2, hàm lại thực thi với 2 giá trị mới là c và d, kết quả trả về cho biến max2. Tương tự, khi gọi hàm lần thứ 3, kết quả trả về cho biến max. Như vậy, thay vì thực hiện đoạn chương trình nhiều lần, ta đi định nghĩa hàm 1 lần và cho phép hàm được gọi nhiều lần, như minh chứng ở hình 6.2. Cần lưu ý là chương trình trên chỉ là một ví dụ minh họa cách thức hàm hoạt động, không phải là một giải thuật tối ưu để tìm số lớn nhất trong 4 số.
 
 ### 6.3. Phân loại hàm theo tham số và giá trị trả về
 
@@ -4430,13 +4318,11 @@ Khi cần phát sinh nhiều vùng nhớ cấu trúc cùng chung một kiểu c�
 struct ThietBi  d[5];
 ```
 
-sẽ tạo ra một mảng một chiều d gồm 5 phần tử kiểu ThietBi . Trong câu lệnh này, từ khóa struct là bắt buộc, ThietBi là tên của kiểu cấu trúc đã định nghĩa trước đó, d là tên mảng, và 5 là số lượng phần tử mảng. Lúc này, chương trình sẽ phát sinh vùng nhớ cho mảng d gồm 5 phần tử như sau: chỉ số
+sẽ tạo ra một mảng một chiều d gồm 5 phần tử kiểu ThietBi . Trong câu lệnh này, từ khóa struct là bắt buộc, ThietBi là tên của kiểu cấu trúc đã định nghĩa trước đó, d là tên mảng, và 5 là số lượng phần tử mảng. Lúc này, chương trình sẽ phát sinh vùng nhớ cho mảng d gồm 5 phần tử như sau:
 
-0 1 2 3 4
-
-mảng d
-
-d[0] d[4]
+| Chỉ số | 0 | 1 | 2 | 3 | 4 |
+| --- | --- | --- | --- | --- | --- |
+| mảng `d` | `d[0]` | `d[1]` | `d[2]` | `d[3]` | `d[4]` |
 
 Trong mảng d, các phần tử mảng lần lượt có tên gọi là d[0], d[1], d[2], d[3], và d[4]; mỗi phần tử mảng sẽ mang định dạng dữ liệu của kiểu cấu trúc ThietBi . Hay nói cách khác, mỗi ô nhớ d[i] (i = 0 – 4) đều có các biến thành phần là: tenTB, namSanXuat, giaTien, trangThai. Chẳng hạn, ô nhớ d[0] sẽ có vùng nhớ chi tiết như sau:
 
@@ -5203,13 +5089,9 @@ Tiền xử lý (preprocessor) là các xử lý đơn giản có chức năng x
 
 Quá trình tiền xử lý được thực hiện trước khi quá trình biên dịch diễn ra, được biểu diễn như hình 8.1.
 
-Tệp mã nguồn đã được tiền xử lý
+*Tệp mã nguồn → Tiền xử lý → Trình biên dịch; kết quả là tệp mã nguồn đã được tiền xử lý*
 
-Tệp mã nguồn Tiền xử lý Trình biên dịch
-
-*Hình 8.1 .  Sơ đồ khối quá trình tệp mã nguồn được tiền xử lý trước*
-
-khi đưa đến trình biên dịch
+*Hình 8.1. Sơ đồ khối quá trình tệp mã nguồn được tiền xử lý trước khi đưa đến trình biên dịch.*
 
 ### 8.2. Chỉ thị bao hàm tệp (INCLUDE)
 
