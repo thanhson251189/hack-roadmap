@@ -1,3 +1,11 @@
+# Build artifacts
+*.exe
+*.obj
+*.o
+
+# Scratch folders
+.tmp-*/
+
 web/node_modules/
 web/downloads/
 _shots/

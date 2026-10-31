@@ -215,9 +215,11 @@ Trong các khối quyết định có điều kiện (các khối hình thoi) lu
 
 Ví dụ 1.4. Hãy giải thích hoạt động của chương trình dựa vào lưu đồ sau đây:
 
-![Hình minh họa](assets/giaotrinh-c/hinh-21-4-10.png)
+![Ví dụ 1.4. Lưu đồ kiểm tra 3 giá trị m1, m2, m3 so với ngưỡng 35 và in ra PASS/FAIL.](assets/giaotrinh-c/hinh-21-4-10.png)
 
 Ví dụ 1.5. Hãy phân tích hoạt động của chương trình dựa vào lưu đồ sau đây:
+
+![Ví dụ 1.5. Lưu đồ giải thuật tính tổng S = 1 + 2 + ... + N.](assets/giaotrinh-c/hinh-vd-1-5.png)
 
 ### 1.3. Ngôn ngữ lập trình C
 
@@ -229,7 +231,7 @@ Tuy không phải là một ngôn ngữ hiện đại, C vẫn là một trong c
 
 Một chương trình C bao gồm các hàm, các biến và các câu lệnh được đặt trong cùng một tập tin hoặc có thể trong các tập tin khác nhau. Trong ví dụ đầu tiên tiếp cận với ngôn ngữ C, chúng ta sẽ tiến hành viết một chương trình bằng ngôn ngữ C, biên dịch và chạy trên máy tính.
 
-Một chương trình C thực thi việc in ra màn hình một dòng chữ được viết như bên dưới: SST dòng Nội dung chương trình lệnh
+Một chương trình C thực thi việc in ra màn hình một dòng chữ được viết như bên dưới:
 
 ```c
 /* Vi du:
@@ -246,9 +248,13 @@ int main (void)
 } //ket thuc chuong trinh chinh
 ```
 
-Sau khi thực thi, chương trình sẽ in ra màn hình dòng chữ **Chao mung den voi C!**, như ở hình sau:
+Sau khi thực thi, chương trình sẽ in ra màn hình dòng chữ **Chao mung den voi C!**, như ở kết quả sau:
 
-`Chao mung den voi C!` Ở dòng lệnh số 1 và số 2, ta có hai câu:
+```text
+Chao mung den voi C!
+```
+
+Ở dòng lệnh số 1 và số 2, ta có hai câu:
 
 ```c
 /* Vi du:
@@ -282,18 +288,15 @@ Như vậy, tới đây, ta có thể thấy cấu trúc chung của một chư�
 #include <TênThưViện.h>
 int main (void)
 {
-```
+    //Nội dung chương trình chính
 
-//Nội dung chương trình chính
-
-```c
-return 0;
+    return 0;
 }
 ```
 
 ### 1.5. Một chương trình C KHÁC: Cộng hai số nguyên
 
-Chúng ta sẽ viết một chương trình C thực hiện việc nhập hai số nguyên từ bàn phím, sau đó thực hiện tính tổng hai số này và cuối cùng in kết quả ra màn hình. Nội dung của chương trình được thể hiện ở hình dưới.
+Chúng ta sẽ viết một chương trình C thực hiện việc nhập hai số nguyên từ bàn phím, sau đó thực hiện tính tổng hai số này và cuối cùng in kết quả ra màn hình. Nội dung của chương trình được thể hiện như sau:
 
 ```c
 #include <stdio.h>
@@ -522,6 +525,8 @@ const float PI = 3.14;
 là một câu lệnh khai báo hằng số. Trong câu lệnh này, từ khóa const là bắt buộc để bắt đầu một câu lệnh khai báo hằng; float là kiểu dữ liệu của hằng, PI là tên của hằng và 3.14 là giá trị khởi tạo cho hằng số. Sau câu lệnh này, chương trình sẽ tạo ra một ô nhớ kiểu float cho hằng PI và khởi tạo giá trị dữ liệu lưu trong ô nhớ này là 3.14, như minh họa ở hình dưới:
 
 *Hằng PI: ô nhớ 4 byte, giá trị khởi tạo 3.14*
+
+![Hằng PI: ô nhớ 4 byte, giá trị khởi tạo 3.14.](assets/giaotrinh-c/hinh-hang-pi.png)
 
 Giá trị khởi tạo 3.14 của hằng PI là cố định và không được phép thay đổi. Nếu người dùng yêu cầu thay đổi giá trị của hằng PI, chương trình sẽ báo lỗi. Chẳng hạn câu lệnh sau:
 
@@ -1361,27 +1366,21 @@ switch  (biểu thức nguyên)
     case  n2 :
         khối lệnh 2;
         break;
-```
 
-**……………………**
+    ............................
 
-`case nk :` khối lệnh k;
-
-```c
-break;
-```
-
-**[ default : khối lệnh k+1; ]**
-
-```c
+    case nk :
+        khối lệnh k;
+        break;
+    default : khối lệnh k+1;
 }
 ```
 
 #### 2.5.2 Hoạt động
 
-![Hình minh họa](assets/giaotrinh-c/hinh-66-32-0.png)
+![Hình 2.4. Lưu đồ giải thuật của lệnh switch...case](assets/giaotrinh-c/hinh-66-32-0.png)
 
-Hình2.4. Lưu đồ giải thuật của lệnh switch...case
+*Hình 2.4. Lưu đồ giải thuật của lệnh switch...case*
 
 #### 2.5.3 Giải thích
 
@@ -1769,9 +1768,18 @@ int main(void)
     else if (N == 0)printf("Giai thua cua 0 la 1");
     else
     {
+        while (i <= N)
+        {
+            a = a*i;
+            i ++;
+        }
+        printf("\n Giai thua cua %d la %d", N,a);
+    }
+    return 0;
+}
 ```
 
-11 while (i <= N) 12 { 13 a = a*i; 14 i ++; 15 } 16 printf(“\n Giai thua cua %d la %d”, N,a); 17 } 18 return 0; 19 } Trong ví dụ này, có sự kết hợp của câu lệnh if…else if…else... và lệnh while để tìm điều kiện của một số để tính giai thừa của số này và in ra kết quả. Các phần liên quan đến lệnh rẽ nhánh if đã được bày ở chương trước. Trong phần này, ta chú ý đến chương trình trên trong câu lệnh while, từ dòng 11 đến hết dòng 15, đây là đoạn chính để tính giai thừa, giúp chương trình nhân liên tục các số từ 1 đến N. Dòng 16 sẽ in ra kết quả đã tính được ở vòng lặp while.
+Trong ví dụ này, có sự kết hợp của câu lệnh if…else if…else... và lệnh while để tìm điều kiện của một số để tính giai thừa của số này và in ra kết quả. Các phần liên quan đến lệnh rẽ nhánh if đã được bày ở chương trước. Trong phần này, ta chú ý đến chương trình trên trong câu lệnh while, từ dòng 11 đến hết dòng 15, đây là đoạn chính để tính giai thừa, giúp chương trình nhân liên tục các số từ 1 đến N. Dòng 16 sẽ in ra kết quả đã tính được ở vòng lặp while.
 
 Ví dụ 3.6: Xét đoạn chương trình yêu cầu người dùng nhập vào một số bí mật (số 0) sau:
 
@@ -1785,9 +1793,15 @@ while (a!=0)
     printf("vui long nhap lai ");
     scanf("%d",&a);
     b++;
+    if(b>=3)
+    {
+        printf("Ban bi khoa chuong trinh");
+        while(1);
+    }
+}
 ```
 
-10 if(b>=3) 11 { 12 printf(“Ban bi khoa chuong trinh”); 13 while(1); 14 } 15 } Trong đoạn chương trình trên ta thấy, lệnh while được sử dụng để kiểm tra một số nguyên nhập vào có bằng với một giá trị đã cho trước hay không (biểu thức kiểm tra a != 0: trong trường hợp này là kiểm tra xem số nhập vào có bằng 0 hay không). Nếu số nhập vào là số 0 thì chương trình sẽ thoát ra khỏi vòng lặp while, nếu sai thì chương trình sẽ yêu cầu nhập lại và chỉ được phép nhập lại tối đa 3 lần (dòng lệnh 10). Nếu cả 3 lần nhập lại đều sai thì chương trình sẽ rơi vào vòng lặp vô hạn (dòng lệnh 13) và chỉ còn cách tắt đi và chạy lại. Chương trình này là cơ sở dùng để kiểm tra thông tin bảo mật nào đó nếu áp dụng thêm các phần học ở các chương tiếp theo.
+Trong đoạn chương trình trên ta thấy, lệnh while được sử dụng để kiểm tra một số nguyên nhập vào có bằng với một giá trị đã cho trước hay không (biểu thức kiểm tra a != 0: trong trường hợp này là kiểm tra xem số nhập vào có bằng 0 hay không). Nếu số nhập vào là số 0 thì chương trình sẽ thoát ra khỏi vòng lặp while, nếu sai thì chương trình sẽ yêu cầu nhập lại và chỉ được phép nhập lại tối đa 3 lần (dòng lệnh 10). Nếu cả 3 lần nhập lại đều sai thì chương trình sẽ rơi vào vòng lặp vô hạn (dòng lệnh 13) và chỉ còn cách tắt đi và chạy lại. Chương trình này là cơ sở dùng để kiểm tra thông tin bảo mật nào đó nếu áp dụng thêm các phần học ở các chương tiếp theo.
 
 ### 3.3. Lệnh do .... While
 
@@ -1796,15 +1810,18 @@ while (a!=0)
 `do`
 
 ```c
+do
 {
     Khối lệnh ;
 }
-while  (biểu thức);
+while (biểu thức);
 ```
 
 #### 3.3.2. Hoạt động
 
-*Hình 3.3.  Lưu đồ giải thuật vòng lặp  do... while*
+*Hình 3.3. Lưu đồ giải thuật vòng lặp do... while*
+
+![Hình 3.3. Lưu đồ giải thuật vòng lặp do... while](assets/giaotrinh-c/hinh-3-3.png)
 
 Nguyên tắc thực hiện:
 
@@ -2166,7 +2183,7 @@ Mảng là tập hợp các phần tử có cùng kiểu dữ liệu và các ph
 
 #### 4.1.1. Mảng 1 chiều
 
-##### 4.1.1.1. Khai báo mảng 1 chiêu:
+##### 4.1.1.1. Khai báo mảng 1 chiều:
 
 - Cú pháp 1:   kiểu dữ liệu    tên mảng [số phần tử];
 
@@ -2178,7 +2195,7 @@ Ví dụ 4.1a: int a[10];
 
 Khi kháo báo như trên, các phần tử mảng được tham chiếu như sau:
 
-![Hình minh họa](assets/giaotrinh-c/hinh-97-56-0.png)
+![Vùng nhớ của mảng a gồm 10 phần tử, truy xuất qua chỉ số a[2] và a[7].](assets/giaotrinh-c/hinh-97-56-0.png)
 
 Ta xem kết quả của chương trình sau để hiểu rõ hơn.
 
@@ -2226,7 +2243,7 @@ dia chi cua a[7] la: 2686692
 
 Ví dụ 4.2: int a[10] = {5,7,9};
 
-![Hình minh họa](assets/giaotrinh-c/hinh-98-56-16.png)
+![Mảng a được khởi tạo a[10] = {5, 7, 9}; các phần tử còn lại bằng 0.](assets/giaotrinh-c/hinh-98-56-16.png)
 
 Với cách khai báo như trong ví dụ 4.2 thì các phần tử a[0], a[1], a[2] là đã được gán giá trị ban đầu lần lượt là 5, 7 và 9, các phần tử còn lại sẽ được khởi tạo bằng 0. Xem ví dụ này qua chương trình dưới đây:
 
@@ -2258,7 +2275,7 @@ Cú pháp 3:  kiểu dữ liệu    tên mảng [ ] = {giá trị};
 Ví dụ 4.3:   int  a[] = {5,7,9,3,4,6,8,1,2,5};
 ```
 
-![Hình minh họa](assets/giaotrinh-c/hinh-99-56-14.png)
+![Mảng a được khởi tạo đầy đủ 10 giá trị.](assets/giaotrinh-c/hinh-99-56-14.png)
 
 Với cách khai báo như ví dụ 4.3 thì máy sẽ tạo ra một mảng a có số phần tử mảng đúng bằng số lượng các giá trị được khởi tạo trong cặp dấu ngoặc nhọn { }. Và giá trị của từng phần tử cũng tương ứng với các giá trị đã được khai báo trong cặp dấu ngoặc nhọn { } này. Chương trình và kết quả chạy ở dưới đây thể hiện điều đó.
 
@@ -2298,7 +2315,7 @@ gia tri phan tu a[9] la: 5
 
 Phần trên đây đã trình bày 3 cú pháp khai báo của mảng một chiều. Cũng cần lưu ý thêm, khi ta đã khai báo mảng một chiều và gán giá trị ban đầu cho các phần tử thì những phần tử nếu chưa được gán giá trị sẽ có giá trị bằng 0. Nếu khai báo 1 mảng là bao nhiêu phần tử thì chương trình sẽ tạo ra một số lượng các ô nhớ tương ứng cho dù ta có dùng hay không dùng đến, do vậy, ta cần khai báo một mảng có kích thước phù hợp với dự định sẽ dùng để tránh lãng phí bộ nhớ.
 
-##### 4.1.1.2. Các thao tác cơ bản trên mảng 1 chiêu:
+##### 4.1.1.2. Các thao tác cơ bản trên mảng 1 chiều:
 
 - Nhập giá trị cho các phần tử mảng:
 
@@ -2485,11 +2502,11 @@ Ví dụ 4.8: int a[5][10];
 
 **Mỗi phần tử trong mảng có kiểu  int**
 
-![Hình minh họa](assets/giaotrinh-c/hinh-106-59-10.png)
+![Mảng 2 chiều a gồm 5 hàng và 10 cột.](assets/giaotrinh-c/hinh-106-59-10.png)
 
 Tham chiếu tới từng phần tử mảng:
 
-![Hình minh họa](assets/giaotrinh-c/hinh-106-59-12.png)
+![Tham chiếu tới từng phần tử mảng 2 chiều: a[3][2], a[1][5] và a[4][8].](assets/giaotrinh-c/hinh-106-59-12.png)
 
 Ví dụ 4.9a: Gán giá trị cho các phần tử trong mảng: gán đầy đủ các giá trị cho các phần tử.
 
@@ -2540,7 +2557,7 @@ a2[1][1]=0
 a2[1][2]=0
 ```
 
-##### 4.1.2.2. Các thao tác cơ bản trên mảng 2 chiêu:
+##### 4.1.2.2. Các thao tác cơ bản trên mảng 2 chiều:
 
 - Nhập giá trị cho mảng:
 
@@ -2558,6 +2575,8 @@ for (i=0; i<5; i++)
 ```
 
 Thứ tự nhập dữ liệu vào mảng 2 chiều:
+
+![Thứ tự nhập dữ liệu vào mảng 2 chiều a[5][10]: duyệt lần lượt theo từng hàng từ trái sang phải.](assets/giaotrinh-c/hinh-mang-2-chieu-nhap.png)
 
 - In giá trị các phần tử mảng ra màn hình:
 
@@ -2619,17 +2638,13 @@ Chuỗi là mảng 1 chiều các phần tử kiểu ký tự, kết thúc bằn
 
 **Mỗi phần tử trong chuỗi có kiểu  char**
 
-![Hình minh họa](assets/giaotrinh-c/hinh-110-64-4.png)
-
-10 phần tử
+![Chuỗi s gồm 10 phần tử kiểu char, phần tử cuối lưu ký tự kết thúc chuỗi.](assets/giaotrinh-c/hinh-110-64-4.png)
 
 - Cú pháp 2: char     tên chuỗi[]= “Nội dung”; Ví dụ 4.14:  char s[] = “HelloDTVT”;
 
 **Mỗi phần tử trong chuỗi có kiểu  char**
 
-![Hình minh họa](assets/giaotrinh-c/hinh-110-64-9.png)
-
-10 phần tử
+![Chuỗi “HelloDTVT” được lưu trong 10 ô nhớ, kết thúc bằng ký tự “\0”.](assets/giaotrinh-c/hinh-110-64-9.png)
 
 ##### 4.2.1.3. Xuất, nhập chuỗi
 
@@ -2696,7 +2711,7 @@ Là mảng 2 chiều các ký tự, mỗi hàng sẽ được kết thúc bằng
 
 **Mỗi phần tử trong mảng chuỗi có kiểu  char**
 
-![Hình minh họa](assets/giaotrinh-c/hinh-112-69-13.png)
+![Mảng chuỗi s gồm 5 hàng và 10 cột, mỗi hàng là một chuỗi kết thúc bằng “\0”.](assets/giaotrinh-c/hinh-112-69-13.png)
 
 - Cú pháp 2: char     tên mảng chuỗi [số hàng][số cột]= {“nội dung”};
 
@@ -2704,7 +2719,7 @@ Là mảng 2 chiều các ký tự, mỗi hàng sẽ được kết thúc bằng
 
 **Mỗi phần tử trong mảng chuỗi có kiểu  char**
 
-![Hình minh họa](assets/giaotrinh-c/hinh-112-69-18.png)
+![Mảng chuỗi s[5][10] chứa các giá trị “Mot”, “Hai”, “Ba”, “Bon”, “Nam”.](assets/giaotrinh-c/hinh-112-69-18.png)
 
 ##### 4.2.2.3. Các thao tác trên mảng chuỗi
 
@@ -3112,7 +3127,9 @@ Chương này sẽ giới thiệu cách thức sử dụng biến con trỏ, cũ
 
 Giống như các biến khác, con trỏ phải được khai báo trước khi sử dụng. Khai báo biến con trỏ cũng giống như khai báo các biến thông thường khác được bắt đầu với kiểu dữ liệu. Tuy nhiên, kiểu dữ liệu khi khai báo con trỏ không xác định độ dài ô nhớ mà xác định kiểu dữ liệu con trỏ được dùng để trỏ tới. Kiểu dữ liệu này giúp cho con trỏ có thể tăng địa chỉ thích hợp khi trỏ đến các phần tử liên tiếp nhau. Cú pháp khai báo con trỏ như sau:
 
-Tên kiểu dữ liệu *tên con trỏ; Tên kiểu dữ liệu* tên con trỏ;
+```c
+Tên kiểu dữ liệu *tên con trỏ;
+```
 
 *Ví dụ:*
 
@@ -3128,12 +3145,9 @@ int a = 3, b = 5 ;
 int *p ;
 ```
 
-| Tên biến | a | b | p |
-| --- | --- | --- | --- |
-| Giá trị | 3 | 5 | -- |
-| Địa chỉ | 4225568 | 4225572 | 4225588 |
-
 *Hình 5.1. Thuộc tính của các biến*
+
+![Hình 5.1. Thuộc tính của các biến: tên biến, giá trị và địa chỉ vùng nhớ.](assets/giaotrinh-c/hinh-5-1.png)
 
 Đoạn chương trình này có 3 biến, mỗi biến được khai báo với một tên, các biến được truy xuất nội dung thông qua tên biến. Đồng thời, mỗi biến có một địa chỉ trong bộ nhớ. Trong trường hợp này, 2 biến a và b nằm ở hai vùng nhớ có địa chỉ bắt đầu là 4225568 và 4225572. Các biến được khai báo có thể nằm ở các vùng nhớ nối tiếp nhau hoặc không và không có cơ chế đảm bảo các biến nằm liên tiếp nhau trong bộ nhớ. Mỗi biến được gán giá trị. Các giá trị này được xem như nội dung biến. Trường hợp con trỏ p cũng tương tự, tên con trỏ là p, vùng nhớ của con trỏ p được đặt ở vị trí bắt đầu là 4225588. Nội dung biến có thể được cập nhật thông qua tên biến, ví dụ, lệnh a = 8; sẽ làm giá trị biến a được cập nhật giá trị mới là 8. Nội dung biến con trỏ chưa được khởi tạo. Xét chương trình ví dụ tiếp theo dưới đây:
 
@@ -3168,14 +3182,9 @@ x = *p ;
 
 thì câu lệnh trên đã thiết lập con trỏ tham chiếu đến phần tử đầu tiên của mảng a bằng cách gán địa chỉ phần tử đầu tiên của mảng a cho con trỏ p.
 
-p
-
-| 0 | 1 | 2 | 3 | 4 |  |
-| --- | --- | --- | --- | --- | --- |
-| a: | 1 | 5 | 3 | 2 | 4 |
-| *(p) | *(p+1) *(p+2) *(p+3) *(p+4) |  |  |  |  |
-
 *Hình 5.2. Mối liên hệ giữa mảng và con trỏ*
+
+![Hình 5.2. Mối liên hệ giữa mảng và con trỏ](assets/giaotrinh-c/hinh-5-2.png)
 
 Lệnh x = *p sẽ sao chép nội dung phần tử a[0] vào biến x. Tương tự, *(p+i) sẽ tham chiếu đến phần tử thứ i trong mảng a, như trình bày trong hình 5.2 . Điều này luôn đúng bất kể kiểu dữ liệu của mảng a. Khi p là con trỏ, nếu gặp lệnh p+1 thì chương trình sẽ tự động cập nhật p sao cho có thể tham chiếu đến phần tử tiếp theo trong mảng a.
 
@@ -3188,16 +3197,9 @@ pa = a;
 
 Như vậy, trong trường hợp này có thể xem a là con trỏ mà nội dung của nó đã được thiết lập đến vùng nhớ cấp cho mảng a. Các phần tử của mảng có thể được truy xuất thông qua tên mảng hoặc tên con trỏ như sau:
 
-| Thứ tự phần tử | 0 | 1 | 2 | 3 | 4 |
-| --- | --- | --- | --- | --- | --- |
-| Giá trị mảng | 1 | 5 | 3 | 2 | 4 |
-
-| Cách truy xuất | Vị trí 0 | Vị trí 1 | Vị trí 2 | Vị trí 3 | Vị trí 4 |
-| --- | --- | --- | --- | --- | --- |
-| Tên mảng | `a[0]` | `a[1]` | `a[2]` | `a[3]` | `a[4]` |
-| Con trỏ | `*(a)` | `*(a+1)` | `*(a+2)` | `*(a+3)` | `*(a+4)` |
-
 *Hình 5.3. Mối liên hệ giữa mảng và con trỏ*
+
+![Hình 5.3. Mối liên hệ giữa mảng và con trỏ: truy xuất phần tử mảng bằng tên mảng và bằng con trỏ.](assets/giaotrinh-c/hinh-5-3.png)
 
 Tuy nhiên, cần phân biệt sự khác nhau khi sử dụng mảng và con trỏ trong một số trường hợp cụ thể như sau:
 
@@ -3240,13 +3242,9 @@ Việc cấp phát bộ nhớ động sẽ giúp cho việc sử dụng bộ nh�
 
 Tiến trình cấp phát bộ nhớ cho chương trình được mô tả trong hình dưới.
 
-| Biến cục bộ | Stack |
-| --- | --- |
-| Vùng nhớ trống | Heap |
+*Hình 5.4. Phân vùng bộ nhớ cho chương trình*
 
-Biến toàn cục Lệnh chương trình Biến tĩnh
-
-*Hình 5.4.  Phân vùng bộ nhớ cho chương trình*
+![Hình 5.4. Phân vùng bộ nhớ cho chương trình: Stack, Heap và vùng nhớ cố định.](assets/giaotrinh-c/hinh-5-4.png)
 
 Các biến toàn cục, các biến tĩnh và mã lệnh chương trình sử dụng bộ nhớ cố định, trong khi các biến cục bộ được lưu trong vùng nhớ ngăn xếp (Stack). Không gian bộ nhớ giữa vùng nhớ cố định và vùng nhớ ngăn xếp là vùng nhớ Heap. Vùng nhớ Heap được sử dụng để cấp phát động trong quá trình chương trình thực thi.
 
@@ -3468,11 +3466,7 @@ Ngoài ra, ngôn ngữ C còn cung cấp các hàm xây dựng sẵn, cho phép 
 
 *Hình 6.1 bên dưới mô tả cấu trúc của một hàm.*
 
-![Hình minh họa](assets/giaotrinh-c/hinh-140-83-1.png)
-
-*Tham số truyền vào → Hàm (thực hiện tính toán, xử lý…) → Kết quả trả về*
-
-*Hình 6.1 .  Hàm với tham số truyền vào, kết quả trả về của hàm.*
+![Hình 6.1. Hàm với tham số truyền vào, kết quả trả về của hàm.](assets/giaotrinh-c/hinh-6-1.png)
 
 Trong ngôn ngữ C cũng như trong một số ngôn ngữ lập trình khác, dựa theo cách thức mà nó tồn tại, hàm có thể được chia làm 2 nhóm: hàm được xây dựng sẵn (built-in function) hoặc các hàm do người lập trình định nghĩa (user-defined function). Trong các chương trước, chúng ta sử dụng các hàm được xây dựng sẵn trong các thư viện. Cụ thể như hàm printf, hàm scanf hoặc hàm malloc… Chúng ta cũng không quan đến các đoạn lệnh chi tiết trong các hàm trên. Tuy nhiên, khi sử dụng cần tuân thủ về tham số cũng như kết quả trả về mà các hàm quy ước.
 
@@ -3484,9 +3478,8 @@ Hàm được định nghĩa bao gồm tên hàm, danh sách và kiểu dữ li�
 
 Một cách tổng quát, hàm được định nghĩa như sau:
 
-Kiểu_dữ_liệu Tên_hàm (danh sách các tham s ố )
-
 ```c
+Kiểu_dữ_liệu Tên_hàm (danh sách các tham số)
 {
     Khai báo biến cục bộ;
     Câu lệnh;
@@ -3540,38 +3533,9 @@ Trong ví dụ trên, hàm timmax được gọi 3 lần với 3 tham số khác
 
 Để hiểu rõ cách thức chương trình hoạt động, có thể xem hình vẽ mô tả như sau:
 
-```c
-int   timmax(int a, int b)
-{
-```
+*Hình 6.2. Mô tả hoạt động của chương trình khi gọi hàm*
 
-![Hình minh họa](assets/giaotrinh-c/hinh-143-84-4.png)
-
-```c
-int max;
-if (a>b) max = a;
-void main (void){ else   max = b;
-    return   max;
-    int a=5,b=7,c=6,d=9,max1,max2,max; }
-max1 = timmax (a,b);
-int   timmax(int a, int b)
-max2 = timmax(c,d); {
-    int max;
-    max = timmax(max1, max2); if (a>b) max = a;
-    else   max = b;
-    printf( " max = :%d",max); return   max;
-}
-}
-int   timmax(int a, int b)
-{
-    int max;
-    if (a>b) max = a;
-    else   max = b;
-    return   max;
-}
-```
-
-*Hình 6.2.  Mô tả hoạt động của chương trình khi gọi hàm*
+![Hình 6.2. Mô tả hoạt động của chương trình khi gọi hàm: thứ tự gọi hàm timmax và vùng nhớ của các biến.](assets/giaotrinh-c/hinh-6-2.png)
 
 Hình 6.2 mô tả thứ tự hoạt động của chương trình. Trong đó, khi gọi làm lần thứ nhất, giá trị 2 biến a, b, được sao chép vào giá trị 2 biến nội bộ bên trong hàm, sau khi so sánh, hàm trả về kết quả giá trị lớn nhất lưu lại trong biến max1. Khi gọi làm lần 2, hàm lại thực thi với 2 giá trị mới là c và d, kết quả trả về cho biến max2. Tương tự, khi gọi hàm lần thứ 3, kết quả trả về cho biến max. Như vậy, thay vì thực hiện đoạn chương trình nhiều lần, ta đi định nghĩa hàm 1 lần và cho phép hàm được gọi nhiều lần, như minh chứng ở hình 6.2. Cần lưu ý là chương trình trên chỉ là một ví dụ minh họa cách thức hàm hoạt động, không phải là một giải thuật tối ưu để tìm số lớn nhất trong 4 số.
 
@@ -4167,7 +4131,9 @@ struct SinhVien  a,b;
 
 Câu lệnh này đã khai báo ra biến a thuộc kiểu cấu trúc SinhVien và biến b thuộc kiểu cấu trúc SinhVien . Trong câu lệnh này, từ khóa struct là bắt buộc, SinhVien là tên của kiểu cấu trúc đã được định nghĩa trước đó, và a,b là tên của các biến được khai báo. Vì thuộc kiểu cấu trúc SinhVien nên mỗi biến a và b sẽ có 5 biến thành phần, mang tên gọi lần lượt là hoTen, MSSV, diemGiuaKy, diemCuoiKy, diemTongKet. Vùng nhớ của các biến a và b sẽ được phát sinh như hình sau:
 
-Tổng kích thước vùng nhớ của biến a là 64 bytes Tổng kích thước vùng nhớ của biến b là 64 bytes Lúc này, kích thước của vùng nhớ mỗi biến a, b sẽ bằng tổng kích thước của các biến thành phần ( hoTen, MSSV, diemGiuaKy, diemCuoiKy, diemTongKet ). Lưu ý với các biến thành phần của mỗi biến cấu trúc, máy tính sẽ cấp vùng nhớ theo đơn vị word (thường là 4 byte). Chẳng hạn, biến thành phần hoTen của biến a và biến b ở trên, đã được định nghĩa trong kiểu cấu trúc SinhVien là một mảng một chiều gồm 40 ký tự, thì máy tính sẽ cấp vùng nhớ cho thành phần này là 10 words (tương đương 40 bytes). Nếu thành phần hoTen được định nghĩa là mảng 38 ký tự:
+![Vùng nhớ của hai biến cấu trúc a và b thuộc kiểu SinhVien.](assets/giaotrinh-c/hinh-struct-ab.png)
+
+Lúc này, kích thước của vùng nhớ mỗi biến a, b sẽ bằng tổng kích thước của các biến thành phần ( hoTen, MSSV, diemGiuaKy, diemCuoiKy, diemTongKet ). Lưu ý với các biến thành phần của mỗi biến cấu trúc, máy tính sẽ cấp vùng nhớ theo đơn vị word (thường là 4 byte). Chẳng hạn, biến thành phần hoTen của biến a và biến b ở trên, đã được định nghĩa trong kiểu cấu trúc SinhVien là một mảng một chiều gồm 40 ký tự, thì máy tính sẽ cấp vùng nhớ cho thành phần này là 10 words (tương đương 40 bytes). Nếu thành phần hoTen được định nghĩa là mảng 38 ký tự:
 
 ```c
 struct SinhVien
@@ -4190,7 +4156,9 @@ struct ThietBi  c = {"Quat", 2019, 225.5, 'T'};
 
 sẽ phát sinh vùng nhớ cho biến c thuộc kiểu cấu trúc ThietBi và khởi tạo giá trị ban đầu cho các biến thành phần của biến c như sau:
 
-Tổng kích thước vùng nhớ của biến c là 32 bytes Như vậy, cú pháp chung để khai báo các biến thuộc kiểu cấu trúc sẽ là:
+![Vùng nhớ của biến c thuộc kiểu cấu trúc ThietBi, tổng kích thước 32 bytes.](assets/giaotrinh-c/hinh-struct-c-32byte.png)
+
+Như vậy, cú pháp chung để khai báo các biến thuộc kiểu cấu trúc sẽ là:
 
 ```c
 struct TênKiểuCấuTrúc tênBiến;
@@ -4228,11 +4196,18 @@ struct ThietBi  c = {"Quat", 2019, 225.5, 'T'};
 thì ta có thể thực hiện in thông tin của các biến thành phần của biến c bằng câu lệnh:
 
 ```c
-printf("%s, %d, %.1f, %c\n",c.tenTB,c.namSanXuat,c.gia-
-Tien,c.trangThai);
+printf("%s, %d, %.1f, %c\n",c.tenTB,c.namSanXuat,c.giaTien,c.trangThai);
 ```
 
-và thu được kết quả in ra màn hình sẽ là: `Quat, 2019, 225.5, T` Như vậy, các truy xuất : c.tenTB, c.namSanXuat, c.giaTien, c.trangThai sẽ truy xuất vào các thành phần tenTB, namSanXuat, giaTien, trangThai của biến c như hình sau:
+và thu được kết quả in ra màn hình sẽ là:
+
+```c
+Quat, 2019, 225.5, T
+```
+
+Như vậy, các truy xuất : c.tenTB, c.namSanXuat, c.giaTien, c.trangThai sẽ truy xuất vào các thành phần tenTB, namSanXuat, giaTien, trangThai của biến c như hình sau:
+
+![Truy xuất các biến thành phần của biến cấu trúc c bằng toán tử dấu chấm.](assets/giaotrinh-c/hinh-truy-xuat-struct.png)
 
 Toán tử mũi tên, hay còn gọi là toán tử con trỏ cấu trúc, bao gồm dấu trừ (-) và dấu so sánh lớn hơn (>) dùng để truy xuất tới các biến thành phần của một vùng nhớ kiểu cấu trúc thông qua một con trỏ cấu trúc. Điều này sẽ được minh họa rõ hơn ở phần sau.
 
@@ -4264,14 +4239,15 @@ int main (void)
     (H): ");
     scanf("%c",&c.trangThai);
     printf("\nThong tin thiet bi da nhap:\n");
-    printf("%s, %d, %.1f, %c\n",c.tenTB,c.nam-
-    SanXuat,c.giaTien,c.trangThai);
+    printf("%s, %d, %.1f, %c\n",c.tenTB,c.namSanXuat,c.giaTien,c.trangThai);
     getch();
     return 0;
 }
 ```
 
 Trong chương trình này, kiểu cấu trúc ThietBi đã được định nghĩa ở trước hàm main ở đoạn từ dòng lệnh số 4 đến dòng lệnh số 10. Việc định nghĩa kiểu cấu trúc ThietBi trước hàm main nhằm đảm bảo rằng kiểu ThietBi được tạo ra có thể được sử dụng trong toàn chương trình (hàm main và các hàm khác – nếu có). Trong chương trình chính – hàm main – biến c thuộc kiểu cấu trúc ThietBi được khai báo và khởi tạo giá trị ban đầu ở dòng lệnh số 15. Vùng nhớ dành cho biến c được cấp phát và khởi tạo giá trị ban đầu như hình sau:
+
+![Vùng nhớ của biến c ngay sau khi khởi tạo giá trị ban đầu.](assets/giaotrinh-c/hinh-struct-c-gan-tri.png)
 
 Các câu lệnh ở đoạn lệnh từ dòng lệnh số 17 đến dòng lệnh số 31 có tác dụng yêu cầu người dùng nhập các thông tin: tên thiết bị, năm sản xuất, giá tiền, và trạng thái thiết bị, sau đó lưu vào vùng nhớ của biến c. Câu lệnh gets(tam) ; ở dòng lệnh số 28 có tác dụng xóa bỏ ký tự Enter còn xót lại của lệnh scanf dữ liệu trước đó scanf(“%f”,&c.giaTien) ; ở dòng lệnh số 26, giúp cho việc nhập ký tự sau đó scanf(“%c”,&c. trangThai) ; ở dòng lệnh số 31 không bị trôi.
 
@@ -4299,16 +4275,11 @@ struct ThietBi  d[5];
 
 sẽ tạo ra một mảng một chiều d gồm 5 phần tử kiểu ThietBi . Trong câu lệnh này, từ khóa struct là bắt buộc, ThietBi là tên của kiểu cấu trúc đã định nghĩa trước đó, d là tên mảng, và 5 là số lượng phần tử mảng. Lúc này, chương trình sẽ phát sinh vùng nhớ cho mảng d gồm 5 phần tử như sau:
 
-| Chỉ số | 0 | 1 | 2 | 3 | 4 |
-| --- | --- | --- | --- | --- | --- |
-| mảng `d` | `d[0]` | `d[1]` | `d[2]` | `d[3]` | `d[4]` |
+![Vùng nhớ của mảng d gồm 5 phần tử kiểu cấu trúc ThietBi.](assets/giaotrinh-c/hinh-mang-struct-d.png)
 
 Trong mảng d, các phần tử mảng lần lượt có tên gọi là d[0], d[1], d[2], d[3], và d[4]; mỗi phần tử mảng sẽ mang định dạng dữ liệu của kiểu cấu trúc ThietBi . Hay nói cách khác, mỗi ô nhớ d[i] (i = 0 – 4) đều có các biến thành phần là: tenTB, namSanXuat, giaTien, trangThai. Chẳng hạn, ô nhớ d[0] sẽ có vùng nhớ chi tiết như sau:
 
-```c
-d[0].tenTB            d[0].namSanXuat    d[0].giaTien [0].trangThai
-d[0]
-```
+![Chi tiết vùng nhớ của phần tử mảng d[0].](assets/giaotrinh-c/hinh-mang-struct-d0.png)
 
 Các phần tử mảng còn lại (d[1], d[2], d[3], d[4]) sẽ có cấu trúc vùng nhớ gồm 4 biến thành phần (tenTB, namSanXuat, giaTien, trangThai) tương tự như phần tử mảng d[0].
 
@@ -4320,10 +4291,7 @@ d[0].namSanXuat = 2019;
 
 sẽ lưu giá trị số 2019 vào biến thành phần namSanXuat của ô nhớ mảng d[0] như minh họa ở hình sau.
 
-```c
-d[0].tenTB           d[0].namSanXuat d[0].giaTien d[0].trangThai
-d[0] 2019
-```
+![Gán giá trị 2019 cho biến thành phần d[0].namSanXuat.](assets/giaotrinh-c/hinh-mang-struct-d0-2019.png)
 
 Xét một chương trình khác được viết như sau:
 
@@ -4361,8 +4329,7 @@ int main (void)
     printf("\nThong tin cac thiet bi da
     nhap:\n");
     for ( i = 0; i < n; i++)
-        printf("%s, %d, %.1f, %c\n",d[i].tenT-
-    B,d[i].namSanXuat,d[i].giaTien,d[i].trangThai);
+        printf("%s, %d, %.1f, %c\n",d[i].tenTB,d[i].namSanXuat,d[i].giaTien,d[i].trangThai);
     getch();
     return 0;
 }
@@ -4418,14 +4385,11 @@ struct ThietBi *p;
 
 Câu lệnh ở dòng lệnh số 1 là câu lệnh khai báo biến cấu trúc c thuộc kiểu cấu trúc ThietBi như đã đề cập ở các phần trước. Sau câu lệnh này, chương trình sẽ cấp phát vùng nhớ dữ liệu cho biến c gồm 4 biến thành phần như sau:
 
-```c
-c.tenTB               c.namSanXuat     c.giaTien c.trangThai
-c Quat 2019 225.5 T
-```
+![Vùng nhớ của biến cấu trúc c sau khi khởi tạo.](assets/giaotrinh-c/hinh-struct-c-quat.png)
 
 Câu lệnh ở dòng lệnh số 2 là câu lệnh khai báo biến p là một biến con trỏ cấu trúc thuộc kiểu cấu trúc ThietBi . Trong câu lệnh này, từ khóa struct là bắt buộc, ThietBi là tên của kiểu cấu trúc, * là toán tử bắt buộc đặt trước tên biến p để thể hiện p là biến con trỏ. Chương trình sẽ cấp phát một vùng nhớ cho con trỏ p dùng để lưu trữ địa chỉ của vùng nhớ mà con trỏ p muốn trỏ tới. Vùng nhớ của biến con trỏ p lúc này có thể có kích thước là 4 byte (hoặc 8 byte, tùy thuộc vào phần cứng) và được khởi tạo một giá trị ngẫu nhiên như hình dưới, biến p không có các biến thành phần ( tenTB, namSanXuat, giaTien, trangThai ) của kiểu ThietBi như biến c.
 
-p 1824868116
+![Vùng nhớ của biến con trỏ p, giá trị ngẫu nhiên 1824868116.](assets/giaotrinh-c/hinh-con-tro-p-ngaunhien.png)
 
 Như vậy, cú pháp chung để khai báo một biến con trỏ kiểu cấu trúc sẽ là:
 
@@ -4440,7 +4404,11 @@ p = &c;
 p->namSanXuat = 2015; //tuc: c.namSanXuat = 2015;
 ```
 
-sẽ lưu trữ giá trị 2015 vào vùng nhớ c.namSanXuat bằng cách dùng con trỏ p. Ở đây, câu lệnh p = &c ; ở dòng lệnh số 1 sẽ lưu địa chỉ của biến c vào con trỏ p. Ở câu lệnh ở dòng lệnh số 2, toán tử mũi tên (->) được sử dụng để yêu cầu con trỏ p truy xuất tới biến thành phần namSanXuat của vùng nhớ mà p đang lưu địa chỉ, trong trường hợp này là biến thành phần namSanXuat của biến c. Kết quả ta có giá trị 2015 được lưu trong vùng nhớ c.namSanXuat như minh họa ở hình dưới. địa chỉ biến c (ví dụ) là: 2685540 Sau khi khai báo con trỏ cấu trúc, ta cũng có thể cấp phát bộ nhớ động cho con trỏ để dùng cho việc lưu trữ dữ liệu. Việc cấp phát bộ nhớ động cho con trỏ cấu trúc được thực hiện tương tự như thao tác cấp phát bộ nhớ cho con trỏ của các kiểu dữ liệu khác. Xét câu lệnh cấp phát bộ nhớ cho con trỏ cấu trúc ThietBi p đã khai báo ở trên như sau:
+sẽ lưu trữ giá trị 2015 vào vùng nhớ c.namSanXuat bằng cách dùng con trỏ p. Ở đây, câu lệnh p = &c ; ở dòng lệnh số 1 sẽ lưu địa chỉ của biến c vào con trỏ p. Ở câu lệnh ở dòng lệnh số 2, toán tử mũi tên (->) được sử dụng để yêu cầu con trỏ p truy xuất tới biến thành phần namSanXuat của vùng nhớ mà p đang lưu địa chỉ, trong trường hợp này là biến thành phần namSanXuat của biến c. Kết quả ta có giá trị 2015 được lưu trong vùng nhớ c.namSanXuat như minh họa ở hình dưới.
+
+![Con trỏ p trỏ tới biến c (địa chỉ 2685540) và gán giá trị 2015 cho c.namSanXuat.](assets/giaotrinh-c/hinh-con-tro-p-troi-c.png)
+
+Sau khi khai báo con trỏ cấu trúc, ta cũng có thể cấp phát bộ nhớ động cho con trỏ để dùng cho việc lưu trữ dữ liệu. Việc cấp phát bộ nhớ động cho con trỏ cấu trúc được thực hiện tương tự như thao tác cấp phát bộ nhớ cho con trỏ của các kiểu dữ liệu khác. Xét câu lệnh cấp phát bộ nhớ cho con trỏ cấu trúc ThietBi p đã khai báo ở trên như sau:
 
 ```c
 p = (ThietBi*)malloc(sizeof(ThietBi));
@@ -4448,13 +4416,19 @@ p = (ThietBi*)malloc(sizeof(ThietBi));
 
 trong câu lệnh này, hàm malloc được sử dụng để cấp phát cho con trỏ p một ô nhớ dữ liệu kiểu ThietBi , hàm sizeof() được sử dụng để giúp cung cấp thông tin kích thước của một ô nhớ kiểu ThietBi cho hàm malloc . Sau câu lệnh cấp phát này, nếu chương trình cấp phát thành công vùng nhớ cho con trỏ p thì p sẽ lưu địa chỉ của ô nhớ đã cấp phát, nếu không thành công thì p sẽ lưu giá trị NULL.
 
-Ô nhớ cấp phát cho p, (có thể) có địa chỉ hiện tại là 1514208 Sau khi cấp phát, ta có thể truy xuất tới các biến thành phần của ô nhớ đã cấp phát cho con trỏ p bằng cách sử dụng toán tử mũi tên (->) với con trỏ p. Chẳng hạn câu lệnh:
+Ô nhớ cấp phát cho p, (có thể) có địa chỉ hiện tại là 1514208.
+
+![Ô nhớ cấp phát cho con trỏ cấu trúc p có địa chỉ 1514208.](assets/giaotrinh-c/hinh-con-tro-p-cap-phat.png)
+
+Sau khi cấp phát, ta có thể truy xuất tới các biến thành phần của ô nhớ đã cấp phát cho con trỏ p bằng cách sử dụng toán tử mũi tên (->) với con trỏ p. Chẳng hạn câu lệnh:
 
 ```c
 p->giaTien = 5.6;
 ```
 
 sẽ thực hiện lưu giá trị 5.6 vào biến thành phần giaTien của ô nhớ đã cấp phát.
+
+![Gán giá trị 5.6 cho biến thành phần p->giaTien của ô nhớ đã cấp phát.](assets/giaotrinh-c/hinh-con-tro-p-giatien.png)
 
 Nếu không còn nhu cầu sử dụng vùng nhớ đã xin cấp phát trước đó, có thể yêu cầu giải phóng bộ nhớ đã cấp phát cho con trỏ bằng cách dùng hàm free() .Ví dụ câu lệnh:
 
@@ -4586,8 +4560,7 @@ void NhapDuLieu(struct ThietBi *x, int n)
 }
 void InMotThietBi(struct ThietBi a)
 {
-    printf("%s, %d, %.1f, %c\n",a.tenTB,a.namSanXu-
-    at,a.giaTien,a.trangThai);
+    printf("%s, %d, %.1f, %c\n",a.tenTB,a.namSanXuat,a.giaTien,a.trangThai);
 }
 int main (void)
 {
@@ -4769,10 +4742,18 @@ int main (void)
 
 Trong chương trình này, ở dòng lệnh số 14, câu lệnh union KieuSo a; là câu lệnh khai báo biến a thuộc kiểu dữ liệu KieuSo là kiểu union. Sau câu lệnh này, chương trình sẽ phát sinh cho biến a một vùng nhớ, vùng nhớ này sẽ là vùng nhớ dùng chung cho cả hai biến thành phần a.x và a.y; kích thước vùng nhớ sẽ là 8 bytes (bằng với kích thước vùng nhớ của biến thành phần lớn nhất – biến y kiểu double) như minh họa ở hình sau:
 
-a.x a a.y Vùng nhớ chung, kích thước 8 bytes Câu lệnh printf(“Kich thuoc bien a: %d\n”,sizeof(a)) ; ở dòng lệnh số 15 sẽ thực hiện in ra màn hình thông số kích thước vùng nhớ của biến a, ta sẽ có kết quả là: `Kich thuoc bien a: 8` Tiếp tục, ở dòng lệnh số 17, câu lệnh a.x = 5; sẽ tiến hành lưu giá trị số nguyên 5 vào vùng nhớ dùng chung. Lúc này, muốn truy xuất đúng tới dữ liệu số nguyên đã lưu vào ô nhớ này, ta phải dùng tên gọi a.x, như trong câu lệnh printf(“%d\n”,a.x) ; ở dòng lệnh số 18. Lệnh in này sẽ in ra màn hình số 5 như hình dưới:
+![Vùng nhớ dùng chung của biến union a, kích thước 8 bytes.](assets/giaotrinh-c/hinh-union.png)
+
+Câu lệnh printf(“Kich thuoc bien a: %d\n”,sizeof(a)) ; ở dòng lệnh số 15 sẽ thực hiện in ra màn hình thông số kích thước vùng nhớ của biến a, ta sẽ có kết quả là:
 
 ```c
 Kich thuoc bien a: 8
+```
+
+Tiếp tục, ở dòng lệnh số 17, câu lệnh a.x = 5; sẽ tiến hành lưu giá trị số nguyên 5 vào vùng nhớ dùng chung. Lúc này, muốn truy xuất đúng tới dữ liệu số nguyên đã lưu vào ô nhớ này, ta phải dùng tên gọi a.x, như trong câu lệnh printf(“%d\n”,a.x) ; ở dòng lệnh số 18. Lệnh in này sẽ in ra màn hình số 5 như hình dưới:
+
+```c
+5
 ```
 
 Ở dòng lệnh thứ 20, câu lệnh a.y = 7.85; sẽ thực hiện lưu số 7.85 vào vùng nhớ dữ liệu của biến a. Lúc này, dữ liệu mới sẽ thay thế dữ liệu cũ trong vùng nhớ, vùng nhớ dùng chung này của a sẽ có định dạng số thực và ta phải dùng tên gọi a.y để truy xuất tới dữ liệu số thực. Câu lệnh printf(“%f\n”,a.y) ; ở dòng lệnh số 21 thực hiện việc in dữ liệu số thực trong vùng nhớ biến a và ta có kết quả như bên dưới:
@@ -4803,9 +4784,8 @@ sẽ tạo ra một kiểu liệt kê mới có tên gọi là MauSac, các tên
 
 Như vậy, cú pháp để định nghĩa một kiểu liệt kê mới sẽ là:
 
-enum TênKi ể uLi ệ tKê
-
 ```c
+enum TênKiểuLiệtKê
 {
     Danh sách tên định danh;
 };
@@ -4838,9 +4818,9 @@ int main (void)
 
 Ở dòng lệnh số 11, câu lệnh enum MauSac R; chính là câu lệnh khai báo một biến kiểu MauSac - là kiểu liệt kê đã định nghĩa trước đó. Câu lệnh này sẽ khai báo ra một biến có tên là R mang kiểu dữ liệu MauSac . Sau câu lệnh này, chương trình sẽ cấp cho biến R một ô nhớ có kích thước 4 bytes, và mang một giá trị ngẫu nhiên, như minh họa ở hình dưới.
 
-R 1824868116
+![Vùng nhớ của biến liệt kê R: kích thước 4 bytes, giá trị ngẫu nhiên.](assets/giaotrinh-c/hinh-bien-enum-r.png)
 
-Kích thước 4 bytes Hai câu lệnh ở dòng lệnh số 12 và 13 sẽ in ra kích thước và giá trị hiện tại của biến R, kết quả thu được sẽ là:
+Hai câu lệnh ở dòng lệnh số 12 và 13 sẽ in ra kích thước và giá trị hiện tại của biến R, kết quả thu được sẽ là:
 
 ```c
 Kich thuoc R: 4
@@ -5068,9 +5048,9 @@ Tiền xử lý (preprocessor) là các xử lý đơn giản có chức năng x
 
 Quá trình tiền xử lý được thực hiện trước khi quá trình biên dịch diễn ra, được biểu diễn như hình 8.1.
 
-*Tệp mã nguồn → Tiền xử lý → Trình biên dịch; kết quả là tệp mã nguồn đã được tiền xử lý*
-
 *Hình 8.1. Sơ đồ khối quá trình tệp mã nguồn được tiền xử lý trước khi đưa đến trình biên dịch.*
+
+![Hình 8.1. Sơ đồ khối quá trình tệp mã nguồn được tiền xử lý trước khi đưa đến trình biên dịch.](assets/giaotrinh-c/hinh-8-1.png)
 
 ### 8.2. Chỉ thị bao hàm tệp (INCLUDE)
 
