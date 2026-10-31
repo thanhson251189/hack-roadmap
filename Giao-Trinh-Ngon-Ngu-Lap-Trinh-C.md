@@ -187,15 +187,9 @@ Lập trình là một quá trình tư duy logic giải quyết một vấn đ�
 
 Lưu đồ (Flowchart) là cách biểu diễn bằng hình ảnh của giải thuật hay các bước xử lý và thực hiện của chương trình. Lưu đồ được viết dưới dạng các khối được quy ước cụ thể nhằm giúp người lập trình có thể đọc hiểu và chuyển các ý tưởng, giải thuật sang ngôn ngữ lập trình. Trong quá trình vẽ lưu đồ giải thuật, các ký hiệu, từ khóa, ngôn ngữ thể hiện có thể tùy chọn sao cho người đọc có thể hiểu được. Ngôn ngữ thể hiện ở đây không nhất thiết là một ngôn ngữ lập trình cụ thể nào. Nó có thể là một ngôn ngữ thông thường mà người không có kiến thức lập trình cũng có thể đọc và hiểu được. Các ngôn ngữ dùng để biểu diễn trong lưu đồ như vậy còn được gọi là code giả (Psuedo code). Một số quy ước khi biểu diễn giải thuật dưới dạng lưu đồ như sau:
 
-| Ký hiệu | Ý nghĩa |
-| --- | --- |
-| Hình oval | Bắt đầu hay kết thúc của một chương trình |
-| Hình bình hành | Nhập hay xuất dữ liệu |
-| Hình chữ nhật | Các xử lý, tính toán |
-| Hình thoi | Rẽ nhánh hay các quyết định có điều kiện |
-| Hình chữ nhật có hai vạch dọc hai bên | Chương trình con, hàm, thủ tục |
-| Hình tròn nhỏ | Các điểm đầu cuối dùng để nối lưu đồ khi sang trang |
-| Mũi tên | Chiều đi của quá trình xử lý |
+*Ký hiệu quy ước khi biểu diễn giải thuật dưới dạng lưu đồ*
+
+![Bảng ký hiệu quy ước lưu đồ: hình oval, hình bình hành, hình chữ nhật, hình thoi, hình chữ nhật có hai vạch dọc, hình tròn nhỏ và mũi tên](assets/giaotrinh-c/hinh-ky-hieu-luu-do.png)
 
 *Ví dụ 1.1. Lưu đồ cho chương trình cộng 2 số được nhập từ bàn phím.*
 
