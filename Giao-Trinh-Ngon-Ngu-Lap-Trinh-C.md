@@ -99,7 +99,11 @@ Cuối cùng, tuy đã rất cố gắng biên soạn và chỉnh sửa nhưng c
 
 Mọi ý kiến phản hồi xin gửi về:
 
-Bộ môn Kỹ thuật Máy tính – Viễn thông, Khoa Điện-Điện tử, Trường Đại học Sư phạm Kỹ thuật TP HCM Email: sontn@hcmute.edu.vn, leminh@hcmute.edu.vn, hatn@ hcmute.edu.vn, thanhlm@hcmute.edu.vn Nhóm tác giả
+Bộ môn Kỹ thuật Máy tính – Viễn thông, Khoa Điện-Điện tử, Trường Đại học Sư phạm Kỹ thuật TP HCM
+
+Email: sontn@hcmute.edu.vn, leminh@hcmute.edu.vn, hatn@hcmute.edu.vn, thanhlm@hcmute.edu.vn
+
+*Nhóm tác giả*
 
 ## Chương 1. Giới thiệu
 
@@ -2889,7 +2893,7 @@ Hàm có chức năng so sánh chuỗi s1 với chuỗi s2. Kết quả trả v�
 
 - < 0 nếu s1 < s2
 - = 0 nếu s1 = s2
-- > 0 nếu s1 > s2
+- \> 0 nếu s1 > s2
 
 *Ví dụ 4.25:*
 
