@@ -1848,6 +1848,32 @@ body.has-sidebar .sidebar {
   font-size: inherit;
 }
 
+/* Cột số dòng in theo bản gốc: chỉ để đối chiếu với sách, không nằm trong phần copy */
+.code-body {
+  display: flex;
+  align-items: stretch;
+}
+
+.code-gutter {
+  flex: none;
+  padding: 16px 10px 18px 14px;
+  border-right: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 30%, transparent);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.68;
+  color: var(--text-faint);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.code-body pre {
+  flex: 1;
+  min-width: 0;
+}
+
 /* highlight.js palette */
 
 .hljs-comment,
@@ -2546,6 +2572,11 @@ body.has-sidebar .sidebar {
     padding: 14px;
   }
 
+  .code-gutter {
+    font-size: 12.5px;
+    padding: 14px 8px 14px 12px;
+  }
+
   .task {
     padding: 9px 11px;
   }
@@ -2717,6 +2748,7 @@ body.has-sidebar .sidebar {
 
   .codeblock-head,
   .copy-btn,
+  .code-gutter,
   .h-anchor {
     display: none !important;
   }

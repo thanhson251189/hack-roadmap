@@ -231,7 +231,7 @@ Một chương trình C bao gồm các hàm, các biến và các câu lệnh đ
 
 Một chương trình C thực thi việc in ra màn hình một dòng chữ được viết như bên dưới:
 
-```c
+```c ln
 /* Vi du:
 Chuong trinh C dau tien */
 #include <stdio.h>
@@ -243,6 +243,7 @@ int main (void)
     getch();
     return 0; /* cho biet chuong trinh da ket
     thuc thanh cong */
+
 } //ket thuc chuong trinh chinh
 ```
 
@@ -254,7 +255,7 @@ Chao mung den voi C!
 
 Ở dòng lệnh số 1 và số 2, ta có hai câu:
 
-```c
+```c ln
 /* Vi du:
 Chuong trinh C dau tien */
 ```
@@ -329,7 +330,7 @@ Trong chương trình này, ở dòng lệnh số 1 và số 2 là hai câu lệ
 
 Ở dòng lệnh số 6, 7 và 8, các câu lệnh
 
-```c
+```c ln=6
 int a;   //khai bao bien a, de luu so thu nhat
 int b;   //khai bao bien b, de luu so thu hai
 int tong;  //khai bao bien tong, de luu ket qua
@@ -485,7 +486,7 @@ Trong chương trình trên, biến a, b được khai báo bên ngoài có đ�
 
 - Biến cục bộ hay biến địa phương (local variable): các biến cục bộ được khai báo bên trong các hàm, kể cả hàm  main . Phạm vi hoạt động của các biến cục bộ là trong các hàm mà nó được khai báo. Các hàm không có khả năng truy xuất các biến cục bộ trong các hàm khác. Ví dụ, biến cục bộ được khai báo và sử dụng như sau:
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
 void tinhhieu(){
@@ -827,9 +828,10 @@ return 0;
 
 - [ ] 2.  Hãy phân tích chương trình sau và cho biết chương trình thực hiện chức năng gì?
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
+
 int main (void)
 {
     int     a,b;
@@ -837,6 +839,7 @@ int main (void)
     scanf("%d", &a);
     printf ("Nhap b:");
     scanf("%d", &b);
+
     printf ("ket qua 1: %d , ket qua 2: %d", a+b,
     a - b);
     getch();
@@ -907,7 +910,7 @@ Lệnh đơn là một câu lệnh không chứa các câu lệnh khác bên tro
 
 *Ví dụ 2.1:*
 
-```c
+```c ln
 int x=5; // một câu lệnh đơn
 x++; // một câu lệnh đơn
 printf(" Giá trị x là : %d",x); // một câu lệnh đơn
@@ -919,7 +922,7 @@ Lệnh phức hay khối lệnh là một tập hợp nhiều lệnh đơn đư�
 
 *Ví dụ 2.2:*
 
-```c
+```c ln
 {
     char ten[30];
     printf("\n Nhap vao ten cua ban:");
@@ -945,7 +948,7 @@ Như vậy với một ngôn ngữ lập trình có cấu trúc nói chung, ph�
 
 Ví dụ 2.3: Chương trình nhập năm sinh của một người từ bàn phím, sau đó in ra lời chào và tuổi của người đó.
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
 int main(void)
@@ -997,7 +1000,7 @@ int main(void)
 
 Kết quả thực hiện chương trình:
 
-```c
+```c ln
 Nhap so do 3 canh cua tam giac
 a = 3  ↵
 b = 4  ↵
@@ -1094,7 +1097,7 @@ Ta xét tiếp một ví dụ khác liên quan đến lệnh if sau đây:
 
 Ví dụ 2.6: So sánh sự khác nhau của ví dụ 2.6 này và ví dụ 2.5 ở phía trên:
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -1323,7 +1326,7 @@ E1 ? E2 : E3 Trong đó E1, E2, E3 là các biểu thức.
 
 *Ví dụ 2.10a:  Cho đoạn chương trình sau:*
 
-```c
+```c ln
 int a=2 , b = 3;
 a == 0 ? b = 1 : b = 2;
 printf("b = %d",b);
@@ -1333,14 +1336,14 @@ Khi chạy đoạn chương trình trên, kết quả in ra màn hình sẽ là:
 
 *Ví dụ 2.10b:  Cho đoạn chương trình sau:*
 
-```c
+```c ln
 x=10;
 y=x>9?100:200;
 ```
 
 Khi thực hiện 2 dòng lệnh trên, biến y sẽ được gán giá trị 100 khi biến x lớn hơn 9, ngược lại khi x <= 9 thì y sẽ được gán giá trị 200. Đoạn mã ở ví dụ 2.10b tương đương với một lệnh if ...else... như sau:
 
-```c
+```c ln
 x = 10;
 if (x < 9)
 y = 100;
@@ -1392,7 +1395,7 @@ Lưu ý là máy sẽ nhảy ra khỏi lệnh switch khi nó gặp câu lệnh b
 
 *Ví dụ 2.11:  Cho chương trình sau:*
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -1419,7 +1422,7 @@ int main(void)
 
 Khi chạy chương trình, kết quả in ra màn hình sẽ là:
 
-```c
+```c ln
 Chia het
 Gia tri cua b la 0
 ```
@@ -1430,7 +1433,7 @@ Ví dụ này khác với các ví dụ trước đó từ dòng lệnh 5. Ở d
 
 Bây giờ, ta giả sử lệnh break; ở dòng lệnh 10 bị bỏ đi, thì điều gì sẽ xảy ra? Kết quả của trường hợp này sẽ là:
 
-```c
+```c ln
 Chia hetkhong chia het
 Gia tri cua b la 1
 ```
@@ -1597,7 +1600,7 @@ Trong thân for (hoặc while, do…while) cũng có thể có lệnh continue: 
 
 *Ví dụ 3.1:  Xét đoạn chương trình sau:*
 
-```c
+```c ln
 int i, a = 3;
 for (i = 0; i<5; i++)
 a ++;
@@ -1627,7 +1630,7 @@ int main(void)
 
 Khi chạy chương trình, kết quả in ra màn hình sẽ là:
 
-```c
+```c ln
 gia tri a la 1, gia tri i la 1,
 gia tri a la 2, gia tri i la 2,
 gia tri sau vong lap cua i la 2 va a la 2
@@ -1639,7 +1642,7 @@ Ta chú ý lệnh for dòng lệnh 5, ở đây biểu thức 3 là một khối
 
 **Trường hợp 1:**
 
-```c
+```c ln
 int i=0, a = 3;
 for (; i<5; i++)
 a ++;
@@ -1647,7 +1650,7 @@ a ++;
 
 **Trường hợp 2:**
 
-```c
+```c ln
 int i=0, a = 3;
 for (; i<5;)
 {
@@ -1658,7 +1661,7 @@ for (; i<5;)
 
 **Trường hợp 3:**
 
-```c
+```c ln
 int i=0, a = 3;
 for (; ;)
 {
@@ -1738,7 +1741,7 @@ Nguyên tắc thực hiện:
 
 *Ví dụ 3.4:  Xét đoạn chương trình sau:*
 
-```c
+```c ln
 int a = 4, i = 0;
 while (i < 4)
 {
@@ -1755,7 +1758,7 @@ Như vậy, với đoạn chương trình trên, nếu vắng mặt biểu thứ
 
 *Ví dụ 3.5:  Chương trình tính giai thừa của một số nhập từ bàn phím:*
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -1832,7 +1835,7 @@ Chú ý: Với lệnh while thì Biểu thức điều kiện được kiểm tr
 
 *Ví dụ 3.7:  Cho  đoạn  chương trình sau:*
 
-```c
+```c ln
 int i = 0;
 do
 {
@@ -1859,7 +1862,7 @@ Nếu thay dòng lệnh 4 bằng lệnh printf(“%d\n”,i); thì điều gì s
 
 Ví dụ 3.8: Chương trình nhập vào độ dài 3 cạnh của một tam giác và kiểm tra xem các độ dài này có phù hợp không, nếu không phù hợp yêu cầu nhập lại.
 
-```c
+```c ln
 #include <stdio.h>
 int main(void)
 {
@@ -1913,7 +1916,7 @@ int main(void)
 
 Trong chương trình trên, lệnh for(; ;) ở dòng lệnh số 5 sẽ tạo ra một vòng lặp vô tận. Bên trong thân vòng lặp, lệnh break ; ở dòng lệnh số 10 sẽ giúp chương trình thoát khỏi vòng lặp vô tận trên khi xảy ra điều kiện a >= 0. Điều này tương đương với việc vòng lặp sẽ tiếp tục lặp nếu người dùng nhập vào một số a < 0 và chỉ kết thúc bởi lệnh break ; khi người dùng nhập một số a >= 0. *Kết quả của chương trình là:*
 
-```c
+```c ln
 Nhap so duong: -4
 Nhap so duong: -6
 Nhap so duong: 8
@@ -1972,7 +1975,7 @@ Khi dùng lệnh goto cần lưu ý các đặc điểm sau:
 
 *Ví dụ 3.10:*
 
-```c
+```c ln
 #include <stdio.h>
 int main (void)
 {
@@ -1994,7 +1997,7 @@ int main (void)
 
 Kết quả chạy chương trình là:
 
-```c
+```c ln
 Gia tri cua a la: 1
 Gia tri cua a la: 2
 Gia tri cua a la: 3
@@ -2223,7 +2226,7 @@ int main(void)
 
 Ở dòng lệnh số 5 có câu lệnh sizeof() , ý nghĩa của câu lệnh này là lấy kích thước tính theo byte của một biến bất kỳ. Dòng lệnh 6 có câu lệnh &a[0]: ý nghĩa của câu lệnh này là lấy địa chỉ đầu tiên của biến a[0]. Các câu lệnh ở các dòng phía dưới sẽ lấy và in ra địa chỉ của các phần tử còn lại của mảng. Kết quả khi chạy chương trình trên sẽ là:
 
-```c
+```c ln
 kich thuoc cua a[0] la: 4
 dia chi cua a[0] la: 2686664
 dia chi cua a[1] la: 2686668
@@ -2298,7 +2301,7 @@ int main(void)
 
 Kết quả chạy chương trình:
 
-```c
+```c ln
 gia tri phan tu a[0] la: 5
 gia tri phan tu a[1] la: 7
 gia tri phan tu a[2] la: 9
@@ -2319,7 +2322,7 @@ Phần trên đây đã trình bày 3 cú pháp khai báo của mảng một chi
 
 *Ví dụ 4.4:  Nhập giá trị cho mảng từ bàn phím:*
 
-```c
+```c ln
 int a[10], i;
 for (i=0; i<10; i++)
 {
@@ -2332,7 +2335,7 @@ Xuất giá trị các phần tử mảng:
 
 Ví dụ 4.5: Xuất ra màn hình các giá trị của một mảng cho trước.
 
-```c
+```c ln
 int a[5]={1,2,3};
 for (i = 0; i<5; i++)
 {
@@ -2344,7 +2347,7 @@ Tìm giá trị lớn nhất trong các phần tử mảng:
 
 Ví dụ 4.5a: Tìm giá trị lớn nhất trong một mảng cho trước và in ra giá trị này:
 
-```c
+```c ln
 int a[6]={1,7,9,6,8,2};
 int max, i;
 max = a[0];
@@ -2366,7 +2369,7 @@ Trong đoạn chương trình trên, biến max được dùng để so sánh gi
 
 *Ví dụ 4.5b: Tìm  giá trị và vị trí của phần tử lớn nhất trong mảng:*
 
-```c
+```c ln
 int a[6]={1,7,9,6,8,2};
 int max, i, j;
 max = a[0];
@@ -2384,7 +2387,7 @@ printf("\ngia tri cua a[%d] la %d", j, max);
 
 *Và kết quả thu được khi chạy  ví dụ 4.5b là:*
 
-```c
+```c ln
 phan tu lon nhat mang la a[2]
 gia tri cua a[2] la 9
 ```
@@ -2395,7 +2398,7 @@ gia tri cua a[2] la 9
 
 *Ví dụ 4.5c: Tìm giá trị nhỏ nhất trong mảng:*
 
-```c
+```c ln
 int a[6]={1,7,9,6,8,2};
 int min, i;
 min = a[0];
@@ -2514,7 +2517,7 @@ int b[ 2 ][ 2 ] = { { 1, 2 }, { 3, 4 } };
 
 Như vậy ta sẽ được các giá trị của từng phần tử mảng 2 chiều như sau:
 
-```c
+```c ln
 b[0][0]=1
 b[0][1]=2
 b[1][0]=3
@@ -2529,7 +2532,7 @@ int a1[ 2 ][ 3 ] = { 1, 2, 3, 4, 5 };
 
 Khi đó, kết quả các phần tử của mảng này sẽ là:
 
-```c
+```c ln
 a1[0][0]=1
 a1[0][1]=2
 a1[0][2]=3
@@ -2546,7 +2549,7 @@ int a2[ 2 ][ 3 ] = { { 1, 2 }, { 4 } };
 
 Khi đó, các phần tử trong mảng này có giá trị là:
 
-```c
+```c ln
 a2[0][0]=1
 a2[0][1]=2
 a2[0][2]=0
@@ -2561,7 +2564,7 @@ a2[1][2]=0
 
 *Ví dụ 4.10:*
 
-```c
+```c ln
 int  a[5][10];
 int i, j;
 for (i=0; i<5; i++)
@@ -2580,7 +2583,7 @@ Thứ tự nhập dữ liệu vào mảng 2 chiều:
 
 *Ví dụ 4.11:*
 
-```c
+```c ln
 int  a[3][2]={{1,2},{2,3},{3,4}};
 int i,j;
 for (i=0;i<3;i++)
@@ -2663,7 +2666,7 @@ int main(void)
 
 Trong chương trình này, lệnh gets(s); ở dòng lệnh số 7 sẽ chờ người dùng nhập vào một chuỗi dữ liệu và lưu vào biến chuỗi s. Lệnh puts(s); ở dòng lệnh số 10 sẽ in nội dung của dữ liệu trong biến s ra màn hình. Kết quả thu được khi chạy chương trình trên sẽ là:
 
-```c
+```c ln
 Hay nhap 1 chuoi:
 Xin chao!
 Chuoi da nhap la:
@@ -2725,7 +2728,7 @@ Là mảng 2 chiều các ký tự, mỗi hàng sẽ được kết thúc bằng
 
 *Ví dụ 4.17:*
 
-```c
+```c ln
 char s[5][10];
 int i;
 for (i=0;i<5;i++)
@@ -2739,7 +2742,7 @@ Thao tác trên từng phần tử: mỗi phần tử trong mảng chuỗi có k
 
 *Ví dụ 4.18:*
 
-```c
+```c ln
 char   s[5][10]={"Mot", "Hai", "Ba", "Bon", "Nam"};
 int i,j;
 for (i = 0; i < 5; i++)
@@ -2780,7 +2783,7 @@ Hàm có chức năng chuyển đổi 1 chuỗi sang giá trị kiểu int.
 
 *Ví dụ 4.20:*
 
-```c
+```c ln
 int i;
 char str[] = "12345.67";
 i = atoi(str);
@@ -2795,7 +2798,7 @@ Cú pháp: char *itoa(int value, char *string, int radix); // Phải khai báo t
 
 *Ví dụ 4.21a:*
 
-```c
+```c ln
 int number = 12345;
 char string[25];
 itoa(number, string, 10);
@@ -2806,7 +2809,7 @@ Kết quả: `12345`
 
 *Ví dụ 4.21b:  chuyển đổi số sang chuỗi theo cơ số 2:*
 
-```c
+```c ln
 int number = 12345;
 char string[25];
 itoa(number, string, 2);
@@ -2819,7 +2822,7 @@ Kết quả: `11000000111001`
 
 *Ví dụ 4.22:*
 
-```c
+```c ln
 int len, i;
 char string[] = "XIN CHAO";
 len = strlen(string);
@@ -2834,7 +2837,7 @@ Kết quả khi chạy chương trình: `xin chao`
 
 *Ví dụ 4.23:*
 
-```c
+```c ln
 int len, i;
 char string[] = "xin chao";
 len = strlen(string);
@@ -2853,7 +2856,7 @@ Hàm có chức năng thêm chuỗi src vào sau chuỗi dest.
 
 Lưu ý: cú pháp trên có ký hiệu *, đây là ký hiệu của con trỏ sẽ trình bày ở chương 5. Ở đây, ta hiểu đơn giản đây phải là tên của chuỗi hay mảng.
 
-```c
+```c ln
 char dich[25];
 char s2[]=" ",s3[]="chao",s1[]="Xin";
 strcat(dich, s1);
@@ -2872,7 +2875,7 @@ Hàm có chức năng chép chuỗi src vào dest.
 
 *Ví dụ 4.24:*
 
-```c
+```c ln
 char dich[25];
 char nguon[]="Xin chao";
 strcpy(dich, nguon);
@@ -2897,7 +2900,7 @@ Hàm có chức năng so sánh chuỗi s1 với chuỗi s2. Kết quả trả v�
 
 *Ví dụ 4.25:*
 
-```c
+```c ln
 int a, b, c;
 char s1[] ="aaa",s2[]="bbb",s3[]= "aaa";
 a=strcmp(s1, s2); //ket qua tra ve - 1
@@ -2920,7 +2923,7 @@ Cú pháp: char *strlwr(char *s); // Phải khai báo thư viện string.h Hàm 
 
 *Ví dụ 4. 26 :*
 
-```c
+```c ln
 char s[10] = "Xin Chao";
 puts(strlwr(s));
 ```
@@ -2933,7 +2936,7 @@ Cú pháp : char *strupr(char *s); // Phải khai báo thư viện string.h Hàm
 
 *Ví dụ 4.27:*
 
-```c
+```c ln
 char s[10] = "Xin Chao";
 puts(strupr(s));
 ```
@@ -2946,7 +2949,7 @@ Cú pháp: int strlen(const char *s); //Phải khai báo thư viện string.h H�
 
 *Ví dụ 4.28:*
 
-```c
+```c ln
 char s[] = "Xin chao";
 int len_s;
 len_s = strlen(s);
@@ -3131,14 +3134,14 @@ Tên kiểu dữ liệu *tên con trỏ;
 
 *Ví dụ:*
 
-```c
+```c ln
 int a, b ;
 int *p ;
 ```
 
 Trong đoạn chương trình trên, ở dòng lệnh số 1 là khai báo 2 biến a và b, 2 biến a và b cùng có kiểu int và cùng có kích thước là 4 byte. Như vậy, chương trình dành ra 2 vùng nhớ, mỗi vùng nhớ 4 byte cho biến a và biến b. Dòng 2 của chương trình là câu lệnh khai báo biến con trỏ với kiểu int. Trong trường hợp này, biến con trỏ được sử dụng để truy xuất đến các biến khác có cùng kiểu int. Chương trình sử dụng vùng nhớ để lưu biến con trỏ lúc này không phải là 4 byte như biến a hoặc b mà là 8 byte để có thể chứa đủ địa chỉ, tham chiếu được hết bộ nhớ. Như vậy, việc khai báo int *phoặc char *p thì kích thước bộ nhớ sử dụng cho biến con trỏ p là như nhau. Biến con trỏ p được khai báo và sử dụng để tham chiếu đến một biến khác trong vùng nhớ. Nội dung dữ liệu của con trỏ p sẽ là địa chỉ của biến mà nó tham chiếu tới. Giả sử đoạn chương trình khai báo 3 biến với giá trị khởi tạo như sau:
 
-```c
+```c ln
 int a = 3, b = 5 ;
 int *p ;
 ```
@@ -3149,7 +3152,7 @@ int *p ;
 
 Đoạn chương trình này có 3 biến, mỗi biến được khai báo với một tên, các biến được truy xuất nội dung thông qua tên biến. Đồng thời, mỗi biến có một địa chỉ trong bộ nhớ. Trong trường hợp này, 2 biến a và b nằm ở hai vùng nhớ có địa chỉ bắt đầu là 4225568 và 4225572. Các biến được khai báo có thể nằm ở các vùng nhớ nối tiếp nhau hoặc không và không có cơ chế đảm bảo các biến nằm liên tiếp nhau trong bộ nhớ. Mỗi biến được gán giá trị. Các giá trị này được xem như nội dung biến. Trường hợp con trỏ p cũng tương tự, tên con trỏ là p, vùng nhớ của con trỏ p được đặt ở vị trí bắt đầu là 4225588. Nội dung biến có thể được cập nhật thông qua tên biến, ví dụ, lệnh a = 8; sẽ làm giá trị biến a được cập nhật giá trị mới là 8. Nội dung biến con trỏ chưa được khởi tạo. Xét chương trình ví dụ tiếp theo dưới đây:
 
-```c
+```c ln
 a = 9 ;
 b = 12 ;
 p = &a ;
@@ -3172,7 +3175,7 @@ int a[5]= {1,5,3,2,4} ;
 
 Đây là câu lệnh khai báo mảng kiểu int với 5 phần tử và a là tên mảng. Lệnh a[i] sẽ tham chiếu đến phần tử thứ i trong mảng, nếu khai báo con trỏ và gán giá trị cho con trỏ như sau:
 
-```c
+```c ln
 int *p,x;
 p = &a[0];
 x = *p ;
@@ -3201,7 +3204,7 @@ Như vậy, trong trường hợp này có thể xem a là con trỏ mà nội d
 
 Tuy nhiên, cần phân biệt sự khác nhau khi sử dụng mảng và con trỏ trong một số trường hợp cụ thể như sau:
 
-```c
+```c ln
 int a[] = {1,2,3,4,5,6} ;
 int *p;
 p = a;
@@ -3212,7 +3215,7 @@ printf(" p(0)= %d, p(1) = %d  \n ", *p,*(p+1)) ;
 
 Kết quả khi chạy chương trình
 
-```c
+```c ln
 p(0)= 1, p(1) = 2
 p(0)= 2, p(1) = 3
 ```
@@ -3221,7 +3224,7 @@ Trong ví dụ trên, chương trình đã khai báo mảng a và con trỏ p. S
 
 Truy xuất từng phần tử mảng theo cách dùng tên mảng như là tên con trỏ:
 
-```c
+```c ln
 int a[] = {1,2,3,4,5,6} ;
 int *p;
 p = a;
@@ -3495,7 +3498,7 @@ Trong đó:
 
 Ví dụ hàm tìm max của 2 số nguyên được định nghĩa như sau:
 
-```c
+```c ln
 int   timmax(int a, int b)
 {
     int max;
@@ -3509,7 +3512,7 @@ Hàm tìm max được đặt tên là timmax , nhận vào 2 tham số kiểu i
 
 Ví dụ chương trình chính sử dụng hàm đã viết để tìm giá trị lớn nhất từ 4 số nguyên a, b, c, d. Để tìm số lớn nhất trong 4 số, ta có thể xét từng cặp và đi so sánh 2 kết quả với nhau. Thực tế, đây không phải là phương pháp tối ưu khi tìm giá trị lớn nhất của 4 số nguyên. Tuy nhiên, chương trình sử dụng phương pháp so sánh từng cặp này để minh họa cho việc sử dụng hàm.
 
-```c
+```c ln
 int   timmax(int a, int b)
 {
     int max;
@@ -3545,7 +3548,7 @@ Trong mục 6.2, hàm được định nghĩa đầy đủ với kiểu giá tr�
 
 Hàm có tham số và có giá trị trả về được định nghĩa như mục 6.2. Trong đó, hàm có một hoặc nhiều tham số và trả về kiểu giá trị cụ thể. Khai báo và sử dụng loại hàm này sẽ tương tự như trong trường hợp hàm tìm giá trị lớn nhất trong mục 6.2. Ví dụ định nghĩa và sử dụng hàm tính giai thừa của một số nguyên n như sau:
 
-```c
+```c ln
 #include<stdio.h>
 #include <stdlib.h>
 int   giaithua(int n)
@@ -3659,7 +3662,7 @@ int  Tên_hàm (void)
 
 Ví dụ về hàm không có tham số nhưng có giá trị trả về:
 
-```c
+```c ln
 int GetEven(void)
 { int n;
     do{
@@ -3694,7 +3697,7 @@ void Tên_hàm (void)
 
 Hàm không có tham số và giá trị trả về có chức năng giống như một đoạn chương trình được đưa vào hàm thay vì viết trực tiếp trên chương trình chính. Khi gọi các hàm này thì người dùng chỉ cần gọi tên hàm. Ví dụ:
 
-```c
+```c ln
 void  inchu(void)
 {
     int i;
@@ -3711,7 +3714,7 @@ Trong chương trình trên, hàm inchu là một một chương trình con, hay
 
 Hàm main là hàm chính trong các chương trình viết bằng ngôn ngữ C. Ta thường hay thấy hàm main được viết với thể thức void main(void) , có nghĩa là hàm main không có tham số và cũng không có giá trị trả về. Khi xây dựng hàm main, theo thói quen chúng ta viết như trên và ngầm hiểu hàm main không có tham số và giá trị trả về vì là hàm chính, không được gọi từ hàm khác. Suy luận này là chưa chính xác vì thực tế hàm main cũng có tham số và giá trị trả về. Tuy nhiên, trong một số ứng dụng, người ta viết hàm main không tham số, không giá trị trả về. Ví dụ hàm main được viết như sau:
 
-```c
+```c ln
 #include <stdio.h>
 int main(int argc, char *argv[])
 {
@@ -3757,7 +3760,7 @@ Truyền giá trị cho tham số hàm, hay gọi ngắn gọn là truyền tham
 
 Ví dụ về phương pháp truyền giá trị cho tham số hàm như sau:
 
-```c
+```c ln
 #include  <stdio.h>
 #include <conio.h>
 void  hoanvi(int a, int b) ;
@@ -3767,6 +3770,7 @@ void main (void)
     hoanvi(a , b);
     printf ("a = %d , a= %d", a,b);
 }
+
 void  hoanvi(int a, int b)
 {
     int tam;
@@ -3806,7 +3810,7 @@ Kết quả sau khi chạy chương trình sẽ là: `a = 6, b= 5` Trong ví d�
 
 Mảng sẽ được truyền vào cho tham số hàm thông qua tham chiếu đến phần tử đầu tiên của mảng. Khi xây dựng các hàm có tham số là mảng, có thể thực hiện một trong 2 cách sau đây: sử dụng khai báo kiểu con trỏ (*), hoặc sử dụng kiểu khai báo mảng ([ ]). Chẳng hạn như:
 
-```c
+```c ln
 int func(int *a, int n);
 //hoặc
 int func(int  a[], int n);
@@ -3816,7 +3820,7 @@ Và khi gọi hàm, người dùng sẽ truyền tham số cho hàm thông qua �
 
 Ví dụ hàm tìm giá trị phần tử lớn nhất của mảng được định nghĩa và sử dụng như sau:
 
-```c
+```c ln
 #include  <stdio.h>
 #include <conio.h>
 int Timmax (int *a,int n) ;
@@ -3866,13 +3870,14 @@ Mảng được truyền cho hàm thông qua tham chiếu địa chỉ. Hay nói
 
 Ví dụ, hàm sắp xếp mảng theo thứ tự tăng dần được định nghĩa và sử dụng như sau:
 
-```c
+```c ln
 #include  <stdio.h>
 #include <conio.h>
 #include<stdio.h>
 #include <stdlib.h>
 void Sapxepmang(int a[],int n);
 void Inmang(int a[],int n);
+
 void main (void)
 {
     int arr[] = {6,13,2,3,9,7,5,18,4,12};
@@ -3936,7 +3941,7 @@ Trong hàm main chúng ta gọi hàm recurse() . Trong hàm recurse() lại gọ
 
 Một ví dụ của hàm đệ quy là thực hiện phép tính giai thừa. Giai thừa của n có thể được tính bằng cách lặp lại các phép nhân. Chúng ta có thể viết hàm tính giai thừa bằng phương pháp sử dụng vòng lặp trong đó các biến có thể xuất phát từ 1 và tăng dần đến n hoặc đi theo chiều ngược lại từ n về 1. Hàm tính giai thừa sử dụng vòng lặp được minh họa như sau:
 
-```c
+```c ln
 int giaithua(int n)
 {
     int i,gt = n;
@@ -3944,6 +3949,7 @@ int giaithua(int n)
         gt=gt*i ;
     return gt ;
 }
+
 void main()
 {
     int n;
@@ -3957,7 +3963,7 @@ void main()
 
 Trong chương trình trên chúng ta tính giai thừa bằng cách lặp lại phép nhân với biến điều khiển trong khi biến điều khiển giảm dần từ n về 1. Chúng ta có thể xây dựng hàm đệ quy để tính giai thừa như sau:
 
-```c
+```c ln
 int giaithua(int n)
 {
     if (n==1)
@@ -4170,11 +4176,12 @@ struct TênKiểuCấuTrúc tênBiến = {các giá trị khởi tạo};
 
 Với kiểu cấu trúc, các phép toán có thể sử dụng được trên các biến cấu trúc là: phép gán = giữa các biến cấu trúc cùng kiểu, phép toán lấy địa chỉ & của một biến cấu trúc, phép truy xuất . tới các biến thành phần của một biến cấu trúc. Các phép so sánh (ví dụ: ==, !=, ...) sẽ không thể thực hiện được trên các biến cấu trúc. Chẳng hạn ở đoạn lệnh sau:
 
-```c
+```c ln
 struct ThietBi  c = {"Quat", 2019, 225.5, 'T'};
 struct ThietBi d;
 d = c; //gan du lieu cua c vao d
 //phep toan hop le
+
 if (d != c)   //phep toan khong hop le
     printf("Du lieu khac nhau");
 ```
@@ -4493,24 +4500,28 @@ Trong chương trình này, con trỏ p kiểu cấu trúc ThietBi được khai
 
 Kết quả sau khi chạy chương trình trên là:
 
-```c
+```c ln=2
 1
 Nhap so n: 3
+
 Nhap thong tin cua thiet bi thu 0:
 Nhap ten: may phat song
 Nhap nam san xuat: 2018
 Nhap gia tien: 35.5
 Nhap trang thai: Tot (T) hoac Hong (H): T
+
 Nhap thong tin cua thiet bi thu 1:
 Nhap ten: VOM
 Nhap nam san xuat: 2017
 Nhap gia tien: 0.5
 Nhap trang thai: Tot (T) hoac Hong (H): T
+
 Nhap thong tin cua thiet bi thu 2:
 Nhap ten: dao dong ky
 Nhap nam san xuat: 2019
 Nhap gia tien: 35.6
 Nhap trang thai: Tot (T) hoac Hong (H): T
+
 Thong tin cac thiet bi da nhap:
 may phat song, 2018, 35.5, T
 VOM, 2017, 0.5, T
@@ -4693,7 +4704,7 @@ Kiểu Union (hay còn gọi là kiểu hợp nhất) là kiểu dữ liệu tư
 
 Kiểu Union được định nghĩa tương tự như kiểu cấu trúc. Xét đoạn lệnh định nghĩa một kiểu Union như sau:
 
-```c
+```c ln
 union KieuSo
 {
     int x;
@@ -4771,7 +4782,7 @@ Kiểu liệt kê, enumeration – gọi tắt là kiểu enum, là một tập 
 
 Tương tự như kiểu cấu trúc hoặc union, kiểu liệt kê là kiểu dữ liệu do người dùng tự tạo và cần phải được định nghĩa trước khi sử dụng. Đoạn lệnh định nghĩa một kiểu liệt kê sau:
 
-```c
+```c ln=4
 enum MauSac
 {
     Den, Nau, Do, Cam, Vang, Luc, Lam, Tim, Xam, Trang
@@ -4793,22 +4804,27 @@ enum TênKiểuLiệtKê
 
 Thao tác định nghĩa kiểu liệt kê ở phần trước hoàn toàn chưa tạo ra vùng nhớ dữ liệu nào cho người dùng. Muốn có vùng nhớ dữ liệu, người dùng cần tiến hành khai báo các biến kiểu liệt kê. Một biến kiểu liệt kê sẽ được khai báo tương tự như các biến bình thường khác. Hãy xem xét chương trình sau:
 
-```c
+```c ln
 #include <stdio.h>
 #include <conio.h>
+
 enum MauSac
 {
     Den, Nau, Do, Cam, Vang, Luc, Lam, Tim, Xam, Trang
 };
+
 int main (void)
 {
     enum MauSac R;
     printf("Kich thuoc R: %d\n",sizeof(R));
     printf("Gia tri R: %d\n",R);
+
     R = Den;
     printf("Gia tri R: %d\n", R);
+
     R = Cam;
     printf("Gia tri R: %d\n", R);
+
     getch();
     return 0;
 }
@@ -5318,7 +5334,7 @@ Dòng thứ 2 là thao tác định nghĩa một hằng số PI. Trong chương 
 
 Kết quả sau khi chạy chương trình trên là:
 
-```c
+```c ln
 xin chao
 Dien tich hinh tron la 12.56
 ```
@@ -5340,7 +5356,7 @@ Macro này sẽ được sử dụng tương tự như hàm với chức năng t
 
 So sánh macro trên với hàm sau đây:
 
-```c
+```c ln
 int timmax1 (int a, int b)
 {
     return a>b?a:b ;

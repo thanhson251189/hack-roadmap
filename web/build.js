@@ -188,6 +188,22 @@ function normalizeLinkTarget(value) {
   return slugify(stripTags(value).replace(/^\s*\d+[.)]?\s*/, ''));
 }
 
+// Info string của fence có thể kèm marker đánh số dòng theo bản in: ```c ln
+// hoặc ```c ln=19 khi đoạn trích bắt đầu từ dòng giữa của một bảng trong sách.
+function parseFenceInfo(info) {
+  const parts = String(info || '').trim().split(/\s+/).filter(Boolean);
+  const lang = parts.shift() || '';
+  let start = 0;
+  for (const token of parts) {
+    if (token === 'ln') start = Math.max(start, 1);
+    else {
+      const match = /^ln=(\d+)$/.exec(token);
+      if (match) start = Number(match[1]);
+    }
+  }
+  return { lang, start };
+}
+
 function highlightCode(text, lang) {
   const raw = (lang || '').trim().toLowerCase();
   const mapped = LANG_MAP[raw] || (hljs.getLanguage(raw) ? raw : 'plaintext');
@@ -261,8 +277,16 @@ function buildDoc(doc) {
         return `<h${depth} id="${id}">${inner}<a class="h-anchor" href="#/doc/${doc.id}/${id}" aria-label="Liên kết tới mục này" tabindex="-1">#</a></h${depth}>`;
       },
       code({ text, lang }) {
-        const highlighted = highlightCode(text, lang);
-        return `<div class="codeblock" data-lang="${highlighted.lang}"><div class="codeblock-head"><span class="code-lang">${escapeHtml(highlighted.label)}</span><button class="copy-btn" type="button" aria-label="Sao chép đoạn code"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 5.5V4A1.5 1.5 0 009 2.5H4A1.5 1.5 0 002.5 4v5A1.5 1.5 0 004 10.5h1.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="copy-text">Copy</span></button></div><pre><code class="hljs language-${highlighted.lang}">${highlighted.html}</code></pre></div>`;
+        const info = parseFenceInfo(lang);
+        const highlighted = highlightCode(text, info.lang);
+        const body = `<pre><code class="hljs language-${highlighted.lang}">${highlighted.html}</code></pre>`;
+        let inner = body;
+        if (info.start > 0) {
+          const total = text.replace(/\n$/, '').split('\n').length;
+          const numbers = Array.from({ length: total }, (_, i) => info.start + i).join('<br>');
+          inner = `<div class="code-body"><div class="code-gutter" aria-hidden="true">${numbers}</div>${body}</div>`;
+        }
+        return `<div class="codeblock" data-lang="${highlighted.lang}"><div class="codeblock-head"><span class="code-lang">${escapeHtml(highlighted.label)}</span><button class="copy-btn" type="button" aria-label="Sao chép đoạn code"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 5.5V4A1.5 1.5 0 009 2.5H4A1.5 1.5 0 002.5 4v5A1.5 1.5 0 004 10.5h1.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="copy-text">Copy</span></button></div>${inner}</div>`;
       },
       link({ href, title, tokens }) {
         const text = this.parser.parseInline(tokens);
