@@ -78,6 +78,7 @@ Sách có 8 chương, mỗi chương mở đầu bằng mục tiêu học tập 
   - 8.5. Bài tập
 - Tài liệu tham khảo
 - Chính sách chất lượng
+- Phụ lục: chạy lại ví dụ trên gcc/MSYS2
 
 ## Lời nói đầu
 
@@ -5600,3 +5601,128 @@ dịch, đoạn chương trình nào bị bỏ qua.
 ## Chính sách chất lượng
 
 Không ngừng nâng cao chất lượng dạy, học, nghiên cứu khoa học và phục vụ cộng đồng nhằm mang đến cho người học những điều kiện tốt nhất để phát triển toàn diện các năng lực đáp ứng nhu cầu phát triển và hội nhập quốc tế.
+
+## Phụ lục: Chạy lại ví dụ trên gcc/MSYS2
+
+Sách được biên soạn cho Borland C trên DOS, nên chép nguyên văn xuống máy hiện nay sẽ gặp lỗi biên dịch hoặc chạy sai. Phụ lục này là danh sách sửa tối thiểu để mọi ví dụ trong 8 chương chạy được với **gcc (MSYS2 UCRT64)**, `-std=c11`, không cần thư viện DOS.
+
+### A.1. Ba thay đổi bắt buộc
+
+1. **`void main` → `int main(void)`**: hàm `main` phải trả về `int` theo chuẩn C99/C11, kết thúc bằng `return 0;`. Sách dùng `void main` 26 lần — đó là kiểu của Turbo C, gcc hiện đại báo lỗi hoặc cảnh báo.
+2. **Bỏ `#include <conio.h>` và `getch()`**: `conio.h` là thư viện DOS (34 chỗ trong sách), không tồn tại trên gcc. Khi chạy trong terminal, chương trình không cần dừng màn hình nữa; nếu vẫn muốn chờ Enter thì dùng `getchar()` (có sẵn trong `stdio.h`).
+3. **`gets()` → `fgets()`**: `gets` đã bị **loại khỏi chuẩn C11** vì không kiểm soát độ dài, gây tràn bộ đệm. Sách dùng 22 chỗ; thay bằng:
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+char ten[30];
+fgets(ten, sizeof ten, stdin);
+ten[strcspn(ten, "\n")] = '\0';   // bỏ ký tự xuống dòng
+```
+
+### A.2. Trước và sau: ví dụ cấp phát bộ nhớ (mục 5.4.1)
+
+Nguyên văn trong sách — không biên dịch được vì `void main`:
+
+```c
+#include<stdio.h>
+#include <stdlib.h>
+void main(void)
+{
+int n, i,max;
+int *p ;
+do {
+printf("Nhap n: ");
+scanf("%d",&n) ;
+}while (n<=0);
+p = (int *)malloc (n*sizeof(int));
+if (p!=NULL)
+{
+/* nhập mảng, tìm max */
+}
+free(p);
+}
+```
+
+Bản sửa tối thiểu — thêm `return 0`, kiểm tra `scanf`, giải phóng bộ nhớ đúng chỗ:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int n, i, max;
+    int *p;
+
+    do {
+        printf("Nhap n: ");
+        if (scanf("%d", &n) != 1) return 1;
+    } while (n <= 0);
+
+    p = malloc((size_t)n * sizeof *p);
+    if (p == NULL) {
+        printf("Khong du bo nho\n");
+        return 1;
+    }
+
+    for (i = 0; i < n; i++) {
+        printf("nhap phan tu thu %d: ", i + 1);
+        scanf("%d", &p[i]);
+    }
+
+    max = p[0];
+    for (i = 1; i < n; i++) {
+        if (p[i] > max) max = p[i];
+    }
+    printf("max = %d\n", max);
+
+    free(p);
+    return 0;
+}
+```
+
+### A.3. Bảng tìm & thay nhanh
+
+| Gặp trong sách | Thay bằng | Ghi chú |
+| --- | --- | --- |
+| `void main(void)` | `int main(void)` + `return 0;` | 26 chỗ |
+| `#include <conio.h>` | bỏ hẳn | 34 chỗ |
+| `getch();` | `getchar();` hoặc bỏ | 38 chỗ, cần `stdio.h` |
+| `clrscr();` | bỏ | DOS-only |
+| `gets(s);` | `fgets(s, sizeof s, stdin)` | 22 chỗ, `gets` bị bỏ từ C11 |
+| `scanf("%s", s);` | `scanf("%29s", s);` với `char s[30]` | luôn ghi giới hạn độ dài |
+| `fflush(stdin);` | `while ((c = getchar()) != '\n' && c != EOF);` | `fflush` trên `stdin` là hành vi không xác định |
+| `itoa(v, s, 10);` | `snprintf(s, sizeof s, "%d", v);` | `itoa` không thuộc chuẩn C |
+| `0b00001111` | `0x0F` (hoặc thêm `-std=c2x`) | 6 chỗ; `0b` chỉ là extension của gcc trước C23 |
+| `p = (int*)malloc(...)` | `p = malloc(sizeof *p * n);` | không cần ép kiểu, nên dùng `sizeof *p` |
+| `printf("%d", x);` thiếu `\n` | thêm `\n` | không bắt buộc, nhưng dễ đọc kết quả |
+
+### A.4. Biên dịch và chạy
+
+```bash
+# bản chạy thử
+gcc -std=c11 -Wall -Wextra -O2 -o chuongtrinh.exe chuongtrinh.c
+./chuongtrinh.exe
+
+# bản để debug trong VS Code (đặt breakpoint được)
+gcc -std=c11 -Wall -Wextra -g -O0 -o chuongtrinh.exe chuongtrinh.c
+```
+
+- `-Wall -Wextra` là bắt buộc trên thực tế: nó chỉ ra ngay các chỗ sách viết theo kiểu cũ (`return` thiếu giá trị, biến chưa khởi tạo, `%d` với `long`).
+- Nếu `gcc` không có trong `PATH`, thêm `C:\msys64\ucrt64\bin` (MSYS2 UCRT64) vào biến môi trường `Path`.
+- Ví dụ nào dùng `math.h` (`sqrt`, `pow`, `atof`) mà báo lỗi liên kết thì thêm `-lm` ở cuối lệnh.
+- Trên Linux/macOS dùng `-fsanitize=address,undefined` để bắt tràn mảng và con trỏ treo — những lỗi mà gcc trên Windows không báo.
+
+### A.5. Những chỗ sách không dạy, phải tự bổ sung
+
+Giáo trình dừng ở C cơ bản nên khi làm project cần thêm:
+
+- **File I/O**: `fopen`, `fgets`, `fread`/`fwrite` — sách không có chương nào về đọc/ghi tệp, trong khi project `Player DB` ở lộ trình 12 tuần bắt buộc phải có.
+- **`stdbool.h` / `stdint.h`**: `bool`, `true`, `false`, `int32_t`, `uint8_t`, `size_t` — sách chỉ dùng `int`, `char`, `float` và các kiểu có kích thước phụ thuộc nền tảng.
+- **Tách nhiều tệp và Makefile**: sách viết mọi thứ trong một `main`, không dạy `gcc a.c b.c -o app`, không dạy header guard.
+- **Chuỗi an toàn**: `strncpy`, `snprintf`, `strncat` thay cho `strcpy`, `sprintf`, `strcat`.
+- **Công cụ**: `gdb`, `-g`, sanitizer, `valgrind` (Linux) — sách không nhắc tới debugger.
+
+Phần kiến thức nền của sách — con trỏ, mảng và chuỗi, hàm và đệ quy, `struct`/`union`/`enum`, tiền xử lý, toán tử bit-wise — vẫn đúng và dùng được nguyên vẹn; chỉ có cách viết và môi trường chạy là đã cũ.
